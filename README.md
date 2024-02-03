@@ -49,7 +49,6 @@ I'm currently focused on learning Python, AI, statistics and DoE for experiments
 ### Overall Stats
 ![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=Edgar-Mendonca&show_icons=true&hide=contribs,prs&count_private=true&theme=radical)
 
-### Top Languages
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Edgar-Mendonca&layout=compact&theme=radical)
 
 ### Contributions Chart
