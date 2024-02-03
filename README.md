@@ -6,14 +6,14 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 
 - 🔭 I’m currently working on Web Apps based on AI/ML
 - 👯 I’m looking to collaborate on Web Design, Web Architecture
-#### 🤝 I’m looking for help with UI/UX
-#### 🌱 I’m currently learning Japanese, French, 
-#### 💬 Ask me about Engineering, Statistical Analysis, Consultation
-#### 📫 How to reach me
-#### 👨‍💻 All of my projects are available at
-#### 📝 I regularly write articles on
-#### 📄 Know about my experiences
-#### ⚡ Fun fact
+- 🤝 I’m looking for help with UI/UX
+- 🌱 I’m currently learning Japanese, French, 
+- 💬 Ask me about Engineering, Statistical Analysis, Consultation
+- 📫 How to reach me
+- 👨‍💻 All of my projects are available at
+- 📝 I regularly write articles on
+- 📄 Know about my experiences
+- ⚡ Fun fact
 
 
 ## 📫 Contact (or) Connect with me
