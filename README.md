@@ -4,7 +4,7 @@
 I'm a Researcher/Engineer/Developer passionate about [Your Interests]. I enjoy working on [Your Skills] and exploring new technologies.
 
 ## Profile Views
-![Profile Views](https://profile-counter.glitch.me/Edgar-Mendonca/count.svg)  ![Profile Views](https://img.shields.io/badge/Profile%20Views-Live-brightgreen)
+![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
 ## 🔧 Technologies & Tools
 - [Tech/Tool 1]
