@@ -56,8 +56,9 @@ I'm currently focused on learning Python, AI, and DoE for experiments to enhance
 ![Contributions Chart](https://github-readme-streak-stats.herokuapp.com/?user=Edgar-Mendonca&theme=radical)
 
 ### Featured Repositories
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=your-repo1&theme=radical)](https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool)
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=your-repo2&theme=radical)](https://github.com/Edgar-Mendonca/Stress-from-Impact-of-an-Elastic-Sphere-against-a-Solid-Rod)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=Split-Hopkinson-Pressure-Bar-Analysis-Tool&theme=radical)](https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=Stress-from-Impact-of-an-Elastic-Sphere-against-a-Solid-Rod&theme=radical)](https://github.com/Edgar-Mendonca/Stress-from-Impact-of-an-Elastic-Sphere-against-a-Solid-Rod)
+
 
 
 
