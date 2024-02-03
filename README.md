@@ -55,7 +55,7 @@ I'm currently focused on learning python, AI, DoE for experiments to enhance my 
 ### Software
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>
 <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" height="30"/>
-<img src="https://www.vectorlogo.zone/logos/solidworks/solidworks-icon.svg" alt="SolidWorks" height="30"/>
+<img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>
 <img src="https://www.vectorlogo.zone/logos/ansys/ansys-icon.svg" alt="Ansys" height="30"/>
 <img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>
 
