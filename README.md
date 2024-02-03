@@ -9,7 +9,7 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 ## 🌱 Currently Learning
 I'm currently focused on learning Python, AI, statistics and DoE for experiments to enhance my skills.
 
-## 📫 Contact Me
+## 📫 Contact or Connect with me
 <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" height="30" alt="LinkedIn"></a>&nbsp;&nbsp;&nbsp;
 <a href="https://twitter.com/EdgarMendonca7" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/twitter/twitter-original.svg" height="30" alt="Twitter"></a>
 
