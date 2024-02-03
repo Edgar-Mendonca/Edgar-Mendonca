@@ -41,8 +41,9 @@ I'm currently focused on learning Python, AI, and DoE for experiments to enhance
 ### Framework
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" height="30"/>
 
-### Software
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/ANSYS_logo.png" alt="Ansys" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>
+### Softwares
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/ANSYS_logo.png" alt="Ansys" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Abaqus0.png/330px-Abaqus0.png" alt="Arduino" height="30"/>&nbsp;&nbsp; <img src="<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain-wordmark.svg" />
+" alt="Arduino" height="30"/> 
 
 ## 📊 GitHub Stats
 ![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=Edgar-Mendonca&show_icons=true&hide=contribs,prs&count_private=true&theme=radical)
