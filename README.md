@@ -3,7 +3,7 @@
 ## About Me
 I'm a Researcher/Engineer/Developer passionate about [Your Interests]. I enjoy working on [Your Skills] and exploring new technologies.
 
-![Profile views](https://shields-io-visitor-counter.herokuapp.com/badge?page_id=Edgar-Mendonca.Edgar-Mendonca)
+![Profile views](https://profile-counter.glitch.me/Edgar-Mendonca/count.svg)
 
 ## 🔧 Technologies & Tools
 - [Tech/Tool 1]
