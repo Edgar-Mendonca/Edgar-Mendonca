@@ -1,13 +1,13 @@
 # Hello, I'm Edgar Mendonca! 👋
 
 ## About Me
-I'm a Researcher/Engineer/Developer passionate about Engineering, Material Sciences and Math. I enjoy working on [Your Skills] and exploring new technologies.
+I'm a Researcher/Engineer/Developer passionate about Engineering, Material Sciences and Math. I enjoy working on Statistical analysis, Design of Experiments and exploring new technologies.
 
 ## Profile Views
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
 ## 🌱 Currently Learning
-I'm currently focused on learning Python, AI, and DoE for experiments to enhance my skills.
+I'm currently focused on learning Python, AI, statistics and DoE for experiments to enhance my skills.
 
 ## 📫 Contact Me
 <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" height="30" alt="LinkedIn"></a>&nbsp;&nbsp;&nbsp;
