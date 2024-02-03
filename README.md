@@ -6,16 +6,17 @@
 ## About Me
 I'm a Researcher/Engineer/Developer passionate about Engineering, Material Sciences and Math. I enjoy working on Statistical analysis, Design of Experiments and exploring new technologies.
 
-🔭 I’m currently working on
-👯 I’m looking to collaborate on
-🤝 I’m looking for help with
-🌱 I’m currently learning
-💬 Ask me about
-📫 How to reach me
-👨‍💻 All of my projects are available at
-📝 I regularly write articles on
-📄 Know about my experiences
-⚡ Fun fact
+#### 🔭 I’m currently working on
+#### 👯 I’m looking to collaborate on
+#### 🤝 I’m looking for help with
+#### 🌱 I’m currently learning
+#### 💬 Ask me about
+#### 📫 How to reach me
+#### 👨‍💻 All of my projects are available at
+#### 📝 I regularly write articles on
+#### 📄 Know about my experiences
+#### ⚡ Fun fact
+
 
 ## 📫 Contact (or) Connect with me
 <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" height="30" alt="LinkedIn"></a>&nbsp;&nbsp;&nbsp;
