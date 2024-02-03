@@ -14,32 +14,23 @@ I'm currently focused on learning Python, AI, and DoE for experiments to enhance
 <a href="https://twitter.com/EdgarMendonca7" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/twitter/twitter-original.svg" height="30" alt="Twitter"></a>
 
 ## 🔧 Technologies & Tools
-
 ### Programming Languages
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" height="30"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" height="30" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" height="30"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" height="30"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="30"/>
-
-
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" height="30"/>&nbsp;&nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="30"/>
 
 ### Frontend Development
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML" height="30"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS" height="30"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" height="30"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" height="30"/>
 
 ### Backend Development
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" height="30"/>
 
 ### Mobile App Development
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" alt="Android" height="30"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="Flutter" height="30"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" height="30"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" alt="Android" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="Flutter" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" height="30"/>
 
 ### AI/ML
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="Tensorflow" height="30"/>
 
 ### Database
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="30"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" height="30"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="30"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="30"/>
 
 ### DevOps
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Platform" height="30"/>
@@ -51,14 +42,7 @@ I'm currently focused on learning Python, AI, and DoE for experiments to enhance
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" height="30"/>
 
 ### Software
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>
-<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" height="30"/>
-<img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/ANSYS_logo.png" alt="Ansys" height="30"/>
-
-<img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>
-
-
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/ANSYS_logo.png" alt="Ansys" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>
 
 ## 📊 GitHub Stats
 ![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=Edgar-Mendonca&show_icons=true&hide=contribs,prs&count_private=true&theme=radical)
