@@ -3,6 +3,8 @@
 ## About Me
 I'm a Researcher/Engineer/Developer passionate about [Your Interests]. I enjoy working on [Your Skills] and exploring new technologies.
 
+![](https://visitor-badge.glitch.me/badge?page_id=Edgar-Mendonca.Edgar-Mendonca)
+
 ## 🔧 Technologies & Tools
 - [Tech/Tool 1]
 - [Tech/Tool 2]
