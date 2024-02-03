@@ -3,7 +3,8 @@
 ## About Me
 I'm a Researcher/Engineer/Developer passionate about [Your Interests]. I enjoy working on [Your Skills] and exploring new technologies.
 
-![Profile views](https://profile-counter.glitch.me/Edgar-Mendonca/count.svg)
+## Profile Views
+<p align="right"> <img src=(https://profile-counter.glitch.me/Edgar-Mendonca/count.svg)/> </p>
 
 ## 🔧 Technologies & Tools
 - [Tech/Tool 1]
