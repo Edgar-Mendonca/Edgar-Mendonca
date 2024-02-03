@@ -33,7 +33,7 @@ I'm currently focused on learning Python, AI, and DoE for experiments to enhance
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="30"/>
 
 ### DevOps
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Platform" height="30"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Platform" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Logo_Google_Analytics.svg" alt="Google Analytics" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Google_Search_Console.svg" height="30"/>
 
 ### Backend as a Service (BaaS)
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase" height="30"/>
