@@ -45,12 +45,21 @@ I'm currently focused on learning Python, AI, and DoE for experiments to enhance
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/ANSYS_logo.png" alt="Ansys" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Abaqus0.png/330px-Abaqus0.png" alt="Abaqus" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VisualStudio" height="30"/>&nbsp;&nbsp;  <img src="https://cdn.graphpad.com/assets/0.80.0/images/logo/logo-prism-white.svg" alt="GraphPad" height="30"/>
 
 ## 📊 GitHub Stats
+
+### Overall Stats
 ![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=Edgar-Mendonca&show_icons=true&hide=contribs,prs&count_private=true&theme=radical)
 
-## 🌐 My GitHub Repositories
-- [Repo 1](Link to Repo 1)
-- [Repo 2](Link to Repo 2)
-- ...
+### Top Languages
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Edgar-Mendonca&layout=compact&theme=radical)
+
+### Contributions Chart
+![Contributions Chart](https://github-readme-streak-stats.herokuapp.com/?user=Edgar-Mendonca&theme=radical)
+
+### Featured Repositories
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=your-repo1&theme=radical)](https://github.com/Edgar-Mendonca/your-repo1)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=your-repo2&theme=radical)](https://github.com/Edgar-Mendonca/your-repo2)
+
+
 
 ## 🏆 GitHub Trophies
 [![trophy](https://github-profile-trophy.vercel.app/?username=Edgar-Mendonca&theme=darkhub)](https://github.com/ryo-ma/github-profile-trophy)
