@@ -1,0 +1,18 @@
+/* Navbar */
+.nav-item a {
+    transition: transform 0.3s;
+}
+
+.nav-item a:hover {
+    transform: scale(1.05);
+}
+
+#navbar {
+    transition: top 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.navbar-nav .nav-link {
+    font-size: 17px;
+}
+
+

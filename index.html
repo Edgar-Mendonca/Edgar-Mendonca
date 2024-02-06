@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edgar Mendonca</title>
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
+
+    <script src="https://unpkg.com/gsap@3.12.5"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/TextPlugin.js"></script>
+
+    <script src="https://unpkg.com/browse/gsap@3.12.5/gsap-core.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/CSSPlugin.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/CSSRulePlugin.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/CustomEase.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/Draggable.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/ScrollToPlugin.js"></script>
+    <script src="https://unpkg.com/browse/gsap@3.12.5/ScrollTrigger.js"></script>
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body style="font-family: 'Poppins', sans-serif;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top shadow " id="navbar" style="background-color: #86B6F6; transition: top 0.3s ease-out;">
+    <div class="container">
+        <a class="navbar-brand" href="/" style="font-size: 1.5rem; font-weight: 700;">
+            <img src="static/images/logo.jpeg" alt="" height="70" class="d-inline-block align-middle">
+            Edgar Mendonca
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="/" class="nav-link px-3 text">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link px-3 text">About</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link px-3 text">Portfolio</a></li>
+                <a class="nav-item px-3 btn btn-outline-dark" href="#contact">Contact</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", () => {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (currentScroll > lastScrollTop) {
+            document.getElementById("navbar").style.top = "-95px"; 
+        } else {
+            document.getElementById("navbar").style.top = "0";
+        }
+    
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+</script>
+
+
+<!-- Hero Section -->
+<section class="container-fluid text-light  d-flex align-items-center" id="hero" style="background-color: #EEF5FF; height: 70vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="title">HI THERE, I'M</h1>
+                <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="heroname">EDGAR MENDONCA</h1>
+                <p class="lead text-dark mb-4 text-center" id="description" >A Freelance, Consultant: Engineering, R&D, Developer</p>
+                <div class="text-center">
+                    <a href="#portfolio" class="btn btn-lg btn-outline-primary custom-button" id="portfolioBtn">
+                        <i class="bi bi-folder"></i> View Portfolio
+                    </a>
+                    <span class="mx-2"></span>
+                    <a href="#contact" class="btn btn-lg btn-outline-primary custom-button" id="contactBtn">
+                        <i class="bi bi-envelope"></i> Contact Me
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const heroname = new Typewriter('#heroname', {
+            strings: ['EDGAR MENDONCA'],
+            autoStart: true,
+            delay: 90,
+            deleteSpeed: Infinity,  
+            loop: false,
+        });
+
+        // Other animations using GSAP
+        gsap.from("#title, #description", { opacity: 0, y: 20, duration: 1, stagger: 0.3, delay: 0.5 });
+        gsap.from("#portfolioBtn, #contactBtn", { opacity: 0, y: 20, duration: 1, stagger: 0.3, delay: 1 });
+    });
+</script>
+
+
+
+<!-- About Section -->
+<section class="container-fluid text-dark py-5" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto" id="aboutContent">
+                <div class="about-card p-4">
+                    <h2 class="mb-4" style="font-size: 3.5rem; font-weight: bold;">ABOUT ME</h2>
+                    <p class="lead text-muted" style="text-align: justify;">
+                        As a results-driven professional, I offer a unique blend of expertise in scientific research, engineering, and analytics. Armed with a Bachelor's degree in Mechanical Engineering and a Master's degree in Advanced Engineering Materials, my academic foundation is complemented by hands-on experience.
+                        Proficient in Python and MATLAB, I specialize in data interpretation, statistical analysis, and Full Stack development. My mastery includes HTML, CSS, JavaScript, and Bootstrap, enabling me to create seamless and responsive web solutions.
+                        With a track record of leadership, I've successfully managed diverse teams and delivered large-scale projects. My contributions have provided valuable research data for technological advancements. I am committed to excellence, optimizing processes, streamlining operations, and ensuring client compliance through strategic consultation.
+                        Ready to deliver impactful solutions, drive risk management, and support critical decision-making, I thrive in the dynamic realm of technology and society. Let's collaborate and bring innovation to the forefront of our endeavors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".about-card", {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".about-card",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            }
+        });
+    });
+</script>
+
+<hr>
+
+<!-- What I Do Section -->
+<section class="container-fluid text-dark py-5" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-left mb-4">
+                <h2 class="mb-4" style="font-size: 3rem; font-weight: bold; text-transform: uppercase;" id="whatIDo">WHAT I DO?</h2>
+                <p class="lead text-muted" style="text-align: justify;">
+                    I specialize in diverse aspects of digital technology, engineering, and web development. 
+                    My expertise extends to providing comprehensive consultation and delivering high-quality technical services.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="accordion" id="whatIDoAccordion">
+            
+                    <!-- Service 1: Engineering Solutions -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="service1Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service1Collapse" aria-expanded="false" aria-controls="service1Collapse" style="font-size: 1.5rem; border: none;">
+                                Engineering Solutions
+                            </button>
+                        </h2>
+                        <div id="service1Collapse" class="accordion-collapse collapse" aria-labelledby="service1Header" data-bs-parent="#whatIDoAccordion">
+                            <div class="accordion-body">
+                                Providing innovative engineering solutions to address complex challenges and optimize processes.
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Service 2: Technical Consultation -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="service2Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service2Collapse" aria-expanded="false" aria-controls="service2Collapse" style="font-size: 1.5rem; border: none;">
+                                Technical Consultation
+                            </button>
+                        </h2>
+                        <div id="service2Collapse" class="accordion-collapse collapse" aria-labelledby="service2Header" data-bs-parent="#whatIDoAccordion">
+                            <div class="accordion-body">
+                                Offering expert technical consultation services to guide and support your projects.
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Service 3: Scientific and Technical Writing -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="service3Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service3Collapse" aria-expanded="false" aria-controls="service3Collapse" style="font-size: 1.5rem; border: none;">
+                                Scientific and Technical Writing
+                            </button>
+                        </h2>
+                        <div id="service3Collapse" class="accordion-collapse collapse" aria-labelledby="service3Header" data-bs-parent="#whatIDoAccordion">
+                            <div class="accordion-body">
+                                Crafting compelling scientific and technical content to communicate complex concepts effectively.
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Service 4: Web Development -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="service4Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service4Collapse" aria-expanded="false" aria-controls="service4Collapse" style="font-size: 1.5rem; border: none;">
+                                Web Development
+                            </button>
+                        </h2>
+                        <div id="service4Collapse" class="accordion-collapse collapse" aria-labelledby="service4Header" data-bs-parent="#whatIDoAccordion">
+                            <div class="accordion-body">
+                                Creating engaging and responsive websites using cutting-edge web development technologies.
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>            
+
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        const heroname = new Typewriter('#whatIDo', {
+            strings: ['WHAT I DO?'],
+            autoStart: true,
+            delay: 90,
+            deleteSpeed: 60,  
+            loop: true,
+        });
+
+    });
+</script>
+
+
+
+
+<!-- Portfolio Section -->
+<section class="container-fluid text-dark text-center py-5" id="portfolio" style="background-color: #BBE2EC;">
+    <div class="container">
+        <h2 class="text-center mb-4" style="font-size: 3.5rem; font-weight: bold;">PORTFOLIO</h2>
+        <div class="row">
+            <!-- Project 1 -->
+            <div class="col-md-4">
+                <div class="portfolio-item" data-aos="zoom-in">
+                    <img src="https://picsum.photos/300/300" alt="Project 1 Image" class="rounded-image">
+                    <div class="p-3">
+                        <h4>Bharatiya Nagarika Website</h4>
+                        <p>Full Stack Development and Maintenance</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-4">
+                <div class="portfolio-item" data-aos="zoom-in">
+                    <img src="https://picsum.photos/300/300" alt="Project 2 Image" class="rounded-image">
+                    <div class="p-3">
+                        <h4>Advanced Study on Aluminum Tube Deformation</h4>
+                        <p>Experimental Design, FEA Analysis, and Comparative Evaluation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-4">
+                <div class="portfolio-item" data-aos="zoom-in">
+                    <img src="https://picsum.photos/300/300" alt="Project 3 Image" class="rounded-image">
+                    <div class="p-3">
+                        <h4>Split Hopkinson Pressure Bar</h4>
+                        <p>Design, Testing, and Applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .rounded-image {
+        border-radius: 15px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .rounded-image:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+
+
+
+
+
+<!-- Contact Section -->
+<section class="container-fluid text-dark text-center py-5" id="contact" class="contact" style="background-color: #EEF5FF;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <div class="card p-4" style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+                    <h2 class="mb-4 fw-bold">Contact Me</h2>
+                    <!-- Contact Form -->
+                    <form action="https://formsubmit.co/your@email.com" method="POST">
+                        <div class="mb-3 text-start">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="container-fluid bg-light text-dark text-center py-3">
+    <div class="container">
+        <p>&copy; 2024 Edgar Mendonca. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true, 
+        duration: 1000, 
+    });
+</script>
+
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 500,
+        speedAsDuration: true
+    });
+</script>
+
+</body>
+</html>
