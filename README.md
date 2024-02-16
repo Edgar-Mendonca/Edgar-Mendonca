@@ -1,4 +1,4 @@
-# Hello, I'm Edgar Mendonca 👋
+# Hello, I'm Edgar Mendonca <span class="wave">👋</span>
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
