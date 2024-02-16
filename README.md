@@ -1,73 +1,68 @@
-# Hello, I'm Edgar Mendonca! 👋
+# Edgar Mendonca
+
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
-## About Me
+## 📝 About Me
 I'm a Researcher/Engineer/Developer passionate about Engineering, Material Sciences and Math. I enjoy working on Statistical analysis, Design of Experiments and exploring new technologies.
 
-- 🔭 I’m currently working on **Web Apps based on AI/ML**
-- 👯 I’m looking to collaborate on **Web Design, Web Architecture**
-- 🤝 I’m looking for help with **UI/UX**
-- 🌱 I’m currently learning **Japanese, French, AI/ML**
-- 💬 Ask me about **Engineering, Statistical Analysis, Consultation**
-- 📫 How to reach me
-- 👨‍💻 All of my projects are available at
-- 📝 I regularly write articles on
-- 📄 Know about my experiences
-- ⚡ Fun fact
+## 🛠️ I’m currently working on
+Web Apps based on AI/ML
 
+## 🧑‍🤝‍🧑 I’m looking to collaborate on
+Web Design, Web Architecture
 
-## 📫 Contact (or) Connect with me
-<a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" height="30" alt="LinkedIn"></a>&nbsp;&nbsp;&nbsp;
-<a href="https://twitter.com/EdgarMendonca7" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/twitter/twitter-original.svg" height="30" alt="Twitter"></a>
+## 💁 I’m looking for help with
+UI/UX
 
-## 🔧 Technologies & Tools
+## 📒 I’m currently learning
+Japanese, German, AI/ML
+
+## 💬 Ask me about
+Engineering, Statistical Analysis, Consultation
+
+## 📬 How to reach me
+LinkedIn
+
+## 🔗 Connect with me
+<a href="https://github.com/Edgar-Mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/material-outlined/48/github.png" alt="github"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/@edgarmendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/youtube-play.png" alt="youtube-play"/></a>&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/@EdgarMendonca7" target="_blank"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/></a>&nbsp;&nbsp;&nbsp;<a href="https://linkedin.com/edgar-mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/></a>&nbsp;&nbsp;&nbsp;
+
+## ✨ Skills
 ### Programming Languages
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" height="30"/>&nbsp;&nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" height="30"/>
+
+![C](https://img.icons8.com/color/48/000000/c-programming.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![C++](https://img.icons8.com/color/48/000000/c-plus-plus-logo.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![Python](https://img.icons8.com/color/48/000000/python.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![JavaScript](https://img.icons8.com/color/48/000000/javascript.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![PHP](https://img.icons8.com/officexs/48/000000/php-logo.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
 ### Frontend Development
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" height="30"/>
+
+![HTML](https://img.icons8.com/color/48/000000/html-5.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![CSS](https://img.icons8.com/color/48/000000/css3.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![bootstrap](https://img.icons8.com/color/48/000000/bootstrap.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
 ### Backend Development
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" height="30"/>
 
-### Mobile App Development
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" alt="Android" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="Flutter" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" height="30"/>
+![nodejs](https://img.icons8.com/color/48/000000/nodejs.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![flask](https://img.icons8.com/color/48/000000/flask.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
 ### AI/ML
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="Tensorflow" height="30"/>&nbsp;&nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" height="30"/>
+
+![tensorflow](https://img.icons8.com/color/48/000000/tensorflow.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![scikitLearn](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/afdeb7b34f41113a54290e91e8ab401c34e969f1/static/icons/Scikit_learn.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
 ### Database
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" alt="SQLite" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" height="30"/>&nbsp;&nbsp; <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" height="30"/>
 
-### DevOps
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Platform" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Logo_Google_Analytics.svg" alt="Google Analytics" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Google_Search_Console.svg" height="30"/>
-
-### Backend as a Service (BaaS)
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase" height="30"/>
+![databaseMySQL](https://img.icons8.com/color/48/000000/mysql.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![databaseSQLite](https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
 ### Framework
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" height="30"/>
 
-### Softwares
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matlab/matlab-original.svg" alt="MATLAB" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Simulink_Logo_%28non-wordmark%29.png" alt="Simulink" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/SolidWorks_Logo.svg" alt="SolidWorks" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/ANSYS_logo.png" alt="Ansys" height="30"/>&nbsp;&nbsp; <img src="https://www.vectorlogo.zone/logos/arduino/arduino-icon.svg" alt="Arduino" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Abaqus0.png/330px-Abaqus0.png" alt="Abaqus" height="30"/>&nbsp;&nbsp; <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VisualStudio" height="30"/>&nbsp;&nbsp;  <img src="https://prismtc.co.uk/media/hqbl0tks/graphpad-prism-statistical-software-logo.png" alt="GraphPad" height="30"/>&nbsp;&nbsp;  <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/FIJI_%28software%29_Logo.svg" alt="Fiji" height="30"/>
+![flask](https://img.icons8.com/color/48/000000/flask.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
-## 📊 GitHub Stats
+### Devops
 
-### Overall Stats
-![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=Edgar-Mendonca&show_icons=true&hide=contribs,prs&count_private=true&theme=radical) ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Edgar-Mendonca&layout=compact&theme=radical)
+![gcp](https://img.icons8.com/color/48/000000/google-cloud-platform.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
-### Contributions Chart
-![Contributions Chart](https://github-readme-streak-stats.herokuapp.com/?user=Edgar-Mendonca&theme=radical)
+### BaaS
 
-### Featured Repositories
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=Split-Hopkinson-Pressure-Bar-Analysis-Tool&theme=radical)](https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool)
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Edgar-Mendonca&repo=Stress-from-Impact-of-an-Elastic-Sphere-against-a-Solid-Rod&theme=radical)](https://github.com/Edgar-Mendonca/Stress-from-Impact-of-an-Elastic-Sphere-against-a-Solid-Rod)
+![firebase](https://img.icons8.com/color/48/000000/firebase.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
+### Mobile App Development
 
+![flutter](https://img.icons8.com/color/48/000000/flutter.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
+### Other Apps
 
-## 🏆 GitHub Trophies
-[![trophy](https://github-profile-trophy.vercel.app/?username=Edgar-Mendonca&theme=darkhub)](https://github.com/ryo-ma/github-profile-trophy)
-
-<!-- Additional sections as needed -->
-
+![matlab](https://img.icons8.com/fluency/48/matlab.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![arduino](https://img.icons8.com/color/48/000000/arduino.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
