@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $message = "Invalid email format";
         $_SESSION['message'] = $message;
-        header("Location: contact.html?formSubmitted=false");
+        header("Location: index.html?formSubmitted=false");
         exit();
     }
 
-    $to = "contact@bharatiyanagarika.com";
+    $to = "edgarmendonca96@gmail.com";
     $subject = "Contact Form Submission - $subject";
 
     $headers = "From: $email" . "\r\n" .
