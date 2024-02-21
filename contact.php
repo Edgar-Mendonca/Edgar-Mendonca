@@ -1,25 +1,49 @@
 <?php
+session_start();
+
+$message = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+    // Sanitize and validate inputs
+    $name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+    $subject = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
+    $messageBody = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
 
-    // Set up the recipient email address
-    $to = "edgarmendonca96@gmail.com";
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = "Invalid email format";
+        $_SESSION['message'] = $message;
+        header("Location: contact.html?formSubmitted=false");
+        exit();
+    }
 
-    // Set up the email subject
-    $subject = "Message from your website";
+    $to = "contact@bharatiyanagarika.com";
+    $subject = "Contact Form Submission - $subject";
 
-    // Set up the email body
-    $body = "Name: $name\n";
-    $body .= "Email: $email\n";
-    $body .= "Message:\n$message";
+    $headers = "From: $email" . "\r\n" .
+               "Reply-To: $email" . "\r\n" .
+               "Content-type: text/html; charset=UTF-8";
 
-    // Send the email
-    if (mail($to, $subject, $body)) {
-        echo "Thank you for your message. We'll be in touch shortly!";
+    $mailBody = "
+    <html>
+    <body>
+        <h2>Contact Form Submission</h2>
+        <p><strong>Name:</strong> $name</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Subject:</strong> $subject</p>
+        <p><strong>Message:</strong> $messageBody</p>
+    </body>
+    </html>";
+
+    if (mail($to, $subject, $mailBody, $headers)) {
+        $message = "Message sent successfully!";
+        $_SESSION['message'] = $message;
     } else {
-        echo "Oops! Something went wrong. Please try again later.";
+        $message = "Failed to send message. Please try again later.";
+        $_SESSION['message'] = $message;
     }
 }
-?>
+
+header("Location: contact.html?formSubmitted=" . (isset($_SESSION['message']) ? 'true' : 'false'));
+exit();
