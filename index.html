@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="static/css/style.css">
 
+
 </head>
 
 <body style="font-family: 'Ubuntu', sans-serif; background-color: #fffcd5;">
@@ -38,7 +39,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top shadow " id="navbar" style="background-color: #ffe00b; transition: top 0.3s ease-out;">
     <div class="container">
-        <a class="navbar-brand" href="#" style="font-size: 1.5rem; font-weight: 700;">
+        <a class="navbar-brand" href="/" style="font-size: 1.5rem; font-weight: 700;">
             <img src="static/images/logo.jpeg" alt="" height="70" class="d-inline-block align-middle">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -76,10 +77,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="title">HI THERE, I'M</h1>
+                <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="title">HI THERE<span class="wave">👋</span>, I'M</h1>
                 <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="heroname">EDGAR MENDONCA</h1>
                 <p class="lead text-dark mb-4 text-center" id="description" >A Freelance, Consultant: Engineering, R&D, Developer</p>
-                <div class="text-center">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <a href="static/CV-Git/EDGAR-MENDONCA-CV-Git-2024.pdf" class="btn" target="_blank">
                         <i class="bi bi-file-earmark-person"></i> View CV
                     </a>
@@ -97,8 +98,6 @@
 
                 </div>
 
-
-                
             </div>
 
         </div>
@@ -127,10 +126,19 @@
 <!-- About Section -->
 <section class="container-fluid text-dark py-5" id="about">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-10 mx-auto" id="aboutContent">
+        <div class="row align-items-center">
+            <h2 class="mb-4" style="font-size: 3.5rem; font-weight: bold;">ABOUT ME</h2><hr>
+
+            <div class="col-lg-3 mx-auto mb-4 mb-lg-0">
+                <!-- Profile Picture -->
+                <div class="profile-picture">
+                    <img src="static/images/Profile.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                </div>
+            </div>
+            
+            
+            <div class="col-lg-7 mx-auto" id="aboutContent">
                 <div class="about-card p-4">
-                    <h2 class="mb-4" style="font-size: 3.5rem; font-weight: bold;">ABOUT ME</h2>
                     <p class="lead text-muted" style="text-align: justify;">
                         As a results-driven professional, I offer a unique blend of expertise in scientific research, engineering, and analytics. Armed with a Bachelor's degree in Mechanical Engineering and a Master's degree in Advanced Engineering Materials, my academic foundation is complemented by hands-on experience.
                         Proficient in Python and MATLAB, I specialize in data interpretation, statistical analysis, and Full Stack development. My mastery includes HTML, CSS, JavaScript, and Bootstrap, enabling me to create seamless and responsive web solutions.
@@ -142,6 +150,29 @@
         </div>
     </div>
 </section>
+
+<style>
+    .profile-picture {
+        display: inline-block; /* Ensures the div wraps around the image */
+        overflow: hidden; /* Hides any overflowing content */
+        border-radius: 50%; /* Makes the div circular */
+        border: 1px solid #ffe00b; /* Optional: Add a border */
+    }
+
+    .profile-picture img {
+        width: 100%; /* Ensures the image fills the circular container */
+        height: auto; /* Allows the image to maintain its aspect ratio */
+        display: block; /* Removes any default margins */
+    }
+
+    .profile-picture:hover {
+        box-shadow: 0 0 20px rgb(233, 231, 82); /* Add shadow on hover */
+    }
+</style>
+
+
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -352,6 +383,7 @@
 
 
 <!-- Scripts -->
+<script src="static/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
