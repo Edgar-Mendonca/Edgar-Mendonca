@@ -1,3 +1,9 @@
+<?php
+session_start();
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+unset($_SESSION['message']); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,6 +354,12 @@
         <div class="row">
             <div class="col-md-5 mx-auto">
                 <div class="card p-4" style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+                    <?php if (!empty($message)) : ?>
+                    <div class="text-center">
+                        <p><?php echo $message; ?></p>
+                    </div>
+                    <?php endif; ?>
+
                     <h2 class="mb-4 fw-bold">Contact Me</h2>
                     <!-- Contact Form -->
                     <form action="contact.php" method="POST">
