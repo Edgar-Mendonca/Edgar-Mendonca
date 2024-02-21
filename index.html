@@ -350,21 +350,22 @@
                 <div class="card p-4" style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
                     <h2 class="mb-4 fw-bold">Contact Me</h2>
                     <!-- Contact Form -->
-                    <form action="https://formsubmit.co/your@email.com" method="POST">
+                    <form action="contact.php" method="POST">
                         <div class="mb-3 text-start">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
                         </div>
                         <div class="mb-3 text-start">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
                         </div>
                         <div class="mb-3 text-start">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message"></textarea>
                         </div>
                         <button type="submit" class="btn">Submit</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -379,6 +380,15 @@
         <p>&copy; 2024 Edgar Mendonca. All Rights Reserved.</p>
     </div>
 </footer>
+
+
+<!-- Scroll to Top -->
+<div id="rocket-container" onclick="scrollToTop()">
+    <img id="rocket" src="static/images/rocket.gif" alt="Rocket">
+</div>
+
+
+
 
 
 

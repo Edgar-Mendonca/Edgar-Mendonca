@@ -87,5 +87,24 @@
   }
 
 
+#rocket-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+#rocket-container:hover {
+    opacity: 0.7;
+}
+
+#rocket {
+    width: 50px;
+    height: auto;
+}
+
+
+
 
 
