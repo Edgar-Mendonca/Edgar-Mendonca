@@ -1,13 +1,16 @@
 // Get the rocket element
 var rocket = document.getElementById("rocket");
 
-// When the user scrolls down 20px from the top of the document, show the rocket
+// Initially hide the rocket
+rocket.style.display = "none";
+
+// When the user scrolls down 25px from the top of the document, show the rocket
 window.onscroll = function() {
     scrollFunction();
 };
 
 function scrollFunction() {
-    if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+    if (window.scrollY > 25) {
         rocket.style.display = "block";
     } else {
         rocket.style.display = "none";
