@@ -50,7 +50,7 @@
                 <li class="nav-item"><a href="/" class="nav-link px-3 text">Home</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link px-3 text">About</a></li>
                 <li class="nav-item"><a href="#portfolio" class="nav-link px-3 text">Portfolio</a></li>
-                <a class="nav-item px-3 btn btn-outline-dark" href="#contact">Contact</a>
+                <a class="nav-item px-3 btn btn-outline-dark" id="custom-btn" href="#contact">Contact</a>
             </ul>
         </div>
     </div>
@@ -80,17 +80,17 @@
                 <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="heroname">EDGAR MENDONCA</h1>
                 <p class="lead text-dark mb-4 text-center" id="description" >A Freelance, Consultant: Engineering, R&D, Developer</p>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <a href="static/CV-Git/EDGAR-MENDONCA-CV-Git-2024.pdf" class="btn" target="_blank">
+                    <a href="static/CV-Git/EDGAR-MENDONCA-CV-Git-2024.pdf" class="btn" id="custom-btn" target="_blank">
                         <i class="bi bi-file-earmark-person"></i> View CV
                     </a>
                     <span class="mx-2"></span>
 
-                    <a href="#portfolio" class="btn">
+                    <a href="#portfolio" class="btn" id="custom-btn">
                         <i class="bi bi-folder"></i> View Portfolio
                     </a>
                     <span class="mx-2"></span>
 
-                    <a href="#contact" class="btn">
+                    <a href="#contact" id="custom-btn" class="btn">
                         <i class="bi bi-envelope"></i> Contact Me
                     </a>
                     <span class="mx-2"></span>
@@ -284,55 +284,113 @@
 </script>
 
 
-
-
 <!-- Portfolio Section -->
 <div class="container-fluid text-dark text-center py-5" id="portfolio" style="background-color: #FFF67E;">
     <div class="container">
         <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;">PORTFOLIO</h2>
         <div class="row">
+
             <!-- Project 1 -->
             <div class="col-lg-12 mx-auto prjcard">
-                <div class="card bg-light mb-3 shadow-lg hover-effect ">
+                <div class="card bg-light mb-3 shadow-lg hover-card ">
                     <div class="row g-0">
                         <div class="col-md-5">
-                            <img src="static/images/BN-Page.png" alt="Project 1 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
+                            <img src="static/images/BN-Portfolio.png" alt="Project 1 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="card-body">
                                 <h3 class="card-title">Full Stack Development and Maintenance</h3>
-                                <p class="card-text">Associated with Bharatiya Nagarika (https://bharatiyanagarika.com/)</p>
+                                <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Dec 2023 - Present</p>
+                                <p class="card-text">Associated with <em><a href="https://bharatiyanagarika.com/" target="_blank">Bharatiya Nagarika</a></em></p>
                                 <div class="badges">
                                     <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-                                    <img width="38" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                                    <img width="38" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                                    <img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
-                                    <img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
-                                    <img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
-                                    <img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swiper/swiper-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swiper/swiper-original.svg" />
                                 </div>
-                                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel dui id nisi auctor feugiat.</p>
-                                <a href="#" class="btn btn-warning btn-lg"> Learn More</a>
+                                <p class="card-description text-start">This project involved full stack development and maintenance for Bharatiya Nagarika. It included various technologies such as HTML, CSS, JavaScript, Bootstrap, PHP, GitHub, and Swiper.</p>
+                                <a href="#" class="btn btn-warning">
+                                    Learn More
+                                </a>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Project 2-->
+            <div class="col-lg-12 mx-auto prjcard">
+                <div class="card bg-light mb-3 shadow-lg hover-card ">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="static/images/Tube-Portfolio.png" alt="Project 1 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h3 class="card-title">Advanced Study on Aluminum Tube Deformation</h3>
+                                <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Mar 2022 - May 2023</p>
+                                <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Load-deflection-characteristics-of-lateral-compression-of-tubes" target="_blank">GitHub Link</a></em></p>
+                                <div class="badges">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" />
+                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" />
+                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks"/>                                  
+                                </div>
+                                <p class="card-description text-start">Spearheaded research on aluminum tube deformation and impact energy absorption, conducting experimental tests and analytical comparisons to reveal insightful findings.</p>
+                                <a href="#" class="btn btn-warning">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project 3-->
+            <div class="col-lg-12 mx-auto prjcard">
+                <div class="card bg-light mb-3 shadow-lg hover-card ">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="static/images/SHPB-Portfolio.png" alt="Project 3 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h3 class="card-title">Split Hopkinson Pressure Bar - Design, Testing and Applications</h3>
+                                <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Nov 2018 - Apr 2021
+                                </p>
+                                <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool" target="_blank">GitHub Link</a></em></p>
+                                <div class="badges">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" />
+                                    <img  width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" />
+                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks"/>  
+                                    <img width="48" height="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" />                                
+                                </div>
+                                <p class="card-description text-start">Led the design and implementation of a Split Hopkinson Pressure Bar (SHPB) setup, overseeing CAD evaluations, manufacturing, control system and electronics subsystem design, MATLAB software development, rigorous testing, and contributions to material testing and impact dynamics.</p>
+                                <a href="#" class="btn btn-warning">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
 <style>
-    .hover-effect:hover {
+    .hover-card:hover {
     transform: translateY(-5px);
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
 </style>
-
-
-
-
 
 
 <!-- Contact Section -->
@@ -360,7 +418,7 @@
                             <label for="message" class="form-label">Message</label>
                             <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message"></textarea>
                         </div>
-                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn" id="custom-btn">Submit</button>
                     </form>
                     
                 </div>
@@ -378,16 +436,10 @@
     </div>
 </footer>
 
-
 <!-- Scroll to Top -->
 <div id="rocket-container" onclick="scrollToTop()">
     <img id="rocket" src="static/images/rocket.gif" alt="Rocket">
 </div>
-
-
-
-
-
 
 <!-- Scripts -->
 <script src="static/js/script.js"></script>

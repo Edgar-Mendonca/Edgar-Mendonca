@@ -21,50 +21,50 @@
 
 
 
-.btn {
-    background: #fffcd5;
-    box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
-    color: #151515;
-    text-transform: lowercase;
-    border: solid 2px #151515;
-  
-    text-decoration: none;
-  
-    padding: 18px 32px;
-    display: inline-flex;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 700;
-    position: relative;
-    z-index: 1;
-    transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    cursor: pointer;
-    overflow: hidden;
-    transition-delay: 0s !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1.5px;
-    font-family: sans-serif;
-  }
-  .btn::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    width: 0%;
-    height: 100%;
-    background: #151515;
-    z-index: -1;
-    transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  }
-  .btn:hover::before {
-    width: 100%;
-    left: 0;
-    right: unset;
-  }
-  .btn:hover {
-    box-shadow: 0 0 #ffe00b, 0 0 #151515;
-    color: white;
-  }
+#custom-btn {
+  background: #fffcd5;
+  box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
+  color: #151515;
+  text-transform: none; /* Remove text transformation */
+  border: solid 2px #151515;
+
+  text-decoration: none;
+
+  padding: 18px 32px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  cursor: pointer;
+  overflow: hidden;
+  transition-delay: 0s !important;
+  letter-spacing: 1.5px;
+  font-family: 'Ubuntu', sans-serif;
+}
+#custom-btn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background: #151515;
+  z-index: -1;
+  transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+#custom-btn:hover::before {
+  width: 100%;
+  left: 0;
+  right: unset;
+}
+#custom-btn:hover {
+  box-shadow: 0 0 #ffe00b, 0 0 #151515;
+  color: white;
+}
+
 
 
   .wave {
@@ -109,11 +109,8 @@
   background: #fffcd5;
   box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
   color: #151515;
-  text-transform: lowercase;
   border: solid 2px #151515;
-
   text-decoration: none;
-
   padding: 18px 32px;
   display: inline-flex;
   align-items: center;
@@ -122,11 +119,11 @@
   position: relative;
   z-index: 1;
   transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-
   overflow: hidden;
   transition-delay: 0s !important;
-  text-transform: uppercase !important;
   letter-spacing: 1.5px;
   font-family: 'Ubuntu', sans-serif;
 }
+
+
 
