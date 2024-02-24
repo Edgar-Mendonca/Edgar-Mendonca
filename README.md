@@ -60,3 +60,5 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 ### Other Apps
 
 ![matlab](https://img.icons8.com/fluency/48/matlab.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![arduino](https://img.icons8.com/color/48/000000/arduino.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![fusion360](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/40fd353734af249a79d6815df1f3c382fe6b0c81/static/icons/Fusion360.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![abaqus](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![solidworks](https://img.icons8.com/color/48/000000/solidworks.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=edgar-mendonca&show_icons=true&locale=en&layout=compact" alt="edgar-mendonca" /></p>
