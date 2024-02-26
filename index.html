@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-
     <script src="https://unpkg.com/gsap@3.12.5"></script>
     <script src="https://unpkg.com/browse/gsap@3.12.5"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -70,7 +69,6 @@
     });
 </script>
 
-
 <!-- Hero Section -->
 <section class="container-fluid text-light  d-flex align-items-center" id="hero" style="background-color: #fffcd5; height: 70vh;">
     <div class="container">
@@ -102,7 +100,6 @@
         </div>
     </div>
 </section>
-
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -120,8 +117,6 @@
     });
 </script>
 
-
-
 <!-- About Section -->
 <section class="container-fluid text-dark py-5" id="about">
     <div class="container">
@@ -132,11 +127,17 @@
             <div class="col-lg-3 mx-auto mb-4 mb-lg-0">
                 <!-- Profile Picture -->
                 <div class="profile-picture">
-                    <img src="static/images/Profile.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                    <img src="static/images/Profile.jpg" alt="Profile Picture" class="img-fluid">
                 </div>
-            </div>
-            
-            
+
+                <!-- Social Icons -->
+                <div class="social-icons mt-3 text-center">
+                    <a href="https://github.com/Edgar-Mendonca" target="_blank" class="text-dark me-3"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank" class="text-dark me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@edgarmendonca" target="_blank" class="text-dark me-3"><i class="bi bi-youtube"></i></a>
+                    <a href="https://twitter.com/EdgarMendonca7" target="_blank" class="text-dark"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div> 
             <div class="col-lg-7 mx-auto" id="aboutContent">
                 <div class="about-card p-4">
                     <p class="lead text-muted" style="text-align: justify;">
@@ -150,28 +151,49 @@
         </div>
     </div>
 </section>
-
 <style>
+    @keyframes lavaLamp {
+        0% {
+            box-shadow: 0 0 20px rgba(233, 231, 82, 0.5);
+        }
+        50% {
+            box-shadow: 0 0 50px rgba(233, 231, 82, 0.7);
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(233, 231, 82, 0.5);
+        }
+    }
+
     .profile-picture {
         display: inline-block; /* Ensures the div wraps around the image */
         overflow: hidden; /* Hides any overflowing content */
-        border-radius: 50%; /* Makes the div circular */
-        border: 1px solid #ffe00b; /* Optional: Add a border */
+        border-radius: 15px; /* Adjust border radius for rounded edges */
+        border: none; /* Remove border */
+        animation: lavaLamp 4s ease-in-out infinite; /* Apply the lava lamp animation */
     }
 
     .profile-picture img {
-        width: 100%; /* Ensures the image fills the circular container */
+        width: 100%; /* Ensures the image fills the container */
         height: auto; /* Allows the image to maintain its aspect ratio */
         display: block; /* Removes any default margins */
-    }
-
-    .profile-picture:hover {
-        box-shadow: 0 0 20px rgb(233, 231, 82); /* Add shadow on hover */
     }
 </style>
 
 
 
+
+
+<style>
+    .social-icons a {
+        display: inline-block;
+        font-size: 2.5rem; 
+        transition: transform 0.3s ease-out, color 0.3s ease-out;
+    }
+
+    .social-icons a:hover {
+        transform: scale(1.2) rotate(10deg); /* Increase scale and rotate on hover */
+    }
+</style>
 
 
 <script>
@@ -283,7 +305,6 @@
     });
 </script>
 
-
 <!-- Portfolio Section -->
 <div class="container-fluid text-dark text-center py-5" id="portfolio" style="background-color: #FFF67E;">
     <div class="container">
@@ -365,7 +386,7 @@
                                 <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool" target="_blank">GitHub Link</a></em></p>
                                 <div class="badges">
                                     <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" />
-                                    <img  width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
                                     <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" />
                                     <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks"/>  
                                     <img width="48" height="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" />                                
@@ -380,7 +401,6 @@
                 </div>
             </div>
 
-
         </div>
     </div>
 </div>
@@ -391,7 +411,6 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 </style>
-
 
 <!-- Contact Section -->
 <section class="container-fluid text-dark text-center py-5" id="contact" class="contact">
@@ -427,7 +446,6 @@
     </div>
 </section>
 
-
 <!-- Footer Section -->
 <footer class="container-fluid text-dark text-center py-3">
     <hr>
@@ -451,10 +469,6 @@
         duration: 1000, 
     });
 </script>
-
-
-
-
 
 </body>
 </html>
