@@ -126,12 +126,12 @@
 
             <div class="col-lg-3 mx-auto mb-4 mb-lg-0">
                 <!-- Profile Picture -->
-                <div class="profile-picture">
+                <div class="profile-picture" data-aos="fade-up">
                     <img src="static/images/Profile.jpg" alt="Profile Picture" class="img-fluid">
                 </div>
 
                 <!-- Social Icons -->
-                <div class="social-icons mt-3 text-center">
+                <div class="social-icons mt-3 text-center"  data-aos="slide-up">
                     <a href="https://github.com/Edgar-Mendonca" target="_blank" class="text-dark me-3"><i class="bi bi-github"></i></a>
                     <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank" class="text-dark me-3"><i class="bi bi-linkedin"></i></a>
                     <a href="https://www.youtube.com/@edgarmendonca" target="_blank" class="text-dark me-3"><i class="bi bi-youtube"></i></a>
@@ -165,23 +165,19 @@
     }
 
     .profile-picture {
-        display: inline-block; /* Ensures the div wraps around the image */
-        overflow: hidden; /* Hides any overflowing content */
-        border-radius: 15px; /* Adjust border radius for rounded edges */
-        border: none; /* Remove border */
-        animation: lavaLamp 4s ease-in-out infinite; /* Apply the lava lamp animation */
+        display: inline-block; 
+        overflow: hidden; 
+        border-radius: 15px; 
+        border: none; 
+        animation: lavaLamp 4s ease-in-out infinite; 
     }
 
     .profile-picture img {
-        width: 100%; /* Ensures the image fills the container */
-        height: auto; /* Allows the image to maintain its aspect ratio */
-        display: block; /* Removes any default margins */
+        width: 100%; 
+        height: auto; 
+        display: block; 
     }
 </style>
-
-
-
-
 
 <style>
     .social-icons a {
@@ -191,10 +187,9 @@
     }
 
     .social-icons a:hover {
-        transform: scale(1.2) rotate(10deg); /* Increase scale and rotate on hover */
+        transform: scale(1.2) rotate(10deg); 
     }
 </style>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -220,7 +215,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 text-left mb-4">
-                <h2 class="mb-4" style="font-size: 3rem; font-weight: bold; text-transform: uppercase;" id="whatIDo">WHAT I DO?</h2>
+                <h2 class="mb-4" style="font-size: 3rem; font-weight: bold; text-transform: uppercase;" id="whatIDo"> </h2>
                 <p class="lead text-muted" style="text-align: justify;">
                     I specialize in diverse aspects of digital technology, engineering, and web development. 
                     My expertise extends to providing comprehensive consultation and delivering high-quality technical services.
@@ -293,26 +288,26 @@
 </section>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        
-        const heroname = new Typewriter('#whatIDo', {
-            strings: ['WHAT I DO?'],
+        const texts = ['WHAT I DO?', 'EXPERTISE & SERVICES']; 
+        const typewriter = new Typewriter('#whatIDo', {
+            strings: texts,
             autoStart: true,
             delay: 90,
-            deleteSpeed: 60,  
+            deleteSpeed: 60,
             loop: true,
         });
-
     });
 </script>
+
 
 <!-- Portfolio Section -->
 <div class="container-fluid text-dark text-center py-5" id="portfolio" style="background-color: #FFF67E;">
     <div class="container">
-        <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;">PORTFOLIO</h2>
+        <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;"  data-aos="fade-in">PORTFOLIO</h2>
         <div class="row">
 
             <!-- Project 1 -->
-            <div class="col-lg-12 mx-auto prjcard">
+            <div class="col-lg-12 mx-auto prjcard"  data-aos="fade-up">
                 <div class="card bg-light mb-3 shadow-lg hover-card ">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -324,13 +319,13 @@
                                 <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Dec 2023 - Present</p>
                                 <p class="card-text">Associated with <em><a href="https://bharatiyanagarika.com/" target="_blank">Bharatiya Nagarika</a></em></p>
                                 <div class="badges">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swiper/swiper-original.svg" />
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="HTML5">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="CSS3">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="JavaScript">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Bootstrap">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="PHP">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="GitHub">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swiper/swiper-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Swiper">
                                 </div>
                                 <p class="card-description text-start">This project involved full stack development and maintenance for Bharatiya Nagarika. It included various technologies such as HTML, CSS, JavaScript, Bootstrap, PHP, GitHub, and Swiper.</p>
                                 <a href="#" class="btn btn-warning">
@@ -344,7 +339,7 @@
             </div>
 
             <!-- Project 2-->
-            <div class="col-lg-12 mx-auto prjcard">
+            <div class="col-lg-12 mx-auto prjcard"  data-aos="fade-up">
                 <div class="card bg-light mb-3 shadow-lg hover-card ">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -356,9 +351,9 @@
                                 <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Mar 2022 - May 2023</p>
                                 <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Load-deflection-characteristics-of-lateral-compression-of-tubes" target="_blank">GitHub Link</a></em></p>
                                 <div class="badges">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" />
-                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" />
-                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks"/>                                  
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="MATLAB">
+                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Simulia">
+                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks" data-bs-toggle="tooltip" data-bs-placement="top" title="SolidWorks">
                                 </div>
                                 <p class="card-description text-start">Spearheaded research on aluminum tube deformation and impact energy absorption, conducting experimental tests and analytical comparisons to reveal insightful findings.</p>
                                 <a href="#" class="btn btn-warning">
@@ -372,7 +367,7 @@
 
 
             <!-- Project 3-->
-            <div class="col-lg-12 mx-auto prjcard">
+            <div class="col-lg-12 mx-auto prjcard"  data-aos="fade-up">
                 <div class="card bg-light mb-3 shadow-lg hover-card ">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -385,11 +380,11 @@
                                 </p>
                                 <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool" target="_blank">GitHub Link</a></em></p>
                                 <div class="badges">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" />
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" />
-                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks"/>  
-                                    <img width="48" height="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" />                                
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="MATLAB">
+                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="C++">
+                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Simulia">
+                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks" data-bs-toggle="tooltip" data-bs-placement="top" title="SolidWorks">
+                                    <img width="48" height="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Arduino">
                                 </div>
                                 <p class="card-description text-start">Led the design and implementation of a Split Hopkinson Pressure Bar (SHPB) setup, overseeing CAD evaluations, manufacturing, control system and electronics subsystem design, MATLAB software development, rigorous testing, and contributions to material testing and impact dynamics.</p>
                                 <a href="#" class="btn btn-warning">
@@ -411,6 +406,148 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 </style>
+
+
+<!-- Skills Section -->
+<section class="container py-5">
+    <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;"  data-aos="fade-in">SKILLS</h2>
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="card-img-top p-3" style="height: 100px;" alt="HTML">
+                <div class="card-body text-center">
+                    <h5 class="card-title">HTML</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="card-img-top p-3" style="height: 100px;" alt="CSS">
+                <div class="card-body text-center">
+                    <h5 class="card-title">CSS</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="card-img-top p-3" style="height: 100px;" alt="JavaScript">
+                <div class="card-body text-center">
+                    <h5 class="card-title">JavaScript</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Bootstrap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Bootstrap</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="card-img-top p-3" style="height: 100px;" alt="PHP">
+                <div class="card-body text-center">
+                    <h5 class="card-title">PHP</h5>
+                </div>
+            </div>
+        </div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="card-img-top p-3" style="height: 100px;" alt="C">
+        <div class="card-body text-center">
+            <h5 class="card-title">C</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="card-img-top p-3" style="height: 100px;" alt="C++">
+        <div class="card-body text-center">
+            <h5 class="card-title">C++</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Python">
+        <div class="card-body text-center">
+            <h5 class="card-title">Python</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Flask">
+        <div class="card-body text-center">
+            <h5 class="card-title">Flask</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Node.js">
+        <div class="card-body text-center">
+            <h5 class="card-title">Node.js</h5>
+        </div>
+    </div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Matlab">
+        <div class="card-body text-center">
+            <h5 class="card-title">Matlab</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Arduino">
+        <div class="card-body text-center">
+            <h5 class="card-title">Arduino</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="static/images/solidworks-logo.svg" class="card-img-top p-3" style="height: 100px;" alt="SolidWorks">
+        <div class="card-body text-center">
+            <h5 class="card-title">SolidWorks</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Flutter">
+        <div class="card-body text-center">
+            <h5 class="card-title">Flutter</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card h-100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="card-img-top p-3" style="height: 100px;" alt="Firebase">
+        <div class="card-body text-center">
+            <h5 class="card-title">Firebase</h5>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</section>
+
 
 <!-- Contact Section -->
 <section class="container-fluid text-dark text-center py-5" id="contact" class="contact">
@@ -468,6 +605,12 @@
         once: true, 
         duration: 1000, 
     });
+</script>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 </script>
 
 </body>
