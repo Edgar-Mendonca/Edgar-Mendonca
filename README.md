@@ -27,7 +27,8 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 
 ### Frontend Development
 
-![HTML](https://img.icons8.com/color/48/000000/html-5.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![CSS](https://img.icons8.com/color/48/000000/css3.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![bootstrap](https://img.icons8.com/color/48/000000/bootstrap.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+![HTML](https://img.icons8.com/color/48/000000/html-5.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![CSS](https://img.icons8.com/color/48/000000/css3.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![bootstrap](https://img.icons8.com/color/48/000000/bootstrap.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![tailwind](https://img.icons8.com/color/48/tailwind_css.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+
 
 ### Backend Development
 
