@@ -2,56 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edgar Mendonca</title>
-    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script src="https://unpkg.com/gsap@3.12.5"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5"></script>
-    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/TextPlugin.js"></script>
 
-    <script src="https://unpkg.com/browse/gsap@3.12.5/gsap-core.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/CSSPlugin.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/CSSRulePlugin.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/CustomEase.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/Draggable.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/ScrollToPlugin.js"></script>
-    <script src="https://unpkg.com/browse/gsap@3.12.5/ScrollTrigger.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
-    <link rel="stylesheet" href="static/css/style.css">
-
+    <link rel="stylesheet" href="css/styles.css">   
 </head>
-
-<body style="font-family: 'Ubuntu', sans-serif; background-color: #fffcd5;">
+<body class="body-pattern font-sans transition-colors bg-white">
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg sticky-top shadow " id="navbar" style="background-color: #ffe00b; transition: top 0.3s ease-out;">
-    <div class="container">
-        <a class="navbar-brand" href="/" style="font-size: 1.5rem; font-weight: 700;">
-            <img src="static/images/logo.jpeg" alt="" height="70" class="d-inline-block align-middle">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a href="/" class="nav-link px-3 text">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link px-3 text">About</a></li>
-                <li class="nav-item"><a href="#portfolio" class="nav-link px-3 text">Portfolio</a></li>
-                <a class="nav-item px-3 btn btn-outline-dark" id="custom-btn" href="#contact">Contact</a>
-            </ul>
-        </div>
+<nav class="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-10" id="navbar">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="images/logo.jpeg" class="h-8" alt="Flowbite Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Edgar Mendonca</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio</a>
+          </li>
+          <li>
+            <a href="#services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+      </button>
+
     </div>
 </nav>
 <script>
@@ -68,587 +75,390 @@
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
 </script>
+  
 
 <!-- Hero Section -->
-<section class="container-fluid text-light  d-flex align-items-center" id="hero" style="background-color: #fffcd5; height: 70vh;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="title">HI THERE<span class="wave">👋</span>, I'M</h1>
-                <h1 class="text-dark display-1 fw-bold mb-3 mb-lg-4" id="heroname">EDGAR MENDONCA</h1>
-                <p class="lead text-dark mb-4 text-center" id="description" >A Freelance, Consultant: Engineering, R&D, Developer</p>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <a href="static/CV-Git/EDGAR-MENDONCA-CV-Git-2024.pdf" class="btn" id="custom-btn" target="_blank">
-                        <i class="bi bi-file-earmark-person"></i> View CV
-                    </a>
-                    <span class="mx-2"></span>
-
-                    <a href="#portfolio" class="btn" id="custom-btn">
-                        <i class="bi bi-folder"></i> View Portfolio
-                    </a>
-                    <span class="mx-2"></span>
-
-                    <a href="#contact" id="custom-btn" class="btn">
-                        <i class="bi bi-envelope"></i> Contact Me
-                    </a>
-                    <span class="mx-2"></span>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const heroname = new Typewriter('#heroname', {
-            strings: ['EDGAR MENDONCA'],
-            autoStart: true,
-            delay: 90,
-            deleteSpeed: Infinity,  
-            loop: false,
-        });
-
-        // Other animations using GSAP
-        gsap.from("#title, #description", { opacity: 0, y: 20, duration: 1, stagger: 0.3, delay: 0.5 });
-        //gsap.from("#portfolioBtn, #contactBtn, #cvBtn", { opacity: 0, y: 20, duration: 1, stagger: 0.3, delay: 1 });
-    });
-</script>
-
-<!-- About Section -->
-<section class="container-fluid text-dark py-5" id="about">
-    <div class="container">
-        <h2 class="text-center mb-4 hdtxt" style="font-size: 3.5rem; font-weight: bold;">About Me</h2>
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-3 mx-auto mb-4 mb-lg-0">
-                <!-- Profile Picture -->
-                <div class="profile-picture" data-aos="fade-up">
-                    <img src="static/images/Profile.jpg" alt="Profile Picture" class="img-fluid">
-                </div>
-
-                <!-- Social Icons -->
-                <div class="social-icons mt-3 text-center"  data-aos="slide-up">
-                    <a href="https://github.com/Edgar-Mendonca" target="_blank" class="text-dark me-3"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank" class="text-dark me-3"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://www.youtube.com/@edgarmendonca" target="_blank" class="text-dark me-3"><i class="bi bi-youtube"></i></a>
-                    <a href="https://twitter.com/EdgarMendonca7" target="_blank" class="text-dark"><i class="bi bi-twitter-x"></i></a>
-                </div>
-            </div> 
-            <div class="col-lg-7 mx-auto" id="aboutContent">
-                <div class="about-card p-4">
-                    <p class="lead text-muted" style="text-align: justify;">
-                        As a results-driven professional, I offer a unique blend of expertise in scientific research, engineering, and analytics. Armed with a Bachelor's degree in Mechanical Engineering and a Master's degree in Advanced Engineering Materials, my academic foundation is complemented by hands-on experience.
-                        Proficient in Python and MATLAB, I specialize in data interpretation, statistical analysis, and Full Stack development. My mastery includes HTML, CSS, JavaScript, and Bootstrap, enabling me to create seamless and responsive web solutions.
-                        With a track record of leadership, I've successfully managed diverse teams and delivered large-scale projects. My contributions have provided valuable research data for technological advancements. I am committed to excellence, optimizing processes, streamlining operations, and ensuring client compliance through strategic consultation.
-                        Ready to deliver impactful solutions, drive risk management, and support critical decision-making, I thrive in the dynamic realm of technology and society. Let's collaborate and bring innovation to the forefront of our endeavors.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<style>
-    @keyframes lavaLamp {
-        0% {
-            box-shadow: 0 0 20px rgba(233, 231, 82, 0.5);
-        }
-        50% {
-            box-shadow: 0 0 50px rgba(233, 231, 82, 0.7);
-        }
-        100% {
-            box-shadow: 0 0 20px rgba(233, 231, 82, 0.5);
-        }
-    }
-
-    .profile-picture {
-        display: inline-block; 
-        overflow: hidden; 
-        border-radius: 15px; 
-        border: none; 
-        animation: lavaLamp 4s ease-in-out infinite; 
-    }
-
-    .profile-picture img {
-        width: 100%; 
-        height: auto; 
-        display: block; 
-    }
-</style>
-
-<style>
-    .social-icons a {
-        display: inline-block;
-        font-size: 2.5rem; 
-        transition: transform 0.3s ease-out, color 0.3s ease-out;
-    }
-
-    .social-icons a:hover {
-        transform: scale(1.2) rotate(10deg); 
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from(".about-card", {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            scrollTrigger: {
-                trigger: ".about-card",
-                start: "top 80%",
-                toggleActions: "play none none none",
-            }
-        });
-    });
-</script>
-
-<hr>
-
-<!-- What I Do Section -->
-<section class="container-fluid text-dark py-5" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 text-left mb-4">
-                <h2 class="mb-4" style="font-size: 3rem; font-weight: bold; text-transform: uppercase;" id="whatIDo"> </h2>
-                <p class="lead text-muted" style="text-align: justify;">
-                    I specialize in diverse aspects of digital technology, engineering, and web development. 
-                    My expertise extends to providing comprehensive consultation and delivering high-quality technical services.
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <div class="accordion" id="whatIDoAccordion">
-            
-                    <!-- Service 1: Engineering Solutions -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="service1Header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service1Collapse" aria-expanded="false" aria-controls="service1Collapse" style="font-size: 1.5rem; border: none;">
-                                Engineering Solutions
-                            </button>
-                        </h2>
-                        <div id="service1Collapse" class="accordion-collapse collapse" aria-labelledby="service1Header" data-bs-parent="#whatIDoAccordion">
-                            <div class="accordion-body">
-                                Providing innovative engineering solutions to address complex challenges and optimize processes.
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- Service 2: Technical Consultation -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="service2Header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service2Collapse" aria-expanded="false" aria-controls="service2Collapse" style="font-size: 1.5rem; border: none;">
-                                Technical Consultation
-                            </button>
-                        </h2>
-                        <div id="service2Collapse" class="accordion-collapse collapse" aria-labelledby="service2Header" data-bs-parent="#whatIDoAccordion">
-                            <div class="accordion-body">
-                                Offering expert technical consultation services to guide and support your projects.
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- Service 3: Scientific and Technical Writing -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="service3Header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service3Collapse" aria-expanded="false" aria-controls="service3Collapse" style="font-size: 1.5rem; border: none;">
-                                Scientific and Technical Writing
-                            </button>
-                        </h2>
-                        <div id="service3Collapse" class="accordion-collapse collapse" aria-labelledby="service3Header" data-bs-parent="#whatIDoAccordion">
-                            <div class="accordion-body">
-                                Crafting compelling scientific and technical content to communicate complex concepts effectively.
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- Service 4: Web Development -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="service4Header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service4Collapse" aria-expanded="false" aria-controls="service4Collapse" style="font-size: 1.5rem; border: none;">
-                                Web Development
-                            </button>
-                        </h2>
-                        <div id="service4Collapse" class="accordion-collapse collapse" aria-labelledby="service4Header" data-bs-parent="#whatIDoAccordion">
-                            <div class="accordion-body">
-                                Creating engaging and responsive websites using cutting-edge web development technologies.
-                            </div>
-                        </div>
-                    </div>
-            
-                </div>
-            </div>            
-
+<section class="hero-pattern bg-white dark:bg-gray-900 py-20">
+    <div class="container mx-auto px-4 flex flex-col items-center justify-center">
+        <!-- Main Text -->
+        <h1 class="text-5xl tracking-tight font-extrabold text-gray-900 dark:text-white">Hi there, I'm</h1>
+        <h2 class="text-6xl tracking-tight font-extrabold text-gray-900 dark:text-white">Edgar Mendonca</h2>
+        <p class="mt-4 text-lg text-center text-gray-700 dark:text-gray-400" id="herosub">A Freelance Consultant: Engineering, R&D, Developer</p>
+        <!-- Buttons -->
+        <div class="mt-8">
+          <a href="CV-Git/EDGAR-MENDONCA-CV-Git-2024.pdf" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" target="_blank">View CV</a>
+          <a href="#portfolio" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">View Portfolio</a>
+          <a href="#contact" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+              <span class="relative px-8 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                  Contact Me
+              </span>
+          </a>
         </div>
     </div>
 </section>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const texts = ['WHAT I DO?', 'EXPERTISE & SERVICES']; 
-        const typewriter = new Typewriter('#whatIDo', {
+        const texts = ['Freelance Consultant 👨‍💼', 'Mechanical Engineering 👨‍🏭','Material Sciences 👨‍🔬', 'Research & Development 🧑‍🔬','Web Development 🤖']; 
+        const typewriter = new Typewriter('#herosub', {
             strings: texts,
             autoStart: true,
-            delay: 90,
-            deleteSpeed: 60,
+            delay: 50,
+            deleteSpeed: 40,
             loop: true,
         });
     });
 </script>
 
-
-<!-- Portfolio Section -->
-<div class="container-fluid text-dark text-center py-5" id="portfolio" style="background-color: #FFF67E;">
-    <div class="container">
-        <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;"  data-aos="fade-in">PORTFOLIO</h2>
-        <div class="row">
-
-            <!-- Project 1 -->
-            <div class="col-lg-12 mx-auto prjcard"  data-aos="fade-up">
-                <div class="card bg-light mb-3 shadow-lg hover-card ">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="static/images/BN-Portfolio.png" alt="Project 1 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <h3 class="card-title">Full Stack Development and Maintenance</h3>
-                                <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Dec 2023 - Present</p>
-                                <p class="card-text">Associated with <em><a href="https://bharatiyanagarika.com/" target="_blank">Bharatiya Nagarika</a></em></p>
-                                <div class="badges">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="HTML5">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="CSS3">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="JavaScript">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Bootstrap">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="PHP">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="GitHub">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swiper/swiper-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Swiper">
-                                </div>
-                                <p class="card-description text-start">This project involved full stack development and maintenance for Bharatiya Nagarika. It included various technologies such as HTML, CSS, JavaScript, Bootstrap, PHP, GitHub, and Swiper.</p>
-                                <a href="#" class="btn btn-warning">
-                                    Learn More
-                                </a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2-->
-            <div class="col-lg-12 mx-auto prjcard"  data-aos="fade-up">
-                <div class="card bg-light mb-3 shadow-lg hover-card ">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="static/images/Tube-Portfolio.png" alt="Project 1 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <h3 class="card-title">Advanced Study on Aluminum Tube Deformation</h3>
-                                <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Mar 2022 - May 2023</p>
-                                <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Load-deflection-characteristics-of-lateral-compression-of-tubes" target="_blank">GitHub Link</a></em></p>
-                                <div class="badges">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="MATLAB">
-                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Simulia">
-                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks" data-bs-toggle="tooltip" data-bs-placement="top" title="SolidWorks">
-                                </div>
-                                <p class="card-description text-start">Spearheaded research on aluminum tube deformation and impact energy absorption, conducting experimental tests and analytical comparisons to reveal insightful findings.</p>
-                                <a href="#" class="btn btn-warning">
-                                    Learn More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Project 3-->
-            <div class="col-lg-12 mx-auto prjcard"  data-aos="fade-up">
-                <div class="card bg-light mb-3 shadow-lg hover-card ">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="static/images/SHPB-Portfolio.png" alt="Project 3 Image" class="img-fluid rounded-start px-2 py-2 rounded-image" style="height: 100%;">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <h3 class="card-title">Split Hopkinson Pressure Bar - Design, Testing and Applications</h3>
-                                <p class="card-text text-muted"> <i class="bi bi-calendar3"></i> Nov 2018 - Apr 2021
-                                </p>
-                                <p class="card-text"> Associated Projects: <em><a href="https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool" target="_blank">GitHub Link</a></em></p>
-                                <div class="badges">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="MATLAB">
-                                    <img width="38" height="38" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="C++">
-                                    <img width="60" height="50" src="https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Simulia">
-                                    <img width="48" height="48" src="https://img.icons8.com/color/48/solidworks.png" alt="solidworks" data-bs-toggle="tooltip" data-bs-placement="top" title="SolidWorks">
-                                    <img width="48" height="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" data-bs-toggle="tooltip" data-bs-placement="top" title="Arduino">
-                                </div>
-                                <p class="card-description text-start">Led the design and implementation of a Split Hopkinson Pressure Bar (SHPB) setup, overseeing CAD evaluations, manufacturing, control system and electronics subsystem design, MATLAB software development, rigorous testing, and contributions to material testing and impact dynamics.</p>
-                                <a href="#" class="btn btn-warning">
-                                    Learn More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<style>
-    .hover-card:hover {
-    transform: translateY(-5px);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-</style>
-
-
-<!-- Skills Section -->
-<section class="container py-5">
-    <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;"  data-aos="fade-in">SKILLS</h2>
-    <div class="row row-cols-1 row-cols-md-5 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="card-img-top p-3" style="height: 100px;" alt="HTML">
-                <div class="card-body text-center">
-                    <h5 class="card-title">HTML</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="card-img-top p-3" style="height: 100px;" alt="CSS">
-                <div class="card-body text-center">
-                    <h5 class="card-title">CSS</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="card-img-top p-3" style="height: 100px;" alt="JavaScript">
-                <div class="card-body text-center">
-                    <h5 class="card-title">JavaScript</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Bootstrap">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Bootstrap</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="card-img-top p-3" style="height: 100px;" alt="PHP">
-                <div class="card-body text-center">
-                    <h5 class="card-title">PHP</h5>
-                </div>
-            </div>
-        </div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="card-img-top p-3" style="height: 100px;" alt="C">
-        <div class="card-body text-center">
-            <h5 class="card-title">C</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="card-img-top p-3" style="height: 100px;" alt="C++">
-        <div class="card-body text-center">
-            <h5 class="card-title">C++</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Python">
-        <div class="card-body text-center">
-            <h5 class="card-title">Python</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Flask">
-        <div class="card-body text-center">
-            <h5 class="card-title">Flask</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Node.js">
-        <div class="card-body text-center">
-            <h5 class="card-title">Node.js</h5>
-        </div>
-    </div>
-</div>
-
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Matlab">
-        <div class="card-body text-center">
-            <h5 class="card-title">Matlab</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Arduino">
-        <div class="card-body text-center">
-            <h5 class="card-title">Arduino</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="static/images/solidworks-logo.svg" class="card-img-top p-3" style="height: 100px;" alt="SolidWorks">
-        <div class="card-body text-center">
-            <h5 class="card-title">SolidWorks</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="card-img-top p-3" style="height: 100px;" alt="Flutter">
-        <div class="card-body text-center">
-            <h5 class="card-title">Flutter</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col">
-    <div class="card h-100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="card-img-top p-3" style="height: 100px;" alt="Firebase">
-        <div class="card-body text-center">
-            <h5 class="card-title">Firebase</h5>
-        </div>
-    </div>
-</div>
-
-
-    </div>
+<!-- About Section -->
+<section class="bg-white dark:bg-gray-900">
+  <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6" id="about">
+      <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+          <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-gray-900 dark:text-white">About Me</h2>
+          <p class="text-justify mb-3 font-normal text-gray-700 dark:text-gray-400">
+            As a results-driven professional, I offer a unique blend of expertise in scientific research, engineering, and analytics. 
+            Armed with a Bachelor's degree in Mechanical Engineering and a Master's degree in Advanced Engineering Materials, my academic foundation is complemented by hands-on experience. 
+            Proficient in Python and MATLAB, I specialize in data interpretation, statistical analysis, and Full Stack development. My mastery includes HTML, CSS, JavaScript, and Bootstrap, enabling me to create seamless and responsive web solutions. 
+            With a track record of leadership, I've successfully managed diverse teams and delivered large-scale projects. 
+            My contributions have provided valuable research data for technological advancements. 
+            I am committed to excellence, optimizing processes, streamlining operations, and ensuring client compliance through strategic consultation. Ready to deliver impactful solutions, drive risk management, and support critical decision-making, I thrive in the dynamic realm of technology and society. Let's collaborate and bring innovation to the forefront of our endeavors.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-8">
+          <img class="w-full rounded-lg" src="images/about1.jpg" alt="office content 1" data-aos="fade-up">
+          <img class="mt-4 w-full lg:mt-10 rounded-lg" src="images/about2.jpg" alt="office content 2" data-aos="fade-down" >
+      </div>
+  </div>
 </section>
+
+
+<!-- Services Section -->
+
+
+
+
+
+<!-- Projects Section -->
+<section class="bg-white dark:bg-gray-900" id="portfolio">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-xl">
+      <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Portfolio</h2>
+
+      <!-- Generic Project Portfolio Display (Replace with actual projects) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1-->
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up">
+            <a href="#">
+                <img class="rounded-t-lg" src="images/BN-Portfolio.png" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Full Stack Development and Maintenance</h5>
+                </a>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+                  </svg>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">This project involved full stack development and maintenance for Bharatiya Nagarika. It included various technologies such as HTML, CSS, JavaScript, Bootstrap, PHP, GitHub, and Swiper.</p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Read more
+                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+                <a href="https://bharatiyanagarika.com/" target="_blank" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Associated Website
+                    </span>
+                </a>
+            </div>
+          </div>
+        
+          <!-- Project Card 2-->
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200" >
+            <a href="#">
+                <img class="rounded-t-lg" src="images/Tube-Portfolio2.png" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Advanced Study on Aluminum Tube Deformation</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Spearheaded research on aluminum tube deformation and impact energy absorption, conducting experimental tests and analytical comparisons to reveal insightful findings.</p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Read more
+                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+            </div>
+          </div>
+
+          <!-- Project Card 3-->
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up"data-aos-delay="400" >
+            <a href="#">
+                <img class="rounded-t-lg" src="images/SHPB-Portfolio.png" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Split Hopkinson Pressure Bar - Design, Testing and Applications</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Led the design and implementation of a Split Hopkinson Pressure Bar (SHPB) setup, overseeing CAD evaluations, manufacturing, control system and electronics subsystem design, MATLAB software development, rigorous testing, and contributions to material testing and impact dynamics.</p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Read more
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+                
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                    <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                    </svg>
+                    Project on Github
+                </a>
+                
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+
 
 <hr>
 
-<!--Softwares-->
-<section id="softwares" class="py-5">
-    <div class="container">
-    <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 3.5rem; font-weight: bold;"  data-aos="fade-in">Softwares</h2>
-    <div class="row">
+<!--Skills-->
+<section class="bg-white dark:bg-gray-900" id="skills">
+    <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white mx-auto py-5">Skills</h2>
 
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm" style="background: linear-gradient(135deg, #ffa8a8 0%, #fcff00 100%);">
-                <div class="card-body">
-                    <h5 class="card-title">ProfileCraft</h5>
-                    <p class="card-text">ProfileCraft is a dynamic GitHub Readme Generator that enables users to effortlessly create personalized and visually appealing GitHub profiles.</p>
-                    <p class="card-text"><i class="bi bi-laptop"></i> Tech Stack: HTML, CSS, JavaScript, Bootstrap</p>
-                    <a href="https://github.com/Edgar-Mendonca/ProfileCraft" target="_blank" class="btn me-3 btn-dark"><i class="bi bi-github"></i> GitHub</a>
-                    <a href="https://edgar-mendonca.github.io/ProfileCraft/" target="_blank" class="btn btn-secondary"><i class="bi bi-link-45deg"></i> Web App</a>
-                </div>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-4 py-3 px-20">
+    <!--HTML-->
+    <div class="max-w-xs mx-auto" id="html">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4" >
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
             </div>
         </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow" style="background:linear-gradient(135deg, #ffa8a8 0%,#fcff00 100%);">
-                <div class="card-body">
-                    <h5 class="card-title">ResVox-Resume ATS Analyser</h5>
-                    <p class="card-text">ResuVox is a Flask-based web application designed to help job seekers optimize their resumes for Applicant Tracking Systems (ATS).</p>
-                    <p class="card-text"><i class="bi bi-laptop"></i> Tech Stack: Python, Flask, scikit-learn, HTML, CSS, Bootstrap</p>
-                    <a href="https://github.com/Edgar-Mendonca/ResVox-Resume-ATS-Analyser" target="_blank" class="btn btn-dark"><i class="bi bi-github"></i> GitHub</a>
-                </div>
-            </div>
-        </div>
-        
-
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow" style="background:linear-gradient(135deg, #ffa8a8 0%,#fcff00 100%);">
-                <div class="card-body">
-                    <h5 class="card-title">Split Hopkinson Pressure Bar Analysis Tool</h5>
-                    <p class="card-text">SHPB Analysis Tool application is used for data interpretation of the signals obtained from experiments conducted on a Split Hopkinson Pressure Bar setup for high-velocity impact tests.</p>
-                    <p class="card-text"><i class="bi bi-laptop"></i> Tech Stack: MATLAB</p>
-                    <a href="https://github.com/Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool" target="_blank" class="btn btn-dark"><i class="bi bi-github"></i> GitHub</a>
-                </div>
-            </div>
-        </div>
-        
-
     </div>
+    <!--CSS-->
+    <div class="max-w-xs mx-auto" id="css">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+            </div>
+        </div>
     </div>
+    <!--JS-->
+    <div class="max-w-xs mx-auto" id="js">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Bootstrap-->
+    <div class="max-w-xs mx-auto" id="bootstrap">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Tailwind-->
+    <div class="max-w-xs mx-auto" id="tailwind">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--PHP-->
+    <div class="max-w-xs mx-auto" id="php">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--C lang-->
+    <div class="max-w-xs mx-auto" id="clang">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--C Plus Plus-->
+    <div class="max-w-xs mx-auto" id="cplusplus">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Python-->
+    <div class="max-w-xs mx-auto" id="python">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Flask-->
+    <div class="max-w-xs mx-auto" id="flask">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" />
+            </div>
+        </div>
+    </div> 
+    <!--Node JS-->
+    <div class="max-w-xs mx-auto" id="nodejs">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Google Cloug-->
+    <div class="max-w-xs mx-auto" id="gcp">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Firebase-->
+    <div class="max-w-xs mx-auto" id="firebase">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Flutter-->
+    <div class="max-w-xs mx-auto" id="flutter">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Matlab-->
+    <div class="max-w-xs mx-auto" id="matlab">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Arduino-->
+    <div class="max-w-xs mx-auto" id="arduino">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Embedded C-->
+    <div class="max-w-xs mx-auto" id="embeddedc">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="90" height="90" class="h-auto max-w-full mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/embeddedc/embeddedc-original.svg" />
+            </div>
+        </div>
+    </div>
+    <!--Solidworks-->
+    <div class="max-w-xs mx-auto" id="solidworks">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img width="96" height="96" src="https://img.icons8.com/color/96/solidworks.png" alt="solidworks"/>
+            </div>
+        </div>
+    </div>
+    <!--Abaqus-->
+    <div class="max-w-xs mx-auto" id="abaqus">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <img  class="h-auto max-w-full mx-auto" src="images/Abaqus.png" />
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        gsap.registerPlugin(ScrollTrigger);
 
-  
+        gsap.from("#html, #css, #js, #bootstrap, #tailwind, #php, #clang, #cplusplus, #python, #flask, #nodejs, #gcp, #firebase, #flutter, #matlab, #arduino, #embeddedc, #solidworks, #abaqus", {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.3,
+            delay: 1,
+            scrollTrigger: {
+                trigger: "#skills", 
+                start: "top 80%", 
+                //end: "bottom 50%", 
+                toggleActions: "play none none none" 
+            }
+        });
+    });
+</script>
 
 <!-- Contact Section -->
-<section class="container-fluid text-dark text-center py-5" id="contact" class="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 mx-auto" >
-                <div class="card p-4" style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
-                    <h2 class="text-center mb-4 hdtxt py-2" style="font-size: 1.5rem; font-weight: bold;">Contact Me</h2>
-                    <!-- Contact Form -->
-                    <form action="https://formsubmit.co/your@email.com" method="POST">
-                        <div class="mb-3 text-start">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Your Subject" required>
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn" id="custom-btn">Submit</button>
-                    </form>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="bg-white dark:bg-gray-900" id="contact">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Me!</h2>
+      <form action="#" class="space-y-8">
+          <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+              <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@example.com" required>
+          </div>
+          <div>
+              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+              <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let me know how I can help you" required>
+          </div>
+          <div class="sm:col-span-2">
+              <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+              <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+          </div>
+
+          <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit</button>
+        </form>
+  </div>
 </section>
 
-<!-- Footer Section -->
-<footer class="container-fluid text-dark text-center py-3">
-    <hr>
-    <div class="container">
-        <p>&copy; 2024 Edgar Mendonca. All Rights Reserved.</p>
+<hr>
+<!-- Footer -->
+<footer class="contact-pattern bg-white dark:bg-gray-900 py-8">
+    <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-700 dark:text-gray-400">&copy; 2024 Edgar Mendonca. All rights reserved.</p>
     </div>
-</footer>
+</footer>    
+
+
+
 
 <!-- Scroll to Top -->
 <div id="rocket-container" onclick="scrollToTop()">
-    <img id="rocket" src="static/images/rocket.gif" alt="Rocket">
+    <img id="rocket" src="images/rocket.gif" alt="Rocket">
 </div>
 
-<!-- Scripts -->
-<script src="static/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<!-- Custom JavaScript -->
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark')
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init({
@@ -656,13 +466,6 @@
         duration: 1000, 
     });
 </script>
-<script>
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-</script>
-
 
 </body>
 </html>
