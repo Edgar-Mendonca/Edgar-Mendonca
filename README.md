@@ -27,7 +27,8 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 
 ### Frontend Development
 
-![HTML](https://img.icons8.com/color/48/000000/html-5.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![CSS](https://img.icons8.com/color/48/000000/css3.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![bootstrap](https://img.icons8.com/color/48/000000/bootstrap.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+![HTML](https://img.icons8.com/color/48/000000/html-5.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![CSS](https://img.icons8.com/color/48/000000/css3.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![bootstrap](https://img.icons8.com/color/48/000000/bootstrap.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![tailwind](https://img.icons8.com/color/48/tailwind_css.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+
 
 ### Backend Development
 
@@ -59,4 +60,4 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 
 ### Other Apps
 
-![matlab](https://img.icons8.com/fluency/48/matlab.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![arduino](https://img.icons8.com/color/48/000000/arduino.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![fusion360](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/40fd353734af249a79d6815df1f3c382fe6b0c81/static/icons/Fusion360.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![abaqus](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![solidworks](https://img.icons8.com/color/48/000000/solidworks.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+![matlab](https://img.icons8.com/fluency/48/matlab.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![arduino](https://img.icons8.com/color/48/000000/arduino.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![fusion360](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/40fd353734af249a79d6815df1f3c382fe6b0c81/static/icons/Fusion360.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![abaqus](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![solidworks](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/5ea20738c8869c797ce221c5327c07f515834259/static/icons/Solidworks.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;
