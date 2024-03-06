@@ -11,7 +11,7 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 
 - 💁 I’m looking for help with **UI/UX**
 
-- 📒 I’m currently learning **Japanese, German, Typescript,AI/ML**
+- 📒 I’m currently learning **Japanese, German, Typescript, AI/ML, HRDIC**
 
 - 💬 Ask me about **Engineering, Statistical Analysis, Consultation**
 
