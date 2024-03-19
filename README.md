@@ -2,6 +2,8 @@
 
 <p align="center">
     <img width="200" height="auto" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku.gif" alt="DBZ Goku">
+    <img width="200" height="auto" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku2.gif" alt="DBZ Goku">
+
 </p>
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
