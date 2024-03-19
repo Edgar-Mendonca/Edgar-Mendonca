@@ -1,4 +1,4 @@
-# Hello, I'm Edgar Mendonca <span class="wave">👋</span>
+# Hello, I'm Edgar Mendonca <span class="wave">https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/hand-gif.gif</span>
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
