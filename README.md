@@ -1,4 +1,4 @@
-# Hello, I'm Edgar Mendonca <span class="wave"><img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/hand-gif.gif"></span>
+# Hello, I'm Edgar Mendonca <span class="wave"><img width=10 height=10 src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/hand-gif.gif"></span>
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
