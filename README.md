@@ -1,6 +1,6 @@
 # Hello, I'm Edgar Mendonca <span class="wave"><img width=50 height=50 src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/hand-gif.gif"></span>
 
-<img style="text-align: center;" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku.gif">
+<img width=60 height=auto style="text-align: center;" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku.gif">
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
 
