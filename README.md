@@ -27,43 +27,43 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 <a href="https://github.com/Edgar-Mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/material-outlined/48/github.png" alt="github"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/@edgarmendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/youtube-play.png" alt="youtube-play"/></a>&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/@EdgarMendonca7" target="_blank"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/></a>&nbsp;&nbsp;&nbsp;<a href="https://linkedin.com/edgar-mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/></a>&nbsp;&nbsp;&nbsp;
 
 ## ✨ Skills
-### Programming Languages
+<style>
+    .icons {
+        width: 50px; 
+        height: auto; 
+    }
+</style>
 
-![C](https://img.icons8.com/color/48/000000/c-programming.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![C++](https://img.icons8.com/color/48/000000/c-plus-plus-logo.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![Python](https://img.icons8.com/color/48/000000/python.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![JavaScript](https://img.icons8.com/color/48/000000/javascript.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![PHP](https://img.icons8.com/officexs/48/000000/php-logo.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="icons"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" class="icons" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/embeddedc/embeddedc-original-wordmark.svg" class="icons" />
+<img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/fusion.png" class="icons" />
+<img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/Abaqus.png" width="90px" height=auto  />
+<img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/567f47c1a74089194e2c01d0cb4b2e9152a18879/images/Solidworks.svg" width="120px" height=auto  />
 
-### Frontend Development
+## 🎥 Videos
+[![Watch the video](https://img.youtube.com/vi/0fWdUWLbv9A/hqdefault.jpg)](https://www.youtube.com/watch?v=0fWdUWLbv9A) &nbsp;&nbsp;&nbsp; [![Watch the video](https://img.youtube.com/vi/ZjK046jKi30/hqdefault.jpg)](https://www.youtube.com/watch?v=ZjK046jKi30)
 
-![HTML](https://img.icons8.com/color/48/000000/html-5.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![CSS](https://img.icons8.com/color/48/000000/css3.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![bootstrap](https://img.icons8.com/color/48/000000/bootstrap.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![tailwind](https://img.icons8.com/color/48/tailwind_css.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
 
-
-### Backend Development
-
-![nodejs](https://img.icons8.com/color/48/000000/nodejs.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![flask](https://img.icons8.com/color/48/000000/flask.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### AI/ML
-
-![tensorflow](https://img.icons8.com/color/48/000000/tensorflow.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![scikitLearn](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/afdeb7b34f41113a54290e91e8ab401c34e969f1/static/icons/Scikit_learn.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### Database
-
-![databaseMySQL](https://img.icons8.com/color/48/000000/mysql.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![databaseSQLite](https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### Framework
-
-![flask](https://img.icons8.com/color/48/000000/flask.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### Devops
-
-![gcp](https://img.icons8.com/color/48/000000/google-cloud-platform.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### BaaS
-
-![firebase](https://img.icons8.com/color/48/000000/firebase.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### Mobile App Development
-
-![flutter](https://img.icons8.com/color/48/000000/flutter.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![android](https://img.icons8.com/color/48/000000/android-os.png?width=48&height=48) &nbsp;&nbsp;&nbsp;
-
-### Other Apps
-
-![matlab](https://img.icons8.com/fluency/48/matlab.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![arduino](https://img.icons8.com/color/48/000000/arduino.png?width=48&height=48) &nbsp;&nbsp;&nbsp;![fusion360](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/40fd353734af249a79d6815df1f3c382fe6b0c81/static/icons/Fusion360.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![abaqus](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/9e95459eefe9a31c68e0c669aea3c96cbb2efdb2/static/icons/Simulia.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;![solidworks](https://raw.githubusercontent.com/Edgar-Mendonca/ProfileCraft/5ea20738c8869c797ce221c5327c07f515834259/static/icons/Solidworks.svg?width=48&height=48) &nbsp;&nbsp;&nbsp;
