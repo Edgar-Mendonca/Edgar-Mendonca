@@ -58,6 +58,6 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 <img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/567f47c1a74089194e2c01d0cb4b2e9152a18879/images/Solidworks.svg" width="120px" height=auto /> &nbsp;
 
 ## 🎥 Videos
-[![Watch the video](https://img.youtube.com/vi/0fWdUWLbv9A/hqdefault.jpg)](https://www.youtube.com/watch?v=0fWdUWLbv9A) &nbsp; [![Watch the video](https://img.youtube.com/vi/ZjK046jKi30/hqdefault.jpg)](https://www.youtube.com/watch?v=ZjK046jKi30)
+[![Watch the video](https://img.youtube.com/vi/0fWdUWLbv9A/default.jpg)](https://www.youtube.com/watch?v=0fWdUWLbv9A) &nbsp;&nbsp; [![Watch the video](https://img.youtube.com/vi/ZjK046jKi30/default.jpg)](https://www.youtube.com/watch?v=ZjK046jKi30)
 
 
