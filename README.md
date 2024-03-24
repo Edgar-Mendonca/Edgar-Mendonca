@@ -24,7 +24,7 @@ I'm a Researcher/Engineer/Developer passionate about Engineering, Material Scien
 - 💻 All of my projects are available at **Portfolio** ([https://sites.google.com/view/edgarmendonca](https://sites.google.com/view/edgarmendonca))
 
 ## 🔗 Connect with me
-<a href="https://github.com/Edgar-Mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/material-outlined/48/github.png" alt="github"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/@edgarmendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/youtube-play.png" alt="youtube-play"/></a>&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/@EdgarMendonca7" target="_blank"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/></a>&nbsp;&nbsp;&nbsp;<a href="https://linkedin.com/edgar-mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/></a>&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/Edgar-Mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/material-outlined/48/github.png" alt="github"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/@edgarmendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/youtube-play.png" alt="youtube-play"/></a>&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/@EdgarMendonca7" target="_blank"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/></a>&nbsp;&nbsp;&nbsp;
 
 ## ✨ Skills
 
