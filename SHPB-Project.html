@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHPB Project-Edgar Mendonca</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+
+    <meta property="og:title" content="Edgar Mendonca">
+    <meta property="og:description" content="Freelance Consultan, Engineering, Sciences, Web Developer, R&D">
+    <meta property="og:image" content="https://edgar-mendonca.github.io/Edgar-Mendonca/images/logo.jpeg">
+    <meta property="og:url" content="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edgar Mendonca">
+    <meta name="twitter:description" content="Freelance Consultan, Engineering, Sciences, Web Developer, R&D">
+    <meta name="twitter:image" content="https://edgar-mendonca.github.io/Edgar-Mendonca/images/logo.jpeg">
+    <meta name="twitter:url" content="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+
+    <link rel="stylesheet" href="css/styles.css">   
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://unpkg.com/gsap@3.12.5"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCR8GXNE0M"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JCR8GXNE0M');
+    </script>
+
+</head>
+
+
+<body class="bg-white dark:bg-gray-800  font-family: 'Inter', sans-serif; ">
+
+<!-- Navbar -->
+<nav class="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-10 shadow-lg" id="navbar">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="images/logo.jpeg" class="h-8" alt="Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Edgar Mendonca</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio</a>
+          </li>
+          <li>
+            <a href="#services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+      </button>
+
+    </div>
+</nav>
+
+
+
+<!--SHPB Project-->
+<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+    </svg>
+ </button>
+ 
+ <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 h-100 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+       <ul class="space-y-2 font-medium">
+          <li>
+            <form class="max-w-md mx-auto">   
+                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." required />
+                    <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                </div>
+            </form>
+          </li>
+          <li>
+            <a href="#SHPB" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                  </svg>
+                <span class="ml-3">Introduction</span>
+            </a>
+            
+          </li>
+          <li>
+             <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                </svg>
+                  
+                   <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Subsection</span>
+                   <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                   </svg>
+             </button>
+             <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                   <li>
+                      <a href="#applications" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Applications</a>
+                   </li>
+                   <li>
+                      <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
+                   </li>
+                   <li>
+                      <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
+                   </li>
+             </ul>
+          </li>
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                   <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Kanban</span>
+                <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+             </a>
+          </li>
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                   <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Inbox</span>
+                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+             </a>
+          </li>
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                   <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+             </a>
+          </li>
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+             </a>
+          </li>
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+             </a>
+          </li>
+          <li>
+             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                   <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"/>
+                   <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z"/>
+                   <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
+             </a>
+          </li>
+       </ul>
+    </div>
+ </aside>
+
+
+<!--Right Content--> 
+<div class="p-4 sm:ml-64 text-black dark:text-white">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        <!-- SHPB Content begins here -->
+        <h2 class="text-4xl font-bold mb-4 relative group">
+            Split Hopkinson Pressure Bar (SHPB)
+            <span id="SHPB" class="absolute -top-[140px]"></span>
+            <a href="#SHPB" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        
+        <p class="text-justify">
+            A split Hopkinson pressure bar (SHPB) is a specialized tool used in mechanical testing to measure the dynamic properties of materials under high-strain-rate conditions. 
+            It consists of two bars of the same material, each of which has a small, spherical impactor attached to one end. 
+            The bars are mounted on opposite sides of the test specimen, and the impactors are fired simultaneously at the specimen, causing it to deform and generate a wave that propagates through the bars. 
+            Sensors attached to the bars measure the strain and stress in the bars, which can be used to determine the dynamic properties of the material.
+        </p>
+
+        <h2 class="text-xl font-bold mb-4 relative group mt-4 mb-2">
+            Applications of SHPB
+            <span id="applications" class="absolute -top-[140px]"></span>
+            <a href="#applications" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        <ul class="list-disc ml-6">
+            <li>Evaluating the behavior of metals, ceramics, composites, polymers, and other materials under various conditions such as impact, explosion, or high-energy events.</li>
+            <li>Determining the dynamic strength of materials used in offshore platforms, advanced armors, pipelines, nuclear pressure vessels, space stations, and other high-stress environments.</li>
+            <li>Studying material behavior in compression, tension, and shear modes to gain insight into their performance under different loadings.</li>
+            <li>Investigating the effects of temperature, strain rate, loading history, and microstructure on material properties for more comprehensive analysis.</li>
+            <li>Researching the high-strain-rate behavior of biological tissues to inform medical research and improve protective equipment for human safety.</li>
+            <li>Examining advanced materials, such as shape-memory alloys, that require specialized testing under high-strain-rate conditions for engineering applications.</li>
+            <li>Testing impact resistance and fracture properties of brittle materials such as ceramics and glass, contributing to the design of safer and more durable products.</li>
+            <li>Evaluating materials used in aerospace and automotive industries, providing insights into the structural integrity and crashworthiness of vehicles and aircraft.</li>
+            <li>Assessing the impact response of materials used in protective gear and equipment, such as helmets and body armor, to improve safety standards.</li>
+        </ul>
+
+   
+
+
+        <h3 class="text-xl font-semibold mt-4 mb-2">Designing an SHPB</h3>
+        <p>Designing a split Hopkinson pressure bar (SHPB) can be a complex task, and it typically requires a strong background in mechanical engineering, material sciences, electronics, and programming. The design of an SHPB is highly dependent on the specific application and the materials being tested, and it requires careful consideration of factors such as the dimensions of the bars and the impactors, the materials used, and the placement and type of sensors.</p>
+
+
+
+        <h3 class="text-xl font-semibold mt-4 mb-2">Test Conditions</h3>
+        <p>The conditions under which a split Hopkinson pressure bar (SHPB) test is conducted can have a significant impact on the accuracy and reliability of the results. Some of the key factors that can affect the conditions of an SHPB test include:</p>
+        <ul class="list-disc ml-6">
+            <li>Temperature: The temperature of the test environment and the specimen can affect the material's response to the impact, so it is important to maintain a consistent temperature during the test.</li>
+            <li>Humidity: High humidity can affect the performance of the sensors and other electronic components of the SHPB system, so it is important to maintain low humidity levels during the test.</li>
+            <li>Vibration: Vibration can interfere with the measurements taken by the sensors, so it is important to minimize vibration during the test.</li>
+            <li>Alignment: The alignment of the bars and impactors relative to the specimen is critical for accurate measurements, so it is important to carefully align the SHPB system before the test.</li>
+            <li>Loading rate: The loading rate, or the rate at which the impactors apply force to the specimen, is an important parameter in an SHPB test, as it determines the strain-rate conditions under which the material is tested. It is important to carefully control the loading rate to ensure that the test conditions are consistent and accurate.</li>
+        </ul>
+        <!-- SHPB Content ends here -->
+    </div>
+</div>
+
+ 
+
+
+ 
+
+<hr>
+<!-- Footer -->
+<footer class="grid-pattern footer items-center p-4 bg-white dark:bg-gray-900 text-black dark:text-white">
+    <aside class="items-center grid-flow-col ml-5">
+        <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+            <img src="images/logo.jpeg" class="h-8" alt="Logo" />
+        </a>
+        <p class="text-base" >Copyright © 2024 Edgar Mendonca. - All right reserved</p>
+    </aside> 
+    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end mr-10">
+        <a href="https://github.com/Edgar-Mendonca" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-github" style="font-size: 30px"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-linkedin" style="font-size: 30px"></i>
+        </a>
+        <a href="https://www.youtube.com/@edgarmendonca" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-youtube" style="font-size: 30px"></i>
+        </a>
+        <a href="https://twitter.com/EdgarMendonca7" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-twitter-x" style="font-size: 30px"></i>
+        </a>
+    
+    </nav>
+</footer>
+
+
+<!-- Scroll to Top -->
+<div id="rocket-container" onclick="scrollToTop()">
+    <img id="rocket" src="images/rocket.gif" alt="Rocket">
+</div>
+
+<!-- Custom JavaScript -->
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark')
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true, 
+        duration: 1000, 
+    });
+</script>
+
+
+</body>
+</html>
