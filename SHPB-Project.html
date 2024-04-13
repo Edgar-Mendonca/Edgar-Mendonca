@@ -178,6 +178,16 @@
                 <span class="flex-1 ms-3 whitespace-nowrap">High Strain-Rate Tests</span>
              </a>
           </li>
+          <li>
+            <a href="#references" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
+                    <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z"/>
+                </svg>
+
+               <span class="flex-1 ms-3 whitespace-nowrap">References</span>
+            </a>
+         </li>
 
        </ul>
     </div>
@@ -187,7 +197,8 @@
 <!--Right Content--> 
 <div class="p-4 sm:ml-64 text-black dark:text-white">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <!-- SHPB Content begins here -->
+
+        <!--SHPB Introduction-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
             Split Hopkinson Pressure Bar (SHPB)
             <span id="SHPB" class="absolute -top-[140px]"></span>
@@ -197,62 +208,74 @@
         </h2>
         
         <p class="text-justify">
-            A split Hopkinson pressure bar (SHPB) is a specialized tool used in mechanical testing to measure the dynamic properties of materials under high-strain-rate conditions. 
-            It consists of two bars of the same material, each of which has a small, cylindrical impactor attached to one end. 
-            The bars are mounted on opposite sides of the test specimen, and the impactors are fired simultaneously at the specimen, causing it to deform and generate a wave that propagates through the bars. 
-            Sensors attached to the bars measure the strain and stress in the bars, which can be used to determine the dynamic properties of the material.
+            The split Hopkinson pressure bar (SHPB) is a highly specialized mechanical testing apparatus designed to measure the dynamic behavior and properties of materials under high-strain-rate conditions. 
+            Strain rate is the speed at which a material is deformed.  SHPBs are used to simulate the kind of forces materials experience during things like car crashes, explosions, and ballistic impacts.
         </p>
 
-        <h2 class="text-xl font-bold mb-4 relative group mt-4 mb-2">
-            Applications of SHPB
-            <span id="applications" class="absolute -top-[140px]"></span>
-            <a href="#applications" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                #
-            </a>
-        </h2>
-        <ul class="list-disc ml-6">
-            <li>Evaluating the behavior of metals, ceramics, composites, polymers, and other materials under various conditions such as impact, explosion, or high-energy events.</li>
-            <li>Determining the dynamic strength of materials used in offshore platforms, advanced armors, pipelines, nuclear pressure vessels, space stations, and other high-stress environments.</li>
-            <li>Studying material behavior in compression, tension, and shear modes to gain insight into their performance under different loadings.</li>
-            <li>Investigating the effects of temperature, strain rate, loading history, and microstructure on material properties for more comprehensive analysis.</li>
-            <li>Researching the high-strain-rate behavior of biological tissues to inform medical research and improve protective equipment for human safety.</li>
-            <li>Examining advanced materials, such as shape-memory alloys, that require specialized testing under high-strain-rate conditions for engineering applications.</li>
-            <li>Testing impact resistance and fracture properties of brittle materials such as ceramics and glass, contributing to the design of safer and more durable products.</li>
-            <li>Evaluating materials used in aerospace and automotive industries, providing insights into the structural integrity and crashworthiness of vehicles and aircraft.</li>
-            <li>Assessing the impact response of materials used in protective gear and equipment, such as helmets and body armor, to improve safety standards.</li>
-        </ul>
+        <div class="items-center">
+            <img src="images/SHPB-PROJECT/SHPB-sketch.png" alt="Strain-rate-deform-mat" class="mx-auto" width="800" height="auto" />
+            <p class="text-center mt-2 italic">Two-dimensional representation of SHPB</p>
+        </div>
 
+        <!--Applications of SHPB-->
+        <details class="dropdown">
+            <summary  class="text-xl font-bold mb-4 relative group mt-4 mb-2">
+                Applications of SHPB
+                <span id="applications" class="absolute -top-[140px]"></span>
+                <a href="#applications" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    #
+                </a>
+            </summary >
+            <ul class="list-disc ml-6 ">
+                <li>Evaluating the behavior of metals, ceramics, composites, polymers, and other materials under various conditions such as impact, explosion, or high-energy events.</li>
+                <li>Determining the dynamic strength of materials used in offshore platforms, advanced armors, pipelines, nuclear pressure vessels, space stations, and other high-stress environments.</li>
+                <li>Studying material behavior in compression, tension, and shear modes to gain insight into their performance under different loadings.</li>
+                <li>Investigating the effects of temperature, strain rate, loading history, and microstructure on material properties for more comprehensive analysis.</li>
+                <li>Researching the high-strain-rate behavior of biological tissues to inform medical research and improve protective equipment for human safety.</li>
+                <li>Examining advanced materials, such as shape-memory alloys, that require specialized testing under high-strain-rate conditions for engineering applications.</li>
+                <li>Testing impact resistance and fracture properties of brittle materials such as ceramics and glass, contributing to the design of safer and more durable products.</li>
+                <li>Evaluating materials used in aerospace and automotive industries, providing insights into the structural integrity and crashworthiness of vehicles and aircraft.</li>
+                <li>Assessing the impact response of materials used in protective gear and equipment, such as helmets and body armor, to improve safety standards.</li>
+            </ul>
+        </details>
 
-        <h2 class="text-xl font-bold mb-4 relative group mt-4 mb-2">
-            Design Rules of SHPB
-            <span id="design-rules" class="absolute -top-[140px]"></span>
-            <a href="#design-rules" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                #
-            </a>
-        </h2>
-        <ul class="list-disc ml-6">
-            <li><strong>Material Selection:</strong> Choose bars and specimens of uniform material properties to ensure accurate wave propagation and measurement.</li>
-            <li><strong>Bar Length and Diameter:</strong> Optimize the length and diameter of the bars to control the wave propagation characteristics and achieve the desired frequency range and strain rate.</li>
-            <li><strong>Alignment and Symmetry:</strong> Ensure proper alignment and symmetry of the bars and specimen to minimize measurement errors and enhance test repeatability.</li>
-            <li><strong>Specimen Geometry:</strong> Select an appropriate specimen geometry (e.g., cylindrical or prismatic) and dimensions that best represent the material behavior under test.</li>
-            <li><strong>Strain Gauge Placement:</strong> Position strain gauges on the incident and transmitted bars to capture the strain and stress waves accurately.</li>
-            <li><strong>Wave Propagation Time:</strong> Adjust the bar lengths to control the time it takes for the wave to travel from the impact to the strain gauges, allowing for precise data acquisition.</li>
-            <li><strong>Velocity Measurement:</strong> Utilize optical or electromagnetic methods to measure the impactor's velocity for accurate analysis of strain rate.</li>
-            <li><strong>End Conditions:</strong> Apply suitable end conditions (e.g., free or fixed) based on the specific testing requirements to avoid wave reflections and maintain uniform stress distribution.</li>
-            <li><strong>Specimen-Machine Interaction:</strong> Minimize interaction between the specimen and the SHPB system to prevent errors in data collection and maintain the integrity of the test results.</li>
-            <li><strong>Data Acquisition and Analysis:</strong> Implement a high-speed data acquisition system to accurately capture the rapid changes in strain and stress during the test, and utilize appropriate software tools for data analysis.</li>
-            <li><strong>Safety Measures:</strong> Follow safety protocols and guidelines during testing to protect personnel and equipment, especially when working with high-energy or hazardous materials.</li>
-        </ul>
-        
+        <br>
 
+        <!--Design Rules of SHPB-->
+        <details class="dropdown">
+            <summary class="text-xl font-bold mb-4 relative group mt-4 mb-2">
+                Design Rules of SHPB
+                <span id="design-rules" class="absolute -top-[140px]"></span>
+                <a href="#design-rules" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    #
+                </a>
+            </summary>
+            <ul class="list-disc ml-6">
+                <li><strong>Material Selection:</strong> Choose bars and specimens of uniform material properties to ensure accurate wave propagation and measurement.</li>
+                <li><strong>Bar Length and Diameter:</strong> Optimize the length and diameter of the bars to control the wave propagation characteristics and achieve the desired frequency range and strain rate.</li>
+                <li><strong>Alignment and Symmetry:</strong> Ensure proper alignment and symmetry of the bars and specimen to minimize measurement errors and enhance test repeatability.</li>
+                <li><strong>Specimen Geometry:</strong> Select an appropriate specimen geometry (e.g., cylindrical or prismatic) and dimensions that best represent the material behavior under test.</li>
+                <li><strong>Strain Gauge Placement:</strong> Position strain gauges on the incident and transmitted bars to capture the strain and stress waves accurately.</li>
+                <li><strong>Wave Propagation Time:</strong> Adjust the bar lengths to control the time it takes for the wave to travel from the impact to the strain gauges, allowing for precise data acquisition.</li>
+                <li><strong>Velocity Measurement:</strong> Utilize optical or electromagnetic methods to measure the impactor's velocity for accurate analysis of strain rate.</li>
+                <li><strong>End Conditions:</strong> Apply suitable end conditions (e.g., free or fixed) based on the specific testing requirements to avoid wave reflections and maintain uniform stress distribution.</li>
+                <li><strong>Specimen-Machine Interaction:</strong> Minimize interaction between the specimen and the SHPB system to prevent errors in data collection and maintain the integrity of the test results.</li>
+                <li><strong>Data Acquisition and Analysis:</strong> Implement a high-speed data acquisition system to accurately capture the rapid changes in strain and stress during the test, and utilize appropriate software tools for data analysis.</li>
+                <li><strong>Safety Measures:</strong> Follow safety protocols and guidelines during testing to protect personnel and equipment, especially when working with high-energy or hazardous materials.</li>
+            </ul>
+        </details>
 
-        <h2 class="text-xl font-bold mb-4 relative group mt-4 mb-2">
+        <br>
+
+        <!--Test Conditions of SHPB-->
+        <details class="dropdown">
+        <summary class="text-xl font-bold mb-4 relative group mt-4 mb-2">
             Test Conditions of SHPB
             <span id="test-conditions" class="absolute -top-[140px]"></span>
             <a href="#test-conditions" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
                 #
             </a>
-        </h2>
+        </summary>
         <ul class="list-disc ml-6">
             <li><strong>Temperature Control:</strong> Maintain consistent test and specimen temperatures to account for temperature-dependent material properties and avoid thermal gradients that could affect results.</li>
             <li><strong>Humidity Levels:</strong> Keep humidity levels low to minimize the impact on the performance of sensors and other electronic components during testing.</li>
@@ -266,11 +289,13 @@
             <li><strong>Data Acquisition and Synchronization:</strong> Utilize high-speed data acquisition systems and synchronize measurements from different sensors to obtain a complete picture of the specimen's behavior.</li>
             <li><strong>Safety Precautions:</strong> Implement safety protocols for personnel and equipment, especially when working with high-energy materials or hazardous conditions during testing.</li>
         </ul>
+        </details>
 
         <br>
         <hr>
         <br>
 
+        <!--High Strain-Rate Tests-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
             High Strain-Rate Tests
             <span id="high-strain-rate-tests" class="absolute -top-[140px]"></span>
@@ -280,11 +305,30 @@
         </h2>
         <div class="items-center">
             <img src="images/SHPB-PROJECT/Strain-rate-deform-mat.png" alt="Strain-rate-deform-mat" class="mx-auto" width="400" height="auto" />
-            <p class="text-center mt-2">Experimental techniques used for the development of controlled high strain rate deformations in materials</p>
+            <p class="text-center mt-2 italic">Experimental techniques used for the development of controlled high strain rate deformations in materials</p>
         </div>
-        
-    </div>
-</div>
+
+        <br>
+        <hr>
+ 
+
+        <!-- References -->
+        <h2 class="text-4xl font-extrabold mb-4 relative group mt-8">
+            References
+            <span id="references" class="absolute -top-[140px]"></span>
+            <a href="#references" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        <ul class="list-disc ml-6">
+            <li>Ramesh, K.T. (2008). High Rates and Impact Experiments. In: Sharpe, W. (eds) Springer Handbook of Experimental Solid Mechanics. Springer Handbooks. Springer, Boston, MA. DOI: <a href="https://doi.org/10.1007/978-0-387-30877-7_33" class="text-blue-700 dark:text-blue-500 hover:underline">10.1007/978-0-387-30877-7_33</a></li>
+            <li>Kolsky, H. (1963). Stress Waves in Solids. United Kingdom: Dover Publications.</li>
+        </ul>
+
+
+                
+            </div>
+        </div>
 
  
 
