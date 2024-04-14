@@ -113,8 +113,9 @@
     <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
     </svg>
  </button>
- 
- <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 h-100 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+
+ <!--Left Vertical Navbar-->
+ <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 h-[calc(100vh - 20px)] overflow-y-auto transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
        <ul class="space-y-2 font-medium">
 
@@ -406,8 +407,8 @@
             </a>
         </h2>
         <div class="items-center">
-            <img src="images/SHPB-PROJECT/SHPB-Setup.png" class="mx-auto" width="400" height="auto" />
-            <p class="text-center mt-2 italic">Experimental Setup SHPB</p>
+            <img src="images/SHPB-PROJECT/SHPB-Setup-Outline.png" class="mx-auto" width="400" height="auto" />
+            <p class="text-center mt-2 italic">Outline of SHPB</p>
         </div>
 
         <br>
@@ -421,9 +422,53 @@
                 #
             </a>
         </h2>
+
+        <p class="text-justify py-2">
+            The gas gun, also known as the striker launch system, is a critical component in high strain-rate experiments, such as those performed with the Split Hopkinson Pressure Bar (SHPB) setup. 
+            This system is used to propel the striker bar toward the Incident bar at set speeds which picks up the stress pulse that direct towards the specimen.
+        </p>
+
         <div class="items-center">
-            <img src="images/SHPB-PROJECT/Gas-Gun.png" class="mx-auto" width="600" height="auto" />
-            <p class="text-center mt-2 italic">Launch System</p>
+            <img src="images/SHPB-PROJECT/Gas-Gun.png" class="mx-auto" width="800" height="auto" />
+            <p class="text-center mt-2 italic">Fig: Outline of Launch System</p>
+        </div>
+
+        <br>
+        <hr>
+
+        <!--Signal Amplification-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Signal Amplification
+            <span id="signal-amplification" class="absolute -top-[140px]"></span>
+            <a href="#signal-amplification" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        <div class="items-center">
+            <img src="images/SHPB-PROJECT/Amplifier-Circuit.png" class="mx-auto" width="600" height="auto" />
+            <p class="text-center mt-2 italic">Strain Gauge Amplifier Amplifier-Circuit</p>
+        </div>
+
+        <!-- Links to Datasheets-->
+        <p class="font-bold text-lg p-2 mt-4 italic">
+            Links to Datasheets
+        </p>
+        <div class="mt-4 flex">
+            <a href="Files/INA111-Datasheet.pdf" class="text-blue-700 dark:text-blue-500 mx-2 flex p-1 mr-4" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                </svg> INA111 Datasheet
+            </a>
+            <a href="Files/INA128-Datasheet.pdf" class="text-blue-700 dark:text-blue-500 mx-2 flex p-1 mr-4" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                </svg> INA128 Datasheet
+            </a>
+            <a href="Files/OPA227-Datasheet.pdf" class="text-blue-700 dark:text-blue-500 mx-2 flex p-1 mr-4" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                </svg> OPA227 Datasheet
+            </a>
         </div>
 
         <br>
