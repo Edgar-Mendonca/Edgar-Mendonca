@@ -47,7 +47,10 @@
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.23.3/dist/algoliasearch-lite.umd.js" integrity="sha256-1QNshz86RqXe/qsCBldsUu13eAX6n/O98uubKQs87UI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.66.1/dist/instantsearch.production.min.js" integrity="sha256-grZOVo8gpqUW03/zmzbKeXkKZ0CSb+C6EKGxBtSSS3U=" crossorigin="anonymous"></script>
     
-
+    <!-- MathJax CDN -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCR8GXNE0M"></script>
     <script>
@@ -432,21 +435,57 @@
         <p class="text-justify py-2">
             The gas gun uses pressurized gas to accelerate the striker bar.
             The striker bar is launched towards the test incident bar, creating an impact that generates stress waves in the bars that travel to the specimen and the trasmitted bar.
+            This system operates through the careful control and release of compressed air to propel the striker bar down a barrel. Here’s how the system is designed and functions:
         </p>
+        <ul class="list-disc ml-6">
+            <li>Air Compression: The process begins with an air compressor, which fills up air in a containment cylinder. This allows for the storage and management of compressed air for use in the system.</li>
+            <li>Airflow Control and Filter: The outlet of the air compressor's cylinder is connected to an air flow controller and filter, which are in conjunction with a ball valve. This setup ensures that air can only be released when the cylinder is filled with compressed air.</li>
+            <li>Reservoir Tank: The air flow controller and filter are equipped with a non-return NC (normally closed) valve, ensuring one-way airflow. This is then connected to a reservoir tank, which can be filled with the exact pressure of compressed air needed for launching the striker bar at a specific speed.</li>
+            <li>Hydraulic Hose Connection: The reservoir is linked to the gas gun barrel via a 3/8 inch, 180-bar hydraulic hose. This ensures a secure connection and the efficient transfer of compressed air from the reservoir to the barrel.</li>
+            <li>Solenoid Valve Activation: At the junction between the barrel and the hose is a 3/4 inch semi-lift diaphragm solenoid valve (NC). This valve is controlled by a 220V AC power supply and is triggered by a button.</li>
+            <li>Striker Bar Propulsion: When the button is pressed, the solenoid valve opens, allowing compressed air from the reservoir to enter the barrel. This sudden influx of air propels the striker bar at high speed down the barrel.</li>
+        </ul>
 
         <div class="items-center">
             <img src="images/SHPB-PROJECT/Gas-Gun.png" class="mx-auto" width="900" height="auto" />
             <p class="text-center mt-2 italic">Fig: Outline of Striker Launch System</p>
         </div>
 
-        <h2 class="text-3xl font-bold mb-4 relative group">
-            Purpose of Gas Gun or Striker Launch System
-        </h2>
-        <ul class="list-disc ml-6">
-            <li>Generate high-speed impacts: The gas gun is designed to launch the striker bar at controlled speeds, simulating the high strain-rate conditions materials may experience in real-world scenarios.</li>
-            <li>Control energy input: By adjusting the pressure within the gas gun, researchers can fine-tune the energy imparted to the striker bar, enabling precise control over the impact force and strain rates experienced by the test specimen.</li>
-            <li>Simulate real-world conditions: High strain-rate testing provides valuable insights into the dynamic behavior and mechanical properties of materials under rapid loading conditions, such as those found in automotive collisions, explosions, or high-speed manufacturing processes.</li>
-        </ul>
+        <p class="text-justify py-2">
+            This precise and controlled operation of the striker launch system is crucial for performing reliable and accurate experimental tests involving high strain rates.
+        </p>
+
+        <div class="calculation-section">
+            <h2 class="text-4xl font-extrabold mb-4 relative group">
+                Calculation of Striker Velocity Based on Air Pressure Set at Release from Reservoir
+                <span id="calculation-of-striker-velocity" class="absolute -top-[140px]"></span>
+                <a href="#calculation-of-striker-velocity" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    #
+                </a>
+            </h2>
+            <p>To calculate the velocity of the striker based on the air pressure set at release from the reservoir, follow these steps:</p>
+            <ul>
+                <li>Note the mass \( m_s \) and length \( l_s \) of the striker/impactor.</li>
+                <li>Note the displacement \( s_s \) of the striker in the barrel.</li>
+                <li>Calculate the area of the barrel \( A_b \) using the known diameter of the gas gun barrel \( d_b \).</li>
+                <li>Note the pressure of the compressed air \( P \) in the reservoir.</li>
+                <li>Calculate the force exerted on the striker based on the noted pressure and area of the barrel:
+                    <p class="math-equation">\( P = \frac{F}{A} \)</p>
+                    <p class="math-equation">Rearranging terms, \( F = P \cdot A_b \)</p>
+                </li>
+                <li>Calculate the acceleration of the striker using the formula:
+                    <p class="math-equation">\( a = \frac{F}{m_s} \)</p>
+                    <p>After substituting in the previously calculated force:
+                        <p class="math-equation">\( a = \frac{P \cdot A_b}{m_s} \)</p>
+                    </p>
+                </li>
+                <li>Calculate the striker's velocity from the equation of motion:
+                    <p class="math-equation">\( v_s = \sqrt{2 \cdot a \cdot s_s} \)</p>
+                </li>
+            </ul>
+        </div>
+        
+
 
         <br>
         <hr>
