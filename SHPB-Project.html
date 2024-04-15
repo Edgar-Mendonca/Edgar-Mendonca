@@ -118,7 +118,7 @@
  </button>
 
  <!--Left Vertical Navbar-->
- <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 h-[calc(100vh - 20px)] overflow-y-auto transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+ <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 max-h-[75vh] overflow-y-auto transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
        <ul class="space-y-2 font-medium">
 
@@ -530,7 +530,12 @@
                 The velocity \( v \), of the projectile is then calculated using the fundamental equation:
                 \[ v = \frac{d}{t} \]
                 Here, \( v \) represents the velocity, \( d \) signifies the distance between the sensors, and \(  t\) corresponds to the time taken for the projectile to pass from the first to the second sensor.
-                Furthermore, the implementation of this velocity measurement system is complemented by an Arduino code tailored to its functionality.
+            </p>
+
+            <p class="text-justify py-2">
+                The velocity measurement system is powered by a specialized Arduino code designed to optimize its functionality. 
+                The circuit diagram below illustrates the components and connections integral to the system's operation. 
+                Following the diagram, you will find the control code used to calculate and display the speed in meters per second (m/s).
             </p>
             
 
@@ -656,8 +661,9 @@
             </script>
         </div>  
 
-        <br>
         <hr>
+        <br>
+
 
         <!--Signal Amplification-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
