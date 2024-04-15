@@ -50,7 +50,7 @@
     <!-- MathJax CDN -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCR8GXNE0M"></script>
     <script>
@@ -451,39 +451,42 @@
             <p class="text-center mt-2 italic">Fig: Outline of Striker Launch System</p>
         </div>
 
-        <p class="text-justify py-2">
-            This precise and controlled operation of the striker launch system is crucial for performing reliable and accurate experimental tests involving high strain rates.
-        </p>
-
         <div class="calculation-section">
-            <h2 class="text-4xl font-extrabold mb-4 relative group">
+            <h2 class="text-3xl font-bold mb-4 relative group mt-4">
                 Calculation of Striker Velocity Based on Air Pressure Set at Release from Reservoir
                 <span id="calculation-of-striker-velocity" class="absolute -top-[140px]"></span>
                 <a href="#calculation-of-striker-velocity" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
                     #
                 </a>
             </h2>
-            <p>To calculate the velocity of the striker based on the air pressure set at release from the reservoir, follow these steps:</p>
-            <ul>
+            <p class="text-justify py-2">
+                This precise and controlled operation of the striker launch system is crucial for performing reliable and accurate experimental tests involving high strain rates.
+                To calculate the velocity of the striker based on the air pressure set at release from the reservoir, follow these steps:</p>
+            <ul class="ml-6">
                 <li>Note the mass \( m_s \) and length \( l_s \) of the striker/impactor.</li>
                 <li>Note the displacement \( s_s \) of the striker in the barrel.</li>
                 <li>Calculate the area of the barrel \( A_b \) using the known diameter of the gas gun barrel \( d_b \).</li>
                 <li>Note the pressure of the compressed air \( P \) in the reservoir.</li>
                 <li>Calculate the force exerted on the striker based on the noted pressure and area of the barrel:
-                    <p class="math-equation">\( P = \frac{F}{A} \)</p>
-                    <p class="math-equation">Rearranging terms, \( F = P \cdot A_b \)</p>
+                    \( P = \frac{F}{A} \) (rearranging terms)
+                    <br>
+                    Rearranging terms, \( F = P \cdot A_b \) (\(Pascal \cdot m^2 \))
+                    \(
+                    \left(\frac{kg}{ms^2}\right) \cdot m^2 = \frac{kg \cdot m}{s^2}
+                    \)
                 </li>
                 <li>Calculate the acceleration of the striker using the formula:
-                    <p class="math-equation">\( a = \frac{F}{m_s} \)</p>
-                    <p>After substituting in the previously calculated force:
-                        <p class="math-equation">\( a = \frac{P \cdot A_b}{m_s} \)</p>
-                    </p>
+                    \( a = \frac{F}{m_s} \) 
+                    <br>
+                    After substituting in the previously calculated force:
+                    \( a = \frac{P \cdot A_b}{m_s} \)
                 </li>
                 <li>Calculate the striker's velocity from the equation of motion:
-                    <p class="math-equation">\( v_s = \sqrt{2 \cdot a \cdot s_s} \)</p>
+                    \( v_s = \sqrt{2 \cdot a \cdot s_s} \)
                 </li>
             </ul>
         </div>
+        
         
 
 
