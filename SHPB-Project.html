@@ -451,7 +451,7 @@
             <p class="text-center mt-2 italic">Fig: Outline of Striker Launch System</p>
         </div>
 
-        <div class="calculation-section">
+        <div class="ml-2 py-2">
             <h2 class="text-3xl font-bold mb-4 relative group mt-4">
                 Calculation of Striker Velocity Based on Air Pressure Set at Release from Reservoir
                 <span id="calculation-of-striker-velocity" class="absolute -top-[140px]"></span>
@@ -468,24 +468,49 @@
                 <li>Calculate the area of the barrel \( A_b \) using the known diameter of the gas gun barrel \( d_b \).</li>
                 <li>Note the pressure of the compressed air \( P \) in the reservoir.</li>
                 <li>Calculate the force exerted on the striker based on the noted pressure and area of the barrel:
-                    \( P = \frac{F}{A} \) (rearranging terms)
+                    \[ P = \frac{F}{A} \] 
                     <br>
-                    Rearranging terms, \( F = P \cdot A_b \) (\(Pascal \cdot m^2 \))
+                    Rearranging terms, \[ F = P \cdot A_b \] 
+                    (\(Pascal \cdot m^2 \))
                     \(
                     \left(\frac{kg}{ms^2}\right) \cdot m^2 = \frac{kg \cdot m}{s^2}
                     \)
                 </li>
-                <li>Calculate the acceleration of the striker using the formula:
-                    \( a = \frac{F}{m_s} \) 
+                <li>
+                    Force is also expressed as a product of mass times acceleration, \( F=ma. \)
+                </li>
+                <li>Rearranging the terms to calculate the acceleration of the striker using the formula:
+                    \[ a = \frac{F}{m_s} \]
                     <br>
-                    After substituting in the previously calculated force:
-                    \( a = \frac{P \cdot A_b}{m_s} \)
+                    \(
+                        \left(\frac{kg \cdot m}{s^2}\right) \cdot \left(\frac{1}{kg}\right) = \frac{m}{s^2}
+                    \)
                 </li>
                 <li>Calculate the striker's velocity from the equation of motion:
-                    \( v_s = \sqrt{2 \cdot a \cdot s_s} \)
+                    \[ v_s = \sqrt{2 \cdot a \cdot s_s} \]
+                    <br>
+                    \(
+                        \sqrt{\left(\frac{m^2}{s^2}\right)} = \frac{m}{s}
+                    \)
                 </li>
             </ul>
         </div>
+
+        <hr>
+
+        <div class="ml-2 py-2">
+            <h2 class="text-3xl font-bold mb-4 relative group mt-4">
+                Velocity Measurement System for Stiker Bar
+                <span id="velocity-measurement-system" class="absolute -top-[140px]"></span>
+                <a href="#velocity-measurement-system" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    #
+                </a>
+            </h2>
+
+            <div class="items-center">
+                <img src="images/SHPB-PROJECT/Velocity-Measurement-System.png" class="mx-auto" width="800" height="auto" />
+                <p class="text-center mt-2 italic">Fig: Outline of Velocity Measurement System</p>
+            </div>
         
         
 
