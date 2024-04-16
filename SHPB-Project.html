@@ -545,7 +545,7 @@
             </div>
 
 
-            <div class="mockup-code">
+            <div class="mockup-code w-3/4 mx-auto">
                 <div class="absolute top-2 right-2">
                     <button class="bg-gray-800 hover:bg-gray-700 text-white px-2 py-1 rounded" onclick="copyToClipboard()">
                         Copy
@@ -555,7 +555,7 @@
                 <pre class="max-h-72 overflow-y-auto p-4 rounded-md">
                     <code id="arduinoCode" class="whitespace-pre text-white">
             #include < Wire.h >                                // I2C Communication library
-            #include < LiquidCrystal_I2C.h >                    // LCD with I2C library
+            #include < LiquidCrystal_I2C.h >                   // LCD with I2C library
             
             LiquidCrystal_I2C lcd(0x27, 16, 2);
             
@@ -675,14 +675,24 @@
         </h2>
 
         <p class="text-justify py-2">
-            Signal / Voltage amplification is a system that often utilizes a strain gauge amplifiers, an instrumentation device designed to detect and amplify minute voltage changes. 
+            Signal / Voltage amplification is a system that often utilizes amplifiers, an instrumentation device designed to detect and amplify minute voltage changes. 
             This device measures variations in electrical resistance caused by an external force or pressure, enabling the quantification of parameters such as force, pressure, tension, and weight.
         </p>
         <p class="text-justify py-2">
             The INA111 is a high-speed, FET-input instrumentation amplifier that provides superior performance, making it a valuable component for advanced applications. 
             For low-power, general-purpose applications, the INA128 offers exceptional accuracy and is a reliable choice.
             A gain setting of x100 is recommended, achieved by connecting a 500Ω resistor between pin 1 and pin 8 of the operational amplifier.
+            The OPA227 series operational amplifiers combine low noise and wide bandwidth with high precision to make them the ideal choice for applications requiring both AC and precision DC performance. 
+            The trimmer potentiometer can be adjusted to nullify the DC offset in the output signal under static conditions.
         </p>
+        <p class="text-justify py-2">
+            The SHPB experiment utilises data from two distinct bars: the incident and transmitted bars.
+            To achieve accurate readings, two separate strain gauge amplification circuits are constructed.
+            These circuits will enhance the signals from each bar, providing a precise representation of the data collected.
+            This setup ensures a robust measurement system capable of delivering consistent and reliable results.
+        </p>
+
+
 
         <div class="items-center py-2">
             <img src="images/SHPB-PROJECT/Amplifier-Circuit.png" class="mx-auto" width="600" height="auto" />
@@ -733,6 +743,7 @@
             <li>Kolsky, H. (1963). Stress Waves in Solids. United Kingdom: Dover Publications.</li>
             <li>Chen, W. W., & Song, B. (2011). Split Hopkinson (Kolsky) Bar Design, Testing and Applications. Springer.</li>
             <li>Lifshitz, J. M., & Leber, H. (1994). Data Processing in the Split Hopkinson Pressure Bar Tests. International Journal of Impact Engineering, 15(6), 723-733. Elsevier Science Ltd.</li>
+            <li>Johnson, W. (1972). Impact strength of materials, Edward Arnold, London.</li>
 
         </ul>
 
