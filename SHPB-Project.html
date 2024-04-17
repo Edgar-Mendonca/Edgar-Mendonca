@@ -498,7 +498,81 @@
             </ul>
         </div>
 
+        <br>
         <hr>
+
+        <!--Striker Velocity Calculator-->
+        <div class="striker-velocity-calculator ml-2 py-2">
+            <h2 class="text-3xl font-bold mb-4 mt-4">Striker Velocity Calculator</h2>
+            <form id="striker-velocity-form">
+                <div class="grid grid-cols-2 gap-4 mb-2">
+                    <div>
+                        <label for="mass-striker">Mass of Striker (kg):</label>
+                        <input type="number" id="mass-striker" step="0.0001" class="border p-2 rounded w-full" required>
+                    </div>
+                    <div>
+                        <label for="length-striker">Length of Striker (m):</label>
+                        <input type="number" id="length-striker" step="0.0001" class="border p-2 rounded w-full" required>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-2">
+                    <div>
+                        <label for="displacement-striker">Displacement of Striker in Barrel (m):</label>
+                        <input type="number" id="displacement-striker" step="0.0001" class="border p-2 rounded w-full" required>
+                    </div>
+                    <div>
+                        <label for="diameter-barrel">Diameter of Barrel (m):</label>
+                        <input type="number" id="diameter-barrel" step="0.0001" class="border p-2 rounded w-full" required>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-2">
+                    <div>
+                        <label for="pressure-reservoir">Pressure in Reservoir (Pa):</label>
+                        <input type="number" id="pressure-reservoir" step="0.0001" class="border p-2 rounded w-full" required>
+                    </div>
+                    <div>
+                        <label for="striker-velocity" class="font-bold">Striker Velocity (m/s):</label>
+                        <div id="result" class="mt-4"></div>
+                    </div>
+                </div>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded">Calculate Velocity</button>
+            </form>
+           
+        </div>
+
+        <script>
+        document.getElementById("striker-velocity-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get values from form
+            const massStriker = parseFloat(document.getElementById("mass-striker").value);
+            const lengthStriker = parseFloat(document.getElementById("length-striker").value);
+            const displacementStriker = parseFloat(document.getElementById("displacement-striker").value);
+            const diameterBarrel = parseFloat(document.getElementById("diameter-barrel").value);
+            const pressureReservoir = parseFloat(document.getElementById("pressure-reservoir").value);
+            
+            // Calculate area of the barrel
+            const radiusBarrel = diameterBarrel / 2;
+            const areaBarrel = Math.PI * Math.pow(radiusBarrel, 2);
+            
+            // Calculate force
+            const force = pressureReservoir * areaBarrel;
+            
+            // Calculate acceleration
+            const acceleration = force / massStriker;
+            
+            // Calculate velocity
+            const velocityStriker = Math.sqrt(2 * acceleration * displacementStriker);
+            
+            // Display the result
+            document.getElementById("result").textContent = `${velocityStriker.toFixed(4)} m/s`;
+        });
+        </script>
+
+
+        <br>
+        <hr>
+        
 
         <!--Velocity Measurement System-->
         <div class="ml-2 py-2">
