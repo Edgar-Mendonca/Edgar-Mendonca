@@ -231,7 +231,7 @@
          </li>
 
          <li>
-            <a href="#exp-results" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="#experiment-results" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
                     <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
                 </svg>
@@ -925,14 +925,224 @@
             </div>
         </div>
 
+        <br>
+        <hr>
+ 
+        <!--Experiment Results-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group p-2">
+            Experiment Results
+            <span id="experiment-results" class="absolute -top-[140px]"></span>
+            <a href="#experiment-results" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
 
+        
+        <!--Conversion of Voltage to Strain-->
+        <div class="conversion-voltage-to-strain mt-4">
+            <h3 class="text-2xl font-bold mb-2">Conversion of Voltage to Strain for Strain Gauge Measurements</h3>
+            <p>
+                In the Split Hopkinson Pressure Bar (SHPB) experiment, strain gauges are typically placed on the input and output bars to measure the incident, reflected, and transmitted pulses during the test. These strain gauges produce voltage signals in response to the strain experienced by the bars.
+            </p>
+            <p>
+                Follow these steps to convert the output voltage data from the strain gauges to strain:
+            </p>
+            <p>
+                <strong>1. Calibration of Strain Gauges:</strong><br>
+                Each strain gauge has a specific gauge factor (<strong>GF</strong>). This is a sensitivity coefficient that relates the change in resistance (or voltage) to the strain experienced by the gauge. It is defined as:
+            </p>
+            <p class="text-center">
+                \[
+                \text{GF} = \frac{\Delta R}{R_0 \cdot \varepsilon}
+                \]
+            </p>
+            <p>
+                Where:
+            </p>
+            <ul class="list-disc ml-6">
+                <li>\(\Delta R\) is the change in resistance of the gauge due to strain.</li>
+                <li>\(R_0\) is the original resistance of the gauge.</li>
+                <li>\(\varepsilon\) is the strain experienced by the gauge.</li>
+            </ul>
+            <p>
+                <strong>2. Measure Voltage Output:</strong><br>
+                During the experiment, strain gauges measure the strain experienced by the bars and convert it into voltage changes. Use a data acquisition system (DAQ) to record the voltage output from the strain gauges.
+            </p>
+            <p>
+                <strong>3. Convert Voltage to Strain:</strong><br>
+                Convert the voltage change to strain using the gauge factor and the applied excitation voltage. The relationship between the change in voltage (\(\Delta V\)) and the strain (\(\varepsilon\)) is given by:
+            </p>
+            <p class="text-center">
+                \[
+                \varepsilon = \frac{\Delta V}{V_{\text{ex}} \cdot \text{GF}}
+                \]
+            </p>
+            <p>
+                Where:
+            </p>
+            <ul class="list-disc ml-6">
+                <li>\(V_{\text{ex}}\) is the excitation voltage applied to the strain gauge.</li>
+                <li>\(\Delta V\) is the change in voltage output from the strain gauge.</li>
+            </ul>
+            <p>
+                Apply the formula to each recorded voltage output from the strain gauges. This will give you the strain experienced by the bar at the location of each gauge.
+            </p>
+            <p>
+                Further processing may be required to filter the data and remove any noise or high-frequency components that could interfere with your analysis.
+            </p>
+            <p>
+                Analyze the strain-time data to determine the mechanical properties of the specimen, such as stress-strain curves, strain rate, and other parameters.
+            </p>
+        </div>
 
+        <!--Conversion of Output Voltage Data to Strain in SHPB Experiment-->
+        <div class="voltage-to-strain mt-4">
+            <h3 class="text-2xl font-bold mb-2">Conversion of Output Voltage Data to Strain in SHPB Experiment</h3>
+            <p class="text-justify">
+                In the Split Hopkinson Pressure Bar (SHPB) experiment, strain gauges are typically placed on the input and output bars to measure the incident, reflected, and transmitted pulses during the test. These strain gauges produce voltage signals in response to the strain experienced by the bars.
+                Converting the output voltage data from strain gauges to strain requires the use of several key parameters, including the amplifier gain, the gauge factor of the strain gauge, and the bridge factor of the strain gauge configuration.
+            </p>
+            <p>
+                <strong>1. Output Voltage Data:</strong> The strain gauges used in the SHPB experiment produce an output voltage, denoted as \( V_{\text{out}} \), in response to strain. This output voltage is a measure of the change in resistance of the strain gauge due to mechanical deformation.
+            </p>
+            <p>
+                <strong>2. Excitation Voltage:</strong> The strain gauges are typically connected in a Wheatstone bridge configuration, which is excited by a known voltage, denoted as \( V_{\text{excited}} \).
+            </p>
+            <p>
+                <strong>3. Amplifier Gain:</strong> The output from the Wheatstone bridge may be amplified using an amplifier. The gain, denoted as \( G \), of the amplifier influences the relationship between the actual output voltage and the measured output voltage.
+            </p>
+            <p>
+                <strong>4. Gauge Factor:</strong> The gauge factor, denoted as \( \text{G.F.} \), quantifies the sensitivity of the strain gauge to strain. It is a constant provided by the manufacturer that relates the change in resistance to the applied strain.
+            </p>
+            <p>
+                <strong>5. Bridge Factor:</strong> The bridge factor, denoted as \( \text{B.F.} \), accounts for the configuration of the strain gauges in the Wheatstone bridge. In a full bridge configuration, four strain gauges are typically connected in the bridge, and the bridge factor can vary depending on the arrangement of the gauges.
+            </p>
+            <p>
+                The formula to convert the output voltage data from the strain gauges to strain is:
+            </p>
+            <p class="text-center">
+                \[
+                \frac{V_{\text{out}}}{V_{\text{excited}}} = \frac{\varepsilon \times G \times \text{G.F.} \times \text{B.F.}}{4}
+                \]
+            </p>
+            <p>
+                This formula can be rearranged to solve for strain:
+            </p>
+            <p class="text-center">
+                \[
+                \varepsilon = \left( \frac{V_{\text{out}}}{V_{\text{excited}}} \right) \times \left( \frac{4}{G \times \text{G.F.} \times \text{B.F.}} \right)
+                \]
+            </p>
+            
+        </div>
 
+        <!--Bridge Factor Explanation-->
+        <div class="bridge-factor-explanation mt-4">
+            <h3 class="text-2xl font-bold mb-2">Bridge Factor Explanation</h3>
+            <p>
+                When using a full bridge configuration with alternating longitudinal and lateral strain gauges (long-lat-long-lat) in the Split-Hopkinson Pressure Bar (SHPB) experiment, the correct bridge factor (B.F.) can be determined based on the contributions of the longitudinal and lateral gauges and the Poisson's ratio (\(\mu\)) of the bar material.
+            </p>
+            <p>
+                <strong>Explanation:</strong> In a full bridge setup with alternating longitudinal and lateral gauges, each gauge measures a different strain: longitudinal gauges measure axial strain, while lateral gauges measure lateral strain (which is related to axial strain through Poisson's ratio).
+            </p>
+            <p>
+                The overall bridge factor is a weighted sum of the sensitivity of the four gauges. Since the lateral gauges respond to the Poisson's effect, their response must be adjusted according to the Poisson's ratio of the bar material.
+            </p>
+            <p>
+                The simplest formula for calculating the bridge factor in this configuration is:
+            </p>
+            <p class="text-center">
+                \[
+                \text{B.F.} = 2 \times (1 + \mu)
+                \]
+            </p>
+            <p>
+                Where:
+            </p>
+            <ul>
+                <li>\( \text{B.F.} \) is the bridge factor for the full bridge configuration.</li>
+                <li>\( \mu \) is the Poisson's ratio of the bar material.</li>
+            </ul>
+            <p>
+                This formula is derived from the contributions of the two longitudinal and two lateral gauges in the bridge, accounting for the effect of Poisson's ratio on the lateral gauges.
+            </p>
+            <p>
+                Therefore, using the formula \( \text{B.F.} = 2 \times (1 + \mu) \) for calculating the bridge factor is the correct theory for the full bridge long-lat-long-lat configuration.
+            </p>
+        </div>
+
+        <!--Bridge Factor Explanation for Different Configurations-->
+        <div class="bridge-factor-explanation mt-4">
+            <h3 class="text-2xl font-bold mb-2">Bridge Factor Explanation for Different Configurations</h3>
+            <p>
+                When all the strain gauges in the Split-Hopkinson Pressure Bar (SHPB) experiment are oriented in the longitudinal direction, the calculation of the bridge factor (B.F.) depends on whether the gauges are configured in a full bridge or a half bridge setup.
+            </p>
+
+            <p>
+                <strong>1. Full Bridge Configuration (Longitudinal Gauges):</strong>
+            </p>
+            <p>
+                In a full bridge configuration with all gauges oriented in the longitudinal direction, the bridge factor (B.F.) is equal to the total number of strain gauges in the bridge. Since all the gauges are aligned in the same orientation, their individual contributions are directly added.
+            </p>
+            <p class="text-center">
+                \[
+                \text{B.F.} = \text{number of gauges in the bridge} = 4
+                \]
+            </p>
+            <p>
+                Therefore, in a full bridge configuration with all longitudinal gauges, the bridge factor is typically equal to 4.
+            </p>
+
+            <p>
+                <strong>2. Half Bridge Configuration (Longitudinal Gauges):</strong>
+            </p>
+            <p>
+                In a half bridge configuration with all gauges oriented in the longitudinal direction, there are two active strain gauges in the circuit, and the other two resistors in the Wheatstone bridge are reference resistors.
+            </p>
+            <p class="text-center">
+                \[
+                \text{B.F.} = \text{number of active gauges in the bridge} = 2
+                \]
+            </p>
+            <p>
+                Therefore, in a half bridge configuration with all longitudinal gauges, the bridge factor is equal to 2.
+            </p>
+
+            <p>
+                Knowing the bridge factor is crucial for accurately converting output voltage data from the strain gauges to strain in the SHPB experiment.
+            </p>
+        </div>
 
 
         <br>
         <hr>
- 
+
+        <!--Analysis of Data-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group p-2">
+            Analysis of Data
+            <span id="analysis-of-data" class="absolute -top-[140px]"></span>
+            <a href="#analysis-of-data" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+
+        
+
+
+        <!--Link to Code-->
+        <div class="mt-4 flex">
+            <a href="https://github.com/Edgar-Mendonca/SHPB-Analysis" class="mx-2 flex p-1 mr-4" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                </svg> 
+                <span class="ml-2 align-middle">Code on GitHub</span>
+            </a>
+        </div>
+
+
+        <br>
+        <hr>
 
         <!-- References -->
         <h2 class="text-4xl font-extrabold mb-4 relative group mt-8">
