@@ -39,6 +39,8 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+  
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
@@ -446,10 +448,52 @@
                 #
             </a>
         </h2>
-        <div class="items-center">
+        <div class="items-center py-2">
             <img src="images/SHPB-PROJECT/SHPB-Setup-Outline.png" class="mx-auto" width="800" height="auto" />
             <p class="text-center mt-2 italic">Outline of SHPB</p>
         </div>
+
+        <div class="items-center py-2">
+            <img src="images/SHPB-PROJECT/shpb_setup-annotated.png" class="mx-auto" width="800" height="auto" />
+            <p class="text-center mt-2 italic">Annotated Setup of SHPB</p>
+        </div>
+
+        <!--SHPB Setup Slider-->
+        <div class="swiper mySwiper py-5">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/SHPB-PROJECT/SHPB-Slide-1.jpeg" width="600" height="auto" class="mx-auto"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/SHPB-PROJECT/SHPB-Slide-2.jpeg" width="600" height="auto" class="mx-auto"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/SHPB-PROJECT/SHPB-Slide-3.jpeg" width="600" height="auto" class="mx-auto"/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/SHPB-PROJECT/SHPB-Slide-4.jpeg" width="600" height="auto" class="mx-auto"/>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <p class="text-center mt-2 italic">Setup Images of SHPB</p>
+
+        
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    dynamicBullets: true,
+                },
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+            });
+        </script>
+        
 
         <br>
         <hr>
@@ -1071,6 +1115,7 @@
             </p>
         </div>
 
+
         <!--Bridge Factor Explanation for Different Configurations-->
         <div class="bridge-factor-explanation mt-4">
             <h3 class="text-2xl font-bold mb-2">Bridge Factor Explanation for Different Configurations</h3>
@@ -1109,9 +1154,40 @@
             </p>
 
             <p>
+                <strong>3. Strain Gauge Rosette (Longitudinal-Lateral Configuration):</strong>
+            </p>
+            <p>
+                A strain gauge rosette consists of gauges oriented in different directions, typically in a long-lat configuration (longitudinal and lateral). In a half bridge setup with a strain gauge rosette, two strain gauges are oriented differently and connected in the bridge circuit, which creates a half bridge configuration.
+            </p>
+            <p class="text-center">
+                \[
+                \text{B.F.} = \text{number of active gauges in the rosette} = 2
+                \]
+            </p>
+            <p>
+                Therefore, in a strain gauge rosette with a long-lat configuration used in a half bridge setup, the bridge factor is equal to 2.
+            </p>
+
+            <p>
+                <strong>4. Single or QuarterBridge Configuration:</strong>
+            </p>
+            <p>
+                In a quarter bridge configuration, there is one active strain gauge and three reference resistors. This setup is simpler and provides less sensitivity compared to the half or full bridge configurations.
+            </p>
+            <p class="text-center">
+                \[
+                \text{B.F.} = \text{number of active gauges in the bridge} = 1
+                \]
+            </p>
+            <p>
+                Therefore, in a quarter or single bridge configuration, the bridge factor is equal to 1.
+            </p>
+
+            <p>
                 Knowing the bridge factor is crucial for accurately converting output voltage data from the strain gauges to strain in the SHPB experiment.
             </p>
         </div>
+
 
 
         <br>
