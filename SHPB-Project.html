@@ -494,7 +494,6 @@
             });
         </script>
         
-
         <br>
         <hr>
 
@@ -1202,19 +1201,71 @@
             </a>
         </h2>
 
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Code Explanation and Pointers</h3>
 
-        
+            <p class="text-justify py-2">
+                <strong>Importing Libraries:</strong>  
+                The code imports necessary libraries such as Pandas for data manipulation, NumPy for numerical computations, Matplotlib for plotting, and functions from SciPy for signal filtering and numerical integration.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Input Parameters:</strong>  
+                Initial values for various physical parameters like Young's modulus, density, initial length, and cross-sectional areas of bars and specimen are provided.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Reading Data:</strong>  
+                The code reads experimental data from a CSV or Excel file depending on the specified file type. It extracts time, incident voltage, reflected voltage, and transmitted voltage data from the file.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Filtering Data:</strong>  
+                Savitzky-Golay filter is applied to smooth out noise in the voltage data.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Calculating Strain and Strain Rates:</strong>  
+                The filtered voltage data is converted into strain using a provided relation. Then, particle velocities at specimen/bar interfaces are calculated, followed by mean axial strain rate in the specimen.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Integrating Strain Rate:</strong>  
+                The mean axial strain rate is integrated over time to obtain nominal strain using cumulative trapezoidal integration.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Calculating Stress:</strong>  
+                Nominal stress in the specimen is calculated using the transmitted voltage data and physical parameters.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Calculating True Strain and True Stress:</strong>  
+                True strain is calculated using logarithmic strain transformation, and true stress is calculated based on nominal stress and true strain.
+            </p>
+            <p class="text-justify py-2">
+                <strong>Plotting:</strong>  
+                The code then plots various data and results. It first plots the raw voltage data over time, then the filtered voltage data, strain data, stress-strain curve (nominal), and true stress-strain curve.
+            </p>
 
+        </div>
+
+        <br>
+        <hr>
+
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Analysis Instructions</h3>
+
+
+        </div>
+
+        <br>
+        <hr>
 
         <!--Link to Code-->
-        <div class="mt-4 flex">
-            <a href="https://github.com/Edgar-Mendonca/SHPB-Analysis" class="mx-2 flex p-1 mr-4" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                </svg> 
-                <span class="ml-2 align-middle">Code on GitHub</span>
-            </a>
-        </div>
+        <p class="font-bold text-lg p-1 mt-4 italic">
+            Links to SHPB Analysis Code
+        </p>
+
+        <a href="https://github.com/Edgar-Mendonca/SHPB-Analysis" target="_blank" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg> 
+            <span class="ml-2 align-middle">Code on GitHub</span>
+        </a>
 
 
         <br>
