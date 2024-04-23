@@ -937,6 +937,79 @@
             </a>
         </h2>
 
+        <!--Design Theory of SHPB Experiment-->
+        <h2 class="text-3xl font-bold mb-4 mt-4">Design Theory of SHPB Experiment</h2>
+
+        <p class="mb-4">The design of a specific Kolsky bar experiment is fundamentally centered around two key aspects: the specimen design and the projectile impact velocity selection. These factors are pivotal in achieving the desired strain rate within the specimen, thereby facilitating accurate data acquisition and analysis.</p>
+
+        <p class="mb-4">Among the design parameters, the choice of specimen length (\( l_0 \)) and diameter (\( d_0 \)) holds paramount importance. Additionally, the selection of the projectile impact velocity plays a crucial role in achieving the desired strain rate. Other design parameters such as the bar length (\( L \)) and bar diameter (\( D \)) are more relevant to the overall design of the Kolsky bar system rather than the specific experiment.</p>
+
+        <p class="mb-4">Three critical ratios dictate the design considerations: \( \frac{L}{D} \), \( \frac{D}{d_0} \), and \( \frac{l_0}{d_0} \). Typically, the ratio \( \frac{L}{D} \) falls within the range of approximately 100, while \( \frac{D}{d_0} \) typically ranges from 2 to 4. The ratio \( \frac{l_0}{d_0} \) typically ranges from 0.6 to 1.</p>
+
+        <p class="mb-4">The selection of the bar diameter (\( D \)) is contingent upon several factors, including the material under test, the availability of typical specimen sizes, and the permissible degree of wave dispersion. While a larger value of \( \frac{D}{d_0} \) allows for the testing of harder specimen materials, it's essential to consider the interface between the specimen and the bar. The expectation that this interface can be approximated as a plane imposes limitations on the value of \( \frac{D}{d_0} \).</p>
+
+
+        <!--Experimental Design Approach-->
+        <h2 class="text-2xl font-bold mb-4 mt-4">Experimental Design Approach</h2>
+
+        <p class="mb-4">A systematic approach to experimental design is outlined below. The strain in the incident pulse (\( \varepsilon_1 \)) is given by:</p>
+
+        <p class="mb-4">\[ \varepsilon_1 = \frac{V}{2C_b} \]</p>
+
+        <p class="mb-4">Where \( V \) represents the projectile velocity. Utilizing this equation along with the equilibrium condition (\( P_1 = P_2 \)) and \( S_s(t) = \frac{E_b A_b}{A_s} \varepsilon_T(t) \), we can express the specimen stress entirely in terms of the reflected strain and the impact velocity:</p>
+
+        \[ S_s(t) = \frac{E_b A_b}{A_s} \varepsilon_T(t) = \left( \frac{E_b A_b}{A_s} \right) (\varepsilon_I + \varepsilon_R) = \left( \frac{E_b A_b}{A_s} \right) \left( \frac{V}{2C_b} + \varepsilon_R \right) \]
+
+
+        <p class="mb-4">However, the equation \[ \dot{e}_s(t) = \frac{2c_b}{l_0} \varepsilon_R(t) \] allows us to express the strain in the reflected pulse in terms of the specimen strain rate:</p>
+
+        <p class="mb-4">\[ \varepsilon_R = -\frac{l_0}{2C_b} \dot{e}_s \]</p>
+
+        <p class="mb-4">Using this in the previous equation, we obtain the relation between the specimen stress and the specimen strain rate that must be satisfied during any given test using a specific Kolsky bar, a specific specimen, and a particular choice of impact velocity:</p>
+
+        \[ S_s(t) = Eb \cdot \left( \frac{{A_b}}{{A_s}} \right) \cdot \left( \frac{{V}}{{2C_b}} \right) - Eb \cdot \left( \frac{{A_b}}{{A_s}} \right) \cdot \left( \frac{{lo}}{{2C_b}} \right) \cdot \dot{e}_s \]
+
+
+        <p class="mb-4 text-justify">
+            This last result represents what we call a test characteristic response: that is, the constraints of the experimental configuration force any observed stresses and strain rates in the specimen to satisfy. The result is shown as the straight line in the figure, which is a plot of the stress versus the strain-rate (hereafter called a response diagram). 
+            Note that in this figure compressive stresses are presented along the positive Y-axis, following our convention. The straight line represents the locus of all points in stress versus strain-rate space that can be reached using a compression Kolsky bar, a specific specimen geometry, and a specific projectile impact velocity.
+            The figure also shows the curve corresponding to the constitutive response of the specimen material (typically, the flow stress increases with strain-rate). The stresses and strain rates actually observed in a given test correspond to the intersection of the test response line with the constitutive curve.
+            In the context of material testing, the constitutive response reflects the inherent behavior of the material under varying conditions, such as strain rate. 
+        </p>
+        <p class="mb-4 text-justify">
+            Unlike experimental parameters that can be controlled, such as specimen geometry and impact velocity, the constitutive response of the material remains fixed.
+            Achieving specific strain rates during testing requires adjusting the test response line, representing the experimental parameters. To explore different points along the constitutive curve, corresponding to varying material behaviors, the straight line indicative of the experimental setup needs to be shifted accordingly.
+        </p>
+
+        <p class="mb-4 text-justify">
+            The above Equation indicates that the maximum strain rate that can be observed in a SHPB test is given by:
+        </p>
+
+        <p class="mb-4"> \[\dot{e}_s|_\text{max} = \frac{V}{l_0}\] </p>
+
+        <p class="mb-4 text-justify">while the maximum compressive stress that can be observed in such a test is given by</p>
+
+        <p>\[S_s|_\text{max} = E_b \left(\frac{A_b}{A_s}\right) \left(\frac{V}{2C_b}\right)\]</p>
+
+
+        <p class="mb-4 text-justify">
+            The figure illustrates that reaching the maximum strain rate is only feasible in an actual Kolsky bar test if the material exhibits an extremely soft response, resulting in the observed specimen stress approaching zero.
+            Conversely, attaining the maximum specimen stress in the test is only possible when the specimen strain rate is nearly zero.
+            This phenomenon mathematically reflects the well-established principle that a specific test procedure tends to yield lower strain rates for strong materials, while very soft materials can deform at significantly higher strain rates under identical testing conditions.
+        </p>
+
+        
+        <div class="items-center py-2">
+            <img src="images/SHPB-PROJECT/Response-Diagram-SHPB.png" class="mx-auto" width="600" height="auto" />
+            <p class="text-center mt-2 italic">
+                Response diagram for the compression Kolsky bar, showing the intersection of the material response curve (dashed) with the test response line
+            </p>
+        </div>
+
+
+        <br>
+        <hr>
+
         <!-- Explanation for Stress-Strain Calculation in SHPB Experiment -->
         <div class="explanation-shpb ml-2 py-2">
             <h2 class="text-3xl font-bold mb-4 mt-4">Explanation for Stress-Strain Calculation in SHPB Experiment</h2>
