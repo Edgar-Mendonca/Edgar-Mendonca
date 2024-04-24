@@ -1094,6 +1094,7 @@
                 The outline each of these requirements is discussed briefly.
             </p>
 
+            <!--Equilibrated Stresses-->
             <h2 class="text-xl font-bold mb-4 mt-4">Equilibrated Stresses</h2>
             <p class="text-justify">
                 In SHPB bar experiments, loading initially impacts one side of the specimen. Due to the finite propagation speed of stress waves within the specimen, it takes some time for stresses to equilibrate.
@@ -1106,7 +1107,33 @@
                 Typically, equilibrium verification involves comparing the force histories on both sides of the specimen.
             </p>
 
+            <!--Friction Effects-->
             <h2 class="text-xl font-bold mb-4 mt-4">Friction Effects</h2>
+            <p class="text-justify">
+                Friction at the interfaces between the specimen and the bars can disrupt the intended uniaxial stress condition, leading to artificially stiff results.
+                This effect becomes more pronounced as the ratio of specimen length to diameter \( l_0/d_o \) decreases.
+                In conventional compression Kolsky bar tests, \( l_0/d_o \) ratios typically range from 0.5 to 1.0, as recommended by Bertholf and Karnes.
+            </p>
+            <p class="text-justify">
+                The degree of interfacial friction is influenced by various factors, including the smoothness of the end surfaces, the materials of the bars and specimen, the type of lubricant used, impact velocity, and temperature.
+                Commonly employed lubricants in Kolsky bar experiments include \( Mo S_2 \) lubricants and lithium greases.
+            </p>
+
+            <!--Dispersion Effects-->
+            <h2 class="text-xl font-bold mb-4 mt-4">Dispersion Effects</h2>
+            <p class="text-justify">
+                Longitudinal waves traveling through elastic bars are subject to geometric dispersion, causing changes in the incident, reflected, and transmitted pulses as they propagate along the input and output bars.
+                The phenomenon of wave dispersion has a significant impact on the measured strain pulses, consequently affecting the observed stress-strain response. 
+                While dispersion effects can be accurately accounted for through elastic wave propagation computations, two key consequences of dispersion are noteworthy.
+            </p>
+            <p class="text-justify">
+                Firstly, dispersion inherently introduces superimposed oscillations in the loading of the specimen. 
+                Secondly, shorter stress pulses characterized by sharper rise times exhibit greater dispersion due to their higher frequency content and wider range of frequencies.
+            </p>
+            <p class="text-justify">
+                To mitigate the influence of dispersion, one strategy involves the utilization of buffer materials or shaper materials positioned between the impacting projectile and the input bar.
+                This approach facilitates the modification of the incident wave by extending its rise time, thereby reducing dispersion effects.
+            </p>
 
         </div>
  
