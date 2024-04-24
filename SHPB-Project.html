@@ -1135,6 +1135,36 @@
                 This approach facilitates the modification of the incident wave by extending its rise time, thereby reducing dispersion effects.
             </p>
 
+            <!--Inertial Effects-->
+            <h2 class="text-xl font-bold mb-4 mt-4">Inertial Effects</h2>
+            <p class="text-justify">
+                The stresses induced by axial and radial inertia must be kept minimal in comparison to the flow stress of the material being studied.
+                In high-strain-rate experiments employing stress wave loading, the impact of inertia on measured properties becomes notable, especially at extremely high strain rates.
+            </p>
+            <p class="text-justify">
+                The extent of the inertial effect on the apparent stress is also contingent upon the density and dimensions of the specimen.
+                The inertial effect in SHPB experiments that can be rewritten to emphasize specimen size and l/d ratio effects as follows:
+            </p>
+            <p class="text-justify">
+                \[ r = \frac{\sigma_{s_2} - \sigma_y}{\sigma_y} = \frac{\rho d^2}{\sigma_y} \left[ \frac{1}{64} + \frac{1}{6} \left( \frac{l_0}{d_0} \right)^2 \right]  \dot{\varepsilon}^2 \]
+            </p>
+            <p class="text-justify">
+                \( r \) is the relative error in flow stress measurement due to inertia.
+                \( \sigma_{s_2} \) and \( \sigma_y \) are the flow stress measured from the output bar and the actual yield stress of the material respectively.<br>
+                \( \rho \) is the density of the specimen material
+            </p>
+            <p class="text-justify">
+                A practical method to address inertial effects is to determine the maximum achievable strain rate while maintaining the inertial relative error \(r\) within a specified tolerance.
+                This can be achieved by establishing a relationship between the limiting strain rate, the specimen length, and the specific strength
+                \( \frac{\sigma_y}{\rho} \) for the given ratio of \( l_o/d_o \) as:
+            </p>
+            <p class="text-justify">
+                \[ \dot{\varepsilon}_{lim} = \frac{l}{l_0} \sqrt{\frac{\sigma_y}{\rho} r \left( \frac{192}{32 + \left( \frac{3}{\beta^2} \right)} \right)} \]
+            </p>
+            <p class="text-justify">
+                where, \( \beta = l_o/d_o \)
+            </p>
+
         </div>
  
 
