@@ -1391,6 +1391,20 @@
         <div class="exp-results-shpb ml-2 py-2">
             <h2 class="text-3xl font-bold mb-4 mt-4">Plotting of Experimental Results</h2>
 
+            <p class="text-center">
+                <ul class="list-disc">
+                    <li>Raw data, typically in the form of voltage-time measurements, cropped and combined to obtained incident, reflected, and transmitted bars voltages, is collected during the experiment.</li>
+                    <li>To reduce noise and extract meaningful information, a Savitzky-Golay filter is applied to the raw voltage-time data. This filtering process smooths out fluctuations and enhances the accuracy of subsequent calculations.</li>
+                    <li>The filtered voltage data is converted to strain using a predefined conversion relation. This step involves multiplying the voltage measurements by a conversion factor to obtain strain values.</li>
+                    <li>Based on the strain data, particle velocities at the specimen/input-bar and specimen/output-bar interfaces are calculated using the bar wave speed and differences in strain between incident, reflected, and transmitted waves.</li>
+                    <li>The mean axial strain rate in the specimen is computed from the differences in particle velocities normalized by the initial length of the specimen.</li>
+                    <li>The strain rate data is integrated over time to obtain nominal strain using numerical integration techniques.</li>
+                    <li>Nominal stress in the specimen is calculated using the measured voltage data, material properties, and cross-sectional areas of the bars.</li>
+                    <li>Finally, true strain is computed from the nominal strain, and true stress is obtained by correcting the nominal stress using the true strain.</li>
+                </ul>
+
+            </p>
+
             <div class="flex">
                 <div class="items-center py-2">
                     <img src="images/SHPB-PROJECT/raw-voltage-time.png" class="mx-auto" width="600" height="auto" />
@@ -1406,20 +1420,20 @@
                 </div>
             </div>  
 
-            <div class="items-center py-2">
-                <img src="images/SHPB-PROJECT/strain-time.png" class="mx-auto" width="600" height="auto" />
-                <p class="text-center mt-2 italic">
-                    Strain-Time Data (voltage data converted to strain)
-                </p>
+            <div class="flex">
+                <div class="items-center py-2">
+                    <img src="images/SHPB-PROJECT/strain-time.png" class="mx-auto" width="600" height="auto" />
+                    <p class="text-center mt-2 italic">
+                        Strain-Time Data (voltage data converted to strain)
+                    </p>
+                </div>
+                <div class="items-center py-2">
+                    <img src="images/SHPB-PROJECT/true-stress-strain.png" class="mx-auto" width="600" height="auto" />
+                    <p class="text-center mt-2 italic">
+                        True Stress-Strain
+                    </p>
+                </div>
             </div>
-
-            <div class="items-center py-2">
-                <img src="images/SHPB-PROJECT/true-stress-strain.png" class="mx-auto" width="600" height="auto" />
-                <p class="text-center mt-2 italic">
-                    True Stress-Strain
-                </p>
-            </div>
-
 
         <br>
         <hr>
