@@ -98,6 +98,9 @@
           <li>
             <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
           </li>
+          <li>
+            <a href="Random.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Random</a>
+          </li>
         </ul>
       </div>
 
@@ -1092,7 +1095,7 @@
         <hr>
 
         <!--Validation of SHPB Experiments-->
-        <div class="explanation-shpb ml-2 py-2">
+        <div class="validation-shpb ml-2 py-2">
             <h2 class="text-3xl font-bold mb-4 mt-4">Validation of SHPB Experiments</h2>
 
             <p class="text-justify">
@@ -1172,7 +1175,98 @@
             </p>
 
         </div>
- 
+
+        <br>
+        <hr>
+
+        <!--Measuring Strain with Strain Gages-->
+        <div class="strain-gauges ml-2 py-2">
+            <h2 class="text-3xl font-bold mb-4 mt-4">Measuring Strain with Strain Gages</h2>
+
+            <p class="text-justify">
+                In mechanical testing and measurement, it's crucial to comprehend how materials respond to applied forces.
+                Strain refers to the amount of deformation experienced by a material when subjected to such forces. It's essentially the ratio of the change in length of a material to its original, unaffected length.
+            </p>
+            <p class="text-justify">
+                Strain can be either positive (tensile) or negative (compressive). 
+                Positive strain occurs when a material elongates due to applied force, while negative strain occurs when it contracts.
+            </p>
+            <p class="text-justify">
+                When a material is compressed in one direction, it tends to expand in directions perpendicular to the applied force.
+                This phenomenon is known as the Poisson effect. Poisson's ratio (denoted as \( \nu \))quantifies this effect and is defined as the negative ratio of transverse strain to axial strain.
+            </p>
+            <p class="text-justify">
+                Strain is typically expressed as a dimensionless quantity. However, it's sometimes denoted in units such as inches per inch (in./in.) or millimeters per millimeter (mm/mm). 
+                Due to the small magnitude of measured strain, it's often represented in microstrain \( \mu\varepsilon \), where one microstrain is equal to \( 10^{-6} \) strain.
+            </p>
+
+            <p class="text-justify">
+                Strain gauge, often written as "strain gage," is a common tool used to measure strain in materials. It operates by monitoring changes in electrical resistance when subjected to axial, bending, shear, or torsional forces.
+                As the applied force causes deformation in the material, the electrical resistance of the strain gauge changes proportionally, allowing for the quantification of strain.
+            </p>
+            <p class="text-justify">
+                The most prevalent type of strain gauge is the bonded metallic strain gauge. This gauge typically comprises a fine wire or metallic foil arranged in a grid pattern.
+                The grid design ensures maximum sensitivity to strain in the parallel direction.
+                This grid is affixed to a thin backing called the carrier, which is directly bonded to the test specimen.
+            </p>
+
+            <div class="items-center py-2">
+                <img src="images/SHPB-PROJECT/Strain-Gauge.png" class="mx-auto" width="400" height="auto" />
+                <p class="text-center mt-2 italic">
+                    The electrical resistance of metallic grid changes in proportion to the amount of strain experienced by the test specimen.
+                </p>
+            </div>
+
+            <p class="text-justify">
+                When the test specimen undergoes strain, this deformation is transmitted directly to the strain gauge via the carrier.
+                Consequently, the strain gauge exhibits a linear alteration in its electrical resistance in response to the strain experienced by the material.
+            </p>
+
+
+            <h3 class="text-2xl font-bold mb-4 mt-4">Wheatstone Bridge Theory in Strain Gauge Measurements</h3>
+            <p class="text-justify">
+                The Wheatstone bridge is a fundamental circuit extensively utilized in strain gauge measurements, enabling precise determination of mechanical strain or deformation. 
+                Strain gauges, sensitive elements that change resistance in response to mechanical strain, are often employed in bridge configurations due to their high sensitivity and ability to detect subtle changes.
+            </p>
+
+            <div class="items-center py-2">
+                <img src="images/SHPB-PROJECT/wheatstone-bridge.png" class="mx-auto" width="300" height="auto" />
+                <p class="text-center mt-2 italic">
+                    Strain gages are configured in Wheatstone bridge circuit
+                </p>
+            </div>
+
+            <p class="text-justify">
+                In the Wheatstone bridge setup with strain gauges, balance occurs when the ratio of resistances in one voltage divider circuit matches the ratio in the other voltage divider circuit. 
+                Specifically, the bridge is balanced when:
+            </p>
+            <p class="text-justify">
+                \[ \frac{R_1}{R_2} = \frac{R_4}{R_3} \]
+            </p>
+            <p class="text-justify">
+                Achieving this balance ensures that any external disturbances, such as temperature variations or mechanical stresses, do not affect the output voltage.
+            </p>
+
+            <h3 class="text-2xl font-bold mb-4 mt-4">Output Voltage Formula:</h3>
+            <p class="text-justify">
+                The output voltage \( V_{\text{out}} \)  of an unbalanced Wheatstone bridge with strain gauges is given by:
+            </p>
+            <p class="text-justify">
+                \[ V_{\text{out}} = V_{\text{supply}} \left( \frac{R_3 R_1 - R_2 R_4}{(R_1 + R_2)(R_3 + R_4)} \right) \]
+            </p>
+            <p class="text-justify">
+                Where:
+                <ul class="list-disc ml-5">
+                    <li>\(V_{\text{supply}} \) represents the applied voltage across the bridge.</li>
+                    <li>\(R_1 R_2 R_3 R_4 \) denote the resistances of the strain gauges in each arm of the bridge.</li> 
+                </ul>
+            </p>
+            <p class="text-justify">
+                When all strain gauges in the Wheatstone bridge have identical characteristics, achieving balance results in a zero output voltage (\ V-{out} \).
+                This balanced state allows for precise measurement of mechanical strain or deformation, as any change in strain causes an imbalance and generates a measurable output voltage.
+            </p>
+
+        </div>
 
         <br>
         <hr>
