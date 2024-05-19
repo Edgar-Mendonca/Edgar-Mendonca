@@ -117,13 +117,95 @@
 </script>
 
 
-<!-- Hero Section -->
+<!--Section Header-->
 <section class="food-pattern bg-blue-50 dark:bg-gray-900 py-20">
     <div class="container mx-auto px-4 flex flex-col items-center justify-center">
         <!-- Main Text -->
         <h1 class="text-6xl tracking-tight font-extrabold text-gray-900 dark:text-white">RANDOM</h1>
+    </div>
+</section>
+
+<!--Section Content-->
+<section class="bg-white dark:bg-gray-900">
+    <div class="font-light text-black sm:text-lg dark:text-gray-400">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white p-5 ml-10">Python Cheat Sheet</h2>
+        <div class="gap-10 items-center py-5 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-5 lg:px-6">
+
+            <p class="text-justify font-medium">
+                Create and manage a virtual environment within your project folder, follow these steps:<br>
+                (*All steps for Windows operating system.)<br>
+                Navigate to Your Project Folder:<br>
+                Open your terminal or command prompt and navigate to the root directory of your project where you want to create the virtual environment.<br>
+                Create a Virtual Environment:<br>
+                In the terminal, run the following command to create a virtual environment named venv (you can choose a different name if you prefer):<br>
+                Deactivate the Virtual Environment:<br>
+                When you're done working on your project, you can deactivate the virtual environment:<br>
+            </p>
+
+            <div class="mockup-code w-4/4 mx-auto">
+            <pre class="overflow-y-auto overflow-x-hidden p-4 rounded-md">
+                <code id="pythoncheatsheetCode1" class="whitespace-pre text-white ">
+    %%Create a Virtual Environment%%
+    python -m venv venv
+
+    %%Activate the Virtual Environment%%
+    venv\Scripts\activate
+
+    %%Deactivate the Virtual Environment%%
+    deactivate
+                </code>
+            </pre>
+            </div>
+
+            
+        </div>
+
+
+        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-8 lg:px-6">
+            <p class="text-justify font-medium">
+                To generate a requirements.txt file that lists all the packages installed in your virtual environment, you can use the following command
+            </p>
+
+            <div class="mockup-code w-4/4 mx-auto">
+            <pre class=" overflow-y-auto p-4 rounded-md">
+                <code id="pythoncheatsheetCode2" class="whitespace-pre text-white overflow-x-hidden">
+    pip freeze > requirements.txt
+                </code>
+            </pre>
+            </div>
+
+        </div>
+
+
+        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-8 lg:px-6">
+            <p class="text-justify font-medium">
+                A ".gitignore" file is highly recommended to exclude certain files and directories from being tracked by Git. This is useful to prevent sensitive information, temporary files, and unnecessary files from being pushed to your repository.<br>
+                Save the .gitignore file.<br>
+                Commit and push the .gitignore file to your repository. This will ensure that the files and directories listed in the .gitignore file are not tracked by Git.
+            </p>
+
+            <div class="mockup-code w-4/4 mx-auto">
+                <pre class=" overflow-y-auto p-4 rounded-md">
+                    <code id="pythoncheatsheetCode2" class="whitespace-pre text-white overflow-x-hidden">
+    # Ignore virtual environment
+    venv/
+
+    # Ignore compiled Python files
+    __pycache__/
+
+    # Ignore IDE specific files
+    .vscode/
+    .idea/
+    *.pyc
+
+    # Ignore sensitive information
+    secrets.json
+                    </code>
+                </pre>
+                </div>
 
     </div>
+
 </section>
 
 
