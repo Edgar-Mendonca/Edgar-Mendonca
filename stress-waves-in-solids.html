@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Waves in Solids-Edgar Mendonca</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+
+    <meta property="og:title" content="Edgar Mendonca">
+    <meta property="og:description" content="Freelance Consultan, Engineering, Sciences, Web Developer, R&D">
+    <meta property="og:image" content="https://edgar-mendonca.github.io/Edgar-Mendonca/images/logo.jpeg">
+    <meta property="og:url" content="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edgar Mendonca">
+    <meta name="twitter:description" content="Freelance Consultan, Engineering, Sciences, Web Developer, R&D">
+    <meta name="twitter:image" content="https://edgar-mendonca.github.io/Edgar-Mendonca/images/logo.jpeg">
+    <meta name="twitter:url" content="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+
+    <link rel="stylesheet" href="css/styles.css">   
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://unpkg.com/gsap@3.12.5"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- MathJax CDN -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCR8GXNE0M"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JCR8GXNE0M');
+    </script>
+
+</head>
+
+
+<body class="bg-white dark:bg-gray-800  font-family: 'Inter', sans-serif; ">
+
+<!-- Navbar -->
+<nav class="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-10 shadow-lg" id="navbar">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="images/logo.jpeg" class="h-8" alt="Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Edgar Mendonca</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#portfolio" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+            </li>
+            <li>
+              <a href="Random.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Random</a>
+            </li>
+          </ul>
+      </div>
+
+      <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+      </button>
+
+    </div>
+</nav>
+<script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", () => {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (currentScroll > lastScrollTop) {
+            document.getElementById("navbar").style.top = "-95px"; 
+        } else {
+            document.getElementById("navbar").style.top = "0";
+        }
+    
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+</script>
+
+
+<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+    </svg>
+</button>
+
+ <!--Left Vertical Navbar-->
+ <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 max-h-[75vh] overflow-y-auto transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+       <ul class="space-y-2 font-medium">
+
+          <li>
+            <form id="search-form" class="max-w-md mx-auto">
+                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." required />
+                    <div class="absolute end-2.5 top-1/2 transform -translate-y-1/2">
+                        <kbd class="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">Ctrl+k</kbd>
+                    </div>
+                </div>
+            </form>
+          </li>
+
+          <li>
+            <a href="#SWIS" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                  </svg>
+                <span class="ml-3">Introduction</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#body-waves" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M80-240v-80q38 0 56.5-20t77.5-20q59 0 77.5 20t54.5 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20q38 0 55.5-20t76.5-20q59 0 77.5 20t56.5 20v80q-57 0-77.5-20T746-280q-36 0-54.5 20T614-240q-57 0-77.5-20T480-280q-38 0-56.5 20T346-240q-59 0-76.5-20T214-280q-38 0-56.5 20T80-240Zm0-160v-80q38 0 56.5-20t77.5-20q57 0 76.5 20t55.5 20q38 0 56.5-20t77.5-20q57 0 77 20t55 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20v80q-59 0-78.5-20T746-440q-36 0-54.5 20T614-400q-57 0-77.5-20T480-440q-38 0-55.5 20T348-400q-59 0-78.5-20T214-440q-36 0-56.5 20T80-400Zm0-160v-80q38 0 56.5-20t77.5-20q57 0 76.5 20t55.5 20q38 0 56.5-20t77.5-20q57 0 77 20t55 20q38 0 56.5-20t77.5-20q57 0 77.5 20t56.5 20v80q-59 0-78.5-20T746-600q-36 0-54.5 20T614-560q-57 0-77.5-20T480-600q-38 0-55.5 20T348-560q-59 0-78.5-20T214-600q-36 0-56.5 20T80-560Z"/>
+                </svg>
+                <span class="ml-3">Body Waves</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#surface-waves" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M80-146v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19T280-280q38 0 62.5 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-174.5q-21-10.5-41-19t-49-8.5q-28 0-48.5 8.5t-41 19Q570-164 544.5-155t-64.5 9q-39 0-64.5-9t-46-19.5Q349-185 329-193.5t-49-8.5q-28 0-48.5 8.5t-41.5 19Q169-164 143.5-155T80-146Zm0-178v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19T280-458q38 0 62.5 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-352.5q-21-10.5-41-19t-49-8.5q-29 0-49.5 8.5t-41 19Q569-342 544-333t-64 9q-39 0-64.5-9t-46-19.5Q349-363 329-371.5t-49-8.5q-28 0-48.5 8.5t-41.5 19Q169-342 143.5-333T80-324Zm0-178v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19T280-636q38 0 62.5 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-530.5q-21-10.5-41-19t-49-8.5q-28 0-48.5 8.5t-41 19Q570-520 544.5-511t-64.5 9q-39 0-64.5-9t-46-19.5Q349-541 329-549.5t-49-8.5q-28 0-48.5 8.5t-41.5 19Q169-520 143.5-511T80-502Zm0-178v-78q29 0 49.5-9t41.5-19.5q21-10.5 46.5-19T280-814q38 0 62.5 8.5t45.5 19q21 10.5 42 19.5t50 9q29 0 50-9t42-19.5q21-10.5 46-19t62-8.5q38 0 63 8.5t46 19q21 10.5 42 19.5t49 9v78q-38 0-63.5-9T770-708.5q-21-10.5-41-19t-49-8.5q-28 0-48.5 8.5t-41 19Q570-698 544.5-689t-64.5 9q-39 0-64.5-9t-46-19.5Q349-719 329-727.5t-49-8.5q-28 0-48.5 8.5t-41.5 19Q169-698 143.5-689T80-680Z"/>
+                </svg>
+                <span class="ml-3">Surface Waves</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#hertz-contact-theory" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="m256-120-56-56 193-194q23-23 35-52t12-61v-204l-64 63-56-56 160-160 160 160-56 56-64-63v204q0 32 12 61t35 52l193 194-56 56-224-224-224 224Z"/>
+                </svg>
+                <span class="ml-3">Hertz Contact Theory</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#experiment-setup" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M200-120q-51 0-72.5-45.5T138-250l222-270v-240h-40q-17 0-28.5-11.5T280-800q0-17 11.5-28.5T320-840h320q17 0 28.5 11.5T680-800q0 17-11.5 28.5T640-760h-40v240l222 270q32 39 10.5 84.5T760-120H200Zm80-120h400L544-400H416L280-240Zm-80 40h560L520-492v-268h-80v268L200-200Zm280-280Z"/>
+                </svg>
+                <span class="ml-3">Experiment Setup</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#references" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M660-160h40v-160h-40v160Zm20-200q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM200-800v640-640 200-200Zm80 400h147q11-23 25.5-43t32.5-37H280v80Zm0 160h123q-3-20-3-40t3-40H280v80ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h320l240 240v92q-19-6-39-9t-41-3v-40H480v-200H200v640h227q11 23 25.5 43T485-80H200Zm480-400q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480Z"/>
+                </svg>
+                <span class="ml-3">References</span>
+            </a>
+          </li>
+
+
+       </ul>
+    </div>
+ </aside>
+
+
+
+<!--Right Content--> 
+<div class="p-4 sm:ml-64 text-black dark:text-white">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        
+        <!--SHPB Introduction-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Stress Waves in Solids
+            <span id="SWIS" class="absolute -top-[140px]"></span>
+            <a href="#SWIS" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <p class="text-justify">
+            The study of stress waves in solids is crucial for understanding how materials respond to sudden forces.
+            This knowledge is essential in fields such as civil engineering, materials science, and seismology, where predicting the behavior of structures under dynamic loads can prevent catastrophic failures and enhance safety.
+        </p>
+
+        <p class="text-justify">
+            Stress can be understood as the internal resistance of a body to external forces acting upon it.
+            Under typical conditions, forces are gradually applied over time, allowing the stress and displacement fields within the body to adjust continuously.
+            This process leads to an overall equilibrium as the load is steadily imposed.
+        </p>
+
+        <p class="text-justify">
+            However, when loads are suddenly applied within the volume of the body—such as during earthquakes, impacts from projectiles, or surface explosions—local stresses are generated. 
+            These stresses do not immediately propagate throughout the entire object, causing the rest of the body to remain initially unaware of these localized impacts.
+            Instead, these localized stresses travel through the body as stress waves over a finite period of time. 
+            As they propagate, they convey the impact of the sudden displacement to other regions of the object, eventually affecting its overall structural integrity.
+        </p>
+
+        <p class="text-justify">
+            Understanding the propagation of stress waves is essential for designing materials and structures that can withstand dynamic loads.
+            This involves studying the speed, attenuation, and reflection of these waves within different materials and configurations, which provides insights into mitigating damage from sudden impacts.
+        </p>
+
+        <br>
+        <hr>
+        <br>
+
+        <!--Body Waves-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Body Waves
+            <span id="body-waves" class="absolute -top-[140px]"></span>
+            <a href="#body-waves" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <p class="text-justify">
+            Body waves are a type of seismic wave that travel through the interior of a material.
+            They are crucial in the study of stress waves in solids as they provide valuable information about the internal structure and properties of the material.
+            There are two primary types of body waves: Primary waves (P-waves) and Secondary waves (S-waves), each with distinct characteristics and behaviors.
+        </p>
+
+        <h2 class="text-2xl font-bold mb-4 mt-4">Primary Waves (P-waves)</h2>
+        <p class="text-justify">
+            P-waves, also known as compressional waves, are the fastest type of seismic wave and thus the first to be detected by seismographs following an event such as an earthquake or explosion.
+            They travel through solids, liquids, and gases by compressing and expanding the material in the direction the wave is moving.
+            This movement is analogous to the way sound waves travel through air.
+        </p>
+
+        <h2 class="text-2xl font-bold mb-4 mt-4">Secondary Waves (S-waves)</h2>
+        <p class="text-justify">
+            S-waves, or shear waves, are slower than P-waves and arrive after them.
+            They travel only through solids and move by shearing or shaking the material perpendicular to the direction of wave propagation. 
+            This shearing action makes S-waves more destructive than P-waves, as they tend to cause more intense ground shaking.
+        </p>
+
+
+        <div class="flex py-1">
+            <div class="items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/p-wave-animation.gif" class="mx-auto" width="500" height="auto" />
+                <p class="text-center mt-2 italic">A P wave travels through a medium by means of compression and dilatation</p>
+            </div>
+            <div class="items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/s-wave-animation.gif" class="mx-auto" width="500" height="auto" />
+                <p class="text-center mt-2 italic">An S wave travels through a medium by shear motion</p>
+            </div>
+        </div>
+
+        <p class="text-justify">
+            Understanding P-waves and S-waves is essential for seismologists and engineers, as analyzing their propagation through materials can reveal critical information about the material's properties and behavior under stress. 
+            This knowledge aids in designing structures that can better withstand seismic events and other dynamic loads.
+        </p>
+
+        <br>
+        <hr>
+
+        <!--Surface Waves-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Surface Waves
+            <span id="surface-waves" class="absolute -top-[140px]"></span>
+            <a href="#surface-waves" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <p class="text-justify">
+            Surface waves are a type of seismic wave that travel along the surface of a material rather than through its interior. 
+            These waves typically result from the interaction of body waves with the surface of the Earth or other materials and are responsible for much of the damage during earthquakes due to their large amplitude and slower decay.
+            There are two primary types of surface waves: Rayleigh waves and Love waves, each exhibiting distinct motion patterns and characteristics.
+        </p>
+
+        <h2 class="text-2xl font-bold mb-4 mt-4">Rayleigh Waves</h2>
+        <p class="text-justify">
+            Rayleigh waves, named after Lord Rayleigh who first predicted their existence, are a type of surface wave that propagate with an elliptical motion.
+            This motion is a combination of both longitudinal and transverse movements, causing particles in the medium to move in an elliptical path as the wave passes.
+            Rayleigh waves are responsible for the rolling motion felt during earthquakes, and their ability to cause both vertical and horizontal ground displacement makes them highly destructive, especially for buildings and structures.
+        </p>
+
+        <h2 class="text-2xl font-bold mb-4 mt-4">Love Waves</h2>
+        <p class="text-justify">
+            Love waves, named after A.E.H. Love who developed the mathematical model for them, are another type of surface wave characterized by horizontal shear motion.
+            Unlike Rayleigh waves, Love waves do not involve vertical displacement and are confined to horizontal movement.
+            Love waves are particularly damaging to the foundations and lower structures of buildings due to their horizontal shearing effect. 
+            Their ability to cause significant lateral ground displacement poses a severe risk to infrastructure during seismic events.
+        </p>
+
+        <div class="flex py-1">
+            <div class="items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/rayleigh-wave-animation.gif" class="mx-auto" width="500" height="auto" />
+                <p class="text-center mt-2 italic">A Rayleigh wave travels through a medium.</p>
+            </div>
+            <div class="items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/love-wave-animation.gif" class="mx-auto" width="500" height="auto" />
+                <p class="text-center mt-2 italic">A Love wave travels through a medium.</p>
+            </div>
+        </div>
+
+        <p class="text-justify">
+            Surface waves, including Rayleigh and Love waves, play a critical role in the propagation of seismic energy along the Earth's surface.
+            Understanding their characteristics, such as motion patterns, speed, and amplitude, is essential for assessing the potential impact of earthquakes and designing structures to withstand their destructive effects.
+            While body waves provide information about the internal properties of materials, surface waves are crucial for understanding and mitigating the damage to structures and the Earth's surface during seismic events.
+        </p>
+
+
+        <br>
+        <hr>
+        <br>
+
+        <!--Hertz Contact Theory-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Hertz Contact Theory
+            <span id="hertz-contact-theory" class="absolute -top-[140px]"></span>
+            <a href="#hertz-contact-theory" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        <h2 class="text-2xl font-bold mb-4 mt-4">Deformation Kinematics during Impact of a Ball on a Rod</h2>
+
+        <p class="text-justify">
+            The impact between a ball and a bar can be effectively analyzed using Hertz contact theory, which describes the contact mechanics and stress distribution between two elastic bodies. This analysis involves understanding the nonlinear differential equations that govern the stress pulse generated in the bar and the relative stiffness and compression characteristics of the materials involved.
+        </p>
+
+        <div class="items-center py-2 px-1">
+            <img src="images/Stress-Waves-In-Solids/ball-bar-annotation.png" class="mx-auto" width="500" height="auto" />
+            <p class="text-center mt-2 italic">Schematic and Annotations of Ball Bar Impact</p>
+        </div>
+
+        <p class="text-justify">
+            The nonlinear differential equation that governs the stress pulse created in the bar during the impact of a ball is:
+        </p>
+
+        <p>
+            \[ \frac{d^2 \alpha}{dt^2} + \frac{KC}{AE}\frac{d\alpha^{3/2}}{dt} + \frac{K}{m} \alpha^{3/2} = 0  \]
+        </p>
+
+        <p class="text-justify">
+            where:
+            <ul class="list-disc ml-3">
+                <li>\( \alpha \) is the total relative compression of the striking ball and the struck rod.</li>
+                <li>\( K \)  is the relative stiffness.</li>
+                <li>\( m \) is the mass of the striker (ball).</li>
+            </ul>
+        </p>
+
+        <p class="text-justify py-1">
+            The relative stiffness \( K \) is given by:
+        </p>
+
+        <p>
+            \[ K = \frac{4}{3\pi} \frac{R^{1/2}}{k_1 + k_2} \]
+        </p>
+        <p class="text-justify">
+            where \(k_1\) and \(k_2 \) is expressed as:
+        </p>
+        <p>
+            \[k_1 = \frac{1-\nu^2}{\pi E_1} \] \[k_2 = \frac{1-\nu^2}{\pi E_2} \]
+        </p>
+        <p class="text-justify">
+            <ul class="list-disc ml-3">
+                <li>\(R\) is the radius of the bar.</li>
+                <li>\(E_1\) and \(E_2 \) are the Young’s moduli of the ball and rod, respectively.</li>
+                <li>\(\nu_1\) and \(\nu_2 \) are the Poisson’s ratios of the ball and rod, respectively.</li>
+            </ul>
+        </p>
+
+        <p class="text-justify py-1">
+            The force \(F\)  at the ball-bar interface is given by:
+        </p>
+        <p>
+            \[F(t) =K[\alpha(t)]^{1/2} \]
+        </p>
+
+        <p class="text-justify py-1">
+            The transient stress \(\sigma\)  in the bar is given by:
+        </p>
+        <p>
+            \[\sigma(t) = \frac{F(t)}{A}  \]
+        </p>
+
+        <p class="text-justify py-1">
+            Thus the stress induced in the rod is given by:
+        </p>
+        <p>
+            \[\sigma(x, t) = \frac{F}{A} (Ct -x)  \]
+        </p>
+
+        <p class="text-justify py-1">
+            Solving for the term combined stiffness of the bar and the ball
+        </p>
+        <p>
+            \[K = \frac{2}{3} \frac{E\sqrt{R}}{1-\nu^2} \]
+        </p>
+
+        <p class="text-justify py-1">
+            Substituting K in stress equation to obtain:
+        </p>
+        <p>
+            \[\sigma = - \frac{K\alpha^{3/2}}{A}  \]
+        </p>
+
+
+
+        <!--Experiment Setup-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Experiment Setup
+            <span id="experiment-setup" class="absolute -top-[140px]"></span>
+            <a href="#experiment-setup" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        <p class="text-justify py-1">
+            A straight bar with a diameter of 20 mm and a length of 1.2 m was used for the experiment. 
+            The bar was suspended horizontally using nylon threads, which were attached to a support post at equal intervals along its length to ensure stability.
+            A 30 mm steel ball bearing served as the impactor. The ball was suspended vertically from the top with nylon threads, ensuring it was precisely aligned with the center of the rod for accurate impact.
+        </p>
+
+        <div class="items-center py-2 px-1">
+            <img src="images/Stress-Waves-In-Solids/ball-bar-setup.png" class="mx-auto" width="700" height="auto" />
+            <p class="text-center mt-2 italic">Experimental setup of Ball-Bar impact</p>
+        </div>
+
+        <p class="text-justify py-1">
+            The length \(l\) from where the nylon thread is tied on top to the center of the ball must be noted. 
+            The lift angle when the ball is released also must be noted too.
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+        <!--References-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            References
+            <span id="references" class="absolute -top-[140px]"></span>
+            <a href="#references" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <ul class="list-disc ml-6">
+            <li>Kolsky, H. (1963). Stress Waves in Solids. United Kingdom: Dover Publications.</li>
+        </ul>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+<hr>
+<!-- Footer -->
+<footer class="grid-pattern footer items-center p-4 bg-white dark:bg-gray-900 text-black dark:text-white">
+    <aside class="items-center grid-flow-col ml-5">
+        <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+            <img src="images/logo.jpeg" class="h-8" alt="Logo" />
+        </a>
+        <p class="text-base" >Copyright © 2024 Edgar Mendonca. - All right reserved</p>
+    </aside> 
+    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end mr-10">
+        <a href="https://github.com/Edgar-Mendonca" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-github" style="font-size: 30px"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-linkedin" style="font-size: 30px"></i>
+        </a>
+        <a href="https://www.youtube.com/@edgarmendonca" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-youtube" style="font-size: 30px"></i>
+        </a>
+        <a href="https://twitter.com/EdgarMendonca7" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-twitter-x" style="font-size: 30px"></i>
+        </a>
+    
+    </nav>
+</footer>
+
+
+<!-- Scroll to Top -->
+<div id="rocket-container" onclick="scrollToTop()">
+    <img id="rocket" src="images/rocket.gif" alt="Rocket">
+</div>
+
+<!-- Custom JavaScript -->
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark')
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true, 
+        duration: 1000, 
+    });
+</script>
+
+
+</body>
+</html>
