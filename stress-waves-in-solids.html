@@ -443,7 +443,78 @@
             \[\sigma = - \frac{K\alpha^{3/2}}{A}  \]
         </p>
 
+        <br>
+        <hr>
+        <br>
 
+        <h2 class="text-2xl font-bold mb-4 mt-4">Conditions and Ideal curves from experiments</h2>
+
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/ball-bar-ideal.png" class="mx-auto" width="700" height="auto" />
+                <p class="text-center mt-2 italic">Ideal Stress-time Curve from a Ball-Bar Impact Experiment</p>
+            </div> 
+        
+            <div class="w-full md:w-1/2 py-2 px-1">
+                <p class="text-justify">
+                    When a bearing ball impacts a homogeneous, isotropic bar at a defined velocity, the resulting pulse travels along the bar as a compressive pulse from the impact end, which then reflects as a tensile pulse from the free, distal end.
+                    A spherical stress wave originates at the point of impact and transitions into a plane wave within a few diameters of the bar.
+                    If the bar is sufficiently long, the incident and reflected pulses do not overlap, allowing them to be observed separately.
+                    The contact time between the ball and the bar is referred to as the Pulse Width \(\tau\), and the time taken to complete one cycle is defined as the Characteristic Time \(T\).
+                </p>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 py-2 px-1">
+                <p class="text-justify">
+                    The stress pulses created induce both axial (longitudinal) and diametrical (lateral) strain pulses, with the latter arising due to Poisson’s effect. 
+                    The ratio of these two strains corresponds to Poisson’s ratio for the material of the rod. 
+                    These strain pulses are illustrated schematically in the accompanying figure.
+                </p>
+            </div>
+
+            <div class="w-full md:w-1/2 items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/long-lat-ball-bar.png" class="mx-auto" width="700" height="auto" />
+                <p class="text-center mt-2 italic">Stress/Strain - Time measurements from Longitudinal Lateral data</p>
+            </div>
+        </div>
+        
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/bar-bar-ideal.png" class="mx-auto" width="700" height="auto" />
+                <p class="text-center mt-2 italic">Ideal Stress-time Curve from a Bar-Bar Impact Experiment</p>
+            </div> 
+        
+            <div class="w-full md:w-1/2 py-2 px-1">
+                <p class="text-justify">
+                    A rectangular stress pulse of amplitude \(\sigma\) and period \(\tau\) travels along the length of the bar from the impact end to the distal end. 
+                    If this end is unconstrained, a compressive stress pulse travels along the bar and reflects from the free end as a tensile pulse, which then travels back to the struck face of the bar after a time 
+                    \(T = \frac{2L}{C}\).
+                    Upon reaching the new free face, as the striker bar has departed, the wave reflects once more as a compressive pulse.   
+                </p>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 py-2 px-1">
+                <p class="text-justify">
+                    In contrast, if the bar is fixed at the distal end, the reflected pulse is compressive due to the displacement constraint.
+                    This reflected pulse travels back to the impact face and re-reflects from this now free end.
+                    These notional stress pulse propagations, reflections, and re-reflections occur in finite bars until the pulses are dampened by material hysteresis. 
+                    The pulses are represented as (i) through (vi), with odd-numbered pulses originating from the impact face and even-numbered pulses originating from the distal face.
+                </p>
+            </div>
+
+            <div class="w-full md:w-1/2 items-center py-2 px-1">
+                <img src="images/Stress-Waves-In-Solids/bar-bar-fixed-ideal.png" class="mx-auto" width="700" height="auto" />
+                <p class="text-center mt-2 italic">Stress-time Curve from a Bar-Bar Impact with bar end fixed</p>
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
 
         <!--Experiment Setup-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
@@ -459,15 +530,26 @@
             A 30 mm steel ball bearing served as the impactor. The ball was suspended vertically from the top with nylon threads, ensuring it was precisely aligned with the center of the rod for accurate impact.
         </p>
 
+        <p class="text-justify py-1">
+            A steel sphere (or ball bearing) and a rod, supported at quarter points, were freely suspended coaxially using nylon threads from a pivot. 
+            A rectangular (0/90°) strain gauge rosette with a gauge length of 3 mm, gauge resistance of 350 ±1.0 Ω, temperature compensation for 23 × 10⁻⁶/°C, and gauge factor of 2.16 was mounted at the central section of the bar to sense the axial and circumferential strains. 
+            The two gauges in the rosette were connected as the active arms of two separate quarter Wheatstone bridges. A two-channel strain gauge amplifier powered the bridges, balanced them, and monitored them during the experiments. 
+            The output of the two channels from the amplifier was supplied to a digital storage oscilloscope, which stored and displayed the signals.
+        </p>
+
         <div class="items-center py-2 px-1">
             <img src="images/Stress-Waves-In-Solids/ball-bar-setup.png" class="mx-auto" width="700" height="auto" />
             <p class="text-center mt-2 italic">Experimental setup of Ball-Bar impact</p>
-        </div>
+        </div> 
 
         <p class="text-justify py-1">
-            The length \(l\) from where the nylon thread is tied on top to the center of the ball must be noted. 
-            The lift angle when the ball is released also must be noted too.
+            The length \( l \) from the point where the nylon thread is tied on top to the center of the ball must be noted. 
+            Additionally, the lift angle \( \theta \) at which the ball is released should be recorded. 
+            The ball and the rod were arranged coaxially, ensuring that the ball was just in contact with the center of the bar. 
+            The ball was pulled in the axial plane to an angle \( \theta \), raising it to a height \( h = l(1 - \cos \theta) \). 
+            This caused the ball to strike the bar at a velocity of \( v = \sqrt{2gh} \) when it made contact with the bar upon release.
         </p>
+        
 
 
 
