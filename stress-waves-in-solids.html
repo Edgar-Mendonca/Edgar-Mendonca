@@ -42,6 +42,8 @@
 
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <!-- MathJax CDN -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -186,11 +188,29 @@
           </li>
 
           <li>
+            <a href="#theoretical-analysis" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M320-160q-33 0-56.5-23.5T240-240v-120h120v-90q-35-2-66.5-15.5T236-506v-44h-46L60-680q36-46 89-65t107-19q27 0 52.5 4t51.5 15v-55h480v520q0 50-35 85t-85 35H320Zm120-200h240v80q0 17 11.5 28.5T720-240q17 0 28.5-11.5T760-280v-440H440v24l240 240v56h-56L510-514l-8 8q-14 14-29.5 25T440-464v104ZM224-630h92v86q12 8 25 11t27 3q23 0 41.5-7t36.5-25l8-8-56-56q-29-29-65-43.5T256-684q-20 0-38 3t-36 9l42 42Zm376 350H320v40h286q-3-9-4.5-19t-1.5-21Zm-280 40v-40 40Z"/>
+                </svg>
+                <span class="ml-3">Theoretical Analysis</span>
+            </a>
+          </li>
+
+          <li>
             <a href="#experiment-setup" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
                     <path d="M200-120q-51 0-72.5-45.5T138-250l222-270v-240h-40q-17 0-28.5-11.5T280-800q0-17 11.5-28.5T320-840h320q17 0 28.5 11.5T680-800q0 17-11.5 28.5T640-760h-40v240l222 270q32 39 10.5 84.5T760-120H200Zm80-120h400L544-400H416L280-240Zm-80 40h560L520-492v-268h-80v268L200-200Zm280-280Z"/>
                 </svg>
                 <span class="ml-3">Experiment Setup</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#results" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M280-280h80v-280h-80v280Zm160 0h80v-400h-80v400Zm160 0h80v-160h-80v160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+                </svg>
+                <span class="ml-3">Results</span>
             </a>
           </li>
 
@@ -511,6 +531,188 @@
                 <p class="text-center mt-2 italic">Stress-time Curve from a Bar-Bar Impact with bar end fixed</p>
             </div>
         </div>
+
+        <hr>
+
+        <h2 class="text-2xl font-bold mb-4 mt-4">For solid sphere impact on a bar of varying cross-section<h2>
+        <p class="text-justify">
+            Consider a long bar with a step change of cross-section impacted at the larger c/s end. 
+            Let the areas of cross section of the impacted and distal parts A1 and A2 and for generality the densities and velocities of wave propagations be 
+            \(\rho_1 \) & \(\rho_2 \) and \(c_1 \) & \(c_2 \) respectively. 
+            At the step a part of the stress pulse goes through to the smaller section and a part of it gets reflected back.
+        </p>
+        <p class="text-justify">
+            By considering equilibrium of forces and continuity of displacements at the section of discontinuity:
+        </p>
+        <p class="text-justify">
+            \[\sigma_T = \sigma_I - \sigma_R\]
+        </p>
+        <p class="flex gap-6 justify-center">
+            \[\frac{\sigma_T}{\sigma_T}\ = \frac{2 A_1 \rho_2 c_2}{A_1 \rho_1 c_1 + A_2 \rho_2 c_2} \]
+
+            \[\frac{\sigma_R}{\sigma_I}\ = \frac{2 A_1 \rho_2 c_2}{A_1 \rho_1 c_1 + A_2 \rho_2 c_2} \]
+        </p>
+        <p class="text-justify">
+            If the mechanical impedances \(\rho_1 c_1\) and \(\rho_2 c_2\) are equal:
+        </p>
+        <p class="flex gap-6 justify-center">
+            \[\frac{\sigma_T}{\sigma_T}\ = \frac{2A_1}{A_1 + A_2} \]
+
+            \[\frac{\sigma_R}{\sigma_I}\ = \frac{A_2 - A_1}{A_2 + A_1} \]
+        </p>
+
+        <br>
+        <hr>
+        <br>
+
+        <!--Theoretical Analysis-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Theoretical Analysis
+            <span id="theoretical-analysis" class="absolute -top-[140px]"></span>
+            <a href="#theoretical-analysis" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg">
+            <h2 class="text-2xl font-bold mb-4">Displacement and Stress Calculator for Ball-bar Impact</h2>
+            <form id="inputForm" class="space-y-4">
+                <div class="flex flex-wrap space-x-5">
+                    <div class="form-group">
+                        <label for="rball" class="block text-sm font-medium text-gray-700">Radius of Ball (r):</label>
+                        <input type="number" id="rball" name="rball" step="any" value="0.02" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="Rbar" class="block text-sm font-medium text-gray-700">Radius of Bar (R):</label>
+                        <input type="number" id="Rbar" name="Rbar" step="any" value="0.02" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap space-x-5">
+                    <div class="form-group">
+                        <label for="density" class="block text-sm font-medium text-gray-700">Density (ρ):</label>
+                        <input type="number" id="density" name="density" step="any" value="8000" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="Em1" class="block text-sm font-medium text-gray-700">Young's Modulus of Ball (E1):</label>
+                        <input type="number" id="Em1" name="Em1" step="any" value="2E11" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="Em2" class="block text-sm font-medium text-gray-700">Young's Modulus of Bar (E2):</label>
+                        <input type="number" id="Em2" name="Em2" step="any" value="2E11" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap space-x-5">
+                    <div class="form-group">
+                        <label for="pr1" class="block text-sm font-medium text-gray-700">Poisson's Ratio of Ball (ν1):</label>
+                        <input type="number" id="pr1" name="pr1" step="any" value="0.3" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="pr2" class="block text-sm font-medium text-gray-700">Poisson's Ratio of Bar (ν2):</label>
+                        <input type="number" id="pr2" name="pr2" step="any" value="0.3" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap space-x-5">
+                    <div class="form-group">
+                        <label for="ts" class="block text-sm font-medium text-gray-700">Time Span (ts):</label>
+                        <input type="number" id="ts" name="ts" step="any" value="145E-6" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="Vel" class="block text-sm font-medium text-gray-700">Initial Velocity (V):</label>
+                        <input type="number" id="Vel" name="Vel" step="any" value="1" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+
+                <button type="button" onclick="calculate()" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600">Calculate</button>
+            
+            </form>
+
+            <div >
+                <div id="displacementPlot" class="w-full h-full mt-6"></div>
+                <div id="stressPlot" class="w-full h-full mt-6"></div>
+            </div>
+            <div class="mt-6">
+                <p class="text-lg font-medium">Max Stress: <span id="MaxStress">0</span> MPa</p>
+                <p class="text-lg font-medium">Max Displacement: <span id="MaxDisplacement">0</span> m</p>
+            </div>
+        </div>
+    
+        <script>
+            function calculate() {
+                // Get input values
+                const r = parseFloat(document.getElementById('rball').value);
+                const R = parseFloat(document.getElementById('Rbar').value);
+                const rho = parseFloat(document.getElementById('density').value);
+                const E1 = parseFloat(document.getElementById('Em1').value);
+                const E2 = parseFloat(document.getElementById('Em2').value);
+                const v1 = parseFloat(document.getElementById('pr1').value);
+                const v2 = parseFloat(document.getElementById('pr2').value);
+                const ts = parseFloat(document.getElementById('ts').value);
+                const V = parseFloat(document.getElementById('Vel').value);
+    
+                const A = Math.PI * R * R;
+                const C = Math.sqrt(E1 / rho);
+                const m = (rho * 4 * Math.PI * Math.pow(r, 3)) / 3;
+                const k1 = (1 - Math.pow(v1, 2)) / (Math.PI * E1);
+                const k2 = (1 - Math.pow(v2, 2)) / (Math.PI * E2);
+                const K = (4 / (3 * Math.PI)) * (Math.sqrt(R) / (k1 + k2));
+    
+                const a = (K * C) / (A * E1);
+                const b = K / m;
+    
+                // Define the differential equation and solve it using numeric methods
+                const tVal = [];
+                const uVal = [];
+                const dt = ts / 100;
+                let u = 0;
+                let v = V;
+                for (let t = 0; t <= ts; t += dt) {
+                    tVal.push(t);
+                    uVal.push(u);
+    
+                    const du = v * dt;
+                    const dv = (-1.5 * a * Math.sqrt(u) * v - b * Math.pow(u, 1.5)) * dt;
+    
+                    u += du;
+                    v += dv;
+                }
+    
+                // Plot displacement-time
+                Plotly.newPlot('displacementPlot', [{
+                    x: tVal,
+                    y: uVal,
+                    type: 'scatter'
+                }], {
+                    title: 'Displacement-Time Plot',
+                    xaxis: { title: 'Time (s)' },
+                    yaxis: { title: 'Displacement (m)' }
+                });
+    
+                // Calculate and plot stress-time
+                const aVal = uVal.map(u => Math.pow(u, 1.5));
+                const f = aVal.map(a => K * a);
+                const sVal = f.map(f => (f / A) / 1e6); // Convert to MPa
+    
+                Plotly.newPlot('stressPlot', [{
+                    x: tVal,
+                    y: sVal,
+                    type: 'scatter'
+                }], {
+                    title: 'Stress-Time Plot',
+                    xaxis: { title: 'Time (s)' },
+                    yaxis: { title: 'Stress (MPa)' }
+                });
+    
+                // Update maximum stress and displacement
+                const maxStress = Math.max(...sVal);
+                const maxDisplacement = Math.max(...uVal);
+    
+                document.getElementById('MaxStress').innerText = maxStress.toFixed(2);
+                document.getElementById('MaxDisplacement').innerText = maxDisplacement.toFixed(2);
+            }
+        </script>
 
         <br>
         <hr>
