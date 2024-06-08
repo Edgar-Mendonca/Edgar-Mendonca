@@ -633,10 +633,7 @@
                 <div id="displacementPlot" class="w-full h-full mt-6"></div>
                 <div id="stressPlot" class="w-full h-full mt-6"></div>
             </div>
-            <div class="mt-6">
-                <p class="text-lg font-medium">Max Stress: <span id="MaxStress">0</span> MPa</p>
-                <p class="text-lg font-medium">Max Displacement: <span id="MaxDisplacement">0</span> m</p>
-            </div>
+
         </div>
     
         <script>
@@ -677,6 +674,11 @@
     
                     u += du;
                     v += dv;
+
+                    // Ensure u does not become negative
+                    if (u < 0) {
+                        u = 0;
+                    }
                 }
     
                 // Plot displacement-time
@@ -705,12 +707,7 @@
                     yaxis: { title: 'Stress (MPa)' }
                 });
     
-                // Update maximum stress and displacement
-                const maxStress = Math.max(...sVal);
-                const maxDisplacement = Math.max(...uVal);
-    
-                document.getElementById('MaxStress').innerText = maxStress.toFixed(2);
-                document.getElementById('MaxDisplacement').innerText = maxDisplacement.toFixed(2);
+
             }
         </script>
 
