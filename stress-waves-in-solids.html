@@ -215,6 +215,15 @@
           </li>
 
           <li>
+            <a href="#material-charaterisation" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M400-120q-17 0-28.5-11.5T360-160v-480H160q0-83 58.5-141.5T360-840h240v120l120-120h80v320h-80L600-640v480q0 17-11.5 28.5T560-120H400Zm40-80h80v-240h-80v240Zm0-320h80v-240H360q-26 0-49 10.5T271-720h169v200Zm40 40Z"/>
+                </svg>
+                <span class="ml-3">Material Charaterisation</span>
+            </a>
+          </li>
+
+          <li>
             <a href="#references" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
                     <path d="M660-160h40v-160h-40v160Zm20-200q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM200-800v640-640 200-200Zm80 400h147q11-23 25.5-43t32.5-37H280v80Zm0 160h123q-3-20-3-40t3-40H280v80ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h320l240 240v92q-19-6-39-9t-41-3v-40H480v-200H200v640h227q11 23 25.5 43T485-80H200Zm480-400q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480Z"/>
@@ -467,6 +476,37 @@
         <hr>
         <br>
 
+        <h2 class="text-2xl font-bold mb-4 mt-4">For solid sphere impact on a bar of varying cross-section<h2>
+        <p class="text-justify">
+            Consider a long bar with a step change of cross-section impacted at the larger c/s end. 
+            Let the areas of cross section of the impacted and distal parts A1 and A2 and for generality the densities and velocities of wave propagations be 
+            \(\rho_1 \) & \(\rho_2 \) and \(c_1 \) & \(c_2 \) respectively. 
+            At the step a part of the stress pulse goes through to the smaller section and a part of it gets reflected back.
+        </p>
+        <p class="text-justify">
+            By considering equilibrium of forces and continuity of displacements at the section of discontinuity:
+        </p>
+        <p class="text-justify">
+            \[\sigma_T = \sigma_I - \sigma_R\]
+        </p>
+        <p class="flex gap-6 justify-center">
+            \[\frac{\sigma_T}{\sigma_T}\ = \frac{2 A_1 \rho_2 c_2}{A_1 \rho_1 c_1 + A_2 \rho_2 c_2} \]
+
+            \[\frac{\sigma_R}{\sigma_I}\ = \frac{2 A_1 \rho_2 c_2}{A_1 \rho_1 c_1 + A_2 \rho_2 c_2} \]
+        </p>
+        <p class="text-justify">
+            If the mechanical impedances \(\rho_1 c_1\) and \(\rho_2 c_2\) are equal:
+        </p>
+        <p class="flex gap-6 justify-center">
+            \[\frac{\sigma_T}{\sigma_T}\ = \frac{2A_1}{A_1 + A_2} \]
+
+            \[\frac{\sigma_R}{\sigma_I}\ = \frac{A_2 - A_1}{A_2 + A_1} \]
+        </p>
+
+        <br>
+        <hr>
+        <br>
+
         <h2 class="text-2xl font-bold mb-4 mt-4">Conditions and Theoretical/Ideal curves</h2>
 
         <div class="flex flex-wrap">
@@ -532,35 +572,6 @@
             </div>
         </div>
 
-        <hr>
-
-        <h2 class="text-2xl font-bold mb-4 mt-4">For solid sphere impact on a bar of varying cross-section<h2>
-        <p class="text-justify">
-            Consider a long bar with a step change of cross-section impacted at the larger c/s end. 
-            Let the areas of cross section of the impacted and distal parts A1 and A2 and for generality the densities and velocities of wave propagations be 
-            \(\rho_1 \) & \(\rho_2 \) and \(c_1 \) & \(c_2 \) respectively. 
-            At the step a part of the stress pulse goes through to the smaller section and a part of it gets reflected back.
-        </p>
-        <p class="text-justify">
-            By considering equilibrium of forces and continuity of displacements at the section of discontinuity:
-        </p>
-        <p class="text-justify">
-            \[\sigma_T = \sigma_I - \sigma_R\]
-        </p>
-        <p class="flex gap-6 justify-center">
-            \[\frac{\sigma_T}{\sigma_T}\ = \frac{2 A_1 \rho_2 c_2}{A_1 \rho_1 c_1 + A_2 \rho_2 c_2} \]
-
-            \[\frac{\sigma_R}{\sigma_I}\ = \frac{2 A_1 \rho_2 c_2}{A_1 \rho_1 c_1 + A_2 \rho_2 c_2} \]
-        </p>
-        <p class="text-justify">
-            If the mechanical impedances \(\rho_1 c_1\) and \(\rho_2 c_2\) are equal:
-        </p>
-        <p class="flex gap-6 justify-center">
-            \[\frac{\sigma_T}{\sigma_T}\ = \frac{2A_1}{A_1 + A_2} \]
-
-            \[\frac{\sigma_R}{\sigma_I}\ = \frac{A_2 - A_1}{A_2 + A_1} \]
-        </p>
-
         <br>
         <hr>
         <br>
@@ -573,6 +584,11 @@
                 #
             </a>
         </h2>
+
+        <p class="text-justify mb-3">
+            This calculator determines the displacement and stress experienced during the impact of a ball on a bar, based on Hertz Contact Theory. 
+            By inputting specific physical parameters, the tool computes and plots the displacement-time and stress-time graphs.
+        </p>
 
         <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg">
             <h2 class="text-2xl font-bold mb-4">Displacement and Stress Calculator for Ball-bar Impact</h2>
@@ -706,8 +722,6 @@
                     xaxis: { title: 'Time (s)' },
                     yaxis: { title: 'Stress (MPa)' }
                 });
-    
-
             }
         </script>
 
@@ -840,6 +854,28 @@
         <br>
         <hr>
 
+        <!--Material Charaterisation Techniques-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Material Charaterisation
+            <span id="material-charaterisation" class="absolute -top-[140px]"></span>
+            <a href="#material-charaterisation" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+        <p class="text-justify">
+            The stress wave propagation method is an effective technique for determining the Young's modulus and Poisson's ratio of elastic materials. 
+            This method involves an elastic sphere impacting a long rod at a known velocity. 
+            The experimental setup, procedures, and numerical calculations required to obtain these material properties are outlined in this documentation.
+        </p>
+
+        <div class="flex justify-center">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRrRY1xnhaPHgRdHuj102LDLqfXD3fbhsSeYQ7j76zJagd0lVokUb-ImEXRMPXEPgqsa38nVcPS9InZ/pubchart?oid=1681076301&amp;format=interactive" width="650" height="380" class="border rounded"></iframe>
+        </div>
+
+
+
+        <br>
+        <hr>
 
         <!--References-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
