@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lateral Compression of Tubes-Edgar Mendonca</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+
+    <meta property="og:title" content="Edgar Mendonca">
+    <meta property="og:description" content="Freelance Consultan, Engineering, Sciences, Web Developer, R&D">
+    <meta property="og:image" content="https://edgar-mendonca.github.io/Edgar-Mendonca/images/logo.jpeg">
+    <meta property="og:url" content="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edgar Mendonca">
+    <meta name="twitter:description" content="Freelance Consultan, Engineering, Sciences, Web Developer, R&D">
+    <meta name="twitter:image" content="https://edgar-mendonca.github.io/Edgar-Mendonca/images/logo.jpeg">
+    <meta name="twitter:url" content="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+
+    <link rel="stylesheet" href="css/styles.css">   
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://unpkg.com/gsap@3.12.5"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- MathJax CDN -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCR8GXNE0M"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JCR8GXNE0M');
+    </script>
+
+</head>
+
+
+<body class="bg-white dark:bg-gray-800  font-family: 'Inter', sans-serif; ">
+
+<!-- Navbar -->
+<nav class="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-10 shadow-lg" id="navbar">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="images/logo.jpeg" class="h-8" alt="Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Edgar Mendonca</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#portfolio" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+            </li>
+            <li>
+              <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+            </li>
+            <li>
+              <a href="Random.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Random</a>
+            </li>
+          </ul>
+      </div>
+
+      <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+      </button>
+
+    </div>
+</nav>
+<script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", () => {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (currentScroll > lastScrollTop) {
+            document.getElementById("navbar").style.top = "-95px"; 
+        } else {
+            document.getElementById("navbar").style.top = "0";
+        }
+    
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+</script>
+
+
+<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+    </svg>
+</button>
+
+ <!--Left Vertical Navbar-->
+ <aside id="sidebar-multi-level-sidebar" class="fixed top-20 left-0 z-40 w-64 max-h-[75vh] overflow-y-auto transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+       <ul class="space-y-2 font-medium">
+
+          <li>
+            <form id="search-form" class="max-w-md mx-auto">
+                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." required />
+                    <div class="absolute end-2.5 top-1/2 transform -translate-y-1/2">
+                        <kbd class="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">Ctrl+k</kbd>
+                    </div>
+                </div>
+            </form>
+          </li>
+
+          <li>
+            <a href="#LCT" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                  </svg>
+                <span class="ml-3">Introduction</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#references" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                    <path d="M660-160h40v-160h-40v160Zm20-200q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6ZM200-800v640-640 200-200Zm80 400h147q11-23 25.5-43t32.5-37H280v80Zm0 160h123q-3-20-3-40t3-40H280v80ZM200-80q-33 0-56.5-23.5T120-160v-640q0-33 23.5-56.5T200-880h320l240 240v92q-19-6-39-9t-41-3v-40H480v-200H200v640h227q11 23 25.5 43T485-80H200Zm480-400q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480Z"/>
+                </svg>
+                <span class="ml-3">References</span>
+            </a>
+          </li>
+
+
+       </ul>
+    </div>
+ </aside>
+
+
+
+<!--Right Content--> 
+<div class="p-4 sm:ml-64 text-black dark:text-white">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        
+        <!--Lateral Compression of Tubes Introduction-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Lateral Compression of Thin-Walled c/s
+            <span id="LCT" class="absolute -top-[140px]"></span>
+            <a href="#LCT" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        
+
+
+
+        <br>
+        <hr>
+
+        <!--References-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            References
+            <span id="references" class="absolute -top-[140px]"></span>
+            <a href="#references" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <ul class="list-disc ml-6">
+            <li>S.R. Reid, T.Yella Reddy. (1978) Effect of strain hardening on the lateral compression of tubes between rigid plates. Int. J. Solids and Structures</li>
+            <li>T. Yella Reddy And S. R. Reid. (1979) Lateral Compression Of Tubes And Tube-Systems With Side Constraints. Int. J. Mech. Sci.</li>
+            <li>T. Yella Reddy, S. R. Reid. (1979) On obtaining material properties from the ring compression test. Nuclear Engineering and Design</li>
+        </ul>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+<hr>
+<!-- Footer -->
+<footer class="grid-pattern footer items-center p-4 bg-white dark:bg-gray-900 text-black dark:text-white">
+    <aside class="items-center grid-flow-col ml-5">
+        <a href="https://edgar-mendonca.github.io/Edgar-Mendonca/">
+            <img src="images/logo.jpeg" class="h-8" alt="Logo" />
+        </a>
+        <p class="text-base" >Copyright © 2024 Edgar Mendonca. - All right reserved</p>
+    </aside> 
+    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end mr-10">
+        <a href="https://github.com/Edgar-Mendonca" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-github" style="font-size: 30px"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-linkedin" style="font-size: 30px"></i>
+        </a>
+        <a href="https://www.youtube.com/@edgarmendonca" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-youtube" style="font-size: 30px"></i>
+        </a>
+        <a href="https://twitter.com/EdgarMendonca7" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white inline-block me-3">
+            <i class="bi bi-twitter-x" style="font-size: 30px"></i>
+        </a>
+    
+    </nav>
+</footer>
+
+
+<!-- Scroll to Top -->
+<div id="rocket-container" onclick="scrollToTop()">
+    <img id="rocket" src="images/rocket.gif" alt="Rocket">
+</div>
+
+<!-- Custom JavaScript -->
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark')
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true, 
+        duration: 1000, 
+    });
+</script>
+
+
+</body>
+</html>

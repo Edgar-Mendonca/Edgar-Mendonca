@@ -868,11 +868,60 @@
             The experimental setup, procedures, and numerical calculations required to obtain these material properties are outlined in this documentation.
         </p>
 
-        <div class="flex justify-center">
+        <p class="text-justify">
+            The elastic sphere, which has known elastic properties, is used to impact the rod. The rod is fitted with strain gauges to measure the resulting strain from the impact.
+            A 0°/90° rosette strain gauge is placed at the center of the rod to capture both longitudinal and lateral strains.
+            The longitudinal and lateral gauges are connected to separate full bridge completion circuits, which are linked to strain gauge amplifiers. 
+        </p>
+
+        <p class="text-justify">
+            In the procedure, the setup begins by carefully mounting the strain gauges on the rod. 
+            The rosette strain gauge is positioned at the rod's center, ensuring that the longitudinal and lateral gauges are correctly connected to their respective circuits.
+            Once the setup is complete, the elastic sphere is impacted on the rod at a predetermined velocity.
+            The velocity of the impact is calculated based on the release angle of the ball from the swing.
+        </p>
+
+        <p class="text-justify">
+            As the sphere impacts the rod, strain data is recorded from the strain gauges via the amplifiers.
+            This data is then used to plot the longitudinal and lateral strains on a Strain-Time plot. 
+            The maximum strain values, or amplitudes, are identified from this plot. 
+            The ratio of lateral to longitudinal strain is then calculated to determine the Poisson's ratio of the material.
+        </p>
+
+        <div class="flex justify-center py-2">
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRrRY1xnhaPHgRdHuj102LDLqfXD3fbhsSeYQ7j76zJagd0lVokUb-ImEXRMPXEPgqsa38nVcPS9InZ/pubchart?oid=1681076301&amp;format=interactive" width="650" height="380" class="border rounded"></iframe>
         </div>
 
 
+        <p class="text-justify text-2xl font-bold">
+            Determining Poisson’s Ratio
+        </p>
+        <p class="text-justify">
+            Poisson's ratio \( \nu \) is calculated using the ratio of lateral strain \( \varepsilon_l \)  to longitudinal strain \( \varepsilon_L \):
+        </p>
+        \[\nu = \frac{\varepsilon_l}{\varepsilon_L} \]
+
+
+        <p class="text-justify text-2xl font-bold">
+            Determining Young’s Modulus
+        </p>
+        <p class="text-justify">
+            Young's modulus (E) can be determined from the stress-strain relationship and the known properties of the materials involved. 
+            The stress wave propagation method involves more complex calculations typically derived from the measured strains and the impact dynamics.
+            The wave velocity (C) in the rod is derived from the material density (𝜌) and Young's modulus (E).
+        </p>
+        \[C = \sqrt{\frac{E}{\rho}} \]
+        <p class="text-justify">
+            The Young's Modulus (E) can be determined from the above equation. To calculate wave speed (C), the characteristic time (T) is noted form the Strain-Time plot.
+            The characteristic time is the time period of the wave for one cycle and is given as:
+            \[T = \frac{2l}{C}\]
+            where \(l\) is the legth of the bar.
+        </p>
+        
+        <p class="text-justify">
+            The stress wave propagation method provides a reliable way to determine the Young's modulus and Poisson's ratio of elastic materials.
+            Also, the proposed method is a Non-Destructive Testing Experiment for material charaterisation.
+        </p>
 
         <br>
         <hr>
