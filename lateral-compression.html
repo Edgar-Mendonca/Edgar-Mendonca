@@ -161,20 +161,20 @@
           </li>
 
           <li>
-            <a href="#theoretical-study" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368" class="dark:white">
-                    <path d="M320-160q-33 0-56.5-23.5T240-240v-120h120v-90q-35-2-66.5-15.5T236-506v-44h-46L60-680q36-46 89-65t107-19q27 0 52.5 4t51.5 15v-55h480v520q0 50-35 85t-85 35H320Zm120-200h240v80q0 17 11.5 28.5T720-240q17 0 28.5-11.5T760-280v-440H440v24l240 240v56h-56L510-514l-8 8q-14 14-29.5 25T440-464v104ZM224-630h92v86q12 8 25 11t27 3q23 0 41.5-7t36.5-25l8-8-56-56q-29-29-65-43.5T256-684q-20 0-38 3t-36 9l42 42Zm376 350H320v40h286q-3-9-4.5-19t-1.5-21Zm-280 40v-40 40Z"/>
-                </svg>
-                <span class="ml-3">Theoretical Study</span>
-            </a>
-          </li>
-
-          <li>
             <a href="#experiment" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
                     <path d="M200-120q-51 0-72.5-45.5T138-250l222-270v-240h-40q-17 0-28.5-11.5T280-800q0-17 11.5-28.5T320-840h320q17 0 28.5 11.5T680-800q0 17-11.5 28.5T640-760h-40v240l222 270q32 39 10.5 84.5T760-120H200Zm80-120h400L544-400H416L280-240Zm-80 40h560L520-492v-268h-80v268L200-200Zm280-280Z"/>
                 </svg>
                 <span class="ml-3">Experiment</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#theoretical-study" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368" class="dark:white">
+                    <path d="M320-160q-33 0-56.5-23.5T240-240v-120h120v-90q-35-2-66.5-15.5T236-506v-44h-46L60-680q36-46 89-65t107-19q27 0 52.5 4t51.5 15v-55h480v520q0 50-35 85t-85 35H320Zm120-200h240v80q0 17 11.5 28.5T720-240q17 0 28.5-11.5T760-280v-440H440v24l240 240v56h-56L510-514l-8 8q-14 14-29.5 25T440-464v104ZM224-630h92v86q12 8 25 11t27 3q23 0 41.5-7t36.5-25l8-8-56-56q-29-29-65-43.5T256-684q-20 0-38 3t-36 9l42 42Zm376 350H320v40h286q-3-9-4.5-19t-1.5-21Zm-280 40v-40 40Z"/>
+                </svg>
+                <span class="ml-3">Theoretical Study</span>
             </a>
           </li>
 
@@ -232,7 +232,15 @@
             The tube is loaded in quasi-static condition, that is loading is applied slowly at a constant deformation rate.
             The ideal load-displacement curve depicts the linear elastic region, the constant yield part of the curve. 
             And once plastic deformation is occured, the slope increases. The same is represented with a zoomed part of the curve in the adjacent plot.
-
+            The Load-Displacement curve can be divided into three different phases:
+            <ul>
+                <li>Elastic Loading Phase: Initially, the load-displacement relationship is linear, indicating elastic behavior. 
+                    In this region, the tube deforms elastically and returns to its original shape upon unloading.</li>
+                <li>Yielding Phase: As the load increases, the tube reaches its yield point, where plastic deformation begins. 
+                    This phase is characterized by a stabilization of the load, as the material undergoes permanent deformation.</li>
+                <li>Plastic Deformation Phase: Beyond the yield point, the tube undergoes plastic deformation. 
+                    This phase is represented by an increasing slope on the load-displacement curve, indicating that the material continues to deform plastically under the applied load.</li>
+            </ul>
             
         </p>
 
@@ -247,21 +255,6 @@
 
         <br>
         <hr>
-
-        <!--Theoretical Study-->
-        <h2 class="text-4xl font-extrabold mb-4 relative group">
-            Theoretical Analysis
-            <span id="theoretical-study" class="absolute -top-[140px]"></span>
-            <a href="#theoretical-study" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                #
-            </a>
-        </h2>
-
-        
-        <br>
-        <hr>
-        
-
         
         <!--Experiment-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
@@ -271,10 +264,33 @@
                 #
             </a>
         </h2>
+        <P class="text-justify">
+            The method of ring compression test of tubes is useful in determining material properties such as yield strength and modulus of elasticity.
+            A relation between yield stress and limit load were plastic deformation is initiated for tube under lateral compression of tube is given as:
+        </P>
+         \[ \sigma_y = \alpha P_l r_o / lt^2 \]
+        
+        <p class="text-justify">
+            the conditions given for selecting the value of α are
+        </p>
+        \[ \alpha=1.0, l \le xt (1 \le x \le 5) \]
+        \[\alpha=0.866, l \ge 2r_o \]
+
+        <p class="text-justify">
+            The modulus of elasticity E of the tube material can be derived based on elastic load and elastic deflection and this was proposed by DeRuntz and Hodge and is given as:
+        </p>
+        \[ E = \frac{12P_e (r_o)^3 \beta}{\delta_e t^3 l} (\frac{\pi}{4} - \frac{2}{\pi})\]
+
+        <p class="text-justify">
+            Here, \( \beta = 1 \) for plane stress and \( \beta = 1 – \nu^2 \) plane strain
+        </p>
+
+        <br>
 
         <p class="text-justify">
             The experiment were conducted for aluminium 6063 tube specimen of dimensions 50mm length and 50mm diameter and 1.6mm thickness was subjected to lateral compression.  
-            The tube was tested under quasi-static conditions. 
+            The tube was tested under quasi-static conditions at a constant deformation rate of 4mm/min.
+            The stages of compression of the tubes were captured to understand the deformation under circumferential load.
             Simultaneously, the load-displacement response was recorded for the same.
         </p>
 
@@ -283,14 +299,53 @@
             <p class="text-center mt-2 italic">Stages of compression of tube for lateral compression test</p>
         </div>
 
+        <p class="text-justify">
+            In the Load-Displacement response is recorded based on the change in pressure per the circumferential area to the change in displacement in the lateral direction. 
+            To find the collapse load or plastic load \(P_o \), a line is drawn at the conjunction of the elastic and plastic region and dragged until the y-coordinate value is determined.
+            The value determined for \(P_o \) for this experiment is 0.94kN.
+        </p>
+
         <div class="flex justify-center">
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQx4oz9PD5HMb7SAgNsy8digKuUdm4Dk8XwgI1zr8He5EeEZRHr1qhJZzAA8Rt3HA/pubchart?oid=570001900&amp;format=interactive" width="650" height="380" class="border rounded"></iframe>
         </div>
 
+        <p class="text-justify">
+            With the attained values from the experiment and the pre-loaded or determined values for the material properties, the following is calculated as follows.
+            <br>
+            For the calculation of Yield Stress, the data is as follows:
+            <br>
+            Pl=0.94kN; ro=25mm; t=1.6mm; l=50mm
+
+            \[\sigma_y = \frac{1* 0.94 * 10^3 *25}{1.6^2 * 50} = 183.6MPa\]
+
+            For the calculation of the Youngs Modulus, the data is as follows:
+            <br>
+            Pe=0.8kN; ro=25mm; t=1.6mm; l=50mm; β=1mm (Plane stress condition); δe=1.6mm
+            
+            \[ E = \frac{12 * 0.8 * 10^3 * 25^3 * 1}{1.6 * 1.6^3 * 50} (\frac{\pi}{4} - \frac{2}{\pi}) = 68.206GPa\]
+             
+        </p>
 
         <br>
         <hr>
 
+        <!--Theoretical Study-->
+        <h2 class="text-4xl font-extrabold mb-4 relative group">
+            Theoretical Study
+            <span id="theoretical-study" class="absolute -top-[140px]"></span>
+            <a href="#theoretical-study" aria-label="Link to this section" class="ml-2 text-blue-700 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                #
+            </a>
+        </h2>
+
+        <p class="text-justify">
+            To derive the theoretical load-deflection curve for lateral compression of thin-walled tubes, a dimensionless parameter namely mR is derived and is given as,
+
+            \[mR =(\frac{6 \sigma_o R}{E_p t})^{1/2} \]
+        </p>
+
+        <br>
+        <hr>
 
 
         <!--References-->
