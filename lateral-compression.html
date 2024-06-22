@@ -359,6 +359,93 @@
         <br>
         <hr>
 
+        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg">
+            <h2 class="text-2xl font-bold mb-4">Theoretical Load-Deflection Curve Calculator</h2>
+            <form id="inputForm" class="space-y-4">
+                <div class="flex flex-wrap space-x-5">
+                    <div class="form-group">
+                        <label for="mR" class="block text-sm font-medium text-gray-700">mR:</label>
+                        <input type="number" id="mR" name="mR" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="lambdaMin" class="block text-sm font-medium text-gray-700">Lambda Min:</label>
+                        <input type="number" id="lambdaMin" name="lambdaMin" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="lambdaMax" class="block text-sm font-medium text-gray-700">Lambda Max:</label>
+                        <input type="number" id="lambdaMax" name="lambdaMax" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <input id="retainPlot" type="checkbox" class="mr-2 leading-tight">
+                    <label for="retainPlot" class="text-sm font-medium text-gray-700">Retain Previous Plots</label>
+                </div>
+                <button type="button" onclick="calculatelc()" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600">Calculate</button>
+            </form>
+            <div id="plot" class="w-full h-full mt-6"></div>
+        </div>
+
+        <script>
+            function calculatelc() {
+                // Get input values
+                const mR = parseFloat(document.getElementById('mR').value);
+                const lambdaMin = parseFloat(document.getElementById('lambdaMin').value);
+                const lambdaMax = parseFloat(document.getElementById('lambdaMax').value);
+                const retainPlot = document.getElementById('retainPlot').checked;
+        
+                // Calculation
+                const lambda = [];
+                for (let i = lambdaMin; i <= lambdaMax; i += 0.1) {
+                    lambda.push(i);
+                }
+        
+                const gamma = lambda.map(l => Math.acos(1 / l));
+                const n1 = lambda.map(l => mR * Math.sqrt(l));
+                const n = 1 - Math.pow(0.5 / mR, 2);
+                const p = lambda.map(l => 0.707067812 * Math.sqrt(1 - (n / l)));
+        
+                const phi = p.map((p, index) => Math.acos(1 / (2 * p * n1[index])));
+                const ellipticF = (phi, p) => phi.map((phi, index) => {
+                    // Placeholder for complete elliptic integral of the first kind
+                    return phi * (1 - Math.pow(p[index], 2) * Math.sin(phi) / 2);
+                });
+        
+                const ellipticE = (phi, p) => phi.map((phi, index) => {
+                    // Placeholder for complete elliptic integral of the second kind
+                    return phi - Math.pow(p[index], 2) * Math.sin(phi) / 2;
+                });
+        
+                const f = ellipticF(phi, p);
+                const e = ellipticE(phi, p);
+                const C = f.map((f, index) => (2 * e[index] - f) / n1[index]);
+                const D = gamma.map((g, index) => 2 * (Math.sin(g) - C[index]));
+        
+                // Plotting
+                const colors = ['blue', 'red', 'green', 'orange', 'purple', 'brown', 'pink'];
+                const traceColor = colors[Math.floor(Math.random() * colors.length)];
+        
+                const trace = {
+                    x: D,
+                    y: lambda,
+                    type: 'scatter',
+                    mode: 'lines+markers',
+                    marker: { color: traceColor },
+                    name: `${mR}`
+                };
+        
+                if (retainPlot) {
+                    Plotly.addTraces('plot', [trace]);
+                } else {
+                    Plotly.newPlot('plot', [trace], {
+                        title: 'Non-Dimensional Load-Deflection Curve',
+                        xaxis: { title: 'δ/R' },
+                        yaxis: { title: 'P/Po' },
+                        legend: { title: { text: 'mR Values' } }
+                    });
+                }
+            }
+        </script>
+
 
         <!--References-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
