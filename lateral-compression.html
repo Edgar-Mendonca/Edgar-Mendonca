@@ -353,32 +353,56 @@
 
             Here α =1, if rings (L>T) <br>
             Ep is obtained as the average hardening modulus and is deduced based on the best fit that is obtained for the mR values mapped on a load-displacement plot. 
-            For different input values of the parameter mR, the theoretical load-deflection was derived and plotted.
+            For different input values of the parameter mR, the theoretical load-deflection was derived, plotted and observed.
         </p>
+
+        <p class="text-justify">
+            In the figure representing the non-dimensional entity \(mR\). These curves can be used reverse to plot the Load-Displacement reponse with the value of mR assumed.
+            The best fit and value for \(mR\) is chosen based on comparison with the non-dimensional experimental load-displacement curve.
+            With this the obtained value of mR, consequently the average hardening modulus Ep can be obtained.
+
+        </p>
+
+        <div class="items-center py-2 px-1">
+            <img src="images/Lateral-Compression-Tubes/non-dimensional-l-d.png" class="mx-auto bg-white" width="700" height="auto" />
+            <p class="text-center mt-2 italic">Influence of mR on the non-dimensionalised load-deflection curve.</p>
+        </div>
 
         <br>
         <hr>
+        <br>
 
-        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg">
+        <p class="text-justify">
+            This calculator generates a theoretical load-deflection curve for the lateral compression of thin-walled tubes. 
+            It allows users to input specific parameters related to the experiment and visualize the resulting curve on a plot.
+            <br>
+            User Inputs: \(mr, \lambda_{min}, \lambda_{max}\)
+            <br>
+            This checkbox allows users to decide whether to retain the existing plot and add new curves to it or to replace the existing plot with a new one. If checked, new curves will be added to the existing plot with different colors.
+            The resulting plot will show the load-deflection curve, with different colors representing different calculations. The legend on the plot will list the mR values used for each curve.
+        </p>
+
+
+        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg py-2">
             <h2 class="text-2xl font-bold mb-4">Theoretical Load-Deflection Curve Calculator</h2>
             <form id="inputForm" class="space-y-4">
                 <div class="flex flex-wrap space-x-5">
                     <div class="form-group">
-                        <label for="mR" class="block text-sm font-medium text-gray-700">mR:</label>
+                        <label for="mR" class="block text-sm font-medium text-gray-700">\(mR\):</label>
                         <input type="number" id="mR" name="mR" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                     </div>
                     <div class="form-group">
-                        <label for="lambdaMin" class="block text-sm font-medium text-gray-700">Lambda Min:</label>
+                        <label for="lambdaMin" class="block text-sm font-medium text-gray-700">\(\lambda_{min}\):</label>
                         <input type="number" id="lambdaMin" name="lambdaMin" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                     </div>
                     <div class="form-group">
-                        <label for="lambdaMax" class="block text-sm font-medium text-gray-700">Lambda Max:</label>
+                        <label for="lambdaMax" class="block text-sm font-medium text-gray-700">\(\lambda_{max}\)::</label>
                         <input type="number" id="lambdaMax" name="lambdaMax" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                     </div>
                 </div>
                 <div class="flex items-center">
                     <input id="retainPlot" type="checkbox" class="mr-2 leading-tight">
-                    <label for="retainPlot" class="text-sm font-medium text-gray-700">Retain Previous Plots</label>
+                    <label for="retainPlot" class="text-sm font-medium text-gray-700">Retain Previous Plots (Check this only after the first plot)</label>
                 </div>
                 <button type="button" onclick="calculatelc()" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600">Calculate</button>
             </form>
@@ -446,6 +470,9 @@
             }
         </script>
 
+        <br>
+        <hr>
+        <br>
 
         <!--References-->
         <h2 class="text-4xl font-extrabold mb-4 relative group">
