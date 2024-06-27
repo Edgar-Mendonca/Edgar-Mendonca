@@ -368,6 +368,45 @@
             <p class="text-center mt-2 italic">Influence of mR on the non-dimensionalised load-deflection curve.</p>
         </div>
 
+        <p class="text-justify">
+            For futher analysis and calculations, the experimental Load-Displacement curve is converted to Non-Dimensional curve.
+            From the Load-Displacement curve, the 'x' and 'y' axes data are converted to non-dimensional entities.
+            The data from the 'x' column i.e. displacement is divided by the radius of the sample tube. In this case of experiment, the tube radius is measured to be 25mm.
+            Similarly, the data from the 'y' column i.e. Load is divided by the collapse load (Po). Hence the resulting plot obtain is non-dimensional, i.e., P/Po v/s 	δ/R.
+        </p>
+
+        <div class="items-center py-2 px-1">
+            <div class="flex">
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQx4oz9PD5HMb7SAgNsy8digKuUdm4Dk8XwgI1zr8He5EeEZRHr1qhJZzAA8Rt3HA/pubchart?oid=1128226484&amp;format=interactive" width="650" height="380" class="border rounded"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQx4oz9PD5HMb7SAgNsy8digKuUdm4Dk8XwgI1zr8He5EeEZRHr1qhJZzAA8Rt3HA/pubchart?oid=1088688395&amp;format=interactive" width="650" height="380" class="border rounded"></iframe>
+            </div>
+
+            <p class="text-center mt-2 italic">Experimental Load-Displacement response and  Load per unit length v/s Displacement to Radius Ratio for non-dimensional plot</p>
+        </div>
+
+        <p class="text-justify">
+            In respone to the mR value, the theortical and experimental curves are both plotted together on a non-dimensional plot. 
+            The mR value is changed so that the theoretical and experimental curves find a best fit.
+            In the plot depicted below, the closest fit was found for a mR value of 4. This values can be further used for material characterisation.
+        </p>
+
+        <div class="items-center py-2 px-1">
+            <img src="images/Lateral-Compression-Tubes/comp-exp-theory-l-d.png" class="mx-auto bg-white" width="700" height="auto" />
+            <p class="text-center mt-2 italic">Comparison of theoretical and experimental curves to find the best fit</p>
+        </div>
+
+        <p class="text-justify">
+            Using the equation of mR for the obtained values of 4, the hardening modulus Ep is attained for the following inputs,
+            <br>
+            \(mR=4; \sigma_o=183.6MPa; R=25mm; t=1.6mm \)
+
+            \[4=[(6*183.6*25)/(E_p * 1.6)]^{1/2}\]
+            \[E_p = 1.075GPa\]
+
+            The hardening modulus \(Ep\) for the aluminium 6063 tube is calculated as \(1.075GPa\).
+        </p>
+
+
         <br>
         <hr>
         <br>
@@ -382,8 +421,8 @@
             The resulting plot will show the load-deflection curve, with different colors representing different calculations. The legend on the plot will list the mR values used for each curve.
         </p>
 
-
-        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg py-2">
+        <!--Theoretical Load-Deflection Curve Calculator-->
+        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg py-5">
             <h2 class="text-2xl font-bold mb-4">Theoretical Load-Deflection Curve Calculator</h2>
             <form id="inputForm" class="space-y-4">
                 <div class="flex flex-wrap space-x-5">
@@ -396,7 +435,7 @@
                         <input type="number" id="lambdaMin" name="lambdaMin" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                     </div>
                     <div class="form-group">
-                        <label for="lambdaMax" class="block text-sm font-medium text-gray-700">\(\lambda_{max}\)::</label>
+                        <label for="lambdaMax" class="block text-sm font-medium text-gray-700">\(\lambda_{max}\):</label>
                         <input type="number" id="lambdaMax" name="lambdaMax" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                     </div>
                 </div>
@@ -404,13 +443,13 @@
                     <input id="retainPlot" type="checkbox" class="mr-2 leading-tight">
                     <label for="retainPlot" class="text-sm font-medium text-gray-700">Retain Previous Plots (Check this only after the first plot)</label>
                 </div>
-                <button type="button" onclick="calculatelc()" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600">Calculate</button>
+                <button type="button" onclick="calculateTheoretical()" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600">Calculate</button>
             </form>
-            <div id="plot" class="w-full h-full mt-6"></div>
+            <div id="theoreticalPlot" class="w-full h-full mt-6"></div>
         </div>
-
+        
         <script>
-            function calculatelc() {
+            function calculateTheoretical() {
                 // Get input values
                 const mR = parseFloat(document.getElementById('mR').value);
                 const lambdaMin = parseFloat(document.getElementById('lambdaMin').value);
@@ -458,9 +497,9 @@
                 };
         
                 if (retainPlot) {
-                    Plotly.addTraces('plot', [trace]);
+                    Plotly.addTraces('theoreticalPlot', [trace]);
                 } else {
-                    Plotly.newPlot('plot', [trace], {
+                    Plotly.newPlot('theoreticalPlot', [trace], {
                         title: 'Non-Dimensional Load-Deflection Curve',
                         xaxis: { title: 'δ/R' },
                         yaxis: { title: 'P/Po' },
@@ -469,6 +508,128 @@
                 }
             }
         </script>
+        
+        <!--Comparison Calculator for Experimental and Theoretical Data-->
+        <div class="container mx-auto p-6 max-w-3xl border border-gray-300 rounded-lg py-5">
+            <h2 class="text-2xl font-bold mb-4">Comparison Calculator for Experimental and Theoretical Data</h2>
+            <form id="comparisonForm" class="space-y-4">
+                <div class="flex flex-wrap space-x-5">
+                    <div class="form-group">
+                        <label for="comp_mR" class="block text-sm font-medium text-gray-700">\(mR\):</label>
+                        <input type="number" id="comp_mR" name="comp_mR" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="comp_lambdaMin" class="block text-sm font-medium text-gray-700">\(\lambda_{min}\):</label>
+                        <input type="number" id="comp_lambdaMin" name="comp_lambdaMin" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="comp_lambdaMax" class="block text-sm font-medium text-gray-700">\(\lambda_{max}\):</label>
+                        <input type="number" id="comp_lambdaMax" name="comp_lambdaMax" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="Po" class="block text-sm font-medium text-gray-700">\(P_o\) (Collapse Load in 'kN'):</label>
+                        <input type="number" id="Po" name="Po" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="R" class="block text-sm font-medium text-gray-700">\(R\) (Tube Radius in 'mm'):</label>
+                        <input type="number" id="R" name="R" step="any" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="experimentalFile" class="block text-sm font-medium text-gray-700">Load Experimental Data (CSV):</label>
+                        <input type="file" id="experimentalFile" name="experimentalFile" accept=".csv" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+                <button type="button" onclick="calculateComparison()" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600">Calculate</button>
+            </form>
+            <div id="comparisonPlot" class="w-full h-full mt-6"></div>
+        </div>
+        
+        <script>
+            function calculateComparison() {
+                // Get input values
+                const mR = parseFloat(document.getElementById('comp_mR').value);
+                const lambdaMin = parseFloat(document.getElementById('comp_lambdaMin').value);
+                const lambdaMax = parseFloat(document.getElementById('comp_lambdaMax').value);
+                const Po = parseFloat(document.getElementById('Po').value);
+                const R = parseFloat(document.getElementById('R').value);
+        
+                // Calculation
+                const lambda = [];
+                for (let i = lambdaMin; i <= lambdaMax; i += 0.1) {
+                    lambda.push(i);
+                }
+        
+                const gamma = lambda.map(l => Math.acos(1 / l));
+                const n1 = lambda.map(l => mR * Math.sqrt(l));
+                const n = 1 - Math.pow(0.5 / mR, 2);
+                const p = lambda.map(l => 0.707067812 * Math.sqrt(1 - (n / l)));
+        
+                const phi = p.map((p, index) => Math.acos(1 / (2 * p * n1[index])));
+                const ellipticF = (phi, p) => phi.map((phi, index) => {
+                    // Placeholder for complete elliptic integral of the first kind
+                    return phi * (1 - Math.pow(p[index], 2) * Math.sin(phi) / 2);
+                });
+        
+                const ellipticE = (phi, p) => phi.map((phi, index) => {
+                    // Placeholder for complete elliptic integral of the second kind
+                    return phi - Math.pow(p[index], 2) * Math.sin(phi) / 2;
+                });
+        
+                const f = ellipticF(phi, p);
+                const e = ellipticE(phi, p);
+                const C = f.map((f, index) => (2 * e[index] - f) / n1[index]);
+                const D = gamma.map((g, index) => 2 * (Math.sin(g) - C[index]));
+        
+                // Plotting
+                const colors = ['blue', 'red', 'green', 'orange', 'purple', 'brown', 'pink'];
+                const traceColor = colors[Math.floor(Math.random() * colors.length)];
+        
+                const trace = {
+                    x: D,
+                    y: lambda,
+                    type: 'scatter',
+                    mode: 'lines+markers',
+                    marker: { color: 'red' },
+                    name: 'Theoretical'
+                };
+        
+                Plotly.newPlot('comparisonPlot', [trace], {
+                    title: 'Non-Dimensional Load-Deflection Curve',
+                    xaxis: { title: 'δ/R' },
+                    yaxis: { title: 'P/Po' },
+                    legend: { title: { text: 'Plots' } }
+                });
+        
+                // Load and plot experimental data
+                const fileInput = document.getElementById('experimentalFile');
+                const file = fileInput.files[0];
+        
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const csvData = event.target.result;
+                        const data = csvData.split('\n').map(row => row.split(',').map(Number));
+                        const displacement = data.map(row => row[0] / R);
+                        const load = data.map(row => row[1] / Po);
+        
+                        const experimentalTrace = {
+                            x: displacement,
+                            y: load,
+                            type: 'scatter',
+                            mode: 'lines',
+                            marker: { color: 'blue' },
+                            name: 'Experimental'
+                        };
+        
+                        Plotly.addTraces('comparisonPlot', [experimentalTrace]);
+                    };
+                    reader.readAsText(file);
+                }
+            }
+        </script>
+        
+
+
 
         <br>
         <hr>
