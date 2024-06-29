@@ -605,6 +605,94 @@
 </section>
 
 
+
+<!-- QR Code Generator -->
+<div class="mx-auto text-center py-8 bg-white dark:bg-gray-800">
+    <div class="card card-compact w-96 bg-base-100 shadow-xl mx-auto py-5 bg-white dark:bg-gray-900">
+        <div class="card-body ">
+            <h1 class="text-3xl tracking-tight font-extrabold mb-4 mx-auto text-black dark:text-white">QR Code Generator</h1>
+            <div id="qr-result" class="mt-4 flex justify-center items-center"></div>
+            <input id="qr-input" type="text" placeholder="Enter URL, Links or Texts" class="input-style rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            
+            <button onclick="generateQRCode()" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate QR Code</button>
+            <button onclick="saveQRCode('png')" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Save as PNG</button>
+            <button onclick="saveQRCode('svg')" class="mt-4 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Save as SVG</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+<script>
+    function generateQRCode() {
+        var qrInput = document.getElementById('qr-input').value;
+        var qrResult = document.getElementById('qr-result');
+
+        // Clear previous QR code
+        qrResult.innerHTML = '';
+
+        // Generate new QR code
+        var qr = qrcode(0, 'M');
+        qr.addData(qrInput);
+        qr.make();
+        var svg = qr.createSvgTag(5); // Adjust size (5 times the module size)
+        qrResult.innerHTML = svg;
+    }
+
+    function saveQRCode(format) {
+        if (format === 'png') {
+            saveQRCodeAsPNG();
+        } else if (format === 'svg') {
+            saveQRCodeAsSVG();
+        }
+    }
+
+    function saveQRCodeAsPNG() {
+        var qrResult = document.getElementById('qr-result');
+        var qrSvg = qrResult.querySelector('svg');
+
+        if (qrSvg) {
+            // Convert SVG to PNG
+            var svgData = new XMLSerializer().serializeToString(qrSvg);
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            var img = new Image();
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                
+                // Trigger PNG download
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qr_code.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+        }
+    }
+
+    function saveQRCodeAsSVG() {
+        var qrResult = document.getElementById('qr-result');
+        var qrSvg = qrResult.querySelector('svg');
+
+        if (qrSvg) {
+            // Handle SVG download
+            var svgData = new XMLSerializer().serializeToString(qrSvg);
+            var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            var url = window.URL.createObjectURL(blob);
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = 'qr_code.svg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+    }
+</script>
+
 <!--Skills-->
 <section class="bg-white dark:bg-gray-900 py-5" id="skills">
     <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white mx-auto text-center">Skills</h2>
