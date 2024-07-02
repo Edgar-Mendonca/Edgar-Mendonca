@@ -124,16 +124,17 @@
         <h1 class="text-5xl tracking-tight font-extrabold text-gray-900 dark:text-white">Hi there, I'm</h1>
         <h2 class="text-6xl tracking-tight font-extrabold text-gray-900 dark:text-white">Edgar Mendonca</h2>
         <p class="mt-4 text-2xl text-center text-black dark:text-white" id="herosub">A Freelance Consultant: Engineering, R&D, Developer</p>
-        <!-- Buttons -->
-        <div class="mt-8">
-          <a href="https://drive.google.com/file/d/1ONmfNVPs5ri9faXs95NeYx74AAtsw3fb/view" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" target="_blank">View CV</a>
-          <a href="#portfolio" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">View Portfolio</a>
-          <a href="#contact" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-              <span class="relative px-8 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                  Contact Me
-              </span>
-          </a>
-        </div>
+<!-- Buttons -->
+<div class="mt-8 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+    <a href="https://drive.google.com/file/d/1ONmfNVPs5ri9faXs95NeYx74AAtsw3fb/view" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center" target="_blank">View CV</a>
+    <a href="#portfolio" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">View Portfolio</a>
+    <a href="#contact" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+        <span class="relative px-8 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            Contact Me
+        </span>
+    </a>
+  </div>
+  
     </div>
 </section>
 <script>
@@ -456,8 +457,8 @@
 
 
         <!--Cards-->
-        <div class="flex justify-center grid-cols-3 gap-8">
-        
+        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-5">
+
             <div class="bg-blue-50 card w-96 bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="card-body">
                     <h2 class="card-title font-bold">Stress Waves in Solids</h2>
@@ -490,7 +491,7 @@
 
         </div>
 
-        <div class="flex justify-center grid-cols-3 gap-8 mt-6">
+        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-5">
 
             <div class="bg-blue-50 card w-96 bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="card-body">
@@ -524,7 +525,7 @@
 
         </div>
 
-        <div class="flex justify-center grid-cols-3 gap-8 mt-6">
+        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-5">
 
             <div class="bg-blue-50 card w-96 bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-lg">
                 <div class="card-body">
@@ -547,7 +548,7 @@
 <!--Softwares/Applications-->
 <section class="wave-pattern bg-white dark:bg-gray-800 mx-auto" id="portfolio">
     <div class="py-8 lg:py-12 px-4 mx-auto max-w-screen-xl">
-        <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white py-3">Softwares/Applications</h2>
+        <h2 class="mb-4 text-4xl md:text-5xl lg:text-6xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white py-3">Softwares/Applications</h2>
     
         <!--Apps Cards-->
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
