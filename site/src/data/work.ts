@@ -4,7 +4,6 @@ const gh = "https://github.com/Edgar-Mendonca";
 export const person = {
   name: "Edgar Mendonca",
   role: "Engineer, researcher and software developer",
-  cv: "https://drive.google.com/file/d/1ONmfNVPs5ri9faXs95NeYx74AAtsw3fb/view",
   github: gh,
   linkedin: "https://www.linkedin.com/in/edgar-mendonca/",
   youtube: "https://www.youtube.com/@edgarmendonca",
