@@ -295,9 +295,51 @@ html.lenis, html.lenis body { height: auto; }
 .scene .sc-support { fill: var(--line-2); }
 .scene .sc-scope { fill: var(--card); stroke: var(--line-2); }
 .scene .sc-grid path { stroke: var(--line); stroke-width: 1; }
-.scene .sc-axis { stroke: var(--line-2); stroke-width: 1; }
+.scene .sc-axis { fill: none; stroke: var(--line-2); stroke-width: 1; }
 .scene .sc-trace { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .scene .sc-cursor { stroke: var(--em); stroke-width: 1; stroke-dasharray: 3 3; }
+
+/* The bench: tabs across the top, one scene at a time, a caption under it */
+.bench { display: grid; gap: 12px; min-width: 0; }
+.btabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); background: var(--card); }
+.btabs button { position: relative; display: flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 10px; border: 0; border-right: 1px solid var(--line);
+  background: none; color: var(--muted); font: inherit; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; text-align: left; cursor: pointer; transition: color .2s, background-color .2s; }
+.btabs button:last-child { border-right: 0; }
+.btabs button .n { color: var(--faint); }
+.btabs button:hover { color: var(--ink); }
+.btabs button[aria-selected="true"] { color: var(--ink); background: var(--bg-2); }
+.btabs button[aria-selected="true"] .n { color: var(--em); }
+.btabs .fill { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--amber); transform: scaleX(0); transform-origin: 0 50%; }
+.btabs button[aria-selected="true"] .fill { transform: scaleX(1); }
+.motion .btabs button[aria-selected="true"] .fill { transform: scaleX(var(--p, 0)); }
+.bpanel { display: grid; gap: 10px; }
+.bcap { color: var(--muted); font-size: 14px; min-height: 2.9em; }
+.bcap a { color: var(--em); white-space: nowrap; }
+.bcap a:hover { text-decoration: underline; }
+@media (max-width: 520px) { .btabs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .btabs button:nth-child(2) { border-right: 0; } .btabs button:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+
+/* Compressor train and ring scenes */
+.scene .c-pipe { fill: none; stroke: var(--line-2); stroke-width: 6; stroke-linejoin: round; }
+.scene .c-flow { fill: none; stroke: var(--em); stroke-width: 2; stroke-dasharray: 2 10; stroke-linecap: round; opacity: .8; }
+.scene .c-rflow { stroke: var(--amber); opacity: 0; }
+.scene .c-valve { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; transition: fill .3s; }
+.scene .c-valve.open { fill: var(--amber); }
+.scene .c-shaft { stroke: var(--ink); stroke-width: 3; }
+.scene .c-gear { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 3 2.4; }
+.scene .c-blade { fill: none; stroke: var(--em); stroke-width: 2; stroke-linecap: round; }
+.scene .c-speed { fill: none; stroke: var(--muted); stroke-width: 1.2; opacity: .7; }
+.scene .c-surge { fill: none; stroke: #C0392B; stroke-width: 1.8; stroke-dasharray: 5 3; }
+.scene .c-surge-t { fill: #C0392B; }
+.scene .c-control { fill: none; stroke: var(--amber); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.scene .c-arrow { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.scene .r-ring { fill: none; stroke: var(--em); stroke-width: 5; }
+.scene.run .c-rot { animation: spin var(--spin, 1.2s) linear infinite; }
+.scene.run .c-g2 { --spin: .6s; }
+.scene.run .c-imp { --spin: .45s; }
+.scene.run .c-flow { animation: flow .6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes flow { to { stroke-dashoffset: -12; } }
+@media (prefers-reduced-motion: reduce) { .scene .c-rot, .scene .c-flow { animation: none !important; } }
 
 /* Research glyphs: loop only while on screen (.on) */
 .rbox .glyph { width: 120px; height: 56px; margin-bottom: 4px; }

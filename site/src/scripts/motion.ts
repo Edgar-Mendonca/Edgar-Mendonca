@@ -1,8 +1,9 @@
-// Motion for the whole site: smooth scrolling (Lenis), scroll reveals and the hero's Hopkinson bar (GSAP).
-// Everything is visible without this script; with "reduce motion" set, only the reading-progress line runs.
+// Motion for the whole site: smooth scrolling (Lenis), scroll reveals and the hero's bench of scenes (GSAP).
+// Everything is visible without this script; with "reduce motion" set, the page is static (the bench tabs still switch).
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { setupBench } from "./bench";
 
 gsap.registerPlugin(ScrollTrigger);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -82,14 +83,15 @@ if (!reduce) {
     return $$(".wi", el);
   };
 
-  // ---------- hero: name, line, buttons, then the facts ----------
+  // ---------- hero: name, line and button, then the bench ----------
   const hero = document.querySelector(".hero");
   if (hero) {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     const name = hero.querySelector<HTMLElement>("h1");
     if (name) tl.from(split(name), { yPercent: 110, duration: 0.9, stagger: 0.08 }, 0.1);
-    tl.from($$(".hero .mono.muted, .hero .lead, .hero .btns", hero), { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.1 }, 0.25)
-      .from($$(".facts > div", hero), { y: 14, autoAlpha: 0, duration: 0.6, stagger: 0.08 }, 0.6);
+    tl.from($$(".hero .mono.muted, .hero .lead, .hero .btns", hero), { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.1 }, 0.25);
+    const bench = hero.querySelector(".bench");
+    if (bench) tl.from(bench, { y: 16, autoAlpha: 0, duration: 0.8 }, 0.45);
   }
 
   // ---------- section headings ----------
@@ -122,45 +124,7 @@ if (!reduce) {
   $$(".feature .pic img").forEach(img => {
     gsap.fromTo(img, { y: 18 }, { y: -18, ease: "none", scrollTrigger: { trigger: img, start: "top bottom", end: "bottom top", scrub: true } });
   });
-
-  // ---------- the Hopkinson bar ----------
-  const scene = document.querySelector<SVGSVGElement>(".scene");
-  if (scene) {
-    const q = (id: string) => scene.querySelector(`#${id}`);
-    const traces = ["sc-ti", "sc-tr", "sc-tt"].map(q);
-    const state = q("sc-state");
-    gsap.set(traces, { strokeDasharray: 1000, strokeDashoffset: 1000 });   // traces have pathLength 1000
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.4, delay: 0.8, defaults: { ease: "none" } });
-    tl.call(() => { if (state) state.textContent = "FIRING"; });
-    tl.set(["#sc-pi", "#sc-pr", "#sc-pt"].map(s => scene.querySelector(s)), { opacity: 0 })
-      .set(traces, { strokeDashoffset: 1000 })
-      .set(q("sc-cursor"), { opacity: 0, x: 0 })
-      .fromTo(q("sc-v"), { autoAlpha: 0, x: -6 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power2.out" })
-      // striker accelerates down the barrel and hits the bar
-      .fromTo(q("sc-striker"), { x: 0 }, { x: 26, duration: 0.55, ease: "power2.in" }, "<")
-      .to(q("sc-v"), { autoAlpha: 0, duration: 0.2 })
-      // incident pulse to the specimen; the scope cursor sweeps with time
-      .set(q("sc-pi"), { opacity: 1, x: 0 }, "hit")
-      .to(q("sc-cursor"), { opacity: 0.5, duration: 0.1 }, "hit")
-      .to(q("sc-cursor"), { x: 500, duration: 2.4 }, "hit")
-      .to(q("sc-pi"), { x: 230, duration: 1.0 }, "hit")
-      .to(q("sc-ti"), { strokeDashoffset: 0, duration: 2.4 }, "hit")
-      .call(() => q("sc-g1")?.classList.add("hot"), [], "hit+=0.48").call(() => q("sc-g1")?.classList.remove("hot"), [], "hit+=0.75")
-      // at the specimen: it squeezes, part of the pulse reflects and part passes on
-      .to(q("sc-spec"), { scaleX: 0.72, transformOrigin: "50% 50%", duration: 0.18, yoyo: true, repeat: 1, ease: "power1.inOut" }, "hit+=0.95")
-      .to(q("sc-pi"), { opacity: 0, duration: 0.15 }, "hit+=0.95")
-      .set(q("sc-pr"), { opacity: 1, x: 0 }, "hit+=1.0")
-      .to(q("sc-pr"), { x: -230, duration: 1.0 }, "hit+=1.0")
-      .set(q("sc-pt"), { opacity: 0.9, x: 0 }, "hit+=1.0")
-      .to(q("sc-pt"), { x: 260, duration: 1.1 }, "hit+=1.0")
-      .call(() => q("sc-g2")?.classList.add("hot"), [], "hit+=1.45").call(() => q("sc-g2")?.classList.remove("hot"), [], "hit+=1.75")
-      .to(q("sc-tr"), { strokeDashoffset: 0, duration: 2.4 }, "hit")
-      .to(q("sc-tt"), { strokeDashoffset: 0, duration: 2.4 }, "hit")
-      .to(q("sc-striker"), { x: 0, duration: 0.6, ease: "power2.inOut" }, "hit+=1.2")
-      .call(() => { if (state) state.textContent = "RECORDED"; }, [], "hit+=2.4")
-      .to(q("sc-cursor"), { opacity: 0, duration: 0.3 }, "hit+=2.4")
-      .to([q("sc-pr"), q("sc-pt")], { opacity: 0, duration: 0.2 }, "hit+=2.1");
-    // pause while off screen
-    ScrollTrigger.create({ trigger: scene, start: "top bottom", end: "bottom top", onToggle: s => (s.isActive ? tl.play() : tl.pause()) });
-  }
 }
+
+// The hero bench runs in both modes: animated normally, static scenes with working tabs under "reduce motion".
+setupBench();
