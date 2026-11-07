@@ -1,0 +1,39 @@
+{
+  "$comment": "What the brain learns from. Each source is a GitHub repository (cloned into the cache) or a folder in this repository. 'project' and 'area' are the labels the network learns to predict. Add a line here when you start something new.",
+  "areas": {
+    "project-controls": "Planning, scheduling and project control",
+    "data-analysis": "Data analysis, statistics and scientific graphs",
+    "materials": "Materials selection and properties",
+    "dynamics-control": "Dynamic systems, control and motors",
+    "engineering-calculation": "Engineering calculations and calc sheets",
+    "structural-fea": "Finite-element and structural analysis",
+    "piping": "Piping design and pipe stress",
+    "process-design": "Process design, P&IDs and flow diagrams",
+    "plant-layout": "3D plant layout",
+    "software-platform": "How the Datum family is designed, built and released",
+    "rotating-equipment": "Compressors and rotating equipment",
+    "impact-mechanics": "Impact mechanics, stress waves and high strain-rate testing",
+    "web": "Websites and web apps"
+  },
+  "repos": [
+    { "repo": "Edgar-Mendonca/Datum", "project": "datum", "area": "software-platform" },
+    { "repo": "Edgar-Mendonca/Datum-Plan", "project": "datum-plan", "area": "project-controls" },
+    { "repo": "Edgar-Mendonca/Datum-Plot", "project": "datum-plot", "area": "data-analysis" },
+    { "repo": "Edgar-Mendonca/Datum-Atlas", "project": "datum-atlas", "area": "materials" },
+    { "repo": "Edgar-Mendonca/Datum-Sim", "project": "datum-sim", "area": "dynamics-control" },
+    { "repo": "Edgar-Mendonca/Datum-Calc", "project": "datum-calc", "area": "engineering-calculation" },
+    { "repo": "Edgar-Mendonca/Datum-Mesh", "project": "datum-mesh", "area": "structural-fea" },
+    { "repo": "Edgar-Mendonca/Datum-Pipe", "project": "datum-pipe", "area": "piping" },
+    { "repo": "Edgar-Mendonca/Datum-Schema", "project": "datum-schema", "area": "process-design" },
+    { "repo": "Edgar-Mendonca/Datum-Layout", "project": "datum-layout", "area": "plant-layout" },
+    { "repo": "Edgar-Mendonca/Compressor-Engineering-Suite", "project": "centriforge", "area": "rotating-equipment" },
+    { "repo": "Edgar-Mendonca/SHPB-Analysis", "project": "shpb", "area": "impact-mechanics" },
+    { "repo": "Edgar-Mendonca/Split-Hopkinson-Pressure-Bar-Analysis-Tool", "project": "shpb", "area": "impact-mechanics" }
+  ],
+  "local": [
+    { "path": "site/src/pages/research/shpb.astro", "project": "shpb", "area": "impact-mechanics", "kind": "research" },
+    { "path": "site/src/pages/research/stress-waves.astro", "project": "stress-waves", "area": "impact-mechanics", "kind": "research" },
+    { "path": "site/src/pages/research/lateral-compression.astro", "project": "lateral-compression", "area": "impact-mechanics", "kind": "research" },
+    { "path": "brain/notes", "project": "from-front-matter", "area": "from-front-matter", "kind": "note" }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Sim: the family tile in the orange accent (proposed; final colour is question 1 in PLAN-0.1). A feedback loop: a summing node feeds a block (tinted), its output is fed back underneath; a step response settles inside the block; the amber diamond marks the output, where the result is read. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FCEEE6"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#F3CDB6" stroke-width="4"/>
+  <rect x="96" y="66" width="96" height="80" rx="10" fill="#F6C3A5" stroke="#C2410C" stroke-width="11"/>
+  <path d="M110 128h12c6 0 8-40 20-40c10 0 10 12 18 12h20" fill="none" stroke="#C2410C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="58" cy="106" r="16" fill="none" stroke="#C2410C" stroke-width="11"/>
+  <path d="M74 106h22M192 106h20M212 106v86H58v-70" fill="none" stroke="#C2410C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M212 92l14 14-14 14-14-14z" fill="#F2B233"/>
+</svg>

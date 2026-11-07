@@ -1,0 +1,29 @@
+---
+// A research case study: title block with key facts, a sticky contents list, and the article.
+import "katex/dist/katex.min.css";
+import Base from "./Base.astro";
+
+interface Props {
+  title: string; description: string; kicker: string;
+  meta: { k: string; v: string }[];
+  links?: { label: string; href: string }[];
+  toc: { id: string; label: string }[];
+}
+const { title, description, kicker, meta, links = [], toc } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<Base title={`${title} · Edgar Mendonca`} description={description}>
+  <div class="frame">
+    <header class="doc-head">
+      <p class="crumb mono"><a href={`${base}/#research`}>Research</a> / {kicker}</p>
+      <h1 class="h2" style="max-width:24ch">{title}</h1>
+      <p class="lead">{description}</p>
+      {links.length > 0 && <div class="btns">{links.map((l, i) => <a class={`btn ${i === 0 ? "btn-solid" : "btn-line"}`} href={l.href}>{l.label}</a>)}</div>}
+      <dl class="doc-meta">{meta.map(m => <div><dt class="mono">{m.k}</dt><dd>{m.v}</dd></div>)}</dl>
+    </header>
+    <div class="doc">
+      <aside class="toc"><nav aria-label="Contents" class="mono">{toc.map(t => <a href={`#${t.id}`}>{t.label}</a>)}</nav></aside>
+      <article class="article"><slot /></article>
+    </div>
+  </div>
+</Base>

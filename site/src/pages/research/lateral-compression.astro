@@ -1,0 +1,95 @@
+---
+import Doc from "../../layouts/Doc.astro";
+import Eq from "../../components/Eq.astro";
+import Fig from "../../components/Fig.astro";
+import { code } from "../../data/work";
+const repo = code[0].href;
+const toc = [
+  { id: "overview", label: "Overview" },
+  { id: "response", label: "Load–deflection response" },
+  { id: "experiment", label: "Experiment" },
+  { id: "properties", label: "Properties from the test" },
+  { id: "theory", label: "Theory and fit" },
+  { id: "references", label: "References" },
+];
+---
+<Doc
+  title="Lateral compression of thin-walled tubes"
+  kicker="Tube crushing"
+  description="Ring compression of aluminium 6063 tubes between flat plates: yield stress, elastic modulus and hardening modulus from one quasi-static test, checked against the Reid–Reddy theory."
+  meta={[
+    { k: "Period", v: "Mar 2022 – May 2023" },
+    { k: "Material", v: "Aluminium 6063 tube, 50 × 50 × 1.6 mm" },
+    { k: "Loading", v: "Quasi-static, 4 mm/min" },
+    { k: "Tools", v: "MATLAB, Abaqus CAE" },
+  ]}
+  links={[{ label: "Code on GitHub", href: repo }]}
+  toc={toc}
+>
+  <section id="overview">
+    <h2><span class="n">01</span>Overview</h2>
+    <p>Thin-walled tubes are used as energy absorbers in vehicles, aircraft and structures. In the ring (lateral) compression test a tube lies on its side between two rigid flat plates and is squashed across its diameter. Seen along the load, it takes a saddle shape. The test is simple, and its load–deflection curve carries enough information to back out the material's yield stress, elastic modulus and strain hardening.</p>
+    <p>This was part of a wider study of aluminium tube deformation and impact energy absorption, with experiments, analytical models and finite-element models compared side by side.</p>
+    <div class="figs">
+      <Fig src="img/tubes/lateral-compression-schematic.png" alt="Lateral compression of a tube between two plates" n="1" />
+      <Fig src="img/work/tube-fea.jpg" alt="Finite-element models of tube crushing" n="2" />
+    </div>
+  </section>
+
+  <section id="response">
+    <h2><span class="n">02</span>Load–deflection response</h2>
+    <p>The curve has three phases:</p>
+    <ul>
+      <li><b>Elastic</b>: load rises linearly and the tube springs back if unloaded.</li>
+      <li><b>Yield</b>: plastic hinges form and the load levels off at the collapse load <Eq inline tex={String.raw`P_o`} />.</li>
+      <li><b>Hardening</b>: the slope rises again as the material strain-hardens and the geometry stiffens.</li>
+    </ul>
+    <div class="figs">
+      <Fig src="img/tubes/ideal-load-displacement-1.png" alt="Ideal load–displacement response of the ring compression test" n="3" />
+      <Fig src="img/tubes/ideal-load-displacement-2.png" alt="The elastic and yield region in detail" n="4" />
+    </div>
+  </section>
+
+  <section id="experiment">
+    <h2><span class="n">03</span>Experiment</h2>
+    <p>An aluminium 6063 tube, 50 mm long, 50 mm in diameter and 1.6 mm thick, was compressed at a constant 4 mm/min. The load–displacement record was taken together with photographs of each stage of the collapse. The collapse load, read where the tangents to the elastic and plastic parts meet, was <b>0.94 kN</b>.</p>
+    <Fig src="img/tubes/ring-compresion-test.jpg" alt="Stages of the tube collapsing under lateral compression" n="5" />
+  </section>
+
+  <section id="properties">
+    <h2><span class="n">04</span>Properties from the test</h2>
+    <p>Yield stress from the limit load (with <Eq inline tex={String.raw`\alpha = 1`} /> for short rings, <Eq inline tex={String.raw`l \le 5t`} />, and <Eq inline tex={String.raw`\alpha = 0.866`} /> for long tubes, <Eq inline tex={String.raw`l \ge 2r_o`} />), and elastic modulus from the elastic load and deflection (DeRuntz and Hodge; <Eq inline tex={String.raw`\beta = 1`} /> in plane stress, <Eq inline tex={String.raw`1-\nu^2`} /> in plane strain):</p>
+    <div class="eqs">
+      <Eq tex={String.raw`\sigma_y = \frac{\alpha\,P_l\,r_o}{l\,t^2}`} />
+      <Eq tex={String.raw`E = \frac{12\,P_e\,r_o^3\,\beta}{\delta_e\,t^3\,l}\left(\frac{\pi}{4} - \frac{2}{\pi}\right)`} />
+    </div>
+    <p>With <Eq inline tex={String.raw`P_l = 0.94`} /> kN, <Eq inline tex={String.raw`P_e = 0.8`} /> kN, <Eq inline tex={String.raw`\delta_e = 1.6`} /> mm, <Eq inline tex={String.raw`r_o = 25`} /> mm, <Eq inline tex={String.raw`t = 1.6`} /> mm and <Eq inline tex={String.raw`l = 50`} /> mm:</p>
+    <dl class="kv">
+      <div><dt class="mono">Yield stress</dt><dd>183.6 MPa</dd></div>
+      <div><dt class="mono">Young's modulus</dt><dd>≈ 68 GPa</dd></div>
+      <div><dt class="mono">Hardening modulus</dt><dd>1.08 GPa</dd></div>
+    </dl>
+  </section>
+
+  <section id="theory">
+    <h2><span class="n">05</span>Theory and fit</h2>
+    <p>Reid and Reddy describe the hardening response with one non-dimensional parameter, which sets the shape of the load–deflection curve:</p>
+    <Eq tex={String.raw`mR = \left(\frac{6\,\sigma_o R}{E_p\,t}\right)^{1/2}`} />
+    <p>The test curve is made non-dimensional (load over collapse load, <Eq inline tex={String.raw`P/P_o`} />, against deflection over radius, <Eq inline tex={String.raw`\delta/R`} />) and laid over the theoretical curves for a range of <Eq inline tex={String.raw`mR`} />. The best fit was <Eq inline tex={String.raw`mR = 4`} />, which gives the average hardening modulus:</p>
+    <Eq tex={String.raw`4 = \left(\frac{6 \times 183.6 \times 25}{E_p \times 1.6}\right)^{1/2} \quad\Rightarrow\quad E_p \approx 1.08\ \text{GPa}`} />
+    <div class="figs">
+      <Fig src="img/tubes/non-dimensional-l-d.png" alt="Theoretical non-dimensional load–deflection curves for several mR" n="6" />
+      <Fig src="img/tubes/comp-exp-theory-l-d.png" alt="Experiment against theory: best fit at mR = 4" n="7" />
+    </div>
+    <p>The code that draws the theoretical curves and fits them to a test record is on <a href={repo}>GitHub</a>.</p>
+  </section>
+
+  <section id="references">
+    <h2><span class="n">06</span>References</h2>
+    <ol class="refs">
+      <li>Reid, S. R., and Reddy, T. Y. (1978). Effect of strain hardening on the lateral compression of tubes between rigid plates. <i>International Journal of Solids and Structures</i>.</li>
+      <li>Reddy, T. Y., and Reid, S. R. (1979). Lateral compression of tubes and tube-systems with side constraints. <i>International Journal of Mechanical Sciences</i>.</li>
+      <li>Reddy, T. Y., and Reid, S. R. (1979). On obtaining material properties from the ring compression test. <i>Nuclear Engineering and Design</i>.</li>
+    </ol>
+  </section>
+</Doc>

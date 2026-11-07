@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Layout: the family tile in the steel accent. An isometric cube outline (the plot), a pipe entering it that turns once with an elbow and ends at a small vertical vessel (tinted); the amber diamond is the family mark. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEF3F8"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#C2D3E4" stroke-width="4"/>
+  <g fill="none" stroke="#3A5A78" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 116L128 66L216 116V170L128 220L40 170Z"/>
+    <path d="M40 116L128 166L216 116M128 166V220"/>
+    <path d="M48 70L114 108Q128 116 142 108L150 103.5"/>
+    <rect x="150" y="54" width="36" height="66" rx="18" fill="#B9CCDF"/>
+  </g>
+  <path d="M212 34l15 15-15 15-15-15z" fill="#F2B233"/>
+</svg>

@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<Base title="Page not found · Edgar Mendonca" description="This page does not exist.">
+  <div class="frame block" style="min-height:50vh;display:grid;align-content:center;gap:20px">
+    <p class="mono muted">404</p>
+    <h1 class="h2">This page does not exist.</h1>
+    <div class="btns"><a class="btn btn-solid" href={`${base}/`}>Back to the work</a></div>
+  </div>
+</Base>

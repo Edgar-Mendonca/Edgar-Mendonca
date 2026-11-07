@@ -1,0 +1,64 @@
+{
+  "chunks": 2010,
+  "train": 1709,
+  "test": 301,
+  "parameters": 1059365,
+  "architecture": "8192 hashed TF-IDF \u2192 128 ReLU (dropout 0.3) \u2192 64 tanh embedding \u2192 heads project (16), area (12), kind (9)",
+  "test_accuracy": {
+    "project": 0.9302,
+    "area": 0.9302,
+    "kind": 0.8671
+  },
+  "majority_baseline": {
+    "project": 0.1628,
+    "area": 0.1628,
+    "kind": 0.2392
+  },
+  "epochs": 30,
+  "balance": 0.5,
+  "labels": {
+    "project": [
+      "background",
+      "centriforge",
+      "compressor-package",
+      "datum",
+      "datum-atlas",
+      "datum-calc",
+      "datum-layout",
+      "datum-mesh",
+      "datum-pipe",
+      "datum-plan",
+      "datum-plot",
+      "datum-schema",
+      "datum-sim",
+      "lateral-compression",
+      "shpb",
+      "stress-waves"
+    ],
+    "area": [
+      "data-analysis",
+      "dynamics-control",
+      "engineering-calculation",
+      "impact-mechanics",
+      "materials",
+      "piping",
+      "plant-layout",
+      "process-design",
+      "project-controls",
+      "rotating-equipment",
+      "software-platform",
+      "structural-fea"
+    ],
+    "kind": [
+      "decision",
+      "feature",
+      "memory",
+      "note",
+      "plan",
+      "practice",
+      "release",
+      "research",
+      "session"
+    ]
+  }
+}

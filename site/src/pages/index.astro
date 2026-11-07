@@ -1,0 +1,195 @@
+---
+import Base from "../layouts/Base.astro";
+import { person, datum, centriforge, shpbTool, smallTools, engineering, research, papers, code, web } from "../data/work";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const u = (p: string) => `${base}/${p}`;
+---
+<Base title="Edgar Mendonca · Engineering software, engineering and research" description="Edgar Mendonca builds engineering software (the Datum desktop apps and CentriForge), works on rotating-equipment packages for oil and gas, and researches how materials behave under impact and load.">
+  <div class="frame">
+
+    <section class="hero" aria-labelledby="hi">
+      <div>
+        <p class="mono muted">{person.role}</p>
+        <h1 id="hi" class="h1">Edgar Mendonca</h1>
+        <p class="lead">I build software for <span class="it">engineering work</span>, deliver rotating-equipment packages for oil and gas, and study how materials behave under impact and load.</p>
+        <div class="btns">
+          <a class="btn btn-solid" href="#software">See the work</a>
+          <a class="btn btn-line" href={person.cv}>Download CV</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt class="mono">Software</dt><dd>The Datum desktop apps, CentriForge, SHPB analysis</dd></div>
+        <div><dt class="mono">Engineering</dt><dd>API 617 compressor packages, EPC and vendor coordination</dd></div>
+        <div><dt class="mono">Research</dt><dd>Impact mechanics, stress waves, high strain-rate testing</dd></div>
+        <div><dt class="mono">Education</dt><dd>MSc Advanced Engineering Materials · BE Mechanical Engineering</dd></div>
+      </dl>
+    </section>
+
+    <!-- 01 Software -->
+    <div id="software" class="bar mono"><span><b>01</b> / Software</span><span class="r">Apps I design and build</span></div>
+    <section class="block" aria-label="Software">
+      <div class="intro">
+        <h2 class="h2">Engineering software</h2>
+        <p class="lead">Desktop tools for engineers and scientists. Each one has its own calculation engine, tests and documentation, and is free and open source.</p>
+      </div>
+
+      <div class="band reveal">
+        <a href={datum.site} aria-label="Datum website">
+          <img class="logo light" src={u("icons/datum-logo.svg")} alt="Datum" width="220" height="41" />
+          <img class="logo dark" src={u("icons/datum-logo-light.svg")} alt="Datum" width="220" height="41" />
+        </a>
+        <div style="display:grid;gap:12px">
+          <p>A family of small, fast desktop apps for engineers, scientists and researchers, written from scratch in Rust with one look and one way of working. No accounts, no subscriptions, no telemetry: files stay on the user's computer.</p>
+          <div class="links mono"><a href={datum.site}>Datum website</a><a href={datum.repo}>Source</a></div>
+        </div>
+      </div>
+      <ul class="cells c3">
+        {datum.apps.map(a => (
+          <li class="app reveal">
+            <img src={u(a.icon)} alt="" width="56" height="56" loading="lazy" />
+            <h3 class="h3"><a href={a.page}>{a.name}</a></h3>
+            <p>{a.line}</p>
+            <div class="meta mono"><span>v{a.version}</span><a href={a.page}>Page</a><a href={a.repo}>Source</a></div>
+          </li>
+        ))}
+      </ul>
+
+      <h3 class="mono muted" style="margin:48px 0 14px">Other software</h3>
+
+      <article class="feature reveal">
+        <div class="txt">
+          <div class="head">
+            <img src={u(centriforge.icon)} alt="" width="56" height="56" />
+            <div><h3 class="h3">{centriforge.name}</h3><p class="mono muted">v{centriforge.version} · Windows and browser</p></div>
+          </div>
+          <p><b>{centriforge.line}</b> {centriforge.about}</p>
+          <ul class="dots">{centriforge.points.map(p => <li>{p}</li>)}</ul>
+          <div class="tags">{centriforge.tags.map(t => <span>{t}</span>)}</div>
+          <div class="links mono"><a href={centriforge.download}>Download</a><a href={centriforge.repo}>Source</a></div>
+        </div>
+        <div class="pic">
+          <img src={u("img/centriforge/map.jpg")} alt="CentriForge performance map with surge and stonewall limits and operating cases" loading="lazy" />
+          <img src={u("img/centriforge/rotor.jpg")} alt="CentriForge 3D rotor with its mode shape" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="feature reveal">
+        <div class="txt">
+          <div class="head">
+            <img src={u(shpbTool.icon)} alt="" width="56" height="56" />
+            <div><h3 class="h3">{shpbTool.name}</h3><p class="mono muted">Python · MATLAB app</p></div>
+          </div>
+          <p>{shpbTool.line} Written for the bar I designed and built; it filters the incident, reflected and transmitted pulses, converts voltage to strain and reduces them with one-dimensional wave theory.</p>
+          <div class="links mono"><a href={shpbTool.python}>Python version</a><a href={shpbTool.matlab}>MATLAB app</a><a href={shpbTool.video}>Tutorial video</a><a href={u("research/shpb")}>The project</a></div>
+        </div>
+        <div class="pic duo">
+          <img src={u("img/shpb/filtered-voltage-data.png")} alt="Filtered incident, reflected and transmitted voltage signals" loading="lazy" />
+          <img src={u("img/shpb/true-stress-strain.png")} alt="True stress–strain curve from an SHPB test" loading="lazy" />
+        </div>
+      </article>
+
+      <h3 class="mono muted" style="margin:40px 0 14px">Smaller tools</h3>
+      <ul class="cells c2">
+        {smallTools.map(t => (
+          <li class="app reveal">
+            <img src={u(t.icon)} alt="" width="56" height="56" loading="lazy" />
+            <h3 class="h3">{t.name}</h3>
+            <p>{t.line}</p>
+            <div class="meta mono">{t.links.map(l => <a href={l.href}>{l.label}</a>)}{t.note && <span>{t.note}</span>}</div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- 02 Engineering -->
+    <div id="engineering" class="bar mono"><span><b>02</b> / Engineering</span><span class="r">Industry projects</span></div>
+    <section class="block" aria-label="Engineering">
+      <div class="intro">
+        <h2 class="h2">Engineering projects</h2>
+        <p class="lead">Rotating equipment for oil and gas: design review, compliance and coordination from specification to delivery.</p>
+      </div>
+      {engineering.map(e => (
+        <article class="feature reveal">
+          <div class="txt">
+            <p class="mono when">{e.when} · {e.where}</p>
+            <h3 class="h3">{e.title}</h3>
+            <p>{e.text}</p>
+            <ul class="dots">{e.points.map(p => <li>{p}</li>)}</ul>
+            <div class="tags">{e.tags.map(t => <span>{t}</span>)}</div>
+          </div>
+          <div class="pic"><img src={u(e.img)} alt={`${e.title}: 3D model of the package`} loading="lazy" /></div>
+        </article>
+      ))}
+    </section>
+
+    <!-- 03 Research -->
+    <div id="research" class="bar mono"><span><b>03</b> / Research</span><span class="r">Impact mechanics and materials</span></div>
+    <section class="block" aria-label="Research">
+      <div class="intro">
+        <h2 class="h2">Research</h2>
+        <p class="lead">Experimental and theoretical solid mechanics: how metals respond to impact, high strain rates and large deformation, and how to measure it.</p>
+      </div>
+      <div class="cells c3">
+        {research.map(r => (
+          <a class="card reveal" href={u(`research/${r.slug}`)}>
+            <div class="thumb"><img src={u(r.img)} alt="" loading="lazy" /></div>
+            <div class="body">
+              <p class="mono when">{r.when}</p>
+              <h3 class="h3">{r.title}</h3>
+              <p class="muted">{r.text}</p>
+              <span class="go mono">Read the study →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="split" style="margin-top:56px">
+        <h3 class="h3">Theses and papers</h3>
+        <ul class="rows">
+          {papers.map(p => (
+            <li><a class="t" href={p.href}>{p.title}</a><p>{p.note}</p><a class="r mono ul" href={p.href}>PDF</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="split" style="margin-top:40px">
+        <h3 class="h3">Research code</h3>
+        <ul class="rows">
+          {code.map(c => (
+            <li><a class="t" href={c.href}>{c.title}</a><a class="r mono ul" href={c.href}>GitHub</a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 Web -->
+    <div id="web" class="bar mono"><span><b>04</b> / Web</span><span class="r">Sites I build and maintain</span></div>
+    <section class="block" aria-label="Web">
+      <div class="split">
+        <h2 class="h2">Websites</h2>
+        <ul class="rows">
+          {web.map(w => (
+            <li><a class="t h3" href={w.href}>{w.title}</a><p>{w.text} <span class="mono">· {w.when}</span></p><a class="r mono ul" href={w.href}>Visit</a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 About -->
+    <div id="about" class="bar mono"><span><b>05</b> / About</span><span class="r">Background</span></div>
+    <section class="block" aria-label="About">
+      <div class="split">
+        <h2 class="h2">Background</h2>
+        <div class="prose">
+          <p>I am a mechanical engineer with a master's degree in advanced engineering materials. My research covers impact mechanics and high strain-rate testing: I designed and built a Split Hopkinson Pressure Bar, studied stress-wave propagation and the crushing of thin-walled tubes, and for my master's thesis measured slip activity in nickel alloys with high-resolution digital image correlation and EBSD.</p>
+          <p>In industry I work on rotating-equipment packages for oil and gas, from design review and compliance to coordinating the vendors behind each sub-system. Alongside, I build engineering software: the Datum family of desktop apps and CentriForge, so that the calculations I rely on are fast, checked and open to everyone.</p>
+          <div class="btns" style="margin-top:24px">
+            <a class="btn btn-solid" href={person.linkedin}>LinkedIn</a>
+            <a class="btn btn-line" href={person.github}>GitHub</a>
+            <a class="btn btn-line" href={person.cv}>CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Base>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img"><title>ProfileCraft</title>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E8EF"/></linearGradient></defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#C9D0DA" stroke-width="4"/>
+  <rect x="44" y="56" width="168" height="144" rx="20" fill="#FFFFFF" stroke="#0C1A2B" stroke-width="11"/>
+  <path d="M44 92h168" stroke="#0C1A2B" stroke-width="11"/>
+  <circle cx="68" cy="74" r="6" fill="#0C1A2B"/><circle cx="88" cy="74" r="6" fill="#0C1A2B"/><circle cx="108" cy="74" r="6" fill="#F2B233"/>
+  <path d="M96 124l-24 22 24 22M160 124l24 22-24 22M140 118l-24 56" fill="none" stroke="#0C1A2B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
