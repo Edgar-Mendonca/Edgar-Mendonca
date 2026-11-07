@@ -1,0 +1,77 @@
+---
+// Hero scene 2: an API 617 compressor train (motor, gearbox, centrifugal compressor) spinning up, with its
+// performance map. The operating point climbs to full speed along the system curve, drifts towards surge,
+// the anti-surge valve opens and the point moves back to safety. Animated by src/scripts/motion.ts.
+const X = (q: number) => 60 + q * 460;           // flow, 0..1 → plot x
+const Y = (h: number) => 290 - h * 112;          // head, 0..1.1 → plot y
+const head = (q: number, s: number) => s * s - 1.6 * (q - 0.55 * s) ** 2 - 4 * Math.max(0, q - 0.78 * s) ** 2;
+const qs = (s: number) => 0.3 * s;               // surge flow at speed s
+const qw = (s: number) => 0.62 * s + 0.24;       // stonewall flow
+const line = (pts: [number, number][]) => pts.map(([q, h], i) => `${i ? "L" : "M"}${X(q).toFixed(1)} ${Y(h).toFixed(1)}`).join(" ");
+const speeds = [0.7, 0.8, 0.9, 1.0].map(s => ({
+  s, d: line(Array.from({ length: 25 }, (_, i) => { const q = qs(s) + (qw(s) - qs(s)) * i / 24; return [q, head(q, s)] as [number, number]; })),
+  lx: X(qw(s)) + 4, ly: Y(head(qw(s), s)),
+}));
+const surge = line(Array.from({ length: 12 }, (_, i) => { const s = 0.62 + 0.45 * i / 11; return [qs(s), head(qs(s), s)] as [number, number]; }));
+const control = line(Array.from({ length: 12 }, (_, i) => { const s = 0.62 + 0.45 * i / 11; const q = qs(s) * 1.12; return [q, head(q, s)] as [number, number]; }));
+// The run: start-up along the system curve (h = 1.84 q²) to full speed, then along the 100 % line towards surge,
+// then back out once the anti-surge valve opens.
+const run: [number, number][] = [];
+for (let i = 0; i <= 20; i++) { const q = 0.1 + 0.62 * i / 20; run.push([q, 1.84 * q * q]); }
+for (let i = 1; i <= 20; i++) { const q = 0.72 - 0.37 * i / 20; run.push([q, head(q, 1)]); }
+for (let i = 1; i <= 12; i++) { const q = 0.35 + 0.22 * i / 12; run.push([q, head(q, 1)]); }
+const runD = line(run);
+const end = run[run.length - 1];
+// Where each phase ends, as a fraction of the drawn path's length: start-up (point 20), drift to surge (point 40).
+const seg = run.slice(1).map(([q, h], i) => Math.hypot(X(q) - X(run[i][0]), Y(h) - Y(run[i][1])));
+const total = seg.reduce((a, b) => a + b, 0);
+const upTo = (n: number) => seg.slice(0, n).reduce((a, b) => a + b, 0) / total;
+const b1 = upTo(20).toFixed(4), b2 = upTo(40).toFixed(4);
+---
+<svg class="scene" data-scene="train" viewBox="0 0 560 320" role="img" aria-label="Animated drawing of an API 617 compressor train: a motor drives a gearbox and a centrifugal compressor up to speed, and its operating point moves across the compressor map towards the surge line until the anti-surge valve opens.">
+  <text x="20" y="28" class="sc-label">API 617 COMPRESSOR TRAIN</text>
+  <text x="540" y="28" class="sc-label" text-anchor="end" id="c-state">RUNNING</text>
+
+  <!-- gas: suction, discharge and the anti-surge recycle loop -->
+  <path d="M346 98 H540" class="c-pipe"/><path d="M346 98 H540" class="c-flow" id="c-flow"/>
+  <path d="M248 52 V40 H160" class="c-pipe"/><path d="M160 40 H248 V52" class="c-flow"/>
+  <path d="M470 98 V44 H260 V52" class="c-pipe c-loop"/><path d="M470 98 V44 H260 V52" class="c-flow c-rflow" id="c-rflow"/>
+  <g id="c-asv" transform="translate(372 44)"><path d="M-9 -7 L9 7 V-7 L-9 7 Z" class="c-valve"/><path d="M0 0 V-12 M-6 -12 H6" class="sc-line"/></g>
+  <text x="372" y="34" class="sc-tiny" text-anchor="middle" id="c-asv-t">ASV CLOSED</text>
+  <text x="154" y="43" class="sc-tiny" text-anchor="end">SUCTION</text>
+  <text x="540" y="114" class="sc-tiny" text-anchor="end">DISCHARGE</text>
+
+  <!-- motor -->
+  <rect x="20" y="58" width="78" height="46" rx="4" class="sc-bar"/>
+  {[0, 1, 2, 3, 4, 5].map(i => <path d={`M${30 + i * 11} 62 V100`} class="sc-wire"/>)}
+  <text x="59" y="118" class="sc-tiny" text-anchor="middle">MOTOR</text>
+  <path d="M98 81 H112" class="c-shaft"/><rect x="104" y="75" width="8" height="12" class="sc-ink"/>
+  <!-- gearbox -->
+  <rect x="112" y="52" width="74" height="58" rx="4" class="sc-bar"/>
+  <g class="c-rot c-g1" style="transform-origin:136px 88px"><circle cx="136" cy="88" r="15" class="c-gear"/><path d="M136 73 V103 M121 88 H151" class="sc-wire"/></g>
+  <g class="c-rot c-g2" style="transform-origin:164px 70px"><circle cx="164" cy="70" r="9" class="c-gear"/><path d="M164 61 V79 M155 70 H173" class="sc-wire"/></g>
+  <text x="149" y="124" class="sc-tiny" text-anchor="middle">GEARBOX</text>
+  <path d="M186 70 H214" class="c-shaft"/><rect x="198" y="64" width="8" height="12" class="sc-ink"/>
+  <!-- compressor -->
+  <path d="M214 56 H336 Q346 56 346 66 V102 Q346 112 336 112 H214 Z" class="sc-bar"/>
+  <g class="c-rot c-imp" style="transform-origin:262px 84px">
+    <circle cx="262" cy="84" r="20" class="c-gear"/>
+    {[0, 1, 2, 3, 4, 5, 6].map(i => <path d={`M262 84 Q${262 + 14 * Math.cos(i * 0.898 + 0.5)} ${84 + 14 * Math.sin(i * 0.898 + 0.5)} ${262 + 19 * Math.cos(i * 0.898 + 0.9)} ${84 + 19 * Math.sin(i * 0.898 + 0.9)}`} class="c-blade"/>)}
+  </g>
+  <circle cx="306" cy="84" r="12" class="sc-wire"/><circle cx="306" cy="84" r="3" class="sc-ink"/>
+  <text x="280" y="124" class="sc-tiny" text-anchor="middle">CENTRIFUGAL COMPRESSOR</text>
+  <text x="20" y="140" class="sc-tiny" id="c-speed">N 100 %</text>
+
+  <!-- compressor map -->
+  <rect x="20" y="146" width="520" height="160" rx="4" class="sc-scope"/>
+  <g class="sc-grid">{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => <path d={`M${60 + i * 51.1} 168 V290`}/>)}{[0, 1, 2, 3, 4].map(i => <path d={`M60 ${168 + i * 30.5} H520`}/>)}</g>
+  <path d="M60 168 V290 H520" class="sc-axis"/>
+  {speeds.map(v => <><path d={v.d} class="c-speed"/><text x={v.lx} y={v.ly + 3} class="sc-tiny">{Math.round(v.s * 100)}%</text></>)}
+  <path d={surge} class="c-surge"/><path d={control} class="c-control"/>
+  <text x="62" y="178" class="sc-tiny c-surge-t">SURGE LINE</text>
+  <path id="c-run" pathLength="1000" d={runD} data-b1={b1} data-b2={b2} class="sc-trace" stroke="var(--em)"/>
+  <circle id="c-dot" cx={X(end[0])} cy={Y(end[1])} r="5" fill="var(--em)" stroke="var(--card)" stroke-width="2"/>
+  <text x="30" y="162" class="sc-tiny">HEAD</text>
+  <text x="532" y="302" class="sc-tiny" text-anchor="end">FLOW</text>
+  <g class="sc-key"><rect x="404" y="154" width="10" height="3" fill="var(--em)"/><text x="418" y="158" class="sc-tiny">OPERATING POINT</text></g>
+</svg>

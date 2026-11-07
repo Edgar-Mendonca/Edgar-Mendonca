@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import HeroScene from "../components/HeroScene.astro";
+import HeroBench from "../components/HeroBench.astro";
 import Glyph from "../components/Glyph.astro";
 import { person, datum, centriforge, shpbTool, engineering, research, code, web } from "../data/work";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -19,13 +19,7 @@ const u = (p: string) => `${base}/${p}`;
         </div>
       </div>
       <div class="hero-side">
-        <HeroScene />
-        <dl class="facts">
-          <div><dt class="mono">Now</dt><dd>Project and engineering management, oil and gas (API 617 compressor packages)</dd></div>
-          <div><dt class="mono">Research</dt><dd>Impact mechanics, stress waves, tube crushing, slip in nickel alloys</dd></div>
-          <div><dt class="mono">Built</dt><dd>CentriForge, SHPB analysis and the Datum apps</dd></div>
-          <div><dt class="mono">Education</dt><dd>MSc Advanced Engineering Materials · BE Mechanical Engineering</dd></div>
-        </dl>
+        <HeroBench />
       </div>
     </section>
 

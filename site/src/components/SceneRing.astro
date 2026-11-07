@@ -1,0 +1,40 @@
+---
+// Hero scene 4: lateral compression of an aluminium 6063 ring between flat plates, with its load–deflection curve:
+// elastic rise, the plateau at the collapse load P₀ (0.94 kN in the test) and strain hardening.
+const X = (d: number) => 60 + d * 450;      // deflection 0..1 → plot x
+const Y = (p: number) => 290 - p * 100;     // load 0..1.15 → plot y
+const pts: [number, number][] = [];
+for (let i = 0; i <= 40; i++) {
+  const d = i / 40;
+  const p = d < 0.05 ? (0.94 / 0.05) * d * 0.85 : 0.8 + 0.14 * (1 - Math.exp(-(d - 0.05) * 30)) + 0.55 * Math.max(0, d - 0.35) ** 1.6;
+  pts.push([d, p]);
+}
+const curve = pts.map(([d, p], i) => `${i ? "L" : "M"}${X(d).toFixed(1)} ${Y(p).toFixed(1)}`).join(" ");
+---
+<svg class="scene" data-scene="ring" viewBox="0 0 560 320" role="img" aria-label="Animated drawing of a ring compression test: a flat plate presses an aluminium ring, the ring flattens, and its load–deflection curve is drawn with the elastic rise, the collapse load P0 and strain hardening.">
+  <text x="20" y="28" class="sc-label">RING COMPRESSION · AL 6063</text>
+  <text x="540" y="28" class="sc-label" text-anchor="end">QUASI-STATIC · 4 MM/MIN</text>
+
+  <g id="r-top" transform="translate(0 20)">
+    <path d="M280 36 V52" class="c-arrow"/><path d="M274 46 L280 54 L286 46" class="c-arrow"/>
+    <text x="292" y="46" class="sc-tiny">P</text>
+    <rect x="196" y="56" width="168" height="8" rx="1.5" class="sc-ink"/>
+  </g>
+  <ellipse id="r-ring" cx="280" cy="96" rx="30" ry="12" class="r-ring"/>
+  <rect x="196" y="108" width="168" height="8" rx="1.5" class="sc-ink"/>
+  <path d="M190 120 H370" class="sc-wire"/>
+  <text x="280" y="134" class="sc-tiny" text-anchor="middle">RIGID PLATES</text>
+  <text x="380" y="90" class="sc-tiny" id="r-d">δ / R = 0.91</text>
+
+  <rect x="20" y="146" width="520" height="160" rx="4" class="sc-scope"/>
+  <g class="sc-grid">{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => <path d={`M${60 + i * 50} 168 V290`}/>)}{[0, 1, 2, 3, 4].map(i => <path d={`M60 ${168 + i * 30.5} H510`}/>)}</g>
+  <path d="M60 168 V290 H510" class="sc-axis"/>
+  <path d={`M60 ${Y(0.94).toFixed(1)} H510`} class="c-control"/>
+  <text x="514" y={Y(0.94) + 3} class="sc-tiny">P₀</text>
+  <path id="r-curve" pathLength="1000" d={curve} class="sc-trace" stroke="var(--em)"/>
+  <circle id="r-dot" cx={X(1)} cy={Y(pts[40][1])} r="4.5" fill="var(--em)" stroke="var(--card)" stroke-width="2"/>
+  <text x="68" y="178" class="sc-tiny">P (kN)</text>
+  <text x="532" y="302" class="sc-tiny" text-anchor="end">δ (mm)</text>
+  <text x="150" y={Y(0.94) - 8} class="sc-tiny">COLLAPSE LOAD P₀ ≈ 0.94 kN</text>
+  <text x="490" y="214" class="sc-tiny" text-anchor="end">STRAIN HARDENING ↗</text>
+</svg>
