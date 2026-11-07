@@ -126,6 +126,50 @@ td.n, th.n { text-align: right; }
 .key { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; color: var(--muted); font-size: 12.5px; }
 .key i { display: inline-block; width: 10px; height: 10px; vertical-align: -1px; margin-right: 6px; }
 footer { padding: 14px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
+
+/* Inside the network: nodes and connections */
+section.inside, section.training { border-top: 1px solid var(--line); }
+.nnwrap { padding: 16px 20px 20px; display: grid; gap: 12px; }
+.nnscroll { overflow-x: auto; }
+@media (max-width: 760px) { .nnscroll .nn { min-width: 760px; } }
+.nn { width: 100%; height: auto; display: block; overflow: visible; }
+.nn text { font-family: var(--sans); fill: var(--ink); }
+.nn .cap { font: 600 10.5px var(--mono); letter-spacing: .1em; fill: var(--muted); }
+.nn .sub { font: 500 9.5px var(--mono); fill: var(--faint); letter-spacing: .06em; }
+.nn .lab { font-size: 12.5px; }
+.nn .lab.small { font: 500 10px var(--mono); fill: var(--muted); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+.nn .pct { font: 600 11.5px var(--mono); fill: var(--muted); }
+.nn .node { stroke: var(--ink); stroke-width: 1.2; }
+.nn .ghost { fill: none; stroke: var(--line-2); stroke-dasharray: 2 3; }
+.nn .edge { fill: none; stroke-linecap: round; }
+.nn .edge.pos { stroke: var(--em); }
+.nn .edge.neg { stroke: var(--amber); }
+.nn .layer { opacity: 0; transition: opacity .45s ease; }
+.nn.go .layer { opacity: 1; }
+.nn.go .layer.d1 { transition-delay: .25s; } .nn.go .layer.d2 { transition-delay: .55s; } .nn.go .layer.d3 { transition-delay: .85s; }
+.nn.go .layer.d4 { transition-delay: 1.15s; } .nn.go .layer.d5 { transition-delay: 1.45s; } .nn.go .layer.d6 { transition-delay: 1.75s; }
+.nn .pulse { fill: none; stroke-linecap: round; stroke-dasharray: .05 .95; stroke-dashoffset: 1; opacity: 0; }
+.nn.go .pulse { animation: nn-pulse 1.6s linear infinite; }
+.nn.go .pulse.d1 { animation-delay: .3s; } .nn.go .pulse.d3 { animation-delay: .9s; } .nn.go .pulse.d5 { animation-delay: 1.5s; }
+@keyframes nn-pulse { 0% { stroke-dashoffset: 1; opacity: 0; } 10% { opacity: .95; } 90% { opacity: .95; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.nnkey { display: flex; flex-wrap: wrap; gap: 6px 22px; color: var(--muted); font-size: 12.5px; }
+.nnkey .ln { display: inline-block; width: 22px; height: 3px; vertical-align: middle; margin-right: 7px; }
+.nnkey .ln.pos { background: var(--em); } .nnkey .ln.neg { background: var(--amber); }
+
+/* Training curve */
+.trwrap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; padding: 16px 20px 22px; align-items: center; }
+@media (max-width: 860px) { .trwrap { grid-template-columns: 1fr; } }
+.curve { width: 100%; height: auto; display: block; }
+.curve text { font: 500 10px var(--mono); fill: var(--muted); }
+.curve .gridl { stroke: var(--line); stroke-width: 1; }
+.curve .axis { fill: none; stroke: var(--line-2); }
+.curve .ln { fill: none; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.curve .base { stroke: var(--em); stroke-dasharray: 4 4; opacity: .5; }
+.readout { font-size: 12px; line-height: 1.9; color: var(--ink); white-space: pre-line; min-height: 7.6em; font-variant-numeric: tabular-nums; }
+.trside .sub { margin: 0; }
+.replay { border: 1px solid var(--line-2); background: var(--card); padding: 4px 10px; cursor: pointer; font-size: 11px; color: var(--ink); }
+.replay:hover { border-color: var(--em); color: var(--em); }
+@media (prefers-reduced-motion: reduce) { .nn .layer { opacity: 1; transition: none; } .nn .pulse { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .prob .track span, .acc .v { transition: width .35s ease; } }
 </style>
 
@@ -158,6 +202,31 @@ footer { padding: 14px 20px; border-top: 1px solid var(--line); color: var(--mut
       <div class="result" id="result"></div>
     </div>
   </div>
+
+  <section class="inside">
+    <div class="bar mono"><span><b>Inside the network</b> · your question, layer by layer</span><span id="nn-q"></span></div>
+    <div class="nnwrap">
+      <div class="nnscroll">
+        <svg class="nn" id="nn" viewBox="0 0 960 470" role="img" aria-label="The network drawn as nodes and connections for the current question"></svg>
+      </div>
+      <div class="nnkey">
+        <span><i class="ln pos"></i>pushes towards (weight × activation &gt; 0)</span>
+        <span><i class="ln neg"></i>pushes away (&lt; 0)</span>
+        <span>Thicker line, brighter node = stronger. Only the strongest connections are drawn; every number is the real one for this question.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="training">
+    <div class="bar mono"><span><b>Training</b> · how it learned, epoch by epoch</span><button type="button" class="replay mono" id="replay">Replay</button></div>
+    <div class="trwrap">
+      <svg class="curve" id="curve" viewBox="0 0 640 300" role="img" aria-label="Training curves: loss falling and test accuracy rising over the epochs"></svg>
+      <div class="trside">
+        <p class="readout mono" id="readout"></p>
+        <p class="sub">Each epoch the network sees every training note once. The loss (how wrong it is on the training notes) falls; accuracy is measured on notes it never trained on. The dashed line is what always guessing the biggest project would score.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="more">
     <div class="bar mono"><span><b>What it knows</b> and <b>how it works</b></span><span id="gen"></span></div>
@@ -210,7 +279,7 @@ function forward(sp) {
   for (let k = 0; k < E; k++) { let s = D.b2[k]; for (let j = 0; j < H; j++) s += a[j] * D.W2[j * E + k]; e[k] = Math.tanh(s); }
   const probs = {};
   for (const [h, w] of Object.entries(D.heads)) { const z = []; for (let c = 0; c < w.n; c++) { let s = w.b[c]; for (let k = 0; k < E; k++) s += e[k] * w.W[k * w.n + c]; z.push(s); } probs[h] = softmax(z); }
-  return { e, probs };
+  return { a, e, probs };
 }
 // Word-overlap index over every note, built once.
 const INV = new Map();
@@ -229,8 +298,11 @@ function ask(text, k = 8) {
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const KNOWN = new Set(["datum","datum-plan","datum-plot","datum-atlas","datum-sim","datum-calc","datum-mesh","datum-pipe","datum-schema","datum-layout","centriforge","compressor-package","shpb","stress-waves","lateral-compression","background"]);
-const cvar = p => `var(--c-${KNOWN.has(p) ? p : "other"})`;
-const nice = p => p.replace(/^datum-/, "Datum ").replace(/^datum$/, "Datum (family)").replace(/-/g, " ").replace(/^\w/, c => c.toUpperCase()).replace(/ (\w)/g, (m, c) => " " + c.toUpperCase()).replace("Shpb", "SHPB").replace("Centriforge", "CentriForge");
+// Projects without a set colour (new ones, private ones) get the next colour from this palette, in a fixed order.
+const PAL = ["#7A5195", "#E8590C", "#2F9E44", "#1098AD", "#C2255C", "#5C7CFA", "#B08900", "#087F5B", "#862E9C", "#D9480F", "#0B7285", "#A61E4D", "#5F3DC4", "#66A80F"];
+const EXTRA = {}; [...new Set(D.labels.project.concat(D.rows.map(r => r.p)))].filter(p => !KNOWN.has(p)).sort().forEach((p, i) => EXTRA[p] = PAL[i % PAL.length]);
+const cvar = p => KNOWN.has(p) ? `var(--c-${p})` : (EXTRA[p] || "var(--c-other)");
+const nice = p => p.replace(/^datum-/, "Datum ").replace(/^datum$/, "Datum (family)").replace(/-/g, " ").replace(/^\w/, c => c.toUpperCase()).replace(/ (\w)/g, (m, c) => " " + c.toUpperCase()).replace("Shpb", "SHPB").replace("Centriforge", "CentriForge").replace(/\bEgc\b/, "EGC").replace(/\bMrb\b/, "MRB").replace(/\bFea\b/, "FEA");
 const R = D.report, fmt = n => n.toLocaleString("en");
 $("facts").innerHTML = `<span><b>${fmt(N)}</b> notes</span><span><b>${D.labels.project.length}</b> projects</span><span><b>${fmt(R.parameters)}</b> weights</span><span>trained <b>${D.generated}</b></span>`;
 $("gen").textContent = `${fmt(D.rows.reduce((a, r) => a + r.t.split(/\s+/).length, 0))} words`;
@@ -255,7 +327,7 @@ legend();
 const cv = $("map"), ctx = cv.getContext("2d"), box = $("mapbox"), tip = $("tip");
 let W = 0, Hh = 0, pts = [], hover = -1, sel = -1, hits = new Map();
 const PAD = 22;
-function colors() { const cs = getComputedStyle(document.documentElement), o = {}; for (const p of order) o[p] = cs.getPropertyValue(`--c-${KNOWN.has(p) ? p : "other"}`).trim() || "#888"; o._ink = cs.getPropertyValue("--ink").trim(); o._amber = cs.getPropertyValue("--amber").trim(); o._card = cs.getPropertyValue("--card").trim(); return o; }
+function colors() { const cs = getComputedStyle(document.documentElement), o = {}; for (const p of order) o[p] = KNOWN.has(p) ? (cs.getPropertyValue(`--c-${p}`).trim() || "#888") : (EXTRA[p] || "#888"); o._ink = cs.getPropertyValue("--ink").trim(); o._amber = cs.getPropertyValue("--amber").trim(); o._card = cs.getPropertyValue("--card").trim(); return o; }
 let COL = colors();
 function resize() {
   const r = box.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
@@ -301,7 +373,7 @@ cv.addEventListener("mouseleave", () => { hover = -1; tip.hidden = true; draw();
 cv.addEventListener("click", ev => { const r = cv.getBoundingClientRect(), i = nearest(ev.clientX - r.left, ev.clientY - r.top); if (i >= 0) open(i); });
 function open(i, scroll) {
   sel = i; draw(); const r = D.rows[i];
-  $("note").innerHTML = `<div class="meta"><span class="pill" style="--c:${cvar(r.p)}"><i></i>${esc(nice(r.p))}</span><span class="pill">${esc(r.k)}</span>${r.v ? `<span class="pill">v${esc(r.v)}</span>` : ""}${r.d ? `<span class="pill">${esc(r.d)}</span>` : ""}<a href="${esc(r.u)}" target="_blank" rel="noopener" style="font-size:12.5px">${esc(r.s)}</a></div>
+  $("note").innerHTML = `<div class="meta"><span class="pill" style="--c:${cvar(r.p)}"><i></i>${esc(nice(r.p))}</span><span class="pill">${esc(r.k)}</span>${r.v ? `<span class="pill">v${esc(r.v)}</span>` : ""}${r.d ? `<span class="pill">${esc(r.d)}</span>` : ""}${r.u ? `<a href="${esc(r.u)}" target="_blank" rel="noopener" style="font-size:12.5px">${esc(r.s)}</a>` : `<span class="pill">${esc(r.s)} · private</span>`}</div>
     ${r.h ? `<h3 style="font-size:15px">${esc(r.h)}</h3>` : ""}<p class="text">${esc(r.t)}</p>`;
   if (scroll) $("note").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
 }
@@ -311,7 +383,7 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", recolor);
 new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
 // Ask
-const EXAMPLES = ["check the nozzle loads on the compressor discharge line after thermal expansion", "true stress strain curve from incident reflected and transmitted pulses", "how should a new Datum app handle the updater and releases", "tune a PID loop for a DC motor speed controller", "Campbell diagram and critical speeds of the compressor rotor"];
+const EXAMPLES = ["merge the certificates into one PDF with bookmarks and a table of contents", "weighted progress for the procurement status register", "true stress strain curve from incident reflected and transmitted pulses", "check the nozzle loads on the compressor discharge line", "how should a new Datum app handle the updater and releases"];
 $("examples").innerHTML = EXAMPLES.map(e => `<button type="button">${esc(e)}</button>`).join("");
 $("examples").addEventListener("click", ev => { const b = ev.target.closest("button"); if (b) { $("q").value = b.textContent; run(); } });
 $("askform").addEventListener("submit", ev => { ev.preventDefault(); run(); });
@@ -321,6 +393,7 @@ function run() {
   if (!q) { hits = new Map(); draw(); $("result").innerHTML = `<p class="muted">Type a task above, or pick an example.</p>`; return; }
   const res = ask(q, 8);
   hits = new Map(res.top.map(([i], n) => [i, n + 1])); draw();
+  drawNet(q);
   const area = n => D.areas[n] || n;
   $("result").innerHTML = `<div class="heads">${Object.entries(res.heads).map(([h, l]) => `<div class="head"><h3 class="mono muted">${HEADNAME[h] || h}</h3>${l.map(([n, p]) => `<div class="prob" style="${h === "project" ? `--c:${cvar(n)}` : ""}"><span class="lab">${h === "project" ? "<i></i>" : ""}${esc(h === "project" ? nice(n) : h === "area" ? area(n) : n)}</span><span class="num">${Math.round(p * 100)}%</span><span class="track"><span style="width:${(p * 100).toFixed(1)}%"></span></span></div>`).join("")}</div>`).join("")}</div>
     <div><h3 class="mono muted" style="margin-bottom:6px">Related notes (numbered on the map)</h3><div class="hits">${res.top.map(([i, s], n) => { const r = D.rows[i]; return `<div class="hit" data-i="${i}" tabindex="0" role="button"><div class="meta"><span class="score">${n + 1}</span><span class="pill" style="--c:${cvar(r.p)}"><i></i>${esc(nice(r.p))}</span><span class="pill">${esc(r.k)}</span><span class="score">${s.toFixed(2)}</span></div><div class="snip">${esc(r.t)}</div></div>`; }).join("")}</div></div>`;
@@ -349,6 +422,101 @@ $("result").addEventListener("keydown", ev => { const h = ev.target.closest(".hi
   s += `<rect x="${4 + 2 * 132}" y="${y0 + bh + 10}" width="${bw}" height="3" fill="var(--amber)"/><text x="${4 + 2 * 132 + bw / 2}" y="${y0 + bh + 30}" text-anchor="middle" fill="var(--muted)" style="font:500 10px var(--mono)">the map is drawn from this</text>`;
   $("net").innerHTML = s;
   $("acc").innerHTML = Object.entries(R.test_accuracy).map(([h, v]) => { const b = R.majority_baseline[h]; return `<div class="row"><span>${(HEADNAME[h] || h).replace(" of work", "").replace("Kind of knowledge", "Kind")}</span><div class="track" role="img" aria-label="${Math.round(v * 100)}% against ${Math.round(b * 100)}%"><span class="v" style="width:${v * 100}%"></span><span class="b" style="left:${b * 100}%"></span></div><span class="num">${(v * 100).toFixed(1)}%</span></div>`; }).join("");
+})();
+
+// ---------- inside the network: the question drawn as nodes and connections ----------
+// Columns: the question's words (input features), the most active hidden units, the strongest embedding values and
+// the most likely projects. Each line is a real contribution (input value × weight) for this question.
+const SVGNS = "http://www.w3.org/2000/svg";
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function drawNet(text) {
+  const svg = $("nn"); if (!svg) return;
+  const sp = sparse(text), { a, e, probs } = forward(sp);
+  const words = new Map();
+  for (const t of tokens(text)) { if (t.includes("_")) continue; const b = crc32(t) % DIM, i = sp.idx.indexOf(b); if (i >= 0 && !words.has(b)) words.set(b, { t, b, v: sp.val[i] }); }
+  const ins = [...words.values()].sort((x, y) => y.v - x.v).slice(0, 10);
+  const hid = [...a.keys()].filter(j => a[j] > 0).sort((x, y) => a[y] - a[x]).slice(0, 14);
+  const emb = [...e.keys()].sort((x, y) => Math.abs(e[y]) - Math.abs(e[x])).slice(0, 10);
+  const P = D.heads.project, outs = [...probs.project.keys()].sort((x, y) => probs.project[y] - probs.project[x]).slice(0, 6);
+  const X = [150, 390, 610, 740], TOP = 70, BOT = 440;
+  const ys = n => Array.from({ length: n }, (_, i) => n === 1 ? (TOP + BOT) / 2 : TOP + 10 + i * (BOT - TOP - 20) / (n - 1));
+  const yIn = ys(ins.length), yH = ys(hid.length), yE = ys(emb.length), yO = ys(outs.length);
+  // Contributions between the shown nodes; keep the strongest of each layer.
+  const pick = (list, n) => list.sort((p, q) => Math.abs(q.c) - Math.abs(p.c)).slice(0, n);
+  const e1 = pick(ins.flatMap((w, i) => hid.map((j, k) => ({ i, k, c: w.v * W1[w.b * H + j] * D.s1[j] }))), 34);
+  const e2 = pick(hid.flatMap((j, i) => emb.map((m, k) => ({ i, k, c: a[j] * D.W2[j * E + m] }))), 34);
+  const e3 = pick(emb.flatMap((m, i) => outs.map((o, k) => ({ i, k, c: e[m] * P.W[m * P.n + o] }))), 28);
+  const max = l => Math.max(1e-9, ...l.map(x => Math.abs(x.c)));
+  const edgeSet = (list, x0, y0, x1, y1, d, pd) => {
+    const m = max(list); let lines = "", pulses = "";
+    for (const { i, k, c } of list) {
+      const s = Math.abs(c) / m, cls = c >= 0 ? "pos" : "neg", mx = (x0 + x1) / 2;
+      const d_ = `M${x0 + 9} ${y0[i].toFixed(1)} C${mx} ${y0[i].toFixed(1)} ${mx} ${y1[k].toFixed(1)} ${x1 - 9} ${y1[k].toFixed(1)}`;
+      lines += `<path class="edge ${cls}" d="${d_}" stroke-width="${(0.6 + 3.4 * s).toFixed(2)}" opacity="${(0.15 + 0.65 * s).toFixed(2)}"/>`;
+      if (s > 0.35) pulses += `<path class="pulse ${pd} edge ${cls}" pathLength="1" d="${d_}" stroke-width="${(2 + 3 * s).toFixed(1)}"/>`;
+    }
+    return `<g class="layer ${d}">${lines}</g><g>${pulses}</g>`;
+  };
+  const node = (x, y, s, label, side, cls = "") => `<circle class="node ${cls}" cx="${x}" cy="${y.toFixed(1)}" r="8" fill="var(--em)" fill-opacity="${(0.08 + 0.92 * s).toFixed(2)}"/>` +
+    (label ? `<text class="lab ${side === "small" ? "small" : ""}" x="${side === "left" ? x - 16 : x + 14}" y="${(y + 4).toFixed(1)}" text-anchor="${side === "left" ? "end" : "start"}">${esc(label)}</text>` : "");
+  const mA = Math.max(1e-9, ...hid.map(j => a[j])), mI = Math.max(1e-9, ...ins.map(w => w.v));
+  let out = "";
+  // column captions, and a dashed outline standing for the units not drawn
+  const caps = [["WORDS", `${ins.length} of ${fmt(DIM)} inputs`], ["HIDDEN LAYER", `${hid.length} most active of ${H}`], ["EMBEDDING", `${emb.length} strongest of ${E}`], ["PROJECT", `top ${outs.length} of ${P.n}`]];
+  caps.forEach(([c, sub], i) => { out += `<text class="cap" x="${X[i]}" y="22" text-anchor="middle">${c}</text><text class="sub" x="${X[i]}" y="38" text-anchor="middle">${sub}</text>`; });
+  [1, 2].forEach(i => { out += `<rect class="ghost" x="${X[i] - 18}" y="${TOP - 16}" width="36" height="${BOT - TOP + 32}" rx="18"/>`; });
+  out += edgeSet(e1, X[0], yIn, X[1], yH, "d1", "d1") + edgeSet(e2, X[1], yH, X[2], yE, "d3", "d3") + edgeSet(e3, X[2], yE, X[3], yO, "d5", "d5");
+  out += `<g class="layer">${ins.map((w, i) => node(X[0], yIn[i], w.v / mI, w.t, "left")).join("")}</g>`;
+  out += `<g class="layer d2">${hid.map((j, i) => node(X[1], yH[i], a[j] / mA, `h${j}`, "small")).join("")}</g>`;
+  out += `<g class="layer d4">${emb.map((m, i) => `<circle class="node" cx="${X[2]}" cy="${yE[i].toFixed(1)}" r="8" fill="${e[m] >= 0 ? "var(--em)" : "var(--amber)"}" fill-opacity="${(0.15 + 0.85 * Math.abs(e[m])).toFixed(2)}"/><text class="lab small" x="${X[2] + 14}" y="${(yE[i] + 4).toFixed(1)}">e${m} ${e[m] >= 0 ? "+" : "−"}${Math.abs(e[m]).toFixed(2)}</text>`).join("")}</g>`;
+  out += `<g class="layer d6">${outs.map((o, i) => { const p = probs.project[o], name = D.labels.project[o];
+    return `<circle class="node" cx="${X[3]}" cy="${yO[i].toFixed(1)}" r="${(7 + 7 * p).toFixed(1)}" fill="${cvar(name)}" fill-opacity="${(0.25 + 0.75 * p).toFixed(2)}"/>` +
+      `<text class="lab" x="${X[3] + 22}" y="${(yO[i] + 4).toFixed(1)}">${esc(nice(name))}</text><text class="pct" x="955" y="${(yO[i] + 4).toFixed(1)}" text-anchor="end">${Math.round(p * 100)}%</text>`; }).join("")}</g>`;
+  if (!ins.length) out += `<text class="cap" x="480" y="250" text-anchor="middle">NO KNOWN WORDS IN THIS QUESTION</text>`;
+  svg.innerHTML = out;
+  $("nn-q").textContent = `“${text.length > 60 ? text.slice(0, 58) + "…" : text}”`;
+  svg.classList.remove("go"); void svg.getBoundingClientRect();
+  requestAnimationFrame(() => svg.classList.add("go"));
+}
+
+// ---------- training: loss and accuracy, drawn epoch by epoch ----------
+(() => {
+  const hist = (R.history || []).filter(h => h.epoch);
+  const svg = $("curve"); if (!svg) return;
+  if (!hist.length) { svg.innerHTML = `<text x="320" y="150" text-anchor="middle">Retrain to record the training history.</text>`; return; }
+  const x0 = 54, x1 = 590, y0 = 24, y1 = 250, n = hist.length;
+  const X = ep => x0 + (ep - 1) / Math.max(1, n - 1) * (x1 - x0);
+  const lmax = Math.max(...hist.map(h => h.loss));
+  const YL = l => y1 - (Math.log10(l) - Math.log10(lmax / 200)) / (Math.log10(lmax) - Math.log10(lmax / 200)) * (y1 - y0);   // loss on a log scale
+  const YA = v => y1 - v * (y1 - y0);
+  const series = [["loss", "var(--ink)", h => YL(Math.max(h.loss, lmax / 200)), "Loss (log scale)"], ["project", "var(--em)", h => YA(h.project), "Project"], ["area", "var(--sig, #1F8A5B)", h => YA(h.area), "Area"], ["kind", "var(--amber)", h => YA(h.kind), "Kind"]];
+  const pathOf = f => hist.map((h, i) => `${i ? "L" : "M"}${X(h.epoch).toFixed(1)} ${f(h).toFixed(1)}`).join(" ");
+  let g = "";
+  [0, .25, .5, .75, 1].forEach(v => { g += `<path class="gridl" d="M${x0} ${YA(v)} H${x1}"/><text x="${x1 + 6}" y="${YA(v) + 3}">${v * 100}%</text>`; });
+  [1, Math.ceil(n / 3), Math.ceil(2 * n / 3), n].forEach(ep => { g += `<text x="${X(ep)}" y="${y1 + 16}" text-anchor="middle">${ep}</text>`; });
+  g += `<text x="${(x0 + x1) / 2}" y="${y1 + 34}" text-anchor="middle">EPOCH</text><text x="${x0 - 8}" y="${y0 - 8}" text-anchor="start">LOSS ↓   ACCURACY ON UNSEEN NOTES ↑</text>`;
+  g += `<path class="axis" d="M${x0} ${y0} V${y1} H${x1}"/>`;
+  g += `<path class="ln base" d="M${x0} ${YA(R.majority_baseline.project)} H${x1}"/>`;
+  series.forEach(([k, c, f]) => { g += `<path class="ln" id="tr-${k}" pathLength="1000" stroke="${c}" d="${pathOf(f)}"/>`; });
+  g += `<circle id="tr-dot" r="5" fill="var(--em)" stroke="var(--card)" stroke-width="2" cx="${X(n)}" cy="${YA(hist[n - 1].project)}"/>`;
+  g += `<g transform="translate(${x0 + 10} ${y1 - 70})">${series.map(([k, c, , l], i) => `<rect x="0" y="${i * 15}" width="14" height="3" fill="${c}"/><text x="20" y="${i * 15 + 4}">${l}</text>`).join("")}</g>`;
+  svg.innerHTML = g;
+  const lines = series.map(([k]) => $(`tr-${k}`)), dot = $("tr-dot"), proj = $("tr-project");
+  const say = h => { $("readout").textContent = `epoch ${String(h.epoch).padStart(2, " ")} of ${n}\nloss      ${h.loss.toFixed(3)}\nproject   ${(h.project * 100).toFixed(1)} %\narea      ${(h.area * 100).toFixed(1)} %\nkind      ${(h.kind * 100).toFixed(1)} %`; };
+  const at = f => {          // f: 0..1 of the way through training
+    const ep = Math.max(1, Math.min(n, Math.round(1 + f * (n - 1))));
+    lines.forEach(l => { l.style.strokeDasharray = "1000"; l.style.strokeDashoffset = String(1000 * (1 - f)); });
+    const pt = proj.getPointAtLength(proj.getTotalLength() * f);
+    dot.setAttribute("cx", pt.x.toFixed(1)); dot.setAttribute("cy", pt.y.toFixed(1));
+    say(hist[ep - 1]);
+  };
+  let raf = 0;
+  const play = () => { if (REDUCE) { at(1); return; } cancelAnimationFrame(raf); const t0 = performance.now(), T = 3600;
+    const step = t => { const f = Math.min(1, (t - t0) / T); at(f); if (f < 1) raf = requestAnimationFrame(step); }; raf = requestAnimationFrame(step); };
+  at(1);
+  $("replay").addEventListener("click", play);
+  let played = false;
+  new IntersectionObserver(([en]) => { if (en.isIntersecting && !played) { played = true; play(); } }, { threshold: 0.4 }).observe(svg);
 })();
 
 run();

@@ -13,7 +13,12 @@
     "software-platform": "How the Datum family is designed, built and released",
     "rotating-equipment": "Compressors and rotating equipment",
     "impact-mechanics": "Impact mechanics, stress waves and high strain-rate testing",
-    "web": "Websites and web apps"
+    "web": "Websites and web apps",
+    "profile": "Who Edgar is, his background and how he likes to work",
+    "documentation": "Quality records, MRBs, translation and technical writing",
+    "design": "Visual, exhibition and brand design",
+    "personal": "Personal learning and purchases",
+    "prototypes": "Other apps and prototypes"
   },
   "repos": [
     { "repo": "Edgar-Mendonca/Datum", "project": "datum", "area": "software-platform" },

@@ -167,7 +167,37 @@ def chunks(heading: str, body: str) -> list[str]:
     return [f"{head}. {c}" if head else c for c in out if len(c.split()) >= MIN_WORDS or (out and len(out) == 1 and len(c.split()) >= 12)]
 
 
-def collect(cache: Path, offline: bool = False) -> list[dict]:
+def private_sections(rows_add) -> None:
+    """Private archives in brain/private/*.md, labelled section by section from brain/private/sections.json:
+    {"archive.md": {"kind": "archive", "skip": ["1", "24"], "sections": {"3": {"project": "...", "area": "..."}, ...}}}.
+    A top-level section ("## 3. Title") takes the labels of its number; sections without labels are skipped."""
+    folder = BRAIN / "private"
+    spec_file = folder / "sections.json"
+    if not spec_file.exists():
+        print("  no private/sections.json: private sources skipped")
+        return
+    spec = json.loads(spec_file.read_text())
+    for name, cfg in spec.items():
+        f = folder / name
+        if not f.exists():
+            print(f"  missing private source {name}")
+            continue
+        _, body = front_matter(f.read_text(encoding="utf-8"))
+        for heading, text in sections(body):
+            parts = heading.split(" › ") if heading else []
+            # The section number is on the first heading of the form "3. Title" (the document title comes before it).
+            at = next((i for i, part in enumerate(parts) if re.match(r"\d+\.\s", part)), None)
+            if at is None:
+                continue
+            num = re.match(r"(\d+)\.", parts[at]).group(1)
+            if num in cfg.get("skip", []) or num not in cfg["sections"]:
+                continue
+            lab = cfg["sections"][num]
+            rows_add([(" › ".join(parts[at:]), text)], lab["project"], lab["area"],
+                     lambda h, k=cfg.get("kind", "archive"): k, f"private/{name}")
+
+
+def collect(cache: Path, offline: bool = False, private: bool = False) -> list[dict]:
     src = json.loads((BRAIN / "sources.json").read_text())
     rows: list[dict] = []
 
@@ -206,6 +236,9 @@ def collect(cache: Path, offline: bool = False) -> list[dict]:
                 meta, body = front_matter(text)
                 add(sections(body), meta.get("project", "notes"), meta.get("area", "web"), lambda h, s=s: s["kind"],
                     f"local/{f.relative_to(ROOT).as_posix()}")
+
+    if private:
+        private_sections(add)
 
     # Drop exact duplicates (READMEs repeat the same lines across apps).
     seen, uniq = set(), []
