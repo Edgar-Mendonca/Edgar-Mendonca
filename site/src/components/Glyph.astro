@@ -1,0 +1,42 @@
+---
+// Small looping drawings for the research boxes. They run only while on screen (motion.ts adds .on) and stop for
+// people who prefer reduced motion. Each one is the subject drawn in a few strokes.
+interface Props { name: "shpb" | "waves" | "axial" | "lateral" | "grains" | "code" }
+const { name } = Astro.props;
+const sine = Array.from({ length: 49 }, (_, i) => `${i === 0 ? "M" : "L"}${i * 5} ${28 + 9 * Math.sin((i * 5 / 40) * Math.PI * 2)}`).join(" ");
+---
+<svg class={`glyph g-${name}`} viewBox="0 0 120 56" aria-hidden="true">
+  {name === "shpb" && <>
+    <rect x="6" y="24" width="50" height="8" rx="1.5" class="gl-bar"/><rect x="58" y="22" width="6" height="12" fill="var(--amber)"/><rect x="66" y="24" width="48" height="8" rx="1.5" class="gl-bar"/>
+    <rect class="gl-dot" x="2" y="24" width="14" height="8" rx="4" fill="var(--em)"/>
+  </>}
+  {name === "waves" && <>
+    <defs><clipPath id="gl-w"><rect x="4" y="10" width="112" height="36"/></clipPath></defs>
+    <path d="M4 28 H116" class="gl-axis"/>
+    <g clip-path="url(#gl-w)"><path class="gl-sine" d={sine} fill="none" stroke="var(--em)" stroke-width="2.4" stroke-linecap="round"/></g>
+  </>}
+  {name === "axial" && <>
+    <path d="M40 8 H80" class="gl-plate gl-top"/><path d="M40 50 H80" class="gl-plate"/>
+    <g class="gl-tube"><path d="M48 12 L52 19 L48 26 L52 33 L48 40 L52 47 M72 12 L68 19 L72 26 L68 33 L72 40 L68 47" fill="none" stroke="var(--em)" stroke-width="2.4" stroke-linejoin="round"/></g>
+  </>}
+  {name === "lateral" && <>
+    <path d="M36 9 H84" class="gl-plate gl-top2"/><path d="M36 49 H84" class="gl-plate"/>
+    <ellipse class="gl-ring" cx="60" cy="29" rx="16" ry="16" fill="none" stroke="var(--em)" stroke-width="3"/>
+  </>}
+  {name === "grains" && <>
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.4">
+      <path d="M8 6 L40 4 L46 24 L26 32 L6 26 Z"/><path d="M40 4 L76 8 L72 28 L46 24 Z"/><path d="M76 8 L112 6 L114 30 L72 28 Z"/>
+      <path d="M6 26 L26 32 L30 52 L6 50 Z"/><path d="M26 32 L46 24 L72 28 L70 52 L30 52 Z"/><path d="M72 28 L114 30 L112 52 L70 52 Z"/>
+    </g>
+    <g class="gl-slip" stroke="var(--em)" stroke-width="1.6" stroke-linecap="round">
+      <path pathLength="1" d="M14 22 L30 10"/><path pathLength="1" d="M20 25 L36 13"/>
+      <path pathLength="1" d="M50 22 L66 12"/><path pathLength="1" d="M82 26 L96 12"/><path pathLength="1" d="M90 27 L104 13"/>
+      <path pathLength="1" d="M38 48 L58 32"/><path pathLength="1" d="M46 49 L64 35"/><path pathLength="1" d="M80 49 L100 34"/>
+    </g>
+  </>}
+  {name === "code" && <>
+    <path d="M10 14 L18 20 L10 26" fill="none" stroke="var(--em)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect class="gl-ln l1" x="24" y="17" width="60" height="5" rx="2.5"/><rect class="gl-ln l2" x="24" y="29" width="80" height="5" rx="2.5"/><rect class="gl-ln l3" x="24" y="41" width="44" height="5" rx="2.5"/>
+    <rect class="gl-cur" x="72" y="39" width="3" height="9" fill="var(--amber)"/>
+  </>}
+</svg>

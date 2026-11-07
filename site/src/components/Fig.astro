@@ -1,9 +1,12 @@
 ---
+// A figure with its real width and height, read at build time, so the page does not jump while images load.
+import sharp from "sharp";
 interface Props { src: string; alt: string; n?: string; keep?: boolean }
 const { src, alt, n, keep } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const { width, height } = await sharp(`public/${src}`).metadata();
 ---
 <figure class="fig">
-  <img src={`${base}/${src}`} alt={alt} loading="lazy" decoding="async" class={keep ? "keep" : undefined} />
+  <img src={`${base}/${src}`} alt={alt} width={width} height={height} loading="lazy" decoding="async" class={keep ? "keep" : undefined} />
   <figcaption>{n && <span class="mono">Fig. {n}</span>}<slot>{alt}</slot></figcaption>
 </figure>

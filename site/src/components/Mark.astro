@@ -5,5 +5,5 @@ interface Props { class?: string }
 const { class: cls } = Astro.props;
 ---
 <svg class={cls} viewBox="0 0 200 200" aria-hidden="true">
-  <g fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="butt" stroke-linejoin="miter"><path d="M7.0 52 V7.0 H52 M148 7.0 H193.0 V52 M193.0 148 V193.0 H148"/></g><rect x="0" y="168" width="32" height="32" fill="#F2B233"/><g fill="currentColor" transform="translate(34.0 62.0) scale(0.5)"><path d="M0 0H112V24H24V64H88V88H24V128H112V152H0Z"/><path d="M136 152V0H162L200 66L238 0H264V152H240V48L208 104H192L160 48V152Z"/></g>
+  <g class="mk-frame-g" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="butt" stroke-linejoin="miter"><path class="mk-frame" pathLength="1" d="M7.0 52 V7.0 H52 M148 7.0 H193.0 V52 M193.0 148 V193.0 H148"/></g><rect class="mk-sq" x="0" y="168" width="32" height="32" fill="#F2B233"/><g class="mk-em" fill="currentColor" transform="translate(34.0 62.0) scale(0.5)"><path d="M0 0H112V24H24V64H88V88H24V128H112V152H0Z"/><path d="M136 152V0H162L200 66L238 0H264V152H240V48L208 104H192L160 48V152Z"/></g>
 </svg>

@@ -5,6 +5,7 @@ const here = Astro.url.pathname.replace(/\/$/, "");
 const inResearch = here.startsWith(`${base}/research`);
 ---
 <header class="site-head">
+  <span class="progress" aria-hidden="true"></span>
   <div class="frame">
     <a class="brand" href={`${base}/`} aria-label="Edgar Mendonca, home"><Mark /><span class="name">Edgar Mendonca</span></a>
     <nav class="nav mono" aria-label="Main">

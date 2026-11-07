@@ -1,0 +1,70 @@
+---
+// The hero drawing: a Split Hopkinson Pressure Bar firing on a loop. The striker hits the incident bar, the stress
+// pulse runs to the specimen, part reflects and part passes on, and the gauges write the three traces on the scope.
+// Animated by src/scripts/motion.ts (GSAP); without motion it shows the finished traces.
+const supports = [130, 210, 350, 440, 520];
+---
+<svg class="scene" viewBox="0 0 560 320" role="img" aria-label="Animated drawing of a Split Hopkinson Pressure Bar: a striker hits the incident bar, a stress pulse passes through the specimen, and the incident, reflected and transmitted strain traces appear on an oscilloscope.">
+  <defs>
+    <linearGradient id="pulse-i" x1="0" x2="1"><stop offset="0" stop-color="var(--em)" stop-opacity="0"/><stop offset=".5" stop-color="var(--em)"/><stop offset="1" stop-color="var(--em)" stop-opacity="0"/></linearGradient>
+    <linearGradient id="pulse-r" x1="0" x2="1"><stop offset="0" stop-color="var(--amber)" stop-opacity="0"/><stop offset=".5" stop-color="var(--amber)"/><stop offset="1" stop-color="var(--amber)" stop-opacity="0"/></linearGradient>
+    <linearGradient id="pulse-t" x1="0" x2="1"><stop offset="0" stop-color="var(--sig)" stop-opacity="0"/><stop offset=".5" stop-color="var(--sig)"/><stop offset="1" stop-color="var(--sig)" stop-opacity="0"/></linearGradient>
+    <clipPath id="bar-i"><rect x="96" y="78" width="200" height="12" rx="2"/></clipPath>
+    <clipPath id="bar-t"><rect x="316" y="78" width="214" height="12" rx="2"/></clipPath>
+    <clipPath id="scope"><rect x="40" y="168" width="500" height="126"/></clipPath>
+  </defs>
+
+  <text x="20" y="28" class="sc-label">SPLIT HOPKINSON PRESSURE BAR</text>
+  <text x="540" y="28" class="sc-label" text-anchor="end" id="sc-state">RECORDED</text>
+
+  <!-- gas gun and striker -->
+  <rect x="20" y="70" width="72" height="28" rx="3" class="sc-line"/>
+  <text x="56" y="114" class="sc-tiny" text-anchor="middle">GAS GUN</text>
+  <rect id="sc-striker" x="26" y="78" width="44" height="12" rx="2" class="sc-ink"/>
+  <text id="sc-v" x="56" y="62" class="sc-tiny" text-anchor="middle">v₀ →</text>
+
+  <!-- incident bar, specimen, transmitted bar -->
+  <rect x="96" y="78" width="200" height="12" rx="2" class="sc-bar"/>
+  <rect id="sc-spec" x="298" y="75" width="16" height="18" rx="1.5" fill="var(--amber)"/>
+  <rect x="316" y="78" width="214" height="12" rx="2" class="sc-bar"/>
+  <g clip-path="url(#bar-i)">
+    <rect id="sc-pi" x="56" y="78" width="60" height="12" fill="url(#pulse-i)" opacity="0"/>
+    <rect id="sc-pr" x="240" y="78" width="60" height="12" fill="url(#pulse-r)" opacity="0"/>
+  </g>
+  <g clip-path="url(#bar-t)"><rect id="sc-pt" x="290" y="78" width="60" height="12" fill="url(#pulse-t)" opacity="0"/></g>
+  <text x="196" y="114" class="sc-tiny" text-anchor="middle">INCIDENT BAR</text>
+  <text x="306" y="114" class="sc-tiny" text-anchor="middle">SPECIMEN</text>
+  <text x="423" y="114" class="sc-tiny" text-anchor="middle">TRANSMITTED BAR</text>
+
+  <!-- strain gauges -->
+  <rect id="sc-g1" x="190" y="71" width="12" height="5" rx="1" class="sc-gauge"/>
+  <rect id="sc-g2" x="417" y="71" width="12" height="5" rx="1" class="sc-gauge"/>
+  <path d="M196 71 V58 H170 M423 71 V58 H449" class="sc-wire"/>
+
+  {supports.map(x => <path d={`M${x - 7} 100 L${x} 91 L${x + 7} 100 Z`} class="sc-support"/>)}
+  <path d="M14 101 H546" class="sc-wire"/>
+
+  <!-- oscilloscope -->
+  <rect x="20" y="146" width="520" height="160" rx="4" class="sc-scope"/>
+  <g class="sc-grid">
+    {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => <path d={`M${40 + i * 50} 168 V294`}/>)}
+    {[0, 1, 2, 3, 4, 5, 6].map(i => <path d={`M40 ${168 + i * 21} H540`}/>)}
+  </g>
+  <path d="M40 231 H540" class="sc-axis"/>
+  <text x="30" y="162" class="sc-tiny">ε (t)</text>
+  <text x="532" y="312" class="sc-tiny" text-anchor="end">t (µs)</text>
+  <g clip-path="url(#scope)">
+    <path id="sc-ti" pathLength="1000" class="sc-trace" stroke="var(--em)"
+      d="M40 231 H70 C78 231 80 190 88 189 C92 188 98 194 104 191 C112 187 118 193 126 190 C134 187 140 193 146 191 C152 189 156 230 164 231 H540"/>
+    <path id="sc-tr" pathLength="1000" class="sc-trace" stroke="var(--amber)"
+      d="M40 231 H250 C258 231 260 270 268 272 C276 274 282 266 292 268 C300 270 306 264 314 266 C320 268 324 231 332 231 H540"/>
+    <path id="sc-tt" pathLength="1000" class="sc-trace" stroke="var(--sig)"
+      d="M40 231 H262 C270 231 276 214 290 209 C304 204 316 202 330 200 C340 199 346 230 354 231 H540"/>
+  </g>
+  <g class="sc-key">
+    <rect x="368" y="154" width="10" height="3" fill="var(--em)"/><text x="382" y="158" class="sc-tiny">INCIDENT</text>
+    <rect x="368" y="164" width="10" height="3" fill="var(--amber)"/><text x="382" y="168" class="sc-tiny">REFLECTED</text>
+    <rect x="452" y="154" width="10" height="3" fill="var(--sig)"/><text x="466" y="158" class="sc-tiny">TRANSMITTED</text>
+  </g>
+  <path id="sc-cursor" d="M40 168 V294" class="sc-cursor" opacity="0"/>
+</svg>
