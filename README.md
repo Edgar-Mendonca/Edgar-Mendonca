@@ -8,6 +8,8 @@ Engineer, researcher and software developer. I build engineering software, deliv
 
 ## Software
 
+### Datum
+
 <a href="https://edgar-mendonca.github.io/Datum/"><picture><source media="(prefers-color-scheme: dark)" srcset="site/public/icons/datum-logo-light.svg"><img src="site/public/icons/datum-logo.svg" width="160" alt="Datum"></picture></a>
 
 Free, open-source desktop apps for engineers and scientists, written from scratch in Rust.
@@ -23,6 +25,11 @@ Free, open-source desktop apps for engineers and scientists, written from scratc
 | <img src="site/public/icons/datum-pipe-icon.svg" width="40" alt=""> | [Datum Pipe](https://github.com/Edgar-Mendonca/Datum-Pipe) | Pipe stress analysis with an automatic isometric |
 | <img src="site/public/icons/datum-schema-icon.svg" width="40" alt=""> | [Datum Schema](https://github.com/Edgar-Mendonca/Datum-Schema) | Intelligent P&IDs and process flow diagrams |
 | <img src="site/public/icons/datum-layout-icon.svg" width="40" alt=""> | [Datum Layout](https://github.com/Edgar-Mendonca/Datum-Layout) | 3D plant layout and piping |
+
+### Other software
+
+| | App | What it does |
+| :-: | --- | --- |
 | <img src="site/public/icons/centriforge.svg" width="40" alt=""> | [CentriForge](https://github.com/Edgar-Mendonca/Compressor-Engineering-Suite) | Compressor engineering suite for centrifugal compressors (API 617 scope) |
 | <img src="site/public/icons/shpb.svg" width="40" alt=""> | [SHPB Analysis](https://github.com/Edgar-Mendonca/SHPB-Analysis) | Stress–strain curves from Split Hopkinson Pressure Bar signals |
 
