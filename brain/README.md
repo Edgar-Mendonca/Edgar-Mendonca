@@ -50,6 +50,16 @@ related work:
          Export Gas Compressor Package (API 617) › Sub-vendor interfaces. - ABB: main motor, …
 ```
 
+## See it
+
+```bash
+python brain/viewer.py     # writes model/viewer.html: the map of every note and the network, running in the page
+```
+
+The page is not committed (it is in `.gitignore`); it is published as a private page only Edgar can open. The map
+places every note by the network's 64-number embedding, laid out in 2D with t-SNE; the Ask box runs the same network
+in the browser (8-bit first layer, same answers as `brain.py ask` on all routing probes).
+
 ## Teach it
 
 1. Add what you do to [`notes/`](notes): one Markdown file per project, meeting or week, with `project:` and
