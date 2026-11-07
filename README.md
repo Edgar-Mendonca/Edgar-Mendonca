@@ -34,4 +34,4 @@ Free, open-source desktop apps for engineers and scientists, written from scratc
 
 ---
 
-<sub>This repository also holds the portfolio site (`site/`, Astro). Build it with `cd site && npm ci && npm run build`.</sub>
+<sub>This repository also holds the portfolio site (`site/`, Astro: `cd site && npm ci && npm run build`) and the [brain](brain/README.md), a neural network in Python trained on my work.</sub>

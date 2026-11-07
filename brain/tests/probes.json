@@ -1,0 +1,17 @@
+[
+  ["check the nozzle loads on the compressor discharge line after the thermal expansion", "datum-pipe"],
+  ["vendor sent a dry gas seal datasheet, review it against API 617", "compressor-package"],
+  ["fit a dose response curve and export the figure for a journal", "datum-plot"],
+  ["how should a new Datum app handle the updater and releases", "datum"],
+  ["measure Poisson's ratio from a strain gauge rosette on an impact bar", "stress-waves"],
+  ["level the resources and find the critical path of the shutdown schedule", "datum-plan"],
+  ["pick a light stiff material for a bracket and rank the candidates", "datum-atlas"],
+  ["tune a PID loop for a DC motor speed controller", "datum-sim"],
+  ["von Mises stress at the fillet of an L-bracket mesh", "datum-mesh"],
+  ["draw the anti-surge loop on the P&ID and list the instruments", "datum-schema"],
+  ["route a pipe from the pump nozzle to the header and check clashes", "datum-layout"],
+  ["calc sheet for pump head with units and a PASS check", "datum-calc"],
+  ["Campbell diagram and lateral critical speeds of the compressor rotor", "centriforge"],
+  ["true stress strain curve from incident reflected and transmitted pulses", "shpb"],
+  ["collapse load of a tube crushed between two flat plates", "lateral-compression"]
+]
