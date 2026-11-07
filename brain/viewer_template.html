@@ -1,0 +1,355 @@
+<title>Edgar's Brain</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: a framed paper-and-ink sheet (the portfolio's grid); the map is the drawing, the Ask panel its title block. */
+:root {
+  --bg: #F2F1EE; --bg-2: #E9E8E3; --card: #FFFFFF; --ink: #0C1A2B; --muted: #5B6470; --faint: #A3A9B0;
+  --line: #D9D9D4; --line-2: #C2C5C3; --em: #0B5CAD; --amber: #F2B233; --on-ink: #F2F1EE; --dim: rgba(12,26,43,.08);
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --c-datum: #0C1A2B; --c-datum-plan: #0B5CAD; --c-datum-plot: #0B7468; --c-datum-atlas: #6C4AB6; --c-datum-sim: #C2410C;
+  --c-datum-calc: #8E550C; --c-datum-mesh: #B83250; --c-datum-pipe: #4D7C0F; --c-datum-schema: #9C1F84; --c-datum-layout: #3A5A78;
+  --c-centriforge: #0B86B5; --c-compressor-package: #D61F45; --c-shpb: #C26A04; --c-stress-waves: #A88200; --c-lateral-compression: #B35F0F;
+  --c-background: #6B6560; --c-other: #5B6470;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0B1119; --bg-2: #101824; --card: #121B27; --ink: #E6EDF5; --muted: #93A0B1; --faint: #4D5A6A;
+  --line: #1D2836; --line-2: #2B3A4C; --em: #6AAEF0; --on-ink: #0B1119; --dim: rgba(230,237,245,.08); color-scheme: dark;
+  --c-datum: #C9D3DF; --c-datum-plan: #4C9BEA; --c-datum-plot: #3FC2B2; --c-datum-atlas: #A58BEA; --c-datum-sim: #F08A5D;
+  --c-datum-calc: #F0B450; --c-datum-mesh: #EF7A93; --c-datum-pipe: #A3D65C; --c-datum-schema: #E07BC9; --c-datum-layout: #8FB3D9;
+  --c-centriforge: #4FC8F0; --c-compressor-package: #FF6B85; --c-shpb: #F5A54A; --c-stress-waves: #F2D04A; --c-lateral-compression: #F7B267;
+  --c-background: #B8B0A8; --c-other: #93A0B1; } }
+:root[data-theme="dark"] {
+  --bg: #0B1119; --bg-2: #101824; --card: #121B27; --ink: #E6EDF5; --muted: #93A0B1; --faint: #4D5A6A;
+  --line: #1D2836; --line-2: #2B3A4C; --em: #6AAEF0; --on-ink: #0B1119; --dim: rgba(230,237,245,.08); color-scheme: dark;
+  --c-datum: #C9D3DF; --c-datum-plan: #4C9BEA; --c-datum-plot: #3FC2B2; --c-datum-atlas: #A58BEA; --c-datum-sim: #F08A5D;
+  --c-datum-calc: #F0B450; --c-datum-mesh: #EF7A93; --c-datum-pipe: #A3D65C; --c-datum-schema: #E07BC9; --c-datum-layout: #8FB3D9;
+  --c-centriforge: #4FC8F0; --c-compressor-package: #FF6B85; --c-shpb: #F5A54A; --c-stress-waves: #F2D04A; --c-lateral-compression: #F7B267;
+  --c-background: #B8B0A8; --c-other: #93A0B1;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 15px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-weight: 600; text-wrap: balance; letter-spacing: -.01em; }
+a { color: var(--em); }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--em); outline-offset: 2px; }
+.mono { font: 500 11.5px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 48px; }
+.sheet { border: 1px solid var(--line); background: var(--bg); }
+
+header.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand svg { width: 40px; height: 40px; color: var(--ink); flex: none; }
+.brand h1 { font-size: 22px; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.facts b { color: var(--ink); font-weight: 600; }
+
+.bar { display: flex; justify-content: space-between; gap: 12px; padding: 10px 20px; background: var(--bg-2); border-bottom: 1px solid var(--line); color: var(--muted); }
+.bar b { color: var(--ink); }
+
+.main { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
+.main > * { min-width: 0; }
+.mapcol { border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+@media (max-width: 960px) { .main { grid-template-columns: 1fr; } .mapcol { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.chip { display: inline-flex; align-items: center; gap: 7px; padding: 4px 9px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--card); cursor: pointer; font-size: 12.5px; line-height: 1.3; }
+.chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex: none; }
+.chip small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="false"] { opacity: .4; }
+.chip.all { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.mapbox { position: relative; aspect-ratio: 4 / 3; max-width: 100%; background: var(--card);
+  background-image: linear-gradient(var(--dim) 1px, transparent 1px), linear-gradient(90deg, var(--dim) 1px, transparent 1px); background-size: 40px 40px; }
+.mapbox canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; touch-action: manipulation; }
+.tip { position: absolute; pointer-events: none; max-width: 300px; padding: 9px 11px; background: var(--ink); color: var(--on-ink); font-size: 12.5px; line-height: 1.4; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+.tip b { display: block; font: 600 10.5px var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 3px; opacity: .8; }
+.maphint { padding: 10px 20px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+
+.note { padding: 18px 20px; display: grid; gap: 8px; border-top: 1px solid var(--line); }
+.note .meta { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.note p.text { max-width: 75ch; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border: 1px solid var(--line-2); font: 500 11px/1.5 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+
+.ask { display: flex; flex-direction: column; }
+.ask form { padding: 20px; display: grid; gap: 10px; border-bottom: 1px solid var(--line); }
+.ask label { color: var(--muted); }
+.field { display: flex; gap: 8px; }
+.field input { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--line-2); background: var(--card); }
+.btn { padding: 0 16px; min-height: 42px; border: 1px solid var(--ink); background: var(--ink); color: var(--on-ink); font: 600 11.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+.btn:hover { background: var(--em); border-color: var(--em); color: #fff; }
+.examples { display: flex; flex-wrap: wrap; gap: 6px; }
+.examples button { padding: 4px 9px; border: 1px dashed var(--line-2); background: transparent; font-size: 12.5px; cursor: pointer; color: var(--muted); text-align: left; }
+.examples button:hover { color: var(--ink); border-style: solid; }
+.result { padding: 18px 20px; display: grid; gap: 18px; }
+.heads { display: grid; gap: 14px; }
+.head h3 { margin-bottom: 6px; }
+.prob { display: grid; grid-template-columns: minmax(0, 1fr) 46px; gap: 2px 10px; align-items: center; font-size: 13px; }
+.prob .lab { display: flex; align-items: center; gap: 7px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prob .lab i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+.prob .num { text-align: right; font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
+.prob .track { grid-column: 1 / -1; height: 4px; background: var(--dim); margin-bottom: 6px; }
+.prob .track span { display: block; height: 100%; background: var(--c, var(--em)); }
+.hits { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.hit { display: grid; gap: 5px; padding: 12px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.hit:hover .snip { color: var(--ink); }
+.hit .snip { color: var(--muted); font-size: 13.5px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hit .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 12px; }
+.score { font: 500 11.5px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+section.more { border-top: 1px solid var(--line); }
+.cols { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.cols > * { padding: 22px 20px; min-width: 0; }
+.cols > :first-child { border-right: 1px solid var(--line); }
+@media (max-width: 960px) { .cols { grid-template-columns: 1fr; } .cols > :first-child { border-right: 0; border-bottom: 1px solid var(--line); } }
+.cols h2 { font-size: 18px; margin-bottom: 4px; }
+.cols .sub { color: var(--muted); font-size: 13.5px; margin-bottom: 16px; max-width: 62ch; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+th, td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font: 500 10.5px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+td.n, th.n { text-align: right; }
+.share { display: flex; align-items: center; gap: 8px; }
+.share span { display: block; height: 6px; background: var(--em); min-width: 2px; }
+.thin { color: var(--muted); }
+.net { width: 100%; height: auto; display: block; margin-bottom: 18px; }
+.acc { display: grid; gap: 10px; }
+.acc .row { display: grid; grid-template-columns: 70px minmax(0, 1fr) 52px; gap: 10px; align-items: center; font-size: 13px; }
+.acc .track { position: relative; height: 16px; background: var(--dim); }
+.acc .track .v { position: absolute; inset: 0 auto 0 0; background: var(--em); }
+.acc .track .b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--amber); }
+.acc .num { font: 500 12px var(--mono); text-align: right; }
+.key { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; color: var(--muted); font-size: 12.5px; }
+.key i { display: inline-block; width: 10px; height: 10px; vertical-align: -1px; margin-right: 6px; }
+footer { padding: 14px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
+@media (prefers-reduced-motion: no-preference) { .prob .track span, .acc .v { transition: width .35s ease; } }
+</style>
+
+<div class="wrap">
+<div class="sheet">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="14"><path d="M7 52 V7 H52 M148 7 H193 V52 M193 148 V193 H148"/></g><rect x="0" y="168" width="32" height="32" fill="#F2B233"/><g fill="currentColor" transform="translate(34 62) scale(.5)"><path d="M0 0H112V24H24V64H88V88H24V128H112V152H0Z"/><path d="M136 152V0H162L200 66L238 0H264V152H240V48L208 104H192L160 48V152Z"/></g></svg>
+      <div><h1>Edgar's Brain</h1><p class="muted" style="font-size:13px">A neural network trained on everything you have built, written and decided.</p></div>
+    </div>
+    <div class="facts mono muted" id="facts"></div>
+  </header>
+
+  <div class="main">
+    <div class="mapcol">
+      <div class="bar mono"><span><b>Map</b> · every dot is one note</span><span>closer = more alike to the network</span></div>
+      <div class="legend" id="legend"></div>
+      <div class="mapbox" id="mapbox"><canvas id="map" aria-label="Map of all notes, coloured by project"></canvas><div class="tip" id="tip" hidden></div></div>
+      <p class="maphint">Hover a dot to read it, click to open it below. Click a project to hide or show it. Ask a question and its related notes light up.</p>
+      <div class="note" id="note"><p class="muted">No note selected. Click a dot on the map or a result on the right.</p></div>
+    </div>
+
+    <div class="ask">
+      <div class="bar mono"><span><b>Ask</b> · runs the network in this page</span></div>
+      <form id="askform" autocomplete="off">
+        <label class="mono" for="q">Describe a task in plain words</label>
+        <div class="field"><input id="q" name="q" type="text" value="vendor sent a dry gas seal datasheet, review it against API 617"><button class="btn" type="submit">Ask</button></div>
+        <div class="examples" id="examples"></div>
+      </form>
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+
+  <section class="more">
+    <div class="bar mono"><span><b>What it knows</b> and <b>how it works</b></span><span id="gen"></span></div>
+    <div class="cols">
+      <div>
+        <h2>Evidence by area</h2>
+        <p class="sub">How much of your work is written down in each area. It measures documented volume, not skill: the Datum apps record every decision and release, while the day job and research have few notes yet.</p>
+        <div class="scroll"><table id="areas"></table></div>
+      </div>
+      <div>
+        <h2>The network</h2>
+        <p class="sub">Written from scratch in NumPy. Text becomes hashed word counts, passes through two layers, and three heads read the same 64-number embedding.</p>
+        <svg class="net" id="net" viewBox="0 0 520 210" role="img" aria-label="Network diagram"></svg>
+        <h3 class="mono muted" style="margin-bottom:10px">Accuracy on held-out notes</h3>
+        <div class="acc" id="acc"></div>
+        <div class="key"><span><i style="background:var(--em)"></i>the network</span><span><i style="background:var(--amber)"></i>always guessing the biggest class</span></div>
+      </div>
+    </div>
+  </section>
+  <footer>Private page. Rebuild after retraining with <code>python brain/viewer.py</code>.</footer>
+</div>
+</div>
+
+<script id="brain-data" type="application/json">__BRAIN_DATA__</script>
+<script>
+// ---------- the engine: the same steps as brain.py, in the browser ----------
+const D = JSON.parse(document.getElementById("brain-data").textContent);
+const H = D.hidden, E = D.embDim, DIM = D.dim, N = D.rows.length;
+const STOP = new Set(D.stop);
+const b64 = s => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return new Int8Array(u.buffer); };
+const W1 = b64(D.W1), EMB = b64(D.emb);
+const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+const enc = new TextEncoder();
+function crc32(str) { let c = 0xFFFFFFFF; for (const b of enc.encode(str)) c = CRC[(c ^ b) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function tokens(text) {
+  const w = [...text.toLowerCase().matchAll(/[a-z][a-z0-9+#.\-]*[a-z0-9+#]|[a-z]|\d+(?:\.\d+)*/g)].map(m => m[0]).filter(t => !STOP.has(t) && t.length > 1);
+  const out = w.slice(); for (let i = 0; i + 1 < w.length; i++) out.push(w[i] + "_" + w[i + 1]); return out;
+}
+function sparse(text) {
+  const c = new Map(); for (const t of tokens(text)) { const b = crc32(t) % DIM; c.set(b, (c.get(b) || 0) + 1); }
+  const idx = [...c.keys()], val = idx.map(b => Math.fround(Math.log1p(c.get(b))) * D.idf[b]);
+  const n = Math.hypot(...val) + 1e-9; return { idx, val: val.map(v => v / n) };
+}
+function softmax(z) { const m = Math.max(...z), e = z.map(v => Math.exp(v - m)), s = e.reduce((a, b) => a + b, 0); return e.map(v => v / s); }
+function forward(sp) {
+  const a = new Float64Array(H);
+  for (let i = 0; i < sp.idx.length; i++) { const o = sp.idx[i] * H, v = sp.val[i]; for (let j = 0; j < H; j++) a[j] += v * W1[o + j] * D.s1[j]; }
+  for (let j = 0; j < H; j++) a[j] = Math.max(0, a[j] + D.b1[j]);
+  const e = new Float64Array(E);
+  for (let k = 0; k < E; k++) { let s = D.b2[k]; for (let j = 0; j < H; j++) s += a[j] * D.W2[j * E + k]; e[k] = Math.tanh(s); }
+  const probs = {};
+  for (const [h, w] of Object.entries(D.heads)) { const z = []; for (let c = 0; c < w.n; c++) { let s = w.b[c]; for (let k = 0; k < E; k++) s += e[k] * w.W[k * w.n + c]; z.push(s); } probs[h] = softmax(z); }
+  return { e, probs };
+}
+// Word-overlap index over every note, built once.
+const INV = new Map();
+D.rows.forEach((r, i) => { const s = sparse(r.t); s.idx.forEach((b, j) => { if (!INV.has(b)) INV.set(b, []); INV.get(b).push(i, s.val[j]); }); });
+function ask(text, k = 8) {
+  const sp = sparse(text), { e, probs } = forward(sp);
+  const qn = Math.hypot(...e) + 1e-9, score = new Float64Array(N);
+  for (let i = 0; i < N; i++) { let s = 0; for (let j = 0; j < E; j++) s += EMB[i * E + j] * e[j]; score[i] = 0.6 * s / 127 / qn; }
+  sp.idx.forEach((b, j) => { const l = INV.get(b); if (l) for (let t = 0; t < l.length; t += 2) score[l[t]] += 0.4 * sp.val[j] * l[t + 1]; });
+  const top = [...score.keys()].sort((a, b) => score[b] - score[a]).slice(0, k);
+  const heads = {}; for (const h of Object.keys(probs)) heads[h] = probs[h].map((p, i) => [D.labels[h][i], p]).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  return { heads, top: top.map(i => [i, score[i]]) };
+}
+
+// ---------- the page ----------
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const KNOWN = new Set(["datum","datum-plan","datum-plot","datum-atlas","datum-sim","datum-calc","datum-mesh","datum-pipe","datum-schema","datum-layout","centriforge","compressor-package","shpb","stress-waves","lateral-compression","background"]);
+const cvar = p => `var(--c-${KNOWN.has(p) ? p : "other"})`;
+const nice = p => p.replace(/^datum-/, "Datum ").replace(/^datum$/, "Datum (family)").replace(/-/g, " ").replace(/^\w/, c => c.toUpperCase()).replace(/ (\w)/g, (m, c) => " " + c.toUpperCase()).replace("Shpb", "SHPB").replace("Centriforge", "CentriForge");
+const R = D.report, fmt = n => n.toLocaleString("en");
+$("facts").innerHTML = `<span><b>${fmt(N)}</b> notes</span><span><b>${D.labels.project.length}</b> projects</span><span><b>${fmt(R.parameters)}</b> weights</span><span>trained <b>${D.generated}</b></span>`;
+$("gen").textContent = `${fmt(D.rows.reduce((a, r) => a + r.t.split(/\s+/).length, 0))} words`;
+
+// Legend
+const counts = {}; D.rows.forEach(r => counts[r.p] = (counts[r.p] || 0) + 1);
+const order = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+const shown = new Set(order);
+function legend() {
+  $("legend").innerHTML = `<button type="button" class="chip all" id="allchip">${shown.size === order.length ? "Hide all" : "Show all"}</button>` +
+    order.map(p => `<button type="button" class="chip" data-p="${p}" aria-pressed="${shown.has(p)}" style="--c:${cvar(p)}"><i></i>${esc(nice(p))} <small>${counts[p]}</small></button>`).join("");
+}
+$("legend").addEventListener("click", ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.id === "allchip") { if (shown.size === order.length) shown.clear(); else order.forEach(p => shown.add(p)); }
+  else { const p = b.dataset.p; shown.has(p) ? shown.delete(p) : shown.add(p); }
+  legend(); draw();
+});
+legend();
+
+// Map
+const cv = $("map"), ctx = cv.getContext("2d"), box = $("mapbox"), tip = $("tip");
+let W = 0, Hh = 0, pts = [], hover = -1, sel = -1, hits = new Map();
+const PAD = 22;
+function colors() { const cs = getComputedStyle(document.documentElement), o = {}; for (const p of order) o[p] = cs.getPropertyValue(`--c-${KNOWN.has(p) ? p : "other"}`).trim() || "#888"; o._ink = cs.getPropertyValue("--ink").trim(); o._amber = cs.getPropertyValue("--amber").trim(); o._card = cs.getPropertyValue("--card").trim(); return o; }
+let COL = colors();
+function resize() {
+  const r = box.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  W = r.width; Hh = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(Hh * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  pts = D.rows.map(r => [PAD + r.x * (W - 2 * PAD), PAD + r.y * (Hh - 2 * PAD)]); draw();
+}
+function draw() {
+  if (pts.length !== N) return;           // not measured yet: resize() draws once the box has a size
+  ctx.clearRect(0, 0, W, Hh);
+  const focus = hits.size > 0, rad = W < 500 ? 2.2 : 3;
+  for (let i = 0; i < N; i++) {
+    const r = D.rows[i]; if (!shown.has(r.p)) continue;
+    ctx.globalAlpha = focus && !hits.has(i) ? 0.12 : 0.78;
+    ctx.fillStyle = COL[r.p]; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], KNOWN.has(r.p) && counts[r.p] < 40 ? rad + 1.4 : rad, 0, 7); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  // Project names at the middle of each group.
+  ctx.font = `600 ${W < 500 ? 10 : 12}px "IBM Plex Sans", system-ui, sans-serif`; ctx.textAlign = "center"; ctx.lineJoin = "round";
+  const placed = [];                     // label boxes drawn so far: a label that would overlap one is skipped
+  for (const p of order) {
+    if (!shown.has(p)) continue;
+    const xs = [], ys = []; D.rows.forEach((r, i) => { if (r.p === p) { xs.push(pts[i][0]); ys.push(pts[i][1]); } });
+    xs.sort((a, b) => a - b); ys.sort((a, b) => a - b); const x = xs[xs.length >> 1], y = ys[ys.length >> 1];
+    const tw = ctx.measureText(nice(p)).width, bx = [x - tw / 2 - 3, y - 22, tw + 6, 18];
+    if (placed.some(q => bx[0] < q[0] + q[2] && q[0] < bx[0] + bx[2] && bx[1] < q[1] + q[3] && q[1] < bx[1] + bx[3])) continue;
+    placed.push(bx);
+    ctx.globalAlpha = focus ? 0.35 : 1; ctx.lineWidth = 4; ctx.strokeStyle = COL._card; ctx.strokeText(nice(p), x, y - 8); ctx.fillStyle = COL[p]; ctx.fillText(nice(p), x, y - 8);
+  }
+  ctx.globalAlpha = 1;
+  for (const [i, rank] of hits) { ctx.strokeStyle = COL._ink; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 7, 0, 7); ctx.stroke(); ctx.fillStyle = COL._ink; ctx.font = '600 10px "IBM Plex Mono", monospace'; ctx.fillText(rank, pts[i][0] + 11, pts[i][1] - 7); }
+  for (const i of [hover, sel]) if (i >= 0) { ctx.strokeStyle = COL._amber; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 9, 0, 7); ctx.stroke(); }
+}
+function nearest(x, y) { if (pts.length !== N) return -1; let b = -1, bd = 14 * 14; for (let i = 0; i < N; i++) { if (!shown.has(D.rows[i].p)) continue; const dx = pts[i][0] - x, dy = pts[i][1] - y, d = dx * dx + dy * dy; if (d < bd) { bd = d; b = i; } } return b; }
+cv.addEventListener("mousemove", ev => {
+  const r = cv.getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top, i = nearest(x, y);
+  if (i !== hover) { hover = i; draw(); }
+  if (i < 0) { tip.hidden = true; return; }
+  const row = D.rows[i]; tip.innerHTML = `<b>${esc(nice(row.p))} · ${esc(row.k)}</b>${esc(row.t.slice(0, 160))}${row.t.length > 160 ? "…" : ""}`;
+  tip.hidden = false; const tw = tip.offsetWidth, th = tip.offsetHeight;
+  tip.style.left = Math.min(Math.max(4, x + 14), W - tw - 4) + "px"; tip.style.top = (y + 14 + th > Hh ? y - th - 10 : y + 14) + "px";
+});
+cv.addEventListener("mouseleave", () => { hover = -1; tip.hidden = true; draw(); });
+cv.addEventListener("click", ev => { const r = cv.getBoundingClientRect(), i = nearest(ev.clientX - r.left, ev.clientY - r.top); if (i >= 0) open(i); });
+function open(i, scroll) {
+  sel = i; draw(); const r = D.rows[i];
+  $("note").innerHTML = `<div class="meta"><span class="pill" style="--c:${cvar(r.p)}"><i></i>${esc(nice(r.p))}</span><span class="pill">${esc(r.k)}</span>${r.v ? `<span class="pill">v${esc(r.v)}</span>` : ""}${r.d ? `<span class="pill">${esc(r.d)}</span>` : ""}<a href="${esc(r.u)}" target="_blank" rel="noopener" style="font-size:12.5px">${esc(r.s)}</a></div>
+    ${r.h ? `<h3 style="font-size:15px">${esc(r.h)}</h3>` : ""}<p class="text">${esc(r.t)}</p>`;
+  if (scroll) $("note").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+}
+new ResizeObserver(resize).observe(box);
+const recolor = () => { COL = colors(); draw(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", recolor);
+new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+// Ask
+const EXAMPLES = ["check the nozzle loads on the compressor discharge line after thermal expansion", "true stress strain curve from incident reflected and transmitted pulses", "how should a new Datum app handle the updater and releases", "tune a PID loop for a DC motor speed controller", "Campbell diagram and critical speeds of the compressor rotor"];
+$("examples").innerHTML = EXAMPLES.map(e => `<button type="button">${esc(e)}</button>`).join("");
+$("examples").addEventListener("click", ev => { const b = ev.target.closest("button"); if (b) { $("q").value = b.textContent; run(); } });
+$("askform").addEventListener("submit", ev => { ev.preventDefault(); run(); });
+const HEADNAME = { project: "Project", area: "Area of work", kind: "Kind of knowledge" };
+function run() {
+  const q = $("q").value.trim();
+  if (!q) { hits = new Map(); draw(); $("result").innerHTML = `<p class="muted">Type a task above, or pick an example.</p>`; return; }
+  const res = ask(q, 8);
+  hits = new Map(res.top.map(([i], n) => [i, n + 1])); draw();
+  const area = n => D.areas[n] || n;
+  $("result").innerHTML = `<div class="heads">${Object.entries(res.heads).map(([h, l]) => `<div class="head"><h3 class="mono muted">${HEADNAME[h] || h}</h3>${l.map(([n, p]) => `<div class="prob" style="${h === "project" ? `--c:${cvar(n)}` : ""}"><span class="lab">${h === "project" ? "<i></i>" : ""}${esc(h === "project" ? nice(n) : h === "area" ? area(n) : n)}</span><span class="num">${Math.round(p * 100)}%</span><span class="track"><span style="width:${(p * 100).toFixed(1)}%"></span></span></div>`).join("")}</div>`).join("")}</div>
+    <div><h3 class="mono muted" style="margin-bottom:6px">Related notes (numbered on the map)</h3><div class="hits">${res.top.map(([i, s], n) => { const r = D.rows[i]; return `<div class="hit" data-i="${i}" tabindex="0" role="button"><div class="meta"><span class="score">${n + 1}</span><span class="pill" style="--c:${cvar(r.p)}"><i></i>${esc(nice(r.p))}</span><span class="pill">${esc(r.k)}</span><span class="score">${s.toFixed(2)}</span></div><div class="snip">${esc(r.t)}</div></div>`; }).join("")}</div></div>`;
+}
+$("result").addEventListener("click", ev => { const h = ev.target.closest(".hit"); if (h) open(+h.dataset.i, true); });
+$("result").addEventListener("keydown", ev => { const h = ev.target.closest(".hit"); if (h && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); open(+h.dataset.i, true); } });
+
+// Evidence by area
+(() => {
+  const by = {}; let total = 0;
+  for (const r of D.rows) { const w = r.t.split(/\s+/).length; total += w; const a = by[r.a] ||= { w: 0, n: 0, rel: new Set(), dec: 0, plan: 0, res: 0, proj: new Set() };
+    a.w += w; a.n++; a.proj.add(r.p); if (r.k === "release" && r.v) a.rel.add(r.p + r.v); if (r.k === "decision") a.dec++; if (r.k === "plan") a.plan++; if (r.k === "research" || r.k === "note") a.res++; }
+  const list = Object.entries(by).sort((a, b) => b[1].w - a[1].w), max = list[0][1].w / total;
+  $("areas").innerHTML = `<thead><tr><th>Area</th><th>Share</th><th class="n">Notes</th><th class="n">Releases</th><th class="n">Decisions</th><th class="n">Research</th></tr></thead><tbody>` +
+    list.map(([a, v]) => { const s = v.w / total; return `<tr><td>${esc(D.areas[a] || a)}<div class="thin" style="font-size:12px">${[...v.proj].map(nice).join(", ")}</div></td><td><div class="share"><span style="width:${(s / max * 70).toFixed(0)}px"></span>${Math.round(s * 100)}%</div></td><td class="n">${v.n}</td><td class="n">${v.rel.size}</td><td class="n">${v.dec}</td><td class="n">${v.res}</td></tr>`; }).join("") + "</tbody>";
+})();
+
+// Network diagram and accuracy
+(() => {
+  const L = [["Input", `${fmt(DIM)} word features`], ["Dense", `${H} · ReLU`], ["Embedding", `${E} · tanh`]];
+  const heads = Object.keys(D.heads);
+  let s = ""; const bw = 112, bh = 54, y0 = 78;
+  L.forEach(([t, d], i) => { const x = 4 + i * 132; s += `<rect x="${x}" y="${y0}" width="${bw}" height="${bh}" fill="var(--card)" stroke="var(--line-2)"/><text x="${x + bw / 2}" y="${y0 + 22}" text-anchor="middle" fill="var(--ink)" style="font:600 13px var(--sans)">${t}</text><text x="${x + bw / 2}" y="${y0 + 40}" text-anchor="middle" fill="var(--muted)" style="font:500 10.5px var(--mono)">${d}</text>`;
+    if (i < 2) s += `<path d="M${x + bw} ${y0 + bh / 2} H${x + 132}" stroke="var(--muted)" stroke-width="1.5"/>`; });
+  heads.forEach((h, i) => { const x = 404, y = 14 + i * 66; s += `<path d="M${4 + 2 * 132 + bw} ${y0 + bh / 2} C 388 ${y0 + bh / 2}, 388 ${y + 22}, ${x} ${y + 22}" fill="none" stroke="var(--muted)" stroke-width="1.5"/><rect x="${x}" y="${y}" width="112" height="44" fill="var(--card)" stroke="var(--em)"/><text x="${x + 56}" y="${y + 19}" text-anchor="middle" fill="var(--ink)" style="font:600 12.5px var(--sans)">${HEADNAME[h] || h}</text><text x="${x + 56}" y="${y + 34}" text-anchor="middle" fill="var(--muted)" style="font:500 10.5px var(--mono)">${D.heads[h].n} classes</text>`; });
+  s += `<rect x="${4 + 2 * 132}" y="${y0 + bh + 10}" width="${bw}" height="3" fill="var(--amber)"/><text x="${4 + 2 * 132 + bw / 2}" y="${y0 + bh + 30}" text-anchor="middle" fill="var(--muted)" style="font:500 10px var(--mono)">the map is drawn from this</text>`;
+  $("net").innerHTML = s;
+  $("acc").innerHTML = Object.entries(R.test_accuracy).map(([h, v]) => { const b = R.majority_baseline[h]; return `<div class="row"><span>${(HEADNAME[h] || h).replace(" of work", "").replace("Kind of knowledge", "Kind")}</span><div class="track" role="img" aria-label="${Math.round(v * 100)}% against ${Math.round(b * 100)}%"><span class="v" style="width:${v * 100}%"></span><span class="b" style="left:${b * 100}%"></span></div><span class="num">${(v * 100).toFixed(1)}%</span></div>`; }).join("");
+})();
+
+run();
+</script>
