@@ -56,9 +56,30 @@ related work:
 python brain/viewer.py     # writes model/viewer.html: the map of every note and the network, running in the page
 ```
 
-The page is not committed (it is in `.gitignore`); it is published as a private page only Edgar can open. The map
-places every note by the network's 64-number embedding, laid out in 2D with t-SNE; the Ask box runs the same network
-in the browser (8-bit first layer, same answers as `brain.py ask` on all routing probes).
+The page is not committed (it is in `.gitignore`); it is published as a private page only Edgar can open. It shows:
+
+- **Inside the network:** the question drawn as nodes and connections (its words, the most active hidden units,
+  the strongest embedding values and the likeliest projects), with every line a real weight × activation, animated
+  layer by layer.
+- **Training:** loss and held-out accuracy drawn epoch by epoch from `report.json`'s history.
+- **Map:** every note placed by the network's 64-number embedding, laid out in 2D with t-SNE.
+- **Ask:** the same network running in the browser (8-bit first layer; same top project as `brain.py ask` on every
+  probe).
+
+## Private sources
+
+Anything personal or confidential goes in `brain/private/`, which git ignores: Markdown archives plus a
+`sections.json` that labels each top-level section with a project and area. Add `--private` to every command:
+
+```bash
+python brain/brain.py collect --private      # public sources + brain/private/*.md → brain/private/data/
+python brain/brain.py train --private        # → brain/private/model/ (long sections also train as passages)
+python brain/tests/probe_private.py          # routing check on brain/private/probes.json
+python brain/viewer.py --private             # → brain/private/model/viewer.html, the private page
+```
+
+Nothing trained on private material is written outside `brain/private/`. Keep a copy of that folder somewhere
+private (a private repository or your own disk): the cloud session that built it does not keep it.
 
 ## Teach it
 

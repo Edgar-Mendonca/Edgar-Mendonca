@@ -1,2 +1,4 @@
 __pycache__/
 model/viewer.html
+# Private sources and anything trained on them: never committed.
+private/

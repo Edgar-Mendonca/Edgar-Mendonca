@@ -1,6 +1,7 @@
 """Build the brain viewer: one self-contained HTML page with the map of the corpus and the network itself.
 
     python brain/viewer.py            # writes brain/model/viewer.html (not committed: it is a private page)
+    python brain/viewer.py --private  # the private build: writes brain/private/model/viewer.html
 
 The page runs the trained network in the browser (same tokenizer, hashing, TF-IDF and layers as brain.py), so the
 Ask box gives the same answers as `brain.py ask`. The map places every chunk by its 64-number embedding, laid out
@@ -17,10 +18,10 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from brain import CORPUS, MODEL, REPORT, load_corpus  # noqa: E402
+from brain import CORPUS, HOME, MODEL, REPORT, load_corpus  # noqa: E402
 from text import DIM, STOP  # noqa: E402
 
-OUT = HERE / "model" / "viewer.html"
+OUT = HOME / "model" / "viewer.html"
 TEMPLATE = HERE / "viewer_template.html"
 
 
@@ -97,6 +98,8 @@ def build() -> Path:
     qe = np.clip(np.round(embn * 127), -127, 127).astype(np.int8)
 
     def repo_url(src: str) -> str:
+        if src.startswith("private/"):
+            return ""                                  # private sources have no public page
         if src.startswith("local/"):
             return "https://github.com/Edgar-Mendonca/Edgar-Mendonca/blob/HEAD/" + src[len("local/"):]
         owner, repo, path = src.split("/", 2)

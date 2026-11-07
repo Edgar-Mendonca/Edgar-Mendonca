@@ -5,12 +5,16 @@
     python brain/brain.py ask "text"         # which project and area a task belongs to, and related past work
     python brain/brain.py profile            # where the evidence of Edgar's work lies, area by area
 
+Add --private to any command to include the private sources in brain/private/ (never committed): the corpus,
+model and reports then live in brain/private/ too, so nothing trained on private material reaches the repository.
 Only NumPy is needed. See brain/README.md.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import os
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -22,10 +26,16 @@ sys.path.insert(0, str(HERE))
 from nn import HEADS, Net  # noqa: E402
 from text import DIM, Vectorizer, bucket, tokens  # noqa: E402
 
-CORPUS = HERE / "data" / "corpus.jsonl"
-MODEL = HERE / "model" / "brain.npz"
-REPORT = HERE / "model" / "report.json"
-PROFILE = HERE / "model" / "PROFILE.md"
+# Public build: brain/data and brain/model (committed). Private build: brain/private/data and brain/private/model
+# (ignored by git), chosen with --private on the command line or BRAIN_PRIVATE=1.
+PRIVATE = "--private" in sys.argv or os.environ.get("BRAIN_PRIVATE") == "1"
+if "--private" in sys.argv:
+    sys.argv.remove("--private")
+HOME = HERE / "private" if PRIVATE else HERE
+CORPUS = HOME / "data" / "corpus.jsonl"
+MODEL = HOME / "model" / "brain.npz"
+REPORT = HOME / "model" / "report.json"
+PROFILE = HOME / "model" / "PROFILE.md"
 DEFAULT_CACHE = Path.home() / ".cache" / "edgar-brain" / "repos"
 
 
@@ -37,7 +47,7 @@ def load_corpus() -> list[dict]:
 
 def cmd_collect(a):
     from collect import collect
-    rows = collect(Path(a.cache), offline=a.offline)
+    rows = collect(Path(a.cache), offline=a.offline, private=PRIVATE)
     CORPUS.parent.mkdir(parents=True, exist_ok=True)
     with CORPUS.open("w", encoding="utf-8") as f:
         for r in rows:
@@ -75,6 +85,26 @@ def cmd_train(a):
     vec = Vectorizer().fit([texts[i] for i in tr])
     X = vec.dense(texts)
 
+    # Sources with few, long sections (the private archive) are hard to learn from: in the training set only,
+    # also learn from overlapping two-sentence passages of them. Held-out chunks are never split.
+    if a.augment:
+        extra_t, extra_y = [], {h: [] for h in HEADS}
+        for i in tr:
+            if not rows[i]["source"].startswith("private/"):
+                continue
+            sents = [x for x in re.split(r"(?<=[.;:])\s+", texts[i]) if len(x.split()) >= 4]
+            for j in range(len(sents) - 1):
+                extra_t.append(" ".join(sents[j:j + 2]))
+                for h in HEADS:
+                    extra_y[h].append(Y[h][i])
+        if extra_t:
+            n0 = len(texts)
+            X = np.vstack([X, vec.dense(extra_t)])
+            for h in HEADS:
+                Y[h] = np.concatenate([Y[h], np.array(extra_y[h], dtype=Y[h].dtype)])
+            tr = np.concatenate([tr, np.arange(n0, n0 + len(extra_t))])
+            print(f"augmented the training set with {len(extra_t)} passages from private sources")
+
     # Class weights ~ frequency^-balance: small projects still count without being over-predicted.
     weights = {}
     for h in HEADS:
@@ -86,6 +116,7 @@ def cmd_train(a):
     rng = np.random.default_rng(a.seed)
     print(f"training on {len(tr)} chunks, testing on {len(te)}; "
           f"{sum(v.size for v in net.p.values()):,} parameters")
+    history = []                                   # one row per epoch: the training performance curve
     for ep in range(1, a.epochs + 1):
         lr = a.lr * (0.5 * (1 + np.cos(np.pi * (ep - 1) / a.epochs)))           # cosine decay
         order = rng.permutation(tr)
@@ -93,13 +124,15 @@ def cmd_train(a):
         for s in range(0, len(order), a.batch):
             b = order[s:s + a.batch]
             total += net.step(X[b], {h: Y[h][b] for h in HEADS}, weights, rng, lr=lr) * len(b)
+        acc = accuracy(net, X, Y, te)
+        history.append({"epoch": ep, "loss": round(total / len(tr), 4), "lr": round(float(lr), 6), **{h: round(acc[h], 4) for h in HEADS}})
         if ep == 1 or ep % 5 == 0 or ep == a.epochs:
-            acc = accuracy(net, X, Y, te)
             print(f"  epoch {ep:3d}  loss {total / len(tr):.3f}  test " + "  ".join(f"{h} {acc[h]:.1%}" for h in HEADS))
 
     acc = accuracy(net, X, Y, te)
-    base = {h: float(np.mean(Y[h][te] == np.bincount(Y[h][tr]).argmax())) for h in HEADS}
-    emb = net.embed(X)
+    real = tr[tr < len(rows)]                     # the baseline guesses the commonest class among real notes
+    base = {h: float(np.mean(Y[h][te] == np.bincount(Y[h][real]).argmax())) for h in HEADS}
+    emb = net.embed(X[:len(rows)])                # one embedding per corpus chunk (not the training passages)
 
     # For reading the hashed features back as words: the most common token in each bucket.
     top_tok: dict[int, Counter] = defaultdict(Counter)
@@ -118,10 +151,10 @@ def cmd_train(a):
         "architecture": f"{DIM} hashed TF-IDF → {a.hidden} ReLU (dropout 0.3) → {a.emb} tanh embedding → heads {', '.join(f'{h} ({len(labels[h])})' for h in HEADS)}",
         "test_accuracy": {h: round(acc[h], 4) for h in HEADS},
         "majority_baseline": {h: round(base[h], 4) for h in HEADS},
-        "epochs": a.epochs, "balance": a.balance, "labels": labels,
+        "epochs": a.epochs, "balance": a.balance, "labels": labels, "history": history,
     }
     REPORT.write_text(json.dumps(report, indent=2))
-    print(f"saved {MODEL.relative_to(HERE.parent)} ({MODEL.stat().st_size / 1e6:.1f} MB)")
+    print(f"saved {MODEL.relative_to(HERE.parent)} ({MODEL.stat().st_size / 1e6:.1f} MB){' (private)' if PRIVATE else ''}")
     print("test accuracy  " + "  ".join(f"{h} {acc[h]:.1%} (baseline {base[h]:.1%})" for h in HEADS))
     write_profile(rows, labels)
 
@@ -136,7 +169,7 @@ def accuracy(net, X, Y, idx):
 class Brain:
     def __init__(self):
         if not MODEL.exists():
-            sys.exit("No trained model yet: run  python brain/brain.py train")
+            sys.exit(f"No trained model yet: run  python brain/brain.py train{' --private' if PRIVATE else ''}")
         z = np.load(MODEL, allow_pickle=False)
         self.labels = json.loads(str(z["labels"]))
         self.vec = Vectorizer(z["idf"].astype(np.float32))
@@ -234,6 +267,7 @@ def main():
     t.add_argument("--emb", type=int, default=64)
     t.add_argument("--seed", type=int, default=7)
     t.add_argument("--balance", type=float, default=0.5, help="class weight exponent: 0 none, 0.5 strong")
+    t.add_argument("--no-augment", dest="augment", action="store_false", help="do not split private sections into passages")
     t.set_defaults(fn=cmd_train)
     q = sub.add_parser("ask", help="route a task and find related past work")
     q.add_argument("text", nargs="+")
