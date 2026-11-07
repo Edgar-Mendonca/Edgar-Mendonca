@@ -1,59 +1,77 @@
 ---
 import Base from "../layouts/Base.astro";
-import { person, datum, centriforge, shpbTool, engineering, research, papers, code, web } from "../data/work";
+import { person, datum, centriforge, shpbTool, engineering, research, code, web } from "../data/work";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const u = (p: string) => `${base}/${p}`;
 ---
-<Base title="Edgar Mendonca · Engineering software, engineering and research" description="Edgar Mendonca builds engineering software (the Datum desktop apps and CentriForge), works on rotating-equipment packages for oil and gas, and researches how materials behave under impact and load.">
+<Base title="Edgar Mendonca · Engineer, researcher, developer" description="Edgar Mendonca is a mechanical engineer and researcher in impact mechanics and materials, now in project and engineering management in oil and gas, who builds engineering tools such as CentriForge and the Datum apps.">
   <div class="frame">
 
     <section class="hero" aria-labelledby="hi">
       <div>
         <p class="mono muted">{person.role}</p>
         <h1 id="hi" class="h1">Edgar Mendonca</h1>
-        <p class="lead">I build software for <span class="it">engineering work</span>, deliver rotating-equipment packages for oil and gas, and study how materials behave under impact and load.</p>
+        <p class="lead">I want to understand how materials and machines behave <span class="it">under load</span>, and turn what I learn into work other engineers can build on. Today I work in oil and gas, in project and engineering management for rotating-equipment packages.</p>
         <div class="btns">
-          <a class="btn btn-solid" href="#software">See the work</a>
+          <a class="btn btn-solid" href="#background">See the work</a>
         </div>
       </div>
       <dl class="facts">
-        <div><dt class="mono">Software</dt><dd>The Datum desktop apps, CentriForge, SHPB analysis</dd></div>
-        <div><dt class="mono">Engineering</dt><dd>API 617 compressor packages, EPC and vendor coordination</dd></div>
-        <div><dt class="mono">Research</dt><dd>Impact mechanics, stress waves, high strain-rate testing</dd></div>
+        <div><dt class="mono">Now</dt><dd>Project and engineering management, oil and gas (API 617 compressor packages)</dd></div>
+        <div><dt class="mono">Research</dt><dd>Impact mechanics, stress waves, tube crushing, slip in nickel alloys</dd></div>
+        <div><dt class="mono">Built</dt><dd>CentriForge, SHPB analysis and the Datum apps</dd></div>
         <div><dt class="mono">Education</dt><dd>MSc Advanced Engineering Materials · BE Mechanical Engineering</dd></div>
       </dl>
     </section>
 
-    <!-- 01 Software -->
-    <div id="software" class="bar mono"><span><b>01</b> / Software</span><span class="r">Apps I design and build</span></div>
-    <section class="block" aria-label="Software">
-      <div class="intro">
-        <h2 class="h2">Engineering software</h2>
-        <p class="lead">Desktop tools for engineers and scientists. Each one has its own calculation engine, tests and documentation, and is free and open source.</p>
-      </div>
-
-      <div class="band reveal">
-        <a href={datum.site} aria-label="Datum website">
-          <img class="logo light" src={u("icons/datum-logo.svg")} alt="Datum" width="220" height="41" />
-          <img class="logo dark" src={u("icons/datum-logo-light.svg")} alt="Datum" width="220" height="41" />
-        </a>
-        <div style="display:grid;gap:12px">
-          <p>A family of small, fast desktop apps for engineers, scientists and researchers, written from scratch in Rust with one look and one way of working. No accounts, no subscriptions, no telemetry: files stay on the user's computer.</p>
-          <div class="links mono"><a href={datum.site}>Datum website</a><a href={datum.repo}>Source</a></div>
+    <!-- 01 Background -->
+    <div id="background" class="bar mono"><span><b>01</b> / Background</span><span class="r">From the lab to the plant</span></div>
+    <section class="block" aria-label="Background">
+      <div class="split">
+        <h2 class="h2">Background</h2>
+        <div class="prose">
+          <p>I trained as a mechanical engineer and found my subject in impact: what happens inside a material in the first microseconds after it is hit. For my bachelor's thesis I crushed metal tubes to see how they fold and absorb energy, then designed and built a Split Hopkinson Pressure Bar to test materials at high strain rates, and studied how stress waves travel through bars.</p>
+          <p>My master's in advanced engineering materials took me down to the grain: for my thesis I mapped slip activity in nickel alloys with high-resolution digital image correlation and EBSD. I also returned to thin-walled tubes, working out material properties from how they collapse under lateral compression.</p>
+          <p>Since 2024 I have worked in oil and gas, in project and engineering management for an API 617 export gas compressor package: design review, specification compliance and coordinating the vendors behind every sub-system. Along the way I build tools for the work I do, from the SHPB analysis code to CentriForge and the Datum apps.</p>
+          <div class="btns" style="margin-top:24px">
+            <a class="btn btn-solid" href={person.linkedin}>LinkedIn</a>
+            <a class="btn btn-line" href={person.github}>GitHub</a>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- 02 Research -->
+    <div id="research" class="bar mono"><span><b>02</b> / Research</span><span class="r">Impact mechanics and materials</span></div>
+    <section class="block" aria-label="Research">
+      <div class="intro">
+        <h2 class="h2">Research</h2>
+        <p class="lead">Experimental and theoretical solid mechanics: how metals respond to impact, high strain rates and large deformation, and how to measure it.</p>
+      </div>
       <ul class="cells c3">
-        {datum.apps.map(a => (
-          <li class="app reveal">
-            <img src={u(a.icon)} alt="" width="56" height="56" loading="lazy" />
-            <h3 class="h3"><a href={a.page}>{a.name}</a></h3>
-            <p>{a.line}</p>
-            <div class="meta mono"><span>v{a.version}</span><a href={a.page}>Page</a><a href={a.repo}>Source</a></div>
+        {research.map(r => (
+          <li class="rbox reveal">
+            <p class="mono when">{r.kind}{r.when && ` · ${r.when}`}</p>
+            <h3 class="h3">{r.title}</h3>
+            <p class="muted">{r.text}</p>
+            <div class="links mono">{r.links.map(l => <a href={"page" in l ? u(l.page as string) : l.href}>{l.label}</a>)}</div>
           </li>
         ))}
+        <li class="rbox reveal">
+          <p class="mono when">Code</p>
+          <h3 class="h3">Research code</h3>
+          <ul class="codes">{code.map(c => <li><a href={c.href}>{c.title}</a></li>)}</ul>
+        </li>
       </ul>
+    </section>
 
-      <h3 class="mono muted" style="margin:48px 0 14px">Other software</h3>
+    <!-- 03 Tools -->
+    <div id="tools" class="bar mono"><span><b>03</b> / Tools</span><span class="r">Built from my own work</span></div>
+    <section class="block" aria-label="Tools">
+      <div class="intro">
+        <h2 class="h2">Engineering tools</h2>
+        <p class="lead">Each one started from a problem in my own work: reducing SHPB test data, and evaluating centrifugal compressors.</p>
+      </div>
 
       <article class="feature reveal">
         <div class="txt">
@@ -86,11 +104,35 @@ const u = (p: string) => `${base}/${p}`;
           <img src={u("img/shpb/true-stress-strain.png")} alt="True stress–strain curve from an SHPB test" loading="lazy" />
         </div>
       </article>
-
     </section>
 
-    <!-- 02 Engineering -->
-    <div id="engineering" class="bar mono"><span><b>02</b> / Engineering</span><span class="r">Industry projects</span></div>
+    <!-- 04 Datum -->
+    <div id="datum" class="bar mono"><span><b>04</b> / Datum</span><span class="r">A family of desktop apps</span></div>
+    <section class="block" aria-label="Datum">
+      <div class="band reveal">
+        <a href={datum.site} aria-label="Datum website">
+          <img class="logo light" src={u("icons/datum-logo.svg")} alt="Datum" width="220" height="41" />
+          <img class="logo dark" src={u("icons/datum-logo-light.svg")} alt="Datum" width="220" height="41" />
+        </a>
+        <div style="display:grid;gap:12px">
+          <p>Small, fast desktop apps for engineers, scientists and researchers, written from scratch in Rust with one look and one way of working. Free and open source; no accounts, no subscriptions, no telemetry, and files stay on the user's computer.</p>
+          <div class="links mono"><a href={datum.site}>Datum website</a><a href={datum.repo}>Source</a></div>
+        </div>
+      </div>
+      <ul class="cells c3">
+        {datum.apps.map(a => (
+          <li class="app reveal">
+            <img src={u(a.icon)} alt="" width="56" height="56" loading="lazy" />
+            <h3 class="h3"><a href={a.page}>{a.name}</a></h3>
+            <p>{a.line}</p>
+            <div class="meta mono"><span>v{a.version}</span><a href={a.page}>Page</a><a href={a.repo}>Source</a></div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- 05 Engineering -->
+    <div id="engineering" class="bar mono"><span><b>05</b> / Engineering</span><span class="r">Industry projects</span></div>
     <section class="block" aria-label="Engineering">
       <div class="intro">
         <h2 class="h2">Engineering projects</h2>
@@ -110,47 +152,8 @@ const u = (p: string) => `${base}/${p}`;
       ))}
     </section>
 
-    <!-- 03 Research -->
-    <div id="research" class="bar mono"><span><b>03</b> / Research</span><span class="r">Impact mechanics and materials</span></div>
-    <section class="block" aria-label="Research">
-      <div class="intro">
-        <h2 class="h2">Research</h2>
-        <p class="lead">Experimental and theoretical solid mechanics: how metals respond to impact, high strain rates and large deformation, and how to measure it.</p>
-      </div>
-      <div class="cells c3">
-        {research.map(r => (
-          <a class="card reveal" href={u(`research/${r.slug}`)}>
-            <div class="thumb"><img src={u(r.img)} alt="" loading="lazy" /></div>
-            <div class="body">
-              <p class="mono when">{r.when}</p>
-              <h3 class="h3">{r.title}</h3>
-              <p class="muted">{r.text}</p>
-              <span class="go mono">Read the study →</span>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div class="split" style="margin-top:56px">
-        <h3 class="h3">Theses and papers</h3>
-        <ul class="rows">
-          {papers.map(p => (
-            <li><a class="t" href={p.href}>{p.title}</a><p>{p.note}</p><a class="r mono ul" href={p.href}>PDF</a></li>
-          ))}
-        </ul>
-      </div>
-      <div class="split" style="margin-top:40px">
-        <h3 class="h3">Research code</h3>
-        <ul class="rows">
-          {code.map(c => (
-            <li><a class="t" href={c.href}>{c.title}</a><a class="r mono ul" href={c.href}>GitHub</a></li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <!-- 04 Web -->
-    <div id="web" class="bar mono"><span><b>04</b> / Web</span><span class="r">Sites I build and maintain</span></div>
+    <!-- 06 Web -->
+    <div id="web" class="bar mono"><span><b>06</b> / Web</span><span class="r">Sites I build and maintain</span></div>
     <section class="block" aria-label="Web">
       <div class="split">
         <h2 class="h2">Websites</h2>
@@ -159,22 +162,6 @@ const u = (p: string) => `${base}/${p}`;
             <li><a class="t h3" href={w.href}>{w.title}</a><p>{w.text} <span class="mono">· {w.when}</span></p><a class="r mono ul" href={w.href}>Visit</a></li>
           ))}
         </ul>
-      </div>
-    </section>
-
-    <!-- 05 About -->
-    <div id="about" class="bar mono"><span><b>05</b> / About</span><span class="r">Background</span></div>
-    <section class="block" aria-label="About">
-      <div class="split">
-        <h2 class="h2">Background</h2>
-        <div class="prose">
-          <p>I am a mechanical engineer with a master's degree in advanced engineering materials. My research covers impact mechanics and high strain-rate testing: I designed and built a Split Hopkinson Pressure Bar, studied stress-wave propagation and the crushing of thin-walled tubes, and for my master's thesis measured slip activity in nickel alloys with high-resolution digital image correlation and EBSD.</p>
-          <p>In industry I work on rotating-equipment packages for oil and gas, from design review and compliance to coordinating the vendors behind each sub-system. Alongside, I build engineering software: the Datum family of desktop apps and CentriForge, so that the calculations I rely on are fast, checked and open to everyone.</p>
-          <div class="btns" style="margin-top:24px">
-            <a class="btn btn-solid" href={person.linkedin}>LinkedIn</a>
-            <a class="btn btn-line" href={person.github}>GitHub</a>
-          </div>
-        </div>
       </div>
     </section>
 

@@ -3,7 +3,7 @@ const gh = "https://github.com/Edgar-Mendonca";
 
 export const person = {
   name: "Edgar Mendonca",
-  role: "Engineer, researcher and software developer",
+  role: "Engineer, researcher, developer",
   github: gh,
   linkedin: "https://www.linkedin.com/in/edgar-mendonca/",
   youtube: "https://www.youtube.com/@edgarmendonca",
@@ -74,27 +74,46 @@ export const engineering = [
   },
 ];
 
+/** Research topics, shown as simple boxes. `links` go to a case study on this site, a PDF or code. */
 export const research = [
   {
-    slug: "shpb",
-    title: "Split Hopkinson Pressure Bar: design, testing and data analysis",
+    kind: "Experimental rig",
+    title: "Split Hopkinson Pressure Bar",
     when: "Nov 2018 – Apr 2021",
-    img: "img/work/shpb-cad.png",
-    text: "Designed and built a Kolsky bar for high-strain-rate testing: CAD, manufacture, gas gun, velocity measurement, strain-gauge amplifiers and the analysis software.",
+    text: "Designed and built a bar for testing materials at strain rates of 10² to 10⁴ s⁻¹: the frame, gas gun, velocity gate, strain-gauge amplifiers and the analysis code.",
+    links: [{ label: "Read the study", page: "research/shpb" }, { label: "Analysis code", href: `${gh}/SHPB-Analysis` }],
   },
   {
-    slug: "stress-waves",
+    kind: "Experiment and theory",
     title: "Stress waves in solids",
     when: "2019",
-    img: "img/waves/ball-bar-setup.png",
-    text: "Ball-on-bar and bar-on-bar impact experiments, Hertz contact theory, and Young's modulus and Poisson's ratio from wave measurements.",
+    text: "Ball-on-bar and bar-on-bar impacts: how stress pulses travel, reflect and change at a step, and Young's modulus and Poisson's ratio measured from them.",
+    links: [{ label: "Read the study", page: "research/stress-waves" }, { label: "Paper (PDF)", href: "https://drive.google.com/file/d/11_lwCQQhr5Gb55sdCd_Ul4YJYndI3UiR/view" }],
   },
   {
-    slug: "lateral-compression",
-    title: "Lateral compression of thin-walled tubes",
+    kind: "Bachelor's thesis · papers",
+    title: "Axial crushing of metal tubes",
+    when: "",
+    text: "How metal tubes deform and absorb impact energy under axial compression, and how strain hardening changes the plastic buckling of aluminium tubes.",
+    links: [
+      { label: "Thesis (PDF)", href: "https://drive.google.com/file/d/150Ns480wjIrKlEM9jr_URIjchdEYe8oc/view" },
+      { label: "Paper 1 (PDF)", href: "https://drive.google.com/file/d/1oM4l2MszLuWkSD3mIIxX7GT8uPtWoWp-/view" },
+      { label: "Paper 2 (PDF)", href: "https://drive.google.com/file/d/1fxbm2O-PM-BKtYirUnGmKk84FdBJ36Up/view" },
+    ],
+  },
+  {
+    kind: "Experiment and theory",
+    title: "Lateral compression of tubes",
     when: "Mar 2022 – May 2023",
-    img: "img/tubes/ring-compresion-test.jpg",
-    text: "Ring compression of aluminium 6063 tubes: yield stress, elastic modulus and hardening modulus from the load–deflection response, against theory.",
+    text: "Aluminium 6063 rings crushed between flat plates: yield stress, elastic modulus and hardening modulus from one load–deflection curve, checked against theory.",
+    links: [{ label: "Read the study", page: "research/lateral-compression" }, { label: "Code", href: `${gh}/Load-deflection-characteristics-of-lateral-compression-of-tubes` }],
+  },
+  {
+    kind: "Master's thesis",
+    title: "Slip activity in nickel alloys",
+    when: "",
+    text: "How prior deformation changes slip in nickel alloys, mapped grain by grain with high-resolution digital image correlation (HRDIC) and EBSD.",
+    links: [{ label: "Thesis (PDF)", href: "https://drive.google.com/file/d/1ak9HJxILX0hKhumFyu9-c-gX-TRa86Na/view" }],
   },
 ];
 
