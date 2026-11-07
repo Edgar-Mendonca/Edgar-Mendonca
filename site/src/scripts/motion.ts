@@ -1,9 +1,9 @@
-// Motion for the whole site: smooth scrolling (Lenis), scroll reveals and the hero's bench of scenes (GSAP).
-// Everything is visible without this script; with "reduce motion" set, the page is static (the bench tabs still switch).
+// Motion for the whole site: smooth scrolling (Lenis), scroll reveals and the animated drawings (GSAP).
+// Everything is visible without this script; with "reduce motion" set, the page is static.
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { setupBench } from "./bench";
+import { setupScenes } from "./scenes";
 
 gsap.registerPlugin(ScrollTrigger);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -90,8 +90,6 @@ if (!reduce) {
     const name = hero.querySelector<HTMLElement>("h1");
     if (name) tl.from(split(name), { yPercent: 110, duration: 0.9, stagger: 0.08 }, 0.1);
     tl.from($$(".hero .mono.muted, .hero .lead, .hero .btns", hero), { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.1 }, 0.25);
-    const bench = hero.querySelector(".bench");
-    if (bench) tl.from(bench, { y: 16, autoAlpha: 0, duration: 0.8 }, 0.45);
   }
 
   // ---------- section headings ----------
@@ -126,5 +124,5 @@ if (!reduce) {
   });
 }
 
-// The hero bench runs in both modes: animated normally, static scenes with working tabs under "reduce motion".
-setupBench();
+// The animated drawings in the Tools section (they stay still under "reduce motion").
+setupScenes();
