@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Pipe: the family tile in the moss accent. A pipe run with an expansion loop, held by an anchor (the boxed cross, tinted) at its start; the amber diamond is the family mark, beside the free end of the run. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F1F7E6"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#CBE2A4" stroke-width="4"/>
+  <g transform="translate(2 -12)">
+  <path d="M62 176H84a16 16 0 0 0 16-16V100a16 16 0 0 1 16-16H140a16 16 0 0 1 16 16V160a16 16 0 0 0 16 16H214" fill="none" stroke="#4D7C0F" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="32" y="152" width="48" height="48" rx="4" fill="#BEDC8F" stroke="#4D7C0F" stroke-width="11" stroke-linejoin="round"/>
+  <path d="M45 165l22 22M67 165l-22 22" stroke="#4D7C0F" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <path d="M206 84l15 15-15 15-15-15z" fill="#F2B233"/>
+</svg>

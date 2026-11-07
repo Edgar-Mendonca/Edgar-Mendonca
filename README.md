@@ -1,71 +1,37 @@
-# Hello, I'm Edgar Mendonca <span class="wave"><img width=50 height=50 src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/hand-gif.gif"></span>
+<picture><source media="(prefers-color-scheme: dark)" srcset="site/public/mark-light.svg"><img src="site/public/mark.svg" width="88" alt="EM"></picture>
 
-<p align="center">
-    <img width="200" height="auto" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku.gif" alt="DBZ Goku">
-    <img width="200" height="auto" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku2.gif" alt="DBZ Goku">
-    <img width="200" height="auto" src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/DBZ-Goku3.gif" alt="DBZ Goku">
-</p>
+# Edgar Mendonca
 
-![Profile Views](https://komarev.com/ghpvc/?username=Edgar-Mendonca&color=green)
+Engineer, researcher and software developer. I build engineering software, deliver rotating-equipment packages for oil and gas, and study how materials behave under impact and load.
 
-## 📝 About Me
-I'm a Researcher/Engineer/Developer passionate about Engineering, Material Sciences and Math. I enjoy working on Statistical analysis, Design of Experiments and exploring new technologies.
+**Portfolio:** [edgar-mendonca.github.io/Edgar-Mendonca](https://edgar-mendonca.github.io/Edgar-Mendonca/) · [LinkedIn](https://www.linkedin.com/in/edgar-mendonca/) · [CV](https://drive.google.com/file/d/1ONmfNVPs5ri9faXs95NeYx74AAtsw3fb/view)
 
-- 🛠️ I’m currently working on **Web Apps based on AI/ML**
+## Software
 
-- 🧑‍🤝‍🧑 I’m looking to collaborate on **Web Design, Web Architecture**
+<a href="https://edgar-mendonca.github.io/Datum/"><picture><source media="(prefers-color-scheme: dark)" srcset="site/public/icons/datum-logo-light.svg"><img src="site/public/icons/datum-logo.svg" width="160" alt="Datum"></picture></a>
 
-- 💁 I’m looking for help with **UI/UX**
+Free, open-source desktop apps for engineers and scientists, written from scratch in Rust.
 
-- 📒 I’m currently learning **Japanese, German, Typescript, AI/ML, HRDIC**
+| | App | What it does |
+| :-: | --- | --- |
+| <img src="site/public/icons/datum-plan-icon.svg" width="40" alt=""> | [Datum Plan](https://github.com/Edgar-Mendonca/Datum-Plan) | Plan, schedule, track and report projects |
+| <img src="site/public/icons/datum-plot-icon.svg" width="40" alt=""> | [Datum Plot](https://github.com/Edgar-Mendonca/Datum-Plot) | Analyse data and make publication-ready graphs |
+| <img src="site/public/icons/datum-atlas-icon.svg" width="40" alt=""> | [Datum Atlas](https://github.com/Edgar-Mendonca/Datum-Atlas) | Choose materials with property charts and selection indices |
+| <img src="site/public/icons/datum-sim-icon.svg" width="40" alt=""> | [Datum Sim](https://github.com/Edgar-Mendonca/Datum-Sim) | Model and simulate dynamic systems |
+| <img src="site/public/icons/datum-calc-icon.svg" width="40" alt=""> | [Datum Calc](https://github.com/Edgar-Mendonca/Datum-Calc) | Engineering calculations with real units and checks |
+| <img src="site/public/icons/datum-mesh-icon.svg" width="40" alt=""> | [Datum Mesh](https://github.com/Edgar-Mendonca/Datum-Mesh) | Finite-element analysis of parts and frames |
+| <img src="site/public/icons/datum-pipe-icon.svg" width="40" alt=""> | [Datum Pipe](https://github.com/Edgar-Mendonca/Datum-Pipe) | Pipe stress analysis with an automatic isometric |
+| <img src="site/public/icons/datum-schema-icon.svg" width="40" alt=""> | [Datum Schema](https://github.com/Edgar-Mendonca/Datum-Schema) | Intelligent P&IDs and process flow diagrams |
+| <img src="site/public/icons/datum-layout-icon.svg" width="40" alt=""> | [Datum Layout](https://github.com/Edgar-Mendonca/Datum-Layout) | 3D plant layout and piping |
+| <img src="site/public/icons/centriforge.svg" width="40" alt=""> | [CentriForge](https://github.com/Edgar-Mendonca/Compressor-Engineering-Suite) | Compressor engineering suite for centrifugal compressors (API 617 scope) |
+| <img src="site/public/icons/shpb.svg" width="40" alt=""> | [SHPB Analysis](https://github.com/Edgar-Mendonca/SHPB-Analysis) | Stress–strain curves from Split Hopkinson Pressure Bar signals |
 
-- 💬 Ask me about **Engineering, Statistical Analysis, Consultation**
+## Research
 
-- 💻 All of my projects are available at **Portfolio** ([https://sites.google.com/view/edgarmendonca](https://sites.google.com/view/edgarmendonca))
+- [Split Hopkinson Pressure Bar: design, testing and data analysis](https://edgar-mendonca.github.io/Edgar-Mendonca/research/shpb)
+- [Stress waves in solids](https://edgar-mendonca.github.io/Edgar-Mendonca/research/stress-waves)
+- [Lateral compression of thin-walled tubes](https://edgar-mendonca.github.io/Edgar-Mendonca/research/lateral-compression)
 
-## 🔗 Connect with me
-<a href="https://github.com/Edgar-Mendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/material-outlined/48/github.png" alt="github"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/@edgarmendonca" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/youtube-play.png" alt="youtube-play"/></a>&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/@EdgarMendonca7" target="_blank"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/twitterx--v1.png" alt="twitterx--v1"/></a>&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/edgar-mendonca/" target="_blank"><img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/></a>&nbsp;&nbsp;&nbsp;
+---
 
-## ✨ Skills
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="50px" height=auto/> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" width="50px" height=auto/> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" width="50px" height=auto /> &nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/embeddedc/embeddedc-original-wordmark.svg" width="50px" height=auto /> &nbsp;
-<img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/fusion.png" width="50px" height=auto /> &nbsp;
-<img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/main/images/Abaqus.png" width="90px" height=auto  /> &nbsp;
-<img src="https://raw.githubusercontent.com/Edgar-Mendonca/Edgar-Mendonca/567f47c1a74089194e2c01d0cb4b2e9152a18879/images/Solidworks.svg" width="120px" height=auto /> &nbsp;
-
-## 🎥 Videos
-
-<a href="https://www.youtube.com/watch?v=0fWdUWLbv9A" target="_blank">
- <img src="https://img.youtube.com/vi/0fWdUWLbv9A/sddefault.jpg" alt="" width="240" height="180" />
-</a>
-<a href="https://www.youtube.com/watch?v=ZjK046jKi30" target="_blank">
- <img src="https://img.youtube.com/vi/ZjK046jKi30/sddefault.jpg" alt="" width="240" height="180" />
-</a>
-<a href="https://www.youtube.com/watch?v=jSSc8NRiNTw" target="_blank">
- <img src="https://img.youtube.com/vi/jSSc8NRiNTw/sddefault.jpg" alt="" width="240" height="180" />
-</a>
+<sub>This repository also holds the portfolio site (`site/`, Astro). Build it with `cd site && npm ci && npm run build`.</sub>

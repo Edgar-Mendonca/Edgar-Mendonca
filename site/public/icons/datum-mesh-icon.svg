@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Mesh: the family tile in the crimson accent. An L-bracket meshed in triangles (tinted), the two triangles at the inside corner shaded darker (the stress hot spot); the amber diamond is the family mark, beside the loaded free end. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FBEBEF"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#F1B3C1" stroke-width="4"/>
+  <path d="M58 54h46v98h98v44H58z" fill="#F1B3C1"/>
+  <path d="M104 104v48H58zM104 152l48 44V152z" fill="#B83250" opacity=".55"/>
+  <path d="M58 104h46M58 152h46M104 152v44M152 152v44M58 54l46 50M58 104l46 48M58 152l46 44M104 152l48 44M152 152l50 44" fill="none" stroke="#B83250" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M58 54h46v98h98v44H58z" fill="none" stroke="#B83250" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M220 112l15 15-15 15-15-15z" fill="#F2B233"/>
+</svg>

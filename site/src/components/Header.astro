@@ -1,0 +1,19 @@
+---
+import Mark from "./Mark.astro";
+import { person } from "../data/work";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const here = Astro.url.pathname.replace(/\/$/, "");
+const inResearch = here.startsWith(`${base}/research`);
+---
+<header class="site-head">
+  <div class="frame">
+    <a class="brand" href={`${base}/`} aria-label="Edgar Mendonca, home"><Mark /><span class="name">Edgar Mendonca</span></a>
+    <nav class="nav mono" aria-label="Main">
+      <a href={`${base}/#software`}>Software</a>
+      <a class="wide" href={`${base}/#engineering`}>Engineering</a>
+      <a href={`${base}/#research`} aria-current={inResearch ? "page" : undefined}>Research</a>
+      <a class="wide" href={`${base}/#about`}>About</a>
+      <a href={person.cv}>CV</a>
+    </nav>
+  </div>
+</header>

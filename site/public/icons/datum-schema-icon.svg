@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Schema: the family tile in the magenta accent. A vertical vessel joined by a line with a flow arrow to a pump, with a small instrument bubble tapped onto the line; the amber diamond is the family mark. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FAEBF6"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#E7B9DB" stroke-width="4"/>
+  <path d="M46 86a26 26 0 0 1 52 0v68a26 26 0 0 1-52 0z" fill="#EAB6DD" stroke="#9C1F84" stroke-width="11" stroke-linejoin="round"/>
+  <path d="M98 168H158M142 134V168" fill="none" stroke="#9C1F84" stroke-width="11" stroke-linecap="round"/>
+  <path d="M110 156l16 12-16 12z" fill="#9C1F84"/>
+  <circle cx="142" cy="114" r="17" fill="#FFFFFF" stroke="#9C1F84" stroke-width="11"/>
+  <circle cx="186" cy="168" r="26" fill="none" stroke="#9C1F84" stroke-width="11"/>
+  <path d="M186 142H226" fill="none" stroke="#9C1F84" stroke-width="11" stroke-linecap="round"/>
+  <path d="M206 62l15 15-15 15-15-15z" fill="#F2B233"/>
+</svg>

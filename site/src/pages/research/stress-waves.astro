@@ -1,0 +1,117 @@
+---
+import Doc from "../../layouts/Doc.astro";
+import Eq from "../../components/Eq.astro";
+import Fig from "../../components/Fig.astro";
+import { papers, code } from "../../data/work";
+const paper = papers.find(p => p.title.startsWith("Elementary"))!;
+const sphere = code.find(c => c.title.startsWith("Stress from impact"))!;
+const toc = [
+  { id: "overview", label: "Overview" },
+  { id: "waves", label: "Body and surface waves" },
+  { id: "hertz", label: "Ball-on-bar impact" },
+  { id: "steps", label: "Stepped bars" },
+  { id: "ideal", label: "Expected pulses" },
+  { id: "setup", label: "Experiment" },
+  { id: "results", label: "Tests" },
+  { id: "props", label: "Material properties" },
+  { id: "references", label: "References" },
+];
+---
+<Doc
+  title="Stress waves in solids"
+  kicker="Stress waves"
+  description="Impact tests on long bars to watch stress pulses travel, reflect and change at a step in section, and a non-destructive way to measure Young's modulus and Poisson's ratio from them."
+  meta={[
+    { k: "Published", v: "2019, with P. B. Shahapur and T. Y. Reddy" },
+    { k: "Type", v: "Experimental and theoretical" },
+    { k: "Measured", v: "Axial and lateral strain pulses" },
+    { k: "Instruments", v: "0/90° rosette, amplifier, oscilloscope" },
+  ]}
+  links={[
+    { label: "Read the paper", href: paper.href },
+    { label: "Impact code", href: sphere.href },
+  ]}
+  toc={toc}
+>
+  <section id="overview">
+    <h2><span class="n">01</span>Overview</h2>
+    <p>When a load is applied slowly, the whole body adjusts together. When it is applied suddenly (an impact, a blast, an earthquake), the far parts of the body do not feel it at first: the disturbance travels through the material as a stress wave, at a finite speed, reflecting at every free end and change of section. Designing parts that survive impact means knowing how fast these waves travel, how they reflect and how they decay.</p>
+    <p>This study pairs Hertz contact theory with impact experiments on long steel bars: a ball striking a bar, a bar striking a bar, and a ball striking bars that step up or down in section.</p>
+  </section>
+
+  <section id="waves">
+    <h2><span class="n">02</span>Body and surface waves</h2>
+    <p><b>P-waves</b> (primary, compressional) push and pull the material along the direction of travel and are the fastest. <b>S-waves</b> (secondary, shear) move it across the direction of travel and only pass through solids. Along a free surface travel <b>Rayleigh waves</b>, with an elliptical particle motion, and <b>Love waves</b>, with horizontal shear.</p>
+    <div class="figs">
+      <Fig src="img/waves/p-wave-animation.gif" alt="A P-wave: compression and dilatation along the direction of travel" n="1" />
+      <Fig src="img/waves/s-wave-animation.gif" alt="An S-wave: shear across the direction of travel" n="2" />
+      <Fig src="img/waves/rayleigh-wave-animation.gif" alt="A Rayleigh wave: elliptical motion at the surface" n="3" />
+      <Fig src="img/waves/love-wave-animation.gif" alt="A Love wave: horizontal shear at the surface" n="4" />
+    </div>
+  </section>
+
+  <section id="hertz">
+    <h2><span class="n">03</span>Ball-on-bar impact</h2>
+    <p>The contact between the ball and the end of the bar follows Hertz: the contact force grows with the 3/2 power of the approach <Eq inline tex={String.raw`\alpha`} /> of ball and bar,</p>
+    <Eq tex={String.raw`F = K\,\alpha^{3/2}, \qquad K = \frac{4}{3\pi}\,\frac{\sqrt{R}}{k_1 + k_2}, \qquad k_i = \frac{1-\nu_i^2}{\pi E_i}`} />
+    <p>The ball (mass <Eq inline tex={String.raw`m`} />) is slowed by <Eq inline tex={String.raw`F`} />, while the bar end moves away at <Eq inline tex={String.raw`F c / A E`} />. Together these give the equation for the approach during contact, and the stress pulse sent into the bar:</p>
+    <Eq tex={String.raw`\ddot\alpha + \frac{K c}{A E}\,\frac{d}{dt}\!\left(\alpha^{3/2}\right) + \frac{K}{m}\,\alpha^{3/2} = 0, \qquad \sigma(t) = \frac{K\,\alpha(t)^{3/2}}{A}`} />
+    <Fig src="img/waves/ball-bar-annotation.png" alt="Ball-on-bar impact: schematic and notation" n="5" />
+  </section>
+
+  <section id="steps">
+    <h2><span class="n">04</span>Stepped bars</h2>
+    <p>At a change of section from <Eq inline tex={String.raw`A_1`} /> to <Eq inline tex={String.raw`A_2`} />, force balance and continuity of velocity split the incident pulse into a transmitted and a reflected part:</p>
+    <div class="eqs">
+      <Eq tex={String.raw`\frac{\sigma_T}{\sigma_I} = \frac{2A_1\rho_2 c_2}{A_1\rho_1 c_1 + A_2\rho_2 c_2}, \qquad \frac{\sigma_R}{\sigma_I} = \frac{A_2\rho_2 c_2 - A_1\rho_1 c_1}{A_1\rho_1 c_1 + A_2\rho_2 c_2}`} />
+      <Eq tex={String.raw`\text{same material: } \frac{\sigma_T}{\sigma_I} = \frac{2A_1}{A_1 + A_2}, \qquad \frac{\sigma_R}{\sigma_I} = \frac{A_2 - A_1}{A_1 + A_2}`} />
+    </div>
+    <p>A step down in section amplifies the transmitted stress; a step up reduces it.</p>
+  </section>
+
+  <section id="ideal">
+    <h2><span class="n">05</span>Expected pulses</h2>
+    <p>A ball sends a compressive pulse down the bar; it reflects from the free far end as tension. A spherical wave starts at the contact point and becomes a plane wave within a few bar diameters. The contact time is the pulse width <Eq inline tex={String.raw`\tau`} />, and one round trip takes the characteristic time <Eq inline tex={String.raw`T = 2L/c`} />. The axial pulse comes with a lateral pulse through the Poisson effect; their ratio is Poisson's ratio.</p>
+    <p>A bar striking a bar gives a rectangular pulse. With a free far end it returns as tension; with a fixed end it returns as compression, and it keeps re-reflecting until damping removes it.</p>
+    <div class="figs">
+      <Fig src="img/waves/ball-bar-ideal.png" alt="Ideal stress–time record of a ball-on-bar impact" n="6" />
+      <Fig src="img/waves/long-lat-ball-bar.png" alt="Ideal longitudinal and lateral strain records" n="7" />
+      <Fig src="img/waves/bar-bar-ideal.png" alt="Ideal stress–time record of a bar-on-bar impact" n="8" />
+      <Fig src="img/waves/bar-bar-fixed-ideal.png" alt="Bar-on-bar impact with the far end fixed" n="9" />
+    </div>
+  </section>
+
+  <section id="setup">
+    <h2><span class="n">06</span>Experiment</h2>
+    <p>A steel bar, 20 mm in diameter and 1.2 m long, hangs level from nylon threads. A 30 mm steel ball hangs as a pendulum, just touching the centre of the bar end. A 0/90° strain-gauge rosette (3 mm gauge length, 350 Ω, gauge factor 2.16) at mid-length senses axial and circumferential strain; each gauge is one arm of its own quarter bridge, fed by a two-channel amplifier and recorded on a digital storage oscilloscope.</p>
+    <p>The ball is pulled back to angle <Eq inline tex={String.raw`\theta`} /> on a string of length <Eq inline tex={String.raw`l`} /> and released, so it strikes at</p>
+    <Eq tex={String.raw`h = l(1 - \cos\theta), \qquad v = \sqrt{2 g h}`} />
+    <Fig src="img/waves/ball-bar-setup.png" alt="Ball-on-bar experimental set-up" n="10" />
+  </section>
+
+  <section id="results">
+    <h2><span class="n">07</span>Tests</h2>
+    <div class="figs">
+      <Fig src="img/waves/ball-bar-90.png" alt="Ball on bar: a wave started from a single point" n="11" />
+      <Fig src="img/waves/bar-bar-1bar.png" alt="Bar on bar: a wave started over the whole face" n="12" />
+      <Fig src="img/waves/ball-bar-stepdown.png" alt="Ball on a stepped bar, larger to smaller section" n="13" />
+      <Fig src="img/waves/ball-bar-stepup.png" alt="Ball on a stepped bar, smaller to larger section" n="14" />
+      <Fig src="img/waves/ball-bar-0-90.png" alt="Axial and lateral strain from the 0/90° rosette" n="15" />
+    </div>
+    <p>The recorded traces matched the expected pulse shapes: separate incident and reflected pulses on the long bar, the change in amplitude at each step, and a lateral pulse in phase with the axial one.</p>
+  </section>
+
+  <section id="props">
+    <h2><span class="n">08</span>Material properties from the waves</h2>
+    <p>The same test is a non-destructive way to characterise an elastic material. Poisson's ratio is the ratio of the peak lateral to the peak axial strain; the wave speed comes from the round-trip time read off the strain record, and with the density gives Young's modulus:</p>
+    <Eq tex={String.raw`\nu = \frac{\varepsilon_{lat}}{\varepsilon_{ax}}, \qquad c = \frac{2L}{T}, \qquad E = \rho\,c^2`} />
+  </section>
+
+  <section id="references">
+    <h2><span class="n">09</span>References</h2>
+    <ol class="refs">
+      <li>Kolsky, H. (1963). <i>Stress Waves in Solids</i>. Dover.</li>
+      <li>Mendonca, E. V., Shahapur, P. B., and Reddy, T. Y. (2019). <a href={paper.href}>Elementary experimental studies on stress wave propagation in bars</a>.</li>
+    </ol>
+  </section>
+</Doc>

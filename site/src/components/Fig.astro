@@ -1,0 +1,9 @@
+---
+interface Props { src: string; alt: string; n?: string; keep?: boolean }
+const { src, alt, n, keep } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<figure class="fig">
+  <img src={`${base}/${src}`} alt={alt} loading="lazy" decoding="async" class={keep ? "keep" : undefined} />
+  <figcaption>{n && <span class="mono">Fig. {n}</span>}<slot>{alt}</slot></figcaption>
+</figure>

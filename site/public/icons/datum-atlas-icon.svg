@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Atlas: the family tile in the violet accent. Log–log axes; a selection line (round dots) between two family envelopes: the one above it passes (a violet bubble), the one below does not; the amber diamond marks the selected material. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F0EBFA"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#D9CCF2" stroke-width="4"/>
+  <path d="M58 50v148h148" fill="none" stroke="#6C4AB6" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="108" cy="104" rx="34" ry="20" transform="rotate(-40 108 104)" fill="#C9B8EE"/>
+  <ellipse cx="166" cy="154" rx="30" ry="17" transform="rotate(-40 166 154)" fill="#C9B8EE"/>
+  <ellipse cx="114" cy="98" rx="13" ry="8" transform="rotate(-40 114 98)" fill="#6C4AB6"/>
+  <path d="M82 178L190 70" fill="none" stroke="#6C4AB6" stroke-width="11" stroke-linecap="round" stroke-dasharray="0.1 18"/>
+  <path d="M196 34l14 14-14 14-14-14z" fill="#F2B233"/>
+</svg>
