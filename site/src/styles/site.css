@@ -91,7 +91,7 @@ p { text-wrap: pretty; }
   background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%); }
 .site-head .frame { height: 100%; display: flex; align-items: center; gap: 16px; padding: 0 var(--pad); border-inline-color: transparent; }
 .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: -.01em; }
-.brand svg { height: 20px; width: auto; color: var(--ink); }
+.brand svg { height: 34px; width: auto; color: var(--ink); }
 .nav { margin-left: auto; display: flex; gap: 2px; }
 .nav a { padding: 8px 10px; color: var(--muted); transition: color .2s; }
 .nav a:hover, .nav a[aria-current] { color: var(--ink); }
