@@ -1,0 +1,44 @@
+---
+// CentriForge's own shop-test train drawing (generated from its TrainScene component) over a compressor map.
+// Animated by src/scripts/scenes.ts: the train spins up, the operating point climbs to full speed, drifts
+// towards surge, the anti-surge valve opens and the point recovers. Without motion it shows the finished run.
+import train from "../assets/centriforge-train.svg?raw";
+
+const X = (q: number) => 50 + q * 470;            // flow 0..1 → plot x
+const Y = (h: number) => 196 - h * 140;           // head 0..1.1 → plot y
+const head = (q: number, s: number) => s * s - 1.6 * (q - 0.55 * s) ** 2 - 4 * Math.max(0, q - 0.78 * s) ** 2;
+const qs = (s: number) => 0.3 * s, qw = (s: number) => 0.62 * s + 0.24;
+const line = (pts: [number, number][]) => pts.map(([q, h], i) => `${i ? "L" : "M"}${X(q).toFixed(1)} ${Y(h).toFixed(1)}`).join(" ");
+const speeds = [0.7, 0.8, 0.9, 1.0].map(s => ({
+  s, d: line(Array.from({ length: 25 }, (_, i) => { const q = qs(s) + (qw(s) - qs(s)) * i / 24; return [q, head(q, s)] as [number, number]; })),
+  lx: X(qw(s)) + 5, ly: Y(head(qw(s), s)) + 3,
+}));
+const surge = line(Array.from({ length: 12 }, (_, i) => { const s = 0.62 + 0.45 * i / 11; return [qs(s), head(qs(s), s)] as [number, number]; }));
+const control = line(Array.from({ length: 12 }, (_, i) => { const s = 0.62 + 0.45 * i / 11, q = qs(s) * 1.12; return [q, head(q, s)] as [number, number]; }));
+// The run: start-up along the system curve to full speed, along the 100 % line towards surge, then back out.
+const run: [number, number][] = [];
+for (let i = 0; i <= 20; i++) { const q = 0.1 + 0.62 * i / 20; run.push([q, 1.84 * q * q]); }
+for (let i = 1; i <= 20; i++) { const q = 0.72 - 0.37 * i / 20; run.push([q, head(q, 1)]); }
+for (let i = 1; i <= 12; i++) { const q = 0.35 + 0.22 * i / 12; run.push([q, head(q, 1)]); }
+const seg = run.slice(1).map(([q, h], i) => Math.hypot(X(q) - X(run[i][0]), Y(h) - Y(run[i][1])));
+const total = seg.reduce((a, b) => a + b, 0), upTo = (n: number) => seg.slice(0, n).reduce((a, b) => a + b, 0) / total;
+const end = run[run.length - 1];
+---
+<div class="cf-scene scene-wrap" data-scene="centriforge">
+  <Fragment set:html={train} />
+  <svg class="scene cf-map" viewBox="0 0 560 230" role="img" aria-label="Compressor performance map: speed lines from 70 to 100 percent, the surge line and the operating point's run from start-up towards surge and back as the anti-surge valve opens.">
+    <text x="16" y="20" class="sc-label">PERFORMANCE MAP</text>
+    <text x="544" y="20" class="sc-label" text-anchor="end" id="cf-state">STABLE</text>
+    <text x="16" y="38" class="sc-tiny" id="cf-speed">SPEED 100 %</text>
+    <text x="544" y="38" class="sc-tiny" text-anchor="end"><tspan id="cf-asv">ANTI-SURGE VALVE OPEN</tspan></text>
+    <g class="sc-grid">{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => <path d={`M${50 + i * 52.2} 56 V196`}/>)}{[0, 1, 2, 3, 4].map(i => <path d={`M50 ${56 + i * 35} H520`}/>)}</g>
+    <path d="M50 56 V196 H520" class="sc-axis"/>
+    {speeds.map(v => <><path d={v.d} class="c-speed"/><text x={v.lx} y={v.ly} class="sc-tiny">{Math.round(v.s * 100)}%</text></>)}
+    <path d={surge} class="c-surge"/><path d={control} class="c-control"/>
+    <text x="54" y="68" class="sc-tiny c-surge-t">SURGE LINE</text>
+    <path id="cf-run" pathLength="1000" d={line(run)} data-b1={upTo(20).toFixed(4)} data-b2={upTo(40).toFixed(4)} class="sc-trace" stroke="var(--em)"/>
+    <circle id="cf-dot" cx={X(end[0])} cy={Y(end[1])} r="5" fill="var(--em)" stroke="var(--card)" stroke-width="2"/>
+    <text x="40" y="52" class="sc-tiny" text-anchor="middle">HEAD</text>
+    <text x="520" y="214" class="sc-tiny" text-anchor="end">FLOW</text>
+  </svg>
+</div>
