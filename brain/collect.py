@@ -197,6 +197,42 @@ def private_sections(rows_add) -> None:
                      lambda h, k=cfg.get("kind", "archive"): k, f"private/{name}")
 
 
+_FP = set(json.loads((BRAIN / "redact.json").read_text())["fingerprints"]) if (BRAIN / "redact.json").exists() else set()
+_EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
+
+
+def redact(text: str) -> str:
+    """Replace e-mail addresses and every word whose fingerprint is listed in redact.json."""
+    import hashlib
+    text = _EMAIL.sub("[email]", text)
+    def word(m):
+        w = m.group(0)
+        return "[name]" if hashlib.sha256(w.lower().encode()).hexdigest()[:16] in _FP else w
+    return re.sub(r"[A-Za-z][A-Za-z0-9-]*", word, text)
+
+
+def standards_notes(rows: list[dict]) -> list[dict]:
+    """One training note per standard in brain/standards.json: its title, scope and related standards, and where it
+    is cited in the rest of the corpus (projects, how often, and in which sections), worked out at every build."""
+    cat = json.loads((BRAIN / "standards.json").read_text())["standards"]
+    out = []
+    for s in cat:
+        rx = re.compile(s["match"], re.I)
+        hits = [r for r in rows if rx.search(r["text"])]
+        by = {}
+        for r in hits:
+            by.setdefault(r["project"], []).append(r)
+        cited = "; ".join(f"{p} ({len(v)} note{'s' if len(v) > 1 else ''})" for p, v in sorted(by.items(), key=lambda kv: -len(kv[1])))
+        where = sorted({r["heading"].split(" › ")[-1] for r in hits if r["heading"]})[:6]
+        text = (f"{s['code']}: {s['title']}. {s['scope']}"
+                + (f" Related standards: {', '.join(s['related'])}." if s["related"] else "")
+                + (f" Cited by {cited}" + (f", for example in: {'; '.join(where)}." if where else ".") if hits
+                   else " Used in package work; not cited in the repositories yet."))
+        out.append({"project": "standards", "area": s["area"], "kind": "standard", "source": "brain/standards.json",
+                    "heading": s["code"], "version": None, "date": None, "text": text, "cites": len(hits)})
+    return out
+
+
 def collect(cache: Path, offline: bool = False, private: bool = False) -> list[dict]:
     src = json.loads((BRAIN / "sources.json").read_text())
     rows: list[dict] = []
@@ -240,6 +276,9 @@ def collect(cache: Path, offline: bool = False, private: bool = False) -> list[d
     if private:
         private_sections(add)
 
+    # Remove names that must not be learnt (fingerprints in redact.json) and any e-mail address.
+    rows = [{**r, "text": redact(r["text"]), "heading": redact(r["heading"])} for r in rows]
+
     # Drop exact duplicates (READMEs repeat the same lines across apps).
     seen, uniq = set(), []
     for r in rows:
@@ -247,4 +286,5 @@ def collect(cache: Path, offline: bool = False, private: bool = False) -> list[d
         if key not in seen:
             seen.add(key)
             uniq.append(r)
-    return uniq
+    # The standards catalogue, with its cross-references into everything above.
+    return uniq + standards_notes(uniq)

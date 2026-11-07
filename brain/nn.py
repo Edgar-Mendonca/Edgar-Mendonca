@@ -1,15 +1,19 @@
 """The network, written from scratch in NumPy: forward pass, backpropagation and the Adam optimiser.
 
     input (8192 hashed TF-IDF features)
-      → dense 128, ReLU, dropout          "what is this text about"
-      → dense 64, tanh                    the embedding: one point in Edgar's work-space
+      → dense 512, ReLU, dropout          ┐ hidden layers: "what is this text about"
+      → dense 256, ReLU, dropout          ┘ (any number of them; sizes set when training)
+      → dense 128, tanh                   the embedding: one point in Edgar's work-space
       → three softmax heads, trained together:
-           project  (datum-pipe, centriforge, shpb, ...)
+           project  (datum-pipe, centriforge, shpb, standards, ...)
            area     (piping, rotating-equipment, impact-mechanics, ...)
-           kind     (decision, release, plan, research, ...)
+           kind     (decision, release, plan, standard, note, ...)
 
 Training the three heads together makes the shared embedding organise the text by all three at once, so texts
 that are close in the embedding are close in subject, in project and in the sort of knowledge they hold.
+
+Parameter names: W1, b1 … Wn, bn for the hidden layers; We, be for the embedding; W_<head>, b_<head> for each head.
+brain/torch_brain.py loads the same weights into PyTorch.
 """
 from __future__ import annotations
 
@@ -25,7 +29,7 @@ def softmax(z: np.ndarray) -> np.ndarray:
 
 
 class Net:
-    def __init__(self, n_in: int, sizes: dict[str, int], hidden: int = 128, emb: int = 64, seed: int = 7):
+    def __init__(self, n_in: int, sizes: dict[str, int], hidden: tuple[int, ...] = (512, 256), emb: int = 128, seed: int = 7):
         rng = np.random.default_rng(seed)
 
         def he(i, o):
@@ -34,34 +38,46 @@ class Net:
         def xavier(i, o):
             return (rng.standard_normal((i, o)) * np.sqrt(1.0 / i)).astype(np.float32)
 
-        self.p: dict[str, np.ndarray] = {
-            "W1": he(n_in, hidden), "b1": np.zeros(hidden, np.float32),
-            "W2": xavier(hidden, emb), "b2": np.zeros(emb, np.float32),
-        }
+        self.p: dict[str, np.ndarray] = {}
+        dims = [n_in, *hidden]
+        for k in range(len(hidden)):
+            self.p[f"W{k + 1}"] = he(dims[k], dims[k + 1])
+            self.p[f"b{k + 1}"] = np.zeros(dims[k + 1], np.float32)
+        self.p["We"] = xavier(dims[-1], emb)
+        self.p["be"] = np.zeros(emb, np.float32)
         for h, n in sizes.items():
             self.p[f"W_{h}"] = xavier(emb, n)
             self.p[f"b_{h}"] = np.zeros(n, np.float32)
+        self.depth = len(hidden)
         self.heads = list(sizes)
         self.m = {k: np.zeros_like(v) for k, v in self.p.items()}
         self.v = {k: np.zeros_like(v) for k, v in self.p.items()}
         self.t = 0
 
+    @property
+    def shape(self) -> list[int]:
+        return [self.p["W1"].shape[0]] + [self.p[f"W{k + 1}"].shape[1] for k in range(self.depth)] + [self.p["We"].shape[1]]
+
     # ---------- forward ----------
 
     def forward(self, X: np.ndarray, train: bool = False, drop: float = 0.3, rng=None):
-        p = self.p
-        z1 = X @ p["W1"] + p["b1"]
-        a1 = np.maximum(z1, 0)
-        mask = None
-        if train and drop > 0:
-            mask = (rng.random(a1.shape) > drop).astype(np.float32) / (1 - drop)
-            a1 = a1 * mask
-        e = np.tanh(a1 @ p["W2"] + p["b2"])
+        """Returns the heads' probabilities and a cache: the inputs, each hidden layer's pre-activation (z),
+        activation (a) and dropout mask, and the embedding (e)."""
+        p, a, zs, acts, masks = self.p, X, [], [], []
+        for k in range(1, self.depth + 1):
+            z = a @ p[f"W{k}"] + p[f"b{k}"]
+            a = np.maximum(z, 0)
+            mask = None
+            if train and drop > 0:
+                mask = (rng.random(a.shape) > drop).astype(np.float32) / (1 - drop)
+                a = a * mask
+            zs.append(z); acts.append(a); masks.append(mask)
+        e = np.tanh(a @ p["We"] + p["be"])
         probs = {h: softmax(e @ p[f"W_{h}"] + p[f"b_{h}"]) for h in self.heads}
-        return probs, (X, z1, a1, mask, e)
+        return probs, {"x": X, "z": zs, "a": acts, "mask": masks, "e": e}
 
-    def embed(self, X: np.ndarray) -> np.ndarray:
-        return self.forward(X)[1][4]
+    def embed(self, X: np.ndarray, batch: int = 512) -> np.ndarray:
+        return np.vstack([self.forward(X[i:i + batch])[1]["e"] for i in range(0, len(X), batch)])
 
     # ---------- backward ----------
 
@@ -70,8 +86,8 @@ class Net:
         """Loss and gradients by backpropagation: summed, class-weighted cross-entropy of the heads.
         With rng=None there is no dropout, which makes the result deterministic (used by the gradient check)."""
         head_w = head_w or {}
-        probs, (X, z1, a1, mask, e) = self.forward(X, train=rng is not None, drop=drop, rng=rng)
-        n = X.shape[0]
+        probs, c = self.forward(X, train=rng is not None, drop=drop, rng=rng)
+        n, e = X.shape[0], c["e"]
         g: dict[str, np.ndarray] = {}
         de = np.zeros_like(e)
         loss = 0.0
@@ -85,15 +101,20 @@ class Net:
             g[f"W_{h}"] = e.T @ d
             g[f"b_{h}"] = d.sum(0)
             de += d @ self.p[f"W_{h}"].T
-        dz2 = de * (1 - e * e)
-        g["W2"] = a1.T @ dz2
-        g["b2"] = dz2.sum(0)
-        da1 = dz2 @ self.p["W2"].T
-        if mask is not None:
-            da1 *= mask
-        dz1 = da1 * (z1 > 0)
-        g["W1"] = X.T @ dz1
-        g["b1"] = dz1.sum(0)
+        dz = de * (1 - e * e)
+        a_last = c["a"][-1]
+        g["We"] = a_last.T @ dz
+        g["be"] = dz.sum(0)
+        da = dz @ self.p["We"].T
+        for k in range(self.depth, 0, -1):
+            if c["mask"][k - 1] is not None:
+                da = da * c["mask"][k - 1]
+            dzk = da * (c["z"][k - 1] > 0)
+            a_prev = c["a"][k - 2] if k > 1 else c["x"]
+            g[f"W{k}"] = a_prev.T @ dzk
+            g[f"b{k}"] = dzk.sum(0)
+            if k > 1:
+                da = dzk @ self.p[f"W{k}"].T
         return loss, g
 
     def step(self, X, Y, weights, rng, lr: float = 1e-3, wd: float = 1e-5, head_w=None) -> float:
@@ -121,5 +142,6 @@ class Net:
     def from_state(cls, params: dict[str, np.ndarray], heads: list[str]) -> "Net":
         net = cls.__new__(cls)
         net.p = {k: np.asarray(v, dtype=np.float32) for k, v in params.items()}
+        net.depth = sum(1 for k in net.p if k[0] == "W" and k[1:].isdigit())
         net.heads = heads
         return net
