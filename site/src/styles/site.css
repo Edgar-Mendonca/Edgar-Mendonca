@@ -18,16 +18,25 @@
   --ease: cubic-bezier(.2, .7, .1, 1);
   color-scheme: light dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
+/* Theme: the header switch sets data-theme (Auto follows the system). Without JavaScript, the system decides. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] {
     --bg: #0B1119; --bg-2: #101824; --card: #121B27;
     --ink: #E6EDF5; --ink-2: #C4CEDA; --muted: #93A0B1; --faint: #4D5A6A;
     --line: #1D2836; --line-2: #2B3A4C;
-    --em: #6AAEF0; --on-ink: #0B1119;
-  }
-  /* Diagrams and photos were drawn on white: give them a white mat so they stay legible. */
-  .fig img:not(.keep) { background: #fff; }
+    --em: #6AAEF0; --on-ink: #0B1119; color-scheme: dark;
 }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #0B1119; --bg-2: #101824; --card: #121B27;
+    --ink: #E6EDF5; --ink-2: #C4CEDA; --muted: #93A0B1; --faint: #4D5A6A;
+    --line: #1D2836; --line-2: #2B3A4C;
+    --em: #6AAEF0; --on-ink: #0B1119; color-scheme: dark;
+  }
+}
+/* Diagrams and photos were drawn on white: give them a white mat in dark mode so they stay legible. */
+:root[data-theme="dark"] .fig img:not(.keep) { background: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) .fig img:not(.keep) { background: #fff; } }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--head) + 56px); }
@@ -82,11 +91,16 @@ p { text-wrap: pretty; }
   background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%); }
 .site-head .frame { height: 100%; display: flex; align-items: center; gap: 16px; padding: 0 var(--pad); border-inline-color: transparent; }
 .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: -.01em; }
-.brand svg { height: 22px; width: auto; color: var(--ink); }
+.brand svg { height: 20px; width: auto; color: var(--ink); }
 .nav { margin-left: auto; display: flex; gap: 2px; }
 .nav a { padding: 8px 10px; color: var(--muted); transition: color .2s; }
 .nav a:hover, .nav a[aria-current] { color: var(--ink); }
 .nav a[aria-current] { box-shadow: inset 0 -2px 0 var(--amber); }
+.theme { display: flex; gap: 2px; padding: 2px; margin-left: 8px; border: 1px solid var(--line-2); border-radius: 999px; flex: none; }
+.theme button { width: 30px; height: 30px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 999px; background: none; color: var(--muted); cursor: pointer; transition: background-color .2s, color .2s; }
+.theme button:hover { color: var(--ink); }
+.theme button[aria-checked="true"] { background: var(--ink); color: var(--on-ink); }
+.theme svg { width: 15px; height: 15px; }
 @media (max-width: 720px) { .nav .wide, .brand .name { display: none; } }
 
 /* Hero */
@@ -126,7 +140,9 @@ p { text-wrap: pretty; }
 .band { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px 48px; align-items: center; padding: 28px; border: 1px solid var(--line); border-bottom: 0; background: var(--card); }
 .band .logo { width: 220px; }
 .band .logo.dark { display: none; }
-@media (prefers-color-scheme: dark) { .band .logo.light { display: none; } .band .logo.dark { display: block; } }
+:root[data-theme="dark"] .band .logo.light { display: none; }
+:root[data-theme="dark"] .band .logo.dark { display: block; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) .band .logo.light { display: none; } :root:not([data-theme]) .band .logo.dark { display: block; } }
 @media (max-width: 760px) { .band { grid-template-columns: 1fr; } }
 
 /* Feature: one product or project with a picture. */
@@ -240,3 +256,11 @@ a.card:hover h3 { color: var(--em); }
   @keyframes rise { from { opacity: 0; transform: translateY(20px); } }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { animation: none !important; } }
+
+/* Smallest phones: tighten the header so the links and the theme switch fit. */
+@media (max-width: 400px) {
+  .site-head .frame { gap: 8px; }
+  .nav a { padding: 8px 6px; letter-spacing: .06em; }
+  .theme { margin-left: 0; }
+  .theme button { width: 26px; height: 26px; }
+}
