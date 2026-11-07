@@ -59,22 +59,6 @@ export const shpbTool = {
   video: "https://www.youtube.com/watch?v=0fWdUWLbv9A",
 };
 
-export const smallTools = [
-  {
-    name: "ResuVox",
-    icon: "icons/resuvox.svg",
-    line: "Checks a résumé against a job description: ATS score, keyword match, readability and summary. Python, Flask and NLP.",
-    links: [] as { label: string; href: string }[],
-    note: "Available on request",
-  },
-  {
-    name: "ProfileCraft",
-    icon: "icons/profilecraft.svg",
-    line: "Generates a GitHub profile README from a short form.",
-    links: [{ label: "Open the app", href: "https://edgar-mendonca.github.io/ProfileCraft/" }],
-  },
-];
-
 export const engineering = [
   {
     title: "Export Gas Compressor Package (API 617)",
