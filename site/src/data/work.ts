@@ -78,21 +78,21 @@ export const engineering = [
 export const research = [
   {
     kind: "Experimental rig",
-    title: "Split Hopkinson Pressure Bar",
+    title: "Split Hopkinson Pressure Bar", glyph: "shpb" as const,
     when: "Nov 2018 – Apr 2021",
     text: "Designed and built a bar for testing materials at strain rates of 10² to 10⁴ s⁻¹: the frame, gas gun, velocity gate, strain-gauge amplifiers and the analysis code.",
     links: [{ label: "Read the study", page: "research/shpb" }, { label: "Analysis code", href: `${gh}/SHPB-Analysis` }],
   },
   {
     kind: "Experiment and theory",
-    title: "Stress waves in solids",
+    title: "Stress waves in solids", glyph: "waves" as const,
     when: "2019",
     text: "Ball-on-bar and bar-on-bar impacts: how stress pulses travel, reflect and change at a step, and Young's modulus and Poisson's ratio measured from them.",
     links: [{ label: "Read the study", page: "research/stress-waves" }, { label: "Paper (PDF)", href: "https://drive.google.com/file/d/11_lwCQQhr5Gb55sdCd_Ul4YJYndI3UiR/view" }],
   },
   {
     kind: "Bachelor's thesis · papers",
-    title: "Axial crushing of metal tubes",
+    title: "Axial crushing of metal tubes", glyph: "axial" as const,
     when: "",
     text: "How metal tubes deform and absorb impact energy under axial compression, and how strain hardening changes the plastic buckling of aluminium tubes.",
     links: [
@@ -103,14 +103,14 @@ export const research = [
   },
   {
     kind: "Experiment and theory",
-    title: "Lateral compression of tubes",
+    title: "Lateral compression of tubes", glyph: "lateral" as const,
     when: "Mar 2022 – May 2023",
     text: "Aluminium 6063 rings crushed between flat plates: yield stress, elastic modulus and hardening modulus from one load–deflection curve, checked against theory.",
     links: [{ label: "Read the study", page: "research/lateral-compression" }, { label: "Code", href: `${gh}/Load-deflection-characteristics-of-lateral-compression-of-tubes` }],
   },
   {
     kind: "Master's thesis",
-    title: "Slip activity in nickel alloys",
+    title: "Slip activity in nickel alloys", glyph: "grains" as const,
     when: "",
     text: "How prior deformation changes slip in nickel alloys, mapped grain by grain with high-resolution digital image correlation (HRDIC) and EBSD.",
     links: [{ label: "Thesis (PDF)", href: "https://drive.google.com/file/d/1ak9HJxILX0hKhumFyu9-c-gX-TRa86Na/view" }],
