@@ -10,7 +10,7 @@ from nn import Net  # noqa: E402
 
 def test_gradients_match_finite_differences():
     rng = np.random.default_rng(0)
-    net = Net(n_in=12, sizes={"project": 4, "area": 3, "kind": 2}, hidden=8, emb=5, seed=1)
+    net = Net(n_in=12, sizes={"project": 4, "area": 3, "kind": 2}, hidden=(8, 6), emb=5, seed=1)
     for k in net.p:                                    # check in float64 so differences are meaningful
         net.p[k] = net.p[k].astype(np.float64) + (rng.standard_normal(net.p[k].shape) * 0.1 if k.startswith("b") else 0)
     X = rng.random((6, 12))

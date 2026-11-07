@@ -1,0 +1,19 @@
+{
+ "$comment": "Words removed from the corpus before training: SHA-256 fingerprints (first 16 hex digits) of lower-cased words, so the list itself names nothing. Add one with: python -c \"import hashlib;print(hashlib.sha256(b'word').hexdigest()[:16])\"",
+ "fingerprints": [
+  "0441806f5168e62b",
+  "0b372210e9a6b166",
+  "403ab60165704735",
+  "4cb3ec4549be769f",
+  "4f609c08add6b6d1",
+  "504fda550dee86c6",
+  "74aca8f6c0b9489c",
+  "78510b2430388603",
+  "97a6eb426111984b",
+  "b1cd9a6773f79ac9",
+  "b741ab0599fc089c",
+  "c0b1eac6bb604a56",
+  "c5be5ee893f11f36",
+  "eb0706932dba43bc"
+ ]
+}

@@ -2,23 +2,47 @@
 project: compressor-package
 area: rotating-equipment
 ---
-# Export Gas Compressor Package (API 617)
+# API 617 compressor package delivery
 
-Since July 2024: supply and engineering of the export gas compressor package for the Sahil Phase 3 Development
-Project, an EPC / manufacturing role in oil and gas. Design review, specification compliance and technical
-coordination with the compressor manufacturer (SBW) against ADNOC specifications.
+Supply and engineering coordination for an electric-motor-driven centrifugal compressor package built to API 617,
+delivered through an EPC contractor for an oil and gas operator. The work covers technical clarifications, design
+review, compliance verification against the purchase specification and project standards, progress tracking,
+sub-vendor management, manufacturing record books and factory acceptance testing.
 
-## Sub-vendor interfaces
+## The equipment in a package
 
-- ABB: main motor, variable frequency drive (VFD) and gas-insulated switchgear (GIS).
-- Burgmann: dry gas seals (DGS) and seal gas boosters.
-- Kelvion: heat exchangers (gas coolers).
-- Hitachi: VFD transformer.
-- Rittal: VFD chiller.
-- Flender: gearbox.
+A typical package breaks down into: the compressor; dry gas seals; the gearbox; bearings; couplings; the seal gas
+console and booster; the lube oil system and its air cooler; the anti-surge valve; the main motor; the variable
+frequency drive (VFD) with its transformer and chiller; gas-insulated switchgear and isolators; and the unit control
+panel. Each item usually comes from a different sub-vendor, so most of the work is making their interfaces meet.
 
-## The work
+## Interfaces between sub-vendors
 
-Review vendor documents and datasheets against the purchase specification and API 617; track deviations and
-technical queries; coordinate interfaces between the compressor, driver train, seals, coolers and electrical
-package so every sub-system integrates into one skid and one control philosophy.
+The driver train (motor, VFD, transformer, switchgear) has to agree with the gearbox ratio, the couplings and the
+compressor's speed range. Dry gas seals need a seal gas supply and booster sized for start-up, settle-out and
+pressurised standstill. The lube oil system serves the bearings, gearbox and couplings and needs coolers sized for
+the site's ambient temperature. The anti-surge valve and its controller have to match the compressor map and the
+recycle loop. All of it has to fit one baseframe and one control philosophy.
+
+## Typical technical questions
+
+- Lot sampling for valve fugitive-emission tests: how many valves of a lot, of which sizes and stem diameters, have
+  to be tested, and whether one sample can represent a mixed lot.
+- Noise measured during the mechanical running test above the datasheet guarantee: the test arrangement (for example
+  discharge to atmosphere through a long duct), measurement conditions, weighting and background correction all
+  matter before calling it a nonconformance.
+- Replacement compressors on an existing baseframe: checking interface dimensions, alignment and foundation loads.
+- Shipping a complete heavy skid (compressor, gearbox, motor and baseframe): heavy-lift or break-bulk transport.
+- Control scope: whether load sharing, anti-surge control and choke protection sit in one controller or separate
+  ones, and whether configuring choke alarms and trips falls within a given modification scope.
+- Material acceptance: when project standards and a manufacturer's derivative of a public material standard both
+  apply, the deviation and the evidence of equivalence must be stated explicitly.
+- Weld leaks found at hydrotest (for example where a drain pipe joins a cast casing): root cause, corrective action
+  and a qualified repair, before any retest.
+
+## Quality submissions for a multi-compressor package
+
+A project quality plan for the whole package; an inspection and test plan per compressor type; a procurement and
+manufacturing status register; a weld book with WPS, PQR, overlay and consumable procedures; one NDE procedure with
+an NDE map; one PMI procedure; casing hydrotest procedures; assembled-compressor leak tests after the mechanical
+running test; and an MRB index per package.

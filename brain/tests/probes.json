@@ -1,17 +1,122 @@
 [
-  ["check the nozzle loads on the compressor discharge line after the thermal expansion", "datum-pipe"],
-  ["vendor sent a dry gas seal datasheet, review it against API 617", "compressor-package"],
-  ["fit a dose response curve and export the figure for a journal", "datum-plot"],
-  ["how should a new Datum app handle the updater and releases", "datum"],
-  ["measure Poisson's ratio from a strain gauge rosette on an impact bar", "stress-waves"],
-  ["level the resources and find the critical path of the shutdown schedule", "datum-plan"],
-  ["pick a light stiff material for a bracket and rank the candidates", "datum-atlas"],
-  ["tune a PID loop for a DC motor speed controller", "datum-sim"],
-  ["von Mises stress at the fillet of an L-bracket mesh", "datum-mesh"],
-  ["draw the anti-surge loop on the P&ID and list the instruments", "datum-schema"],
-  ["route a pipe from the pump nozzle to the header and check clashes", "datum-layout"],
-  ["calc sheet for pump head with units and a PASS check", "datum-calc"],
-  ["Campbell diagram and lateral critical speeds of the compressor rotor", "centriforge"],
-  ["true stress strain curve from incident reflected and transmitted pulses", "shpb"],
-  ["collapse load of a tube crushed between two flat plates", "lateral-compression"]
+ [
+  "check the nozzle loads on the compressor discharge line after the thermal expansion",
+  "datum-pipe"
+ ],
+ [
+  "vendor sent a dry gas seal datasheet, review it against API 617",
+  "compressor-package"
+ ],
+ [
+  "fit a dose response curve and export the figure for a journal",
+  "datum-plot"
+ ],
+ [
+  "how should a new Datum app handle the updater and releases",
+  "datum"
+ ],
+ [
+  "measure Poisson's ratio from a strain gauge rosette on an impact bar",
+  "stress-waves"
+ ],
+ [
+  "level the resources and find the critical path of the shutdown schedule",
+  "datum-plan"
+ ],
+ [
+  "pick a light stiff material for a bracket and rank the candidates",
+  "datum-atlas"
+ ],
+ [
+  "tune a PID loop for a DC motor speed controller",
+  "datum-sim"
+ ],
+ [
+  "von Mises stress at the fillet of an L-bracket mesh",
+  "datum-mesh"
+ ],
+ [
+  "draw the anti-surge loop on the P&ID and list the instruments",
+  "datum-schema"
+ ],
+ [
+  "route a pipe from the pump nozzle to the header and check clashes",
+  "datum-layout"
+ ],
+ [
+  "calc sheet for pump head with units and a PASS check",
+  "datum-calc"
+ ],
+ [
+  "Campbell diagram and lateral critical speeds of the compressor rotor",
+  "centriforge"
+ ],
+ [
+  "true stress strain curve from incident reflected and transmitted pulses",
+  "shpb"
+ ],
+ [
+  "collapse load of a tube crushed between two flat plates",
+  "lateral-compression"
+ ],
+ [
+  "how many valves of a lot need a fugitive emission test",
+  "compressor-package"
+ ],
+ [
+  "merge the gearbox certificates into one PDF with bookmarks and a table of contents",
+  "mrb-documents"
+ ],
+ [
+  "weighted progress for the procurement status register",
+  "package-project-controls"
+ ],
+ [
+  "weld leak where the drain pipe joins the cast casing during hydrotest",
+  "compressor-package"
+ ],
+ [
+  "how does Edgar like deliverables and corrections",
+  "working-style"
+ ],
+ [
+  "noise during the mechanical running test is above the datasheet guarantee",
+  "compressor-package"
+ ],
+ [
+  "SfePy mesh import error when solving a Poisson problem",
+  "python-fea"
+ ],
+ [
+  "HSE dashboard with lost-time and recordable incident rates",
+  "package-project-controls"
+ ],
+ [
+  "sour service check of each stage against the SSC domain",
+  "material-assessment"
+ ],
+ [
+  "fix the logo on the exhibition poster",
+  "exhibition-design"
+ ],
+ [
+  "which standard covers materials for H2S sour service",
+  "standards"
+ ],
+ [
+  "what does API 614 cover",
+  "standards"
+ ],
+ [
+  "relief valve orifice letters and sizing standard",
+  "standards"
+ ],
+ [
+  "performance test code for centrifugal compressors Type 2 test",
+  "standards"
+ ],
+ [
+  "flange pressure temperature ratings class 150 to 2500",
+  "standards"
+ ]
 ]
