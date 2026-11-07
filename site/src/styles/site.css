@@ -163,6 +163,13 @@ p { text-wrap: pretty; }
 .tags span { padding: 3px 8px; border: 1px solid var(--line-2); font: 500 11px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .when { color: var(--muted); }
 
+/* Research boxes: kind and dates, title, one paragraph, links at the foot. */
+.rbox { display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; }
+.rbox .links { margin-top: auto; padding-top: 6px; }
+.rbox .codes { display: grid; gap: 6px; font-size: 14.5px; }
+.rbox .codes a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
+.rbox .codes a:hover { color: var(--em); border-bottom-color: var(--em); }
+
 /* Research cards */
 .card { display: flex; flex-direction: column; transition: background-color .2s; }
 .card .thumb { aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #fff; }
