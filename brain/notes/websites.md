@@ -9,17 +9,18 @@ area: web
 Clean and professional, without heavy 3D: the work shown plainly, an engineering project card, optional grid or
 list views, restrained animation (GSAP), and no flags or "independent consultant" tags.
 
-## An engineering company website
+## ZHUOJIA Engineering & Consultants
 
-A bilingual engineering and consulting company site with a hero, about, services, industries served, projects,
+A bilingual (English and Chinese) engineering and consulting company site with a hero, about, services, industries served, projects,
 contact and footer; mobile layout, statistics, dark mode, the company's colours, a simple language switch and a
 working contact form. No country mentions, cross-border wording or flags. Eight industry cards: oil and gas,
 industrial manufacturing, energy and utilities, automation and electronics, R&D and start-ups, infrastructure,
 marine and offshore, and electrical. Trust pages: standards and capabilities, manufacturing and inspection approach,
-confidentiality, and a typical project workflow. Polish: animation timing, tighter mobile spacing, glass-effect
+confidentiality, and a typical project workflow. A client and supplier logo grid: ADNOC, TARGET Engineering, Shengu, ABB, Kelvion, EagleBurgmann, KOSO, Hitachi,
+Rittal and Titania Aero. Polish: animation timing, tighter mobile spacing, glass-effect
 buttons, a scrollbar in the palette, OpenGraph and Twitter metadata, and social icons.
 
-## A community organisation website
+## Bharatiya Nagarika
 
 A Tailwind CSS site with responsive three-card grids, property cards, centred service sections, equal image and text
 treatment and a creator credit linking to the portfolio.

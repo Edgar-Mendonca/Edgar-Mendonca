@@ -1,7 +1,8 @@
 # The brain
 
 A neural network trained on everything Edgar has built, written and decided: every README, memory file,
-changelog, plan and design guide of the Datum apps and CentriForge, the research write-ups, the work notes in
+changelog, plan and design guide of the Datum apps and CentriForge, the documentation written inside their code,
+the research write-ups, the work notes in
 [`notes/`](notes), and the engineering standards that work relies on ([`standards.json`](standards.json)). It is
 the starting point for an AI agent that knows Edgar's work: given a task in plain words, it says which project and
 area of work it belongs to, what sort of knowledge it needs, and which past notes, decisions and standards are
@@ -15,33 +16,41 @@ Written from scratch in Python with NumPy only: forward pass, backpropagation an
 
 ```
 text ─► words and word pairs, hashed into 8,192 TF-IDF features
-     ─► dense 512, ReLU, dropout 0.3
-     ─► dense 256, ReLU, dropout 0.3
+     ─► dense 768, ReLU, dropout 0.3
+     ─► dense 384, ReLU, dropout 0.3
+     ─► dense 192, ReLU, dropout 0.3
      ─► dense 128, tanh  ─────────────►  the embedding: one point in Edgar's work-space
      ─► three softmax heads, trained together
-          project  datum-pipe, centriforge, shpb, standards, mrb-documents, …   (27)
-          area     piping, rotating-equipment, project-controls, materials, …      (17)
-          kind     decision, release, plan, standard, note, research, …           (10)
+          project  datum-pipe, centriforge, shpb, standards, compressor-package, …   (27)
+          area     piping, rotating-equipment, project-controls, materials, …        (17)
+          kind     decision, release, plan, code, standard, note, research, …      (11)
 ```
 
-About 4.4 million parameters (`--hidden` and `--emb` change the sizes), trained in about five minutes on a laptop
-CPU. Questions are short, so the network also trains on short passages of every note. The answer to a question
-weighs the network's project probabilities equally with a vote of the five closest notes.
+About 6.7 million parameters (`--hidden` and `--emb` change the sizes), trained for 15 epochs in about seven
+minutes on a laptop CPU. Questions are short, so the network also trains on short passages of every note. The
+answer to a question weighs the network's project probabilities equally with a vote of the five closest notes.
 
-**Current model** ([`model/report.json`](model/report.json)): 2,120 notes (318k words). On 316 held-out notes it
-names the right project 92% of the time and the right area 93% (always guessing the largest class: 16%), and the
-kind of knowledge 77% (29%). On 30 plain-language tasks ([`tests/probes.json`](tests/probes.json)) it routes 21 to
-the expected project. Several misses are defensible (a dry-gas-seal review against API 617 goes to the API 617
-standard; relief-valve orifice letters go to Datum Schema, which implements API 526).
+**Current model** ([`model/report.json`](model/report.json)): 2,996 notes (457k words), including 840 notes of
+code documentation (Python docstrings and Rust doc comments, at most 300 per repository). On 449 held-out notes it
+names the right project 90% of the time and the right area 90% (always guessing the largest class: 20%), and the
+kind of knowledge 80% (33%). On 35 plain-language tasks ([`tests/probes.json`](tests/probes.json)) it routes 19
+to the expected project: questions that name equipment, sub-vendors or standards route well (for example the KOSO
+anti-surge valve and CCC controller to the compressor package, API 613 and API 670 to standards); short, general
+questions are often sent to the Datum app that implements the topic. More notes from day-to-day work will help
+more than more parameters: a bigger network (50 epochs) scored the same.
 
 ## Standards
 
-[`standards.json`](standards.json) lists every standard cited in the work: API 617, 614, 692, 671, 618, 619, 616,
-611, 612, 661, 520 and 526; ISA-5.1; ISO 10628-2, 5167, 898-1 and 4217; IEC 60534-2-1 and 60034-1; ASME PTC 10, PTC
-19.3 TW, Section VIII, Section V, B31.3, B31.1, B16.5 and B36.10M; EN 13480-3, 13445, 10365 and 1993-1-8; NACE
-MR0175 / ISO 15156; ASTM B637 and D341; and AISC 360. Each becomes a training note with its title, scope and related
-standards, and with where it is cited (which projects, how often, in which sections), worked out from the corpus at
-every build. Add a standard there and it is learnt on the next build.
+[`standards.json`](standards.json) lists 70 standards: those cited in the work (API 617, 614, 692, 671, 618, 619,
+520, 526; ISA-5.1; ISO 10628-2, 5167, 15156; IEC 60534-2-1; ASME PTC 10, PTC 19.3 TW, Section VIII, B31.3, B31.1,
+B16.5, B36.10M; EN 13480-3, 13445, 10365, 1993-1-8; AISC 360 and more) and those around a compressor package: gears
+and machinery protection (API 613, 670, 684, 686), pumps and seals (API 610, 682), vibration and balance (ISO
+20816, 21940), valve testing and fugitive emissions (ISO 15848-1, MESC SPE 77/312, API 641, 598, 6D, ISO 5208),
+certificates and welding (EN 10204, ASME IX, ISO 15614-1, ISO 3834, ISO 9001), painting (ISO 12944, 8501-1, NORSOK
+M-501), materials (ASTM A350, A105, A182, A351, A216, A370, B637), hazardous areas and safety (IEC 60079, 60529,
+61511), reliability (ISO 14224), the Pressure Equipment Directive and ADNOC AGES. Each becomes a training note with
+its title, scope and related standards, and with where it is cited (which projects, how often, in which sections),
+worked out from the corpus at every build. Add a standard there and it is learnt on the next build.
 
 ## Use it
 
@@ -59,23 +68,25 @@ python brain/viewer.py     # writes model/viewer.html: the whole network, runnin
 ```
 
 The page is not committed (it is in `.gitignore`); it is published as a private page. Ask a question and it draws
-the network for that question as nodes and connections: the question's words, the most active units of each hidden
-layer, the strongest embedding values and the likeliest projects, every line a real weight × activation, animated
-layer by layer. Under it: the answer and the related notes. The two large weight matrices travel as 8-bit integers;
-the page gives the same network output as `brain.py ask` on every probe.
+the whole network for it: every unit of every layer (768, 384 and 192 hidden units, 128 embedding values, 27
+projects), lit by its real activation, with the strongest connections between layers and signals pulsing along
+them. Under it, the answer and the related notes, and a heat map of every weight matrix (all 6.7 million
+parameters, each cell the average of a block). The large matrices travel as 8-bit integers; the page gives the same
+answer as `brain.py ask` on every probe.
 
 ## What is never learnt
 
-Notes are written generically: no client, project, supplier or person names, document numbers, e-mail addresses,
-places, prices or values from project work. As a safety net, collection removes every e-mail address and every word
-whose fingerprint is in [`redact.json`](redact.json) (SHA-256 fingerprints, so the list names nothing).
-`--private` still reads Markdown from a git-ignored `brain/private/` folder for anything that must never be
-committed, and writes everything trained on it there too.
+Client, project and supplier names are kept: they are public and they show who the work was done with. Personal
+details are not: no e-mail addresses, people's names, document numbers, prices or personal matters. Collection
+removes every e-mail address and every word whose fingerprint is in [`redact.json`](redact.json) (SHA-256
+fingerprints, so the list names nothing). `--private` still reads Markdown from a git-ignored `brain/private/`
+folder for anything that must never be committed, and writes everything trained on it there too.
 
 ## Teach it
 
 1. Add what you do to [`notes/`](notes): one Markdown file per project or topic, with `project:` and `area:` at the
-   top (see [`notes/README.md`](notes/README.md)). Keep it generic. New projects become new classes.
+   top (see [`notes/README.md`](notes/README.md)). Names of clients and suppliers are fine; keep personal details
+   out. New projects become new classes.
 2. Add new repositories to [`sources.json`](sources.json) and new standards to [`standards.json`](standards.json).
 3. Rebuild and retrain, then commit `data/` and `model/`:
 

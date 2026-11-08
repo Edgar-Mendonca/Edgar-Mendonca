@@ -6,7 +6,8 @@ area: documentation
 
 ## Languages and formats
 
-Technical documents in English and Chinese, bilingual reports, and translated source records, delivered as Word,
+Technical documents in English and Chinese for the EGC package and other compressor scopes (such as a Habshan
+project package), bilingual reports, and translated source records, delivered as Word,
 PDF, Excel and PowerPoint.
 
 ## Translating a technical handbook

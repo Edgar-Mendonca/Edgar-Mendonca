@@ -2,7 +2,7 @@
 project: package-project-controls
 area: project-controls
 ---
-# Project controls for equipment packages
+# Project controls for the EGC package (API 617)
 
 ## Weighted progress
 
@@ -18,7 +18,7 @@ such as on track, at risk and delayed are a reporting convention, not a substitu
 
 ## Project framework
 
-A management framework for a compressor package covers objectives, applicable standards, scope, organisation and
+A management framework for the API 617 Export Gas Compressor (EGC) package, in English and Chinese, covers objectives, applicable standards, scope, organisation and
 RACI, reporting lines, planning, work breakdown structure, master schedule, milestones, progress measurement, risk,
 reporting and HSE. The organisation typically has a project director and project manager, project control,
 project engineering with planning and document control, engineering by discipline (process, mechanical,
@@ -40,7 +40,7 @@ Note that FAT means factory acceptance test elsewhere in package work, so the tw
 
 ## Risk and audit
 
-Risk matrices, categories and heat maps for package components. Internal quality audits covering engineering,
+Risk matrices, categories and heat maps for package components. Internal quality audits (for SBW/Shengu, in English and Chinese) covering engineering,
 procurement, manufacturing, inspection, testing, sub-vendor management and quality records, kept general rather
 than tied to one corrective action.
 

@@ -4,7 +4,8 @@ area: design
 ---
 # Exhibition and visual design
 
-Exhibition posters for equipment manufacturers at an energy trade show: centred logos, organiser logos, larger
+Exhibition posters for ADIPEC (Abu Dhabi International Petroleum Exhibition and Conference) for equipment
+manufacturers including Shengu and Shanghai Electric: centred logos, organiser logos, larger
 product text, a rotor image, the event's dates and stand number, and complete national flags where a flag is used.
 
 What matters most is the brand: the correct official logo, its exact typeface and colours, nothing cropped or

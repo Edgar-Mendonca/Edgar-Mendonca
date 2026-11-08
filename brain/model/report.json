@@ -1,26 +1,27 @@
 {
-  "chunks": 2120,
-  "train": 5670,
-  "test": 316,
-  "parameters": 4366006,
-  "architecture": "8192 hashed TF-IDF \u2192 512 ReLU \u2192 256 ReLU (dropout 0.3) \u2192 128 tanh embedding \u2192 heads project (27), area (17), kind (10)",
+  "chunks": 2996,
+  "train": 7894,
+  "test": 449,
+  "parameters": 6693239,
+  "architecture": "8192 hashed TF-IDF \u2192 768 ReLU \u2192 384 ReLU \u2192 192 ReLU (dropout 0.3) \u2192 128 tanh embedding \u2192 heads project (27), area (17), kind (11)",
   "shape": [
     8192,
-    512,
-    256,
+    768,
+    384,
+    192,
     128
   ],
   "test_accuracy": {
-    "project": 0.9209,
-    "area": 0.9335,
-    "kind": 0.769
+    "project": 0.9042,
+    "area": 0.902,
+    "kind": 0.8018
   },
   "majority_baseline": {
-    "project": 0.1614,
-    "area": 0.1646,
-    "kind": 0.288
+    "project": 0.2004,
+    "area": 0.2004,
+    "kind": 0.3252
   },
-  "epochs": 40,
+  "epochs": 15,
   "balance": 0.5,
   "labels": {
     "project": [
@@ -72,6 +73,7 @@
       "web"
     ],
     "kind": [
+      "code",
       "decision",
       "feature",
       "memory",
@@ -87,323 +89,123 @@
   "history": [
     {
       "epoch": 1,
-      "loss": 6.9606,
+      "loss": 6.3671,
       "lr": 0.001,
-      "project": 0.75,
-      "area": 0.7722,
-      "kind": 0.5601
+      "project": 0.8486,
+      "area": 0.8575,
+      "kind": 0.6102
     },
     {
       "epoch": 2,
-      "loss": 2.8679,
-      "lr": 0.000998,
-      "project": 0.9051,
-      "area": 0.8987,
-      "kind": 0.6709
+      "loss": 2.5443,
+      "lr": 0.000989,
+      "project": 0.8864,
+      "area": 0.8753,
+      "kind": 0.7105
     },
     {
       "epoch": 3,
-      "loss": 1.1597,
-      "lr": 0.000994,
-      "project": 0.9241,
-      "area": 0.9209,
-      "kind": 0.7627
+      "loss": 1.2842,
+      "lr": 0.000957,
+      "project": 0.8953,
+      "area": 0.882,
+      "kind": 0.7572
     },
     {
       "epoch": 4,
-      "loss": 0.5495,
-      "lr": 0.000986,
-      "project": 0.9304,
-      "area": 0.9177,
-      "kind": 0.7722
+      "loss": 0.7453,
+      "lr": 0.000905,
+      "project": 0.8864,
+      "area": 0.8886,
+      "kind": 0.7817
     },
     {
       "epoch": 5,
-      "loss": 0.3272,
-      "lr": 0.000976,
-      "project": 0.9082,
-      "area": 0.9177,
-      "kind": 0.7627
+      "loss": 0.4717,
+      "lr": 0.000835,
+      "project": 0.902,
+      "area": 0.8998,
+      "kind": 0.7973
     },
     {
       "epoch": 6,
-      "loss": 0.2228,
-      "lr": 0.000962,
-      "project": 0.9241,
-      "area": 0.9272,
-      "kind": 0.7627
+      "loss": 0.3229,
+      "lr": 0.00075,
+      "project": 0.9087,
+      "area": 0.8998,
+      "kind": 0.7996
     },
     {
       "epoch": 7,
-      "loss": 0.1695,
-      "lr": 0.000946,
-      "project": 0.9272,
-      "area": 0.9304,
-      "kind": 0.7722
+      "loss": 0.2467,
+      "lr": 0.000655,
+      "project": 0.9042,
+      "area": 0.8976,
+      "kind": 0.7884
     },
     {
       "epoch": 8,
-      "loss": 0.1423,
-      "lr": 0.000926,
-      "project": 0.9241,
-      "area": 0.9304,
-      "kind": 0.7785
+      "loss": 0.1994,
+      "lr": 0.000552,
+      "project": 0.902,
+      "area": 0.8931,
+      "kind": 0.7929
     },
     {
       "epoch": 9,
-      "loss": 0.1188,
-      "lr": 0.000905,
-      "project": 0.9209,
-      "area": 0.9304,
-      "kind": 0.7627
+      "loss": 0.1597,
+      "lr": 0.000448,
+      "project": 0.9065,
+      "area": 0.9042,
+      "kind": 0.7862
     },
     {
       "epoch": 10,
-      "loss": 0.1004,
-      "lr": 0.00088,
-      "project": 0.9146,
-      "area": 0.9241,
-      "kind": 0.7816
+      "loss": 0.1458,
+      "lr": 0.000345,
+      "project": 0.9109,
+      "area": 0.8998,
+      "kind": 0.7929
     },
     {
       "epoch": 11,
-      "loss": 0.0925,
-      "lr": 0.000854,
-      "project": 0.9241,
-      "area": 0.9272,
-      "kind": 0.7658
+      "loss": 0.128,
+      "lr": 0.00025,
+      "project": 0.9065,
+      "area": 0.9087,
+      "kind": 0.7906
     },
     {
       "epoch": 12,
-      "loss": 0.0872,
-      "lr": 0.000825,
-      "project": 0.9272,
-      "area": 0.9304,
-      "kind": 0.7785
+      "loss": 0.1142,
+      "lr": 0.000165,
+      "project": 0.902,
+      "area": 0.8998,
+      "kind": 0.7973
     },
     {
       "epoch": 13,
-      "loss": 0.0833,
-      "lr": 0.000794,
-      "project": 0.9177,
-      "area": 0.9177,
-      "kind": 0.769
+      "loss": 0.1075,
+      "lr": 9.5e-05,
+      "project": 0.9042,
+      "area": 0.9042,
+      "kind": 0.8018
     },
     {
       "epoch": 14,
-      "loss": 0.0792,
-      "lr": 0.000761,
-      "project": 0.9177,
-      "area": 0.9209,
-      "kind": 0.7722
+      "loss": 0.1032,
+      "lr": 4.3e-05,
+      "project": 0.9042,
+      "area": 0.9042,
+      "kind": 0.804
     },
     {
       "epoch": 15,
-      "loss": 0.0742,
-      "lr": 0.000727,
-      "project": 0.9335,
-      "area": 0.9367,
-      "kind": 0.788
-    },
-    {
-      "epoch": 16,
-      "loss": 0.0641,
-      "lr": 0.000691,
-      "project": 0.9241,
-      "area": 0.9272,
-      "kind": 0.7658
-    },
-    {
-      "epoch": 17,
-      "loss": 0.0745,
-      "lr": 0.000655,
-      "project": 0.9272,
-      "area": 0.9146,
-      "kind": 0.7753
-    },
-    {
-      "epoch": 18,
-      "loss": 0.0664,
-      "lr": 0.000617,
-      "project": 0.9241,
-      "area": 0.9241,
-      "kind": 0.769
-    },
-    {
-      "epoch": 19,
-      "loss": 0.0604,
-      "lr": 0.000578,
-      "project": 0.9272,
-      "area": 0.9335,
-      "kind": 0.7595
-    },
-    {
-      "epoch": 20,
-      "loss": 0.0552,
-      "lr": 0.000539,
-      "project": 0.9209,
-      "area": 0.9209,
-      "kind": 0.7816
-    },
-    {
-      "epoch": 21,
-      "loss": 0.0554,
-      "lr": 0.0005,
-      "project": 0.9209,
-      "area": 0.9241,
-      "kind": 0.7816
-    },
-    {
-      "epoch": 22,
-      "loss": 0.053,
-      "lr": 0.000461,
-      "project": 0.9272,
-      "area": 0.9304,
-      "kind": 0.7753
-    },
-    {
-      "epoch": 23,
-      "loss": 0.0509,
-      "lr": 0.000422,
-      "project": 0.9335,
-      "area": 0.9304,
-      "kind": 0.7785
-    },
-    {
-      "epoch": 24,
-      "loss": 0.0504,
-      "lr": 0.000383,
-      "project": 0.9304,
-      "area": 0.9272,
-      "kind": 0.7816
-    },
-    {
-      "epoch": 25,
-      "loss": 0.0521,
-      "lr": 0.000345,
-      "project": 0.9335,
-      "area": 0.9272,
-      "kind": 0.7943
-    },
-    {
-      "epoch": 26,
-      "loss": 0.0503,
-      "lr": 0.000309,
-      "project": 0.9241,
-      "area": 0.9304,
-      "kind": 0.7753
-    },
-    {
-      "epoch": 27,
-      "loss": 0.0493,
-      "lr": 0.000273,
-      "project": 0.9209,
-      "area": 0.9304,
-      "kind": 0.7785
-    },
-    {
-      "epoch": 28,
-      "loss": 0.0453,
-      "lr": 0.000239,
-      "project": 0.9272,
-      "area": 0.9272,
-      "kind": 0.7753
-    },
-    {
-      "epoch": 29,
-      "loss": 0.0466,
-      "lr": 0.000206,
-      "project": 0.9304,
-      "area": 0.9335,
-      "kind": 0.7753
-    },
-    {
-      "epoch": 30,
-      "loss": 0.0476,
-      "lr": 0.000175,
-      "project": 0.9241,
-      "area": 0.9272,
-      "kind": 0.7722
-    },
-    {
-      "epoch": 31,
-      "loss": 0.0446,
-      "lr": 0.000146,
-      "project": 0.9272,
-      "area": 0.9272,
-      "kind": 0.769
-    },
-    {
-      "epoch": 32,
-      "loss": 0.0484,
-      "lr": 0.00012,
-      "project": 0.9272,
-      "area": 0.9335,
-      "kind": 0.769
-    },
-    {
-      "epoch": 33,
-      "loss": 0.0394,
-      "lr": 9.5e-05,
-      "project": 0.9241,
-      "area": 0.9335,
-      "kind": 0.7753
-    },
-    {
-      "epoch": 34,
-      "loss": 0.0409,
-      "lr": 7.4e-05,
-      "project": 0.9272,
-      "area": 0.9335,
-      "kind": 0.7658
-    },
-    {
-      "epoch": 35,
-      "loss": 0.0409,
-      "lr": 5.4e-05,
-      "project": 0.9209,
-      "area": 0.9335,
-      "kind": 0.7658
-    },
-    {
-      "epoch": 36,
-      "loss": 0.0409,
-      "lr": 3.8e-05,
-      "project": 0.9209,
-      "area": 0.9335,
-      "kind": 0.7658
-    },
-    {
-      "epoch": 37,
-      "loss": 0.0405,
-      "lr": 2.4e-05,
-      "project": 0.9209,
-      "area": 0.9335,
-      "kind": 0.7627
-    },
-    {
-      "epoch": 38,
-      "loss": 0.0433,
-      "lr": 1.4e-05,
-      "project": 0.9209,
-      "area": 0.9335,
-      "kind": 0.769
-    },
-    {
-      "epoch": 39,
-      "loss": 0.038,
-      "lr": 6e-06,
-      "project": 0.9209,
-      "area": 0.9335,
-      "kind": 0.769
-    },
-    {
-      "epoch": 40,
-      "loss": 0.0402,
-      "lr": 2e-06,
-      "project": 0.9209,
-      "area": 0.9335,
-      "kind": 0.769
+      "loss": 0.1013,
+      "lr": 1.1e-05,
+      "project": 0.9042,
+      "area": 0.902,
+      "kind": 0.8018
     }
   ]
 }

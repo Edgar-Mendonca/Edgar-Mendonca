@@ -197,6 +197,52 @@ def private_sections(rows_add) -> None:
                      lambda h, k=cfg.get("kind", "archive"): k, f"private/{name}")
 
 
+CODE_DIRS_SKIP = SKIP_DIRS | {"vendor", "third_party", "tests_ui", "dist", "assets", "examples", "benches"}
+MAX_CODE_CHUNKS = 300          # per repository, so one large code base does not drown the rest
+
+
+def code_docs(repo_dir: Path) -> list[tuple[str, str]]:
+    """The documentation written inside the code: Python docstrings (module, class, function) and Rust doc comments
+    (//! for modules, /// for items). One (heading, text) per file, headed by its path; short docs are skipped."""
+    import ast
+    out = []
+    for f in sorted(list(repo_dir.rglob("*.py")) + list(repo_dir.rglob("*.rs"))):
+        rel = f.relative_to(repo_dir)
+        if any(p in CODE_DIRS_SKIP or p.startswith(".") for p in rel.parts):
+            continue
+        src = f.read_text(encoding="utf-8", errors="ignore")
+        docs = []
+        if f.suffix == ".py":
+            try:
+                tree = ast.parse(src)
+            except SyntaxError:
+                continue
+            for node in [tree, *ast.walk(tree)]:
+                if isinstance(node, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                    d = ast.get_docstring(node)
+                    if d:
+                        name = getattr(node, "name", "")
+                        docs.append((f"{name}: " if name else "") + " ".join(d.split()))
+        else:
+            block, name = [], ""
+            for line in src.splitlines():
+                s = line.strip()
+                if s.startswith("//!") or s.startswith("///"):
+                    block.append(s.lstrip("/!").strip())
+                    continue
+                if block:
+                    m = re.match(r"(?:pub(?:\(\w+\))?\s+)?(?:fn|struct|enum|trait|mod|const|type|impl)\s+([A-Za-z_]\w*)", s)
+                    name = m.group(1) if m else ""
+                    docs.append((f"{name}: " if name else "") + " ".join(" ".join(block).split()))
+                    block = []
+            if block:
+                docs.append(" ".join(" ".join(block).split()))
+        docs = [d for d in docs if len(d.split()) >= 8]
+        if docs:
+            out.append((f"Code › {rel.as_posix()}", "\n\n".join(docs)))
+    return out
+
+
 _FP = set(json.loads((BRAIN / "redact.json").read_text())["fingerprints"]) if (BRAIN / "redact.json").exists() else set()
 _EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 
@@ -258,6 +304,13 @@ def collect(cache: Path, offline: bool = False, private: bool = False) -> list[d
             text = f.read_text(encoding="utf-8", errors="ignore")
             secs = json_sections(text) if f.suffix == ".json" else sections(text)
             add(secs, s["project"], s["area"], lambda h, f=f: kind_of(f, h), rel)
+        # The documentation inside the code, capped per repository.
+        before = len(rows)
+        for heading, body in code_docs(d):
+            add([(heading, body)], s["project"], s["area"], lambda h: "code", f"{s['repo']}/{heading[len('Code › '):]}")
+            if len(rows) - before >= MAX_CODE_CHUNKS:
+                del rows[before + MAX_CODE_CHUNKS:]
+                break
 
     for s in src["local"]:
         p = ROOT / s["path"]

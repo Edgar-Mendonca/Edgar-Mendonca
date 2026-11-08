@@ -44,6 +44,14 @@ form.ask { display: grid; gap: 10px; padding: 18px 20px; border-bottom: 1px soli
 .examples button:hover { color: var(--ink); border-style: solid; }
 
 .netwrap { padding: 8px 12px 6px; overflow-x: auto; }
+.netwrap canvas { display: block; width: 100%; min-width: 900px; aspect-ratio: 1400 / 700; }
+.params { border-top: 1px solid var(--line); padding: 18px 20px 22px; display: grid; gap: 14px; }
+.phead { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; justify-content: space-between; }
+.maps { display: flex; flex-wrap: wrap; gap: 18px 22px; align-items: flex-end; }
+.map { display: grid; gap: 6px; }
+.map canvas { display: block; image-rendering: pixelated; border: 1px solid var(--line); background: var(--card); max-width: 100%; }
+.map p { font-size: 12px; color: var(--muted); line-height: 1.35; }
+.map b { color: var(--ink); font: 600 12px var(--mono); }
 .nn { width: 100%; min-width: 900px; height: auto; display: block; }
 .nn text { font-family: var(--sans); fill: var(--ink); }
 .nn .cap { font: 600 11px var(--mono); letter-spacing: .1em; fill: var(--muted); }
@@ -102,17 +110,21 @@ footer { padding: 14px 20px; border-top: 1px solid var(--line); color: var(--mut
     <div class="examples" id="examples"></div>
   </form>
 
-  <div class="netwrap"><svg class="nn" id="nn" viewBox="0 0 1400 600" role="img" aria-label="The network drawn as nodes and connections for the current question"></svg></div>
+  <div class="netwrap"><canvas id="nn" aria-label="The whole network for the current question: every unit of every layer, lit by its activation"></canvas></div>
   <div class="key">
-    <span><i style="background:var(--em)"></i>pushes towards (weight × activation &gt; 0)</span>
-    <span><i style="background:var(--amber)"></i>pushes away (&lt; 0)</span>
-    <span>Thicker line and brighter node = stronger. Only the strongest units and connections are drawn; every value is the real one for this question.</span>
+    <span><i style="background:var(--em)"></i>active unit, pushes towards</span>
+    <span><i style="background:var(--amber)"></i>pushes away</span>
+    <span id="nnsum">Every unit of every layer is drawn; brightness is its real activation for this question. Lines are the strongest connections (weight × activation).</span>
   </div>
 
   <div class="answer">
     <div id="ans"></div>
     <div><p class="mono muted">Related notes</p><div class="hits" id="hits"></div></div>
   </div>
+  <section class="params">
+    <div class="phead"><p class="mono muted">Every parameter</p><p class="muted" id="ptotal"></p></div>
+    <div class="maps" id="maps"></div>
+  </section>
   <footer>Private page. Rebuild after retraining with <code>python brain/viewer.py</code>.</footer>
 </div></div>
 
@@ -182,69 +194,154 @@ $("examples").innerHTML = EXAMPLES.map(e => `<button type="button">${esc(e)}</bu
 $("examples").addEventListener("click", ev => { const b = ev.target.closest("button"); if (b) { $("q").value = b.textContent; run(); } });
 $("askform").addEventListener("submit", ev => { ev.preventDefault(); run(); });
 
-// ---------- the whole network for one question ----------
-function drawNet(res, text) {
-  const svg = $("nn");
+// ---------- the whole network for one question, on a canvas ----------
+// Every unit of every layer is a dot (hidden layers laid out in sub-columns); brightness is its activation.
+// Lines: the strongest contributions (activation × weight) between consecutive layers; pulses run along the top ones.
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cv = $("nn"), ctx = cv.getContext("2d");
+const VW = 1400, VH = 700;
+let NET = null, t0 = 0, raf = 0;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let C = {};
+const readColors = () => { C = { ink: css("--ink"), muted: css("--muted"), faint: css("--faint"), line: css("--line-2"), em: css("--em"), amber: css("--amber"), bg: css("--bg") }; };
+const rgba = (hex, a) => { const h = hex.replace("#", ""), n = parseInt(h.length === 3 ? h.split("").map(c => c + c).join("") : h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+
+function layout(res, text) {
   const words = new Map();
   for (const t of tokens(text)) { if (t.includes("_")) continue; const b = crc32(t) % DIM, i = res.sp.idx.indexOf(b); if (i >= 0 && !words.has(b)) words.set(b, { t, b, v: res.sp.val[i] }); }
-  const cols = [];                                     // each column: list of {label, value, sign}
-  const ins = [...words.values()].sort((x, y) => y.v - x.v).slice(0, 12);
-  cols.push({ cap: "WORDS", sub: `${ins.length} of ${fmt(DIM)} inputs`, nodes: ins.map(w => ({ id: w.b, label: w.t, v: w.v })) });
-  res.acts.forEach((a, k) => {
-    const pick = [...a.keys()].filter(j => a[j] > 0).sort((x, y) => a[y] - a[x]).slice(0, 16);
-    cols.push({ cap: `HIDDEN ${k + 1}`, sub: `${pick.length} most active of ${fmt(a.length)}`, nodes: pick.map(j => ({ id: j, label: `${k + 1}·${j}`, v: a[j] })) });
-  });
-  const ep = [...res.e.keys()].sort((x, y) => Math.abs(res.e[y]) - Math.abs(res.e[x])).slice(0, 14);
-  cols.push({ cap: "EMBEDDING", sub: `${ep.length} strongest of ${E}`, nodes: ep.map(m => ({ id: m, label: `e${m} ${res.e[m] >= 0 ? "+" : "−"}${Math.abs(res.e[m]).toFixed(2)}`, v: Math.abs(res.e[m]), neg: res.e[m] < 0 })) });
-  const P = D.heads.project, outs = [...res.probs.project.keys()].sort((x, y) => res.probs.project[y] - res.probs.project[x]).slice(0, 8);
-  cols.push({ cap: "PROJECT", sub: `top ${outs.length} of ${P.n}`, nodes: outs.map(o => ({ id: o, label: nice(D.labels.project[o]), v: res.probs.project[o] })) });
-
-  // contribution of node i (column c) to node j (column c+1)
-  const w = (c, from, to) => {
-    if (c === 0) { const l = L[0]; return from.v * l.Q[from.id * l.cols + to.id] * l.s[to.id]; }
-    if (c <= L.length - 1) { const l = L[c]; return res.acts[c - 1][from.id] * l.Q[from.id * l.cols + to.id] * l.s[to.id]; }
-    if (c === L.length) { const a = res.acts[L.length - 1]; return a[from.id] * D.We[from.id * E + to.id]; }
-    return res.e[from.id] * P.W[from.id * P.n + to.id];
+  const ins = [...words.values()].sort((x, y) => y.v - x.v).slice(0, 14);
+  const TOP = 92, BOT = 664, xs = [150, 400, 620, 800, 950, 1110];
+  const cols = [];
+  const place = (n, x, sub) => {                  // n units in `sub` sub-columns, top to bottom
+    const rows = Math.ceil(n / sub), gap = 9, dy = (BOT - TOP) / Math.max(1, rows - 1);
+    return Array.from({ length: n }, (_, i) => ({ x: x + (i % sub - (sub - 1) / 2) * gap, y: TOP + Math.floor(i / sub) * (rows > 1 ? dy : 0) + (rows > 1 ? 0 : (BOT - TOP) / 2) }));
   };
-  const X0 = 170, X1 = 1130, TOP = 84, BOT = 572, n = cols.length;
-  const xs = cols.map((_, i) => X0 + i * (X1 - X0) / (n - 1));
-  const ys = k => Array.from({ length: k }, (_, i) => k === 1 ? (TOP + BOT) / 2 : TOP + i * (BOT - TOP) / (k - 1));
-  cols.forEach(c => c.ys = ys(c.nodes.length));
-  let out = "", d = 0;
-  cols.forEach((c, i) => {
-    out += `<text class="cap" x="${xs[i]}" y="24" text-anchor="middle">${c.cap}</text><text class="sub" x="${xs[i]}" y="42" text-anchor="middle">${c.sub}</text>`;
-    if (i > 0 && i < n - 1) out += `<rect class="ghost" x="${xs[i] - 17}" y="${TOP - 18}" width="34" height="${BOT - TOP + 36}" rx="17"/>`;
+  const spread = (n, x) => Array.from({ length: n }, (_, i) => ({ x, y: n === 1 ? (TOP + BOT) / 2 : TOP + i * (BOT - TOP) / (n - 1) }));
+  cols.push({ name: "WORDS", sub: `${ins.length} of ${fmt(DIM)} inputs`, pos: spread(ins.length, xs[0]), val: ins.map(w => w.v), lab: ins.map(w => w.t) });
+  res.acts.forEach((a, k) => {
+    const sub = a.length >= 600 ? 6 : a.length >= 300 ? 3 : 2;
+    cols.push({ name: `HIDDEN ${k + 1}`, sub: `all ${fmt(a.length)} units`, pos: place(a.length, xs[1 + k], sub), val: Array.from(a) });
   });
-  for (let c = 0; c < n - 1; c++) {
-    const A = cols[c], B = cols[c + 1], list = [];
-    A.nodes.forEach((a, i) => B.nodes.forEach((b, j) => list.push({ i, j, v: w(c, a, b) })));
-    list.sort((p, q) => Math.abs(q.v) - Math.abs(p.v));
-    const keep = list.slice(0, 42), m = Math.max(1e-9, ...keep.map(x => Math.abs(x.v)));
-    let lines = "", pulses = "";
-    for (const { i, j, v } of keep) {
-      const s = Math.abs(v) / m, cls = v >= 0 ? "pos" : "neg", mx = (xs[c] + xs[c + 1]) / 2;
-      const path = `M${xs[c] + 8} ${A.ys[i].toFixed(1)} C${mx} ${A.ys[i].toFixed(1)} ${mx} ${B.ys[j].toFixed(1)} ${xs[c + 1] - 8} ${B.ys[j].toFixed(1)}`;
-      lines += `<path class="edge ${cls}" d="${path}" stroke-width="${(0.5 + 3.5 * s).toFixed(2)}" opacity="${(0.12 + 0.68 * s).toFixed(2)}"/>`;
-      if (s > 0.4) pulses += `<path class="pulse edge ${cls} d${2 * c + 1}" pathLength="1" d="${path}" stroke-width="${(2 + 3 * s).toFixed(1)}"/>`;
-    }
-    out += `<g class="layer d${2 * c + 1}">${lines}</g><g>${pulses}</g>`;
+  cols.push({ name: "EMBEDDING", sub: `all ${E} values`, pos: place(E, xs[1 + res.acts.length], 1), val: Array.from(res.e), signed: true });
+  const P = D.heads.project, pr = res.probs.project;
+  cols.push({ name: "PROJECT", sub: `all ${P.n}`, pos: spread(P.n, xs[2 + res.acts.length]), val: pr, lab: D.labels.project.map(nice), out: true });
+  // strongest contributions between consecutive layers
+  const links = [];
+  const top = (cands, k) => cands.sort((p, q) => Math.abs(q[2]) - Math.abs(p[2])).slice(0, k);
+  { const l = L[0], c = []; ins.forEach((w, i) => { for (let j = 0; j < l.cols; j++) c.push([i, j, w.v * l.Q[w.b * l.cols + j] * l.s[j]]); }); links.push(top(c, 260)); }
+  for (let k = 1; k < L.length; k++) {
+    const l = L[k], a = res.acts[k - 1], c = [];
+    for (let i = 0; i < l.rows; i++) { if (a[i] <= 0) continue; for (let j = 0; j < l.cols; j++) c.push([i, j, a[i] * l.Q[i * l.cols + j] * l.s[j]]); }
+    links.push(top(c, 320));
   }
-  cols.forEach((c, i) => {
-    const m = Math.max(1e-9, ...c.nodes.map(x => x.v));
-    out += `<g class="layer d${2 * i}">` + c.nodes.map((nd, k) => {
-      const y = c.ys[k], s = nd.v / m, last = i === n - 1;
-      const r = last ? 7 + 9 * nd.v : 7, fill = nd.neg ? "var(--amber)" : "var(--em)";
-      const label = i === 0 ? `<text class="lab" x="${xs[i] - 16}" y="${(y + 4).toFixed(1)}" text-anchor="end">${esc(nd.label)}</text>`
-        : last ? `<text class="lab" x="${xs[i] + 26}" y="${(y + 4).toFixed(1)}">${esc(nd.label)}</text><text class="pct" x="1390" y="${(y + 4).toFixed(1)}" text-anchor="end">${Math.round(nd.v * 100)}%</text>`
-        : `<text class="tiny" x="${xs[i] + 12}" y="${(y + 3).toFixed(1)}">${esc(nd.label)}</text>`;
-      return `<circle class="node" cx="${xs[i]}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${fill}" fill-opacity="${(0.1 + 0.9 * (last ? nd.v * 0.7 + 0.3 : s)).toFixed(2)}"/>` + label;
-    }).join("") + `</g>`;
-  });
-  if (!ins.length) out += `<text class="cap" x="700" y="320" text-anchor="middle">NO KNOWN WORDS IN THIS QUESTION</text>`;
-  svg.innerHTML = out;
-  svg.classList.remove("go"); void svg.getBoundingClientRect(); requestAnimationFrame(() => svg.classList.add("go"));
+  { const a = res.acts[res.acts.length - 1], c = []; for (let i = 0; i < a.length; i++) { if (a[i] <= 0) continue; for (let m = 0; m < E; m++) c.push([i, m, a[i] * D.We[i * E + m]]); } links.push(top(c, 280)); }
+  { const c = []; for (let m = 0; m < E; m++) for (let o = 0; o < P.n; o++) c.push([m, o, res.e[m] * P.W[m * P.n + o]]); links.push(top(c, 200)); }
+  links.forEach(l => { const m = Math.max(1e-9, ...l.map(x => Math.abs(x[2]))); l.forEach(x => x[3] = Math.abs(x[2]) / m); });
+  return { cols, links, xs, TOP, BOT };
 }
 
+function paint(now) {
+  if (!NET) return;
+  const dpr = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  ctx.setTransform(dpr * w / VW, 0, 0, dpr * h / VH, 0, 0);
+  ctx.clearRect(0, 0, VW, VH);
+  const T = REDUCE ? 99 : (now - t0) / 1000, { cols, links } = NET;
+  const reveal = i => Math.max(0, Math.min(1, (T - i * 0.28) / 0.35));       // layer i fades in after the previous
+  // captions
+  ctx.textAlign = "center";
+  cols.forEach((c, i) => {
+    const x = c.pos.length ? c.pos.reduce((a, p) => a + p.x, 0) / c.pos.length : 0;
+    ctx.fillStyle = C.muted; ctx.font = '600 12px "IBM Plex Mono", monospace'; ctx.fillText(c.name, x, 30);
+    ctx.fillStyle = C.faint; ctx.font = '500 11px "IBM Plex Mono", monospace'; ctx.fillText(c.sub, x, 48);
+  });
+  // connections
+  links.forEach((l, k) => {
+    const A = cols[k], B = cols[k + 1], r = reveal(k + 0.5); if (!r) return;
+    for (const [i, j, v, s] of l) {
+      const a = A.pos[i], b = B.pos[j]; if (!a || !b) continue;
+      ctx.strokeStyle = rgba(v >= 0 ? C.em : C.amber, (0.05 + 0.5 * s * s) * r);
+      ctx.lineWidth = 0.4 + 2.2 * s;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); const mx = (a.x + b.x) / 2; ctx.bezierCurveTo(mx, a.y, mx, b.y, b.x, b.y); ctx.stroke();
+    }
+    // pulses along the strongest links, looping
+    if (!REDUCE && r === 1) for (const [i, j, v, s] of l.slice(0, 26)) {
+      const a = A.pos[i], b = B.pos[j]; if (!a || !b) continue;
+      const f = ((T * 0.6 + (i * 7 + j * 13) % 100 / 100) % 1), mx = (a.x + b.x) / 2, u = 1 - f;
+      const x = u * u * u * a.x + 3 * u * u * f * mx + 3 * u * f * f * mx + f * f * f * b.x, y = u * u * u * a.y + 3 * u * u * f * a.y + 3 * u * f * f * b.y + f * f * f * b.y;
+      ctx.fillStyle = rgba(v >= 0 ? C.em : C.amber, 0.9); ctx.beginPath(); ctx.arc(x, y, 1.6 + 2 * s, 0, 7); ctx.fill();
+    }
+  });
+  // units
+  cols.forEach((c, i) => {
+    const r = reveal(i); if (!r) return;
+    const m = Math.max(1e-9, ...c.val.map(Math.abs)), dense = c.pos.length > 60;
+    c.pos.forEach((p, k) => {
+      const v = c.val[k], s = Math.abs(v) / m, on = c.signed ? true : v > 0;
+      const col = c.signed && v < 0 ? C.amber : C.em;
+      const rad = c.out ? 4 + 10 * v : dense ? 2.1 : 6.5;
+      ctx.globalAlpha = r;
+      ctx.fillStyle = on ? rgba(col, 0.12 + 0.88 * Math.sqrt(s)) : rgba(C.faint, 0.35);
+      ctx.beginPath(); ctx.arc(p.x, p.y, rad, 0, 7); ctx.fill();
+      if (!dense) { ctx.strokeStyle = rgba(C.ink, 0.6); ctx.lineWidth = 0.8; ctx.stroke(); }
+      if (c.lab) {
+        ctx.fillStyle = c.out ? (k === c.val.indexOf(Math.max(...c.val)) ? C.ink : C.muted) : C.ink;
+        ctx.font = (c.out && v > 0.05 ? '600 ' : '') + (c.out ? '12.5px' : '13px') + ' "IBM Plex Sans", sans-serif';
+        if (c.out) { ctx.textAlign = "left"; ctx.fillText(c.lab[k], p.x + 18, p.y + 4); ctx.textAlign = "right"; ctx.fillStyle = C.muted; ctx.font = '500 11.5px "IBM Plex Mono", monospace'; ctx.fillText(`${Math.round(v * 100)}%`, 1392, p.y + 4); }
+        else { ctx.textAlign = "right"; ctx.fillText(c.lab[k], p.x - 14, p.y + 4); }
+      }
+      ctx.globalAlpha = 1;
+    });
+    if (!c.lab && !c.out) {                         // name the three most active units of a dense layer
+      ctx.font = '500 10px "IBM Plex Mono", monospace'; ctx.textAlign = "left"; ctx.fillStyle = C.muted; ctx.globalAlpha = r;
+      [...c.val.keys()].sort((a, b) => Math.abs(c.val[b]) - Math.abs(c.val[a])).slice(0, 3).forEach(k => {
+        const p = c.pos[k], xr = Math.max(...c.pos.map(q => q.x)) + 8; ctx.fillText(`#${k} ${c.val[k].toFixed(2)}`, xr, p.y + 3);
+        ctx.strokeStyle = rgba(C.ink, 0.8); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, 7); ctx.stroke();
+      });
+      ctx.globalAlpha = 1;
+    }
+  });
+  if (!cols[0].pos.length) { ctx.fillStyle = C.muted; ctx.font = '600 13px "IBM Plex Mono", monospace'; ctx.textAlign = "center"; ctx.fillText("NO KNOWN WORDS IN THIS QUESTION", 700, 360); }
+  if (!REDUCE) raf = requestAnimationFrame(paint);
+}
+function drawNet(res, text) {
+  readColors(); NET = layout(res, text); t0 = performance.now();
+  const active = res.acts.map(a => a.filter(v => v > 0).length);
+  $("nnsum").textContent = `All ${fmt(R.parameters)} parameters took part. Active units: ${active.map((n, k) => `${n} of ${fmt(res.acts[k].length)} in hidden ${k + 1}`).join(", ")}. Lines are the strongest connections (weight × activation).`;
+  cancelAnimationFrame(raf); raf = requestAnimationFrame(paint);
+}
+new ResizeObserver(() => { if (REDUCE) paint(0); }).observe(cv);
+const retheme = () => { readColors(); if (REDUCE) paint(0); drawMaps(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", retheme);
+new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+// ---------- every parameter: a heat map of each weight matrix ----------
+function drawMaps() {
+  readColors();
+  const total = D.maps.reduce((a, m) => a + m.rows * m.cols, 0);
+  $("ptotal").textContent = `${fmt(total)} weights in ${D.maps.length} matrices (plus ${fmt(R.parameters - total)} biases) · blue positive, amber negative, each cell the average of a block`;
+  const box = $("maps"); box.innerHTML = "";
+  const H = 180;
+  for (const m of D.maps) {
+    const q = b64(m.q), scale = H / m.r, w = Math.max(10, Math.round(m.c * scale));
+    const el = document.createElement("div"); el.className = "map";
+    const c = document.createElement("canvas"); c.width = m.c; c.height = m.r; c.style.width = `${w}px`; c.style.height = `${H}px`;
+    const g = c.getContext("2d"), img = g.createImageData(m.c, m.r);
+    const em = C.em.replace("#", ""), am = C.amber.replace("#", ""), bg = css("--card").replace("#", "");
+    const hex = h => [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+    const [E1, A1, B0] = [hex(em), hex(am), hex(bg)];
+    for (let i = 0; i < q.length; i++) {
+      const v = q[i] / 127, s = Math.min(1, Math.abs(v)), t = v >= 0 ? E1 : A1;
+      img.data.set([B0[0] + (t[0] - B0[0]) * s, B0[1] + (t[1] - B0[1]) * s, B0[2] + (t[2] - B0[2]) * s, 255], i * 4);
+    }
+    g.putImageData(img, 0, 0);
+    el.append(c);
+    const p = document.createElement("p");
+    p.innerHTML = `<b>${m.name}</b> ${m.what}<br>${fmt(m.rows)} × ${fmt(m.cols)} = ${fmt(m.rows * m.cols)}`;
+    el.append(p); box.append(el);
+  }
+}
+drawMaps();
 function run() {
   const q = $("q").value.trim(); if (!q) return;
   const res = ask(q);
