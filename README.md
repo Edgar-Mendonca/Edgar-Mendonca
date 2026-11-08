@@ -4,7 +4,7 @@
 
 Engineer, researcher and software developer. I build engineering software, deliver rotating-equipment packages for oil and gas, and study how materials behave under impact and load.
 
-**Portfolio:** [edgar-mendonca.github.io/Edgar-Mendonca](https://edgar-mendonca.github.io/Edgar-Mendonca/) · [LinkedIn](https://www.linkedin.com/in/edgar-mendonca/)
+**Portfolio:** [edgar-mendonca.github.io/Edgar-Mendonca](https://edgar-mendonca.github.io/Edgar-Mendonca/) · 
 
 ## Software
 
