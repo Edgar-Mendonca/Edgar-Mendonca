@@ -274,7 +274,7 @@ def main():
     c.add_argument("--offline", action="store_true", help="use the cache as it is, without git")
     c.set_defaults(fn=cmd_collect)
     t = sub.add_parser("train", help="train the network on the corpus")
-    t.add_argument("--epochs", type=int, default=50)
+    t.add_argument("--epochs", type=int, default=15)
     t.add_argument("--batch", type=int, default=64)
     t.add_argument("--lr", type=float, default=1e-3)
     t.add_argument("--hidden", default="768,384,192", help="hidden layer sizes, comma-separated")
