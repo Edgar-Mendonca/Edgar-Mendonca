@@ -118,5 +118,25 @@
  [
   "flange pressure temperature ratings class 150 to 2500",
   "standards"
+ ],
+ [
+  "KOSO anti-surge valve and CCC controller interface on the EGC package",
+  "compressor-package"
+ ],
+ [
+  "which sub-vendor supplies the VFD transformer and chiller",
+  "compressor-package"
+ ],
+ [
+  "what does API 613 cover for the gearbox",
+  "standards"
+ ],
+ [
+  "what is an EN 10204 3.2 certificate",
+  "standards"
+ ],
+ [
+  "standard for proximity probes and machinery protection monitors",
+  "standards"
  ]
 ]

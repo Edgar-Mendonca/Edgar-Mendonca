@@ -15,9 +15,10 @@ the book can be bilingual.
 
 ## Typical packages
 
-Dry gas seals; lube oil systems; seal gas consoles and boosters; gearboxes; lube oil air coolers; proximity probes;
+For the ADNOC Sahil Phase 3 EGC package: EagleBurgmann dry gas seals; the SBW lube oil system; the EagleBurgmann
+seal gas console and booster; the Flender gearbox; Kelvion lube oil air coolers; Titania Aero proximity probes;
 junction boxes; valves; lifting beams; venturi meters; online cleaning devices; nitrogen-purged enclosures; and
-instruments such as pressure and temperature transmitters, pressure gauges, resistance and bimetallic
+instruments such as Siemens SITRANS P pressure transmitters, temperature transmitters, pressure gauges, resistance and bimetallic
 thermometers, and thermowells.
 
 ## Large files
@@ -29,6 +30,7 @@ versions.
 
 ## Inspection records
 
-Inspection stamps and signatures can be extracted and presented from the source records for review. This is
+Inspection stamps and signatures (manufacturer QC and third-party inspection bodies such as LRQA and Intertek) can be
+extracted and presented from the source records for review. Material certificates follow EN 10204 (3.1 or 3.2). This is
 document processing only: an inspection record belongs to the item it was issued for and must never be reused or
 implied for anything else.

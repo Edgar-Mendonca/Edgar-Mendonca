@@ -40,6 +40,19 @@ def q8(W: np.ndarray) -> dict:
     return {"q": b64(np.clip(np.round(W / s), -127, 127).astype(np.int8)), "s": r(s, 8), "rows": int(W.shape[0]), "cols": int(W.shape[1])}
 
 
+def weight_map(W: np.ndarray, max_rows: int = 256, max_cols: int = 192) -> dict:
+    """A picture of every weight in a matrix: blocks of weights averaged down to at most max_rows × max_cols cells,
+    scaled to −127..127 (blue positive, amber negative on the page)."""
+    R, C = W.shape
+    fr, fc = int(np.ceil(R / max_rows)), int(np.ceil(C / max_cols))
+    Rp, Cp = int(np.ceil(R / fr)) * fr, int(np.ceil(C / fc)) * fc
+    Wp = np.zeros((Rp, Cp), np.float32); Wp[:R, :C] = W
+    M = Wp.reshape(Rp // fr, fr, Cp // fc, fc).mean(axis=(1, 3))
+    s = np.percentile(np.abs(M), 99) + 1e-12
+    return {"r": int(M.shape[0]), "c": int(M.shape[1]), "rows": int(R), "cols": int(C),
+            "q": b64(np.clip(np.round(M / s * 127), -127, 127).astype(np.int8))}
+
+
 def repo_url(src: str) -> str:
     if src.startswith("private/"):
         return ""
@@ -72,6 +85,9 @@ def build() -> Path:
         "We": r(p["We"]), "be": r(p["be"]), "embDim": int(p["be"].size),
         "heads": {h: {"W": r(p[f"W_{h}"]), "b": r(p[f"b_{h}"]), "n": len(labels[h])} for h in labels},
         "emb": b64(np.clip(np.round(embn * 127), -127, 127).astype(np.int8)),
+        "maps": [{"name": f"W{k}", "what": f"hidden layer {k}", **weight_map(p[f"W{k}"])} for k in range(1, depth + 1)]
+                + [{"name": "We", "what": "embedding", **weight_map(p["We"])}]
+                + [{"name": f"W_{h}", "what": f"{h} head", **weight_map(p[f"W_{h}"])} for h in labels],
         "rows": [{"p": x["project"], "a": x["area"], "k": x["kind"], "s": x["source"], "u": repo_url(x["source"]),
                   "h": x["heading"], "t": x["text"]} for x in rows],
     }

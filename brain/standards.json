@@ -1,145 +1,737 @@
 {
-  "$comment": "Standards cited in Edgar's work. collect.py turns each into a training note and adds where it is cited (worked out from the corpus at every build). 'match' is a regular expression for the ways it is written; 'area' is the area of work it belongs to. Always use the edition named in the order or project specification.",
-  "standards": [
-    { "code": "API 617", "match": "API\\s?(?:STD\\s?)?617", "area": "rotating-equipment",
-      "title": "Axial and Centrifugal Compressors and Expander-compressors",
-      "scope": "Minimum requirements for axial and centrifugal compressors, single-shaft and integrally geared process compressors and expander-compressors in petroleum, chemical and gas service: mechanical design, casings and impellers, rotordynamics (lateral and torsional analysis, unbalance response, stability), bearings, seals, materials, inspection and testing including the mechanical running test.",
-      "related": ["API 614", "API 692", "API 671", "ASME PTC 10"] },
-    { "code": "API 614", "match": "API\\s?614", "area": "rotating-equipment",
-      "title": "Lubrication, Shaft-sealing and Oil-control Systems and Auxiliaries",
-      "scope": "Lube oil, seal oil and control oil systems for special-purpose machinery: reservoirs, pumps, coolers, filters, accumulators, run-down tanks, piping and instrumentation, and their testing.",
-      "related": ["API 617", "API 692"] },
-    { "code": "API 692", "match": "API\\s?692", "area": "rotating-equipment",
-      "title": "Dry Gas Sealing Systems for Axial, Centrifugal, Rotary Screw Compressors and Expanders",
-      "scope": "Dry gas seals and their support systems: seal types and arrangements, seal gas conditioning (filtration, heating, boosting), separation gas, leakage monitoring and testing.",
-      "related": ["API 617", "API 614"] },
-    { "code": "API 671", "match": "API\\s?671", "area": "rotating-equipment",
-      "title": "Special-purpose Couplings for Petroleum, Chemical and Gas Industry Services",
-      "scope": "Couplings that transmit power between special-purpose machines: flexible-element and gear couplings, rating, service factors, balance, guards and inspection.",
-      "related": ["API 617", "API 613"] },
-    { "code": "API 618", "match": "API\\s?618", "area": "rotating-equipment",
-      "title": "Reciprocating Compressors for Petroleum, Chemical, and Gas Industry Services",
-      "scope": "Reciprocating compressors and their drivers, frames, cylinders, valves, packing, pulsation and vibration control.",
-      "related": ["API 617", "API 619"] },
-    { "code": "API 619", "match": "API\\s?619", "area": "rotating-equipment",
-      "title": "Rotary-type Positive-displacement Compressors for Petroleum, Petrochemical, and Natural Gas Industries",
-      "scope": "Dry and flooded screw compressors and other rotary positive-displacement compressors.",
-      "related": ["API 618", "API 617"] },
-    { "code": "API 616", "match": "API\\s?616", "area": "rotating-equipment",
-      "title": "Gas Turbines for the Petroleum, Chemical, and Gas Industry Services",
-      "scope": "Open, simple and regenerative-cycle combustion gas turbines used as mechanical drives or generator drivers.",
-      "related": ["API 617", "API 611", "API 612"] },
-    { "code": "API 611", "match": "API\\s?611", "area": "rotating-equipment",
-      "title": "General-purpose Steam Turbines for Petroleum, Chemical, and Gas Industry Services",
-      "scope": "Steam turbines for general-purpose drives, usually smaller, spared or non-critical service.",
-      "related": ["API 612"] },
-    { "code": "API 612", "match": "API\\s?612", "area": "rotating-equipment",
-      "title": "Petroleum, Petrochemical and Natural Gas Industries — Steam Turbines — Special-purpose Applications",
-      "scope": "Steam turbines driving critical, usually unspared, equipment such as large compressors.",
-      "related": ["API 611", "API 617"] },
-    { "code": "API 661", "match": "API\\s?661", "area": "rotating-equipment",
-      "title": "Petroleum, Petrochemical, and Natural Gas Industries — Air-cooled Heat Exchangers",
-      "scope": "Air-cooled heat exchangers: tube bundles, headers, fans and drives, structures, and their design, fabrication and testing; used for example as lube oil and process gas coolers.",
-      "related": ["API 614"] },
-    { "code": "API 520", "match": "API\\s?(?:RP\\s?)?520", "area": "process-design",
-      "title": "Sizing, Selection, and Installation of Pressure-relieving Devices",
-      "scope": "Part I covers sizing and selection of relief valves and rupture disks for gas, vapour, steam, liquid and two-phase relief; Part II covers their installation, including inlet pressure loss and outlet piping.",
-      "related": ["API 526", "ASME VIII"] },
-    { "code": "API 526", "match": "API\\s?526", "area": "process-design",
-      "title": "Flanged Steel Pressure-relief Valves",
-      "scope": "Standard orifice designations (letters D to T) with their effective areas, inlet and outlet flange sizes and ratings, and centre-to-face dimensions for flanged steel relief valves.",
-      "related": ["API 520"] },
-    { "code": "ISA-5.1", "match": "(?:ANSI\\/)?ISA[\\s-]?5\\.1", "area": "process-design",
-      "title": "Instrumentation and Control Symbols and Identification",
-      "scope": "How instruments, functions and loops are identified and drawn on P&IDs: tag letters (first letter for the measured variable, succeeding letters for functions), bubbles for location and type, and line symbols for signals.",
-      "related": ["ISO 10628-2"] },
-    { "code": "ISO 10628-2", "match": "ISO\\s?10628", "area": "process-design",
-      "title": "Diagrams for the Chemical and Petrochemical Industry — Part 2: Graphical Symbols",
-      "scope": "Graphical symbols for equipment, machines, valves and piping on process flow diagrams and P&IDs.",
-      "related": ["ISA-5.1"] },
-    { "code": "IEC 60534-2-1", "match": "IEC\\s?60534|ISA[\\s-]?75\\.01", "area": "process-design",
-      "title": "Industrial-process Control Valves — Part 2-1: Flow Capacity — Sizing Equations for Fluid Flow under Installed Conditions (also published as ISA-75.01.01)",
-      "scope": "Sizing equations for control valves in liquid and gas service: flow coefficients Cv and Kv, choked flow, the liquid pressure-recovery factor, the expansion factor and piping geometry factors.",
-      "related": ["API 520"] },
-    { "code": "ISO 5167", "match": "ISO\\s?5167", "area": "process-design",
-      "title": "Measurement of Fluid Flow by Means of Pressure Differential Devices Inserted in Circular Cross-section Conduits Running Full",
-      "scope": "Flow measurement with orifice plates (Part 2), nozzles and venturi tubes: geometry, installation lengths, discharge coefficients, expansibility and uncertainty; used for example in compressor performance tests.",
-      "related": ["ASME PTC 10"] },
-    { "code": "ASME PTC 10", "match": "PTC\\s?10\\b", "area": "rotating-equipment",
-      "title": "Performance Test Code on Axial and Centrifugal Compressors",
-      "scope": "How to test a compressor's head, efficiency, flow and power and convert the results to the specified conditions: Type 1 tests at or near specified conditions, Type 2 tests with a substitute gas and similarity, with limits on how far test and specified conditions may differ.",
-      "related": ["API 617", "ISO 5167"] },
-    { "code": "ASME PTC 19.3 TW", "match": "PTC\\s?19\\.3", "area": "engineering-calculation",
-      "title": "Thermowells",
-      "scope": "Design of thermowells against flow-induced vibration and stress: vortex-shedding (wake) frequency against the thermowell's natural frequency, in-line and transverse resonance, and the static and dynamic stress checks.",
-      "related": [] },
-    { "code": "ASME VIII", "match": "ASME\\s(?:BPVC\\s)?(?:Section\\s)?VIII|BPVC\\sVIII", "area": "piping",
-      "title": "ASME Boiler and Pressure Vessel Code, Section VIII — Rules for Construction of Pressure Vessels",
-      "scope": "Design, materials, fabrication, inspection and testing of pressure vessels: Division 1 by rules (wall thickness for internal and external pressure, openings, flanges), Division 2 by alternative rules including design by analysis.",
-      "related": ["EN 13445", "ASME V", "API 520"] },
-    { "code": "ASME V", "match": "ASME\\s(?:BPVC\\s)?(?:Section\\s)?V\\b", "area": "documentation",
-      "title": "ASME Boiler and Pressure Vessel Code, Section V — Nondestructive Examination",
-      "scope": "Methods for nondestructive examination: radiography (RT), ultrasonic (UT), liquid penetrant (PT), magnetic particle (MT), visual and leak testing. Together with positive material identification (PMI) and hydrostatic or pneumatic pressure tests, these are the usual inspections recorded in a manufacturing record book.",
-      "related": ["ASME VIII"] },
-    { "code": "ASME B31.3", "match": "B31\\.3", "area": "piping",
-      "title": "Process Piping",
-      "scope": "Piping in refineries, chemical, pharmaceutical and similar plants: design for pressure, allowable stresses, flexibility and the displacement stress range, sustained and occasional loads, materials, fabrication, examination and testing.",
-      "related": ["ASME B31.1", "EN 13480-3", "ASME B16.5", "ASME B36.10M"] },
-    { "code": "ASME B31.1", "match": "B31\\.1\\b", "area": "piping",
-      "title": "Power Piping",
-      "scope": "Piping in power plants, district heating and similar systems, with its own allowable stresses and stress equations.",
-      "related": ["ASME B31.3", "EN 13480-3"] },
-    { "code": "EN 13480-3", "match": "EN\\s?13480", "area": "piping",
-      "title": "Metallic Industrial Piping — Part 3: Design and Calculation",
-      "scope": "The European code for designing industrial piping: wall thickness, flexibility analysis and stress limits for sustained, occasional and thermal loads.",
-      "related": ["ASME B31.3"] },
-    { "code": "EN 13445", "match": "EN\\s?13445", "area": "piping",
-      "title": "Unfired Pressure Vessels (Part 3: Design)",
-      "scope": "The European code for unfired pressure vessels, including design rules and design by analysis.",
-      "related": ["ASME VIII"] },
-    { "code": "ASME B16.5", "match": "B16\\.5", "area": "piping",
-      "title": "Pipe Flanges and Flanged Fittings, NPS 1/2 through NPS 24",
-      "scope": "Dimensions, materials and pressure–temperature ratings of flanges in classes 150 to 2500.",
-      "related": ["ASME B31.3", "ASME B36.10M"] },
-    { "code": "ASME B36.10M", "match": "B36\\.10", "area": "piping",
-      "title": "Welded and Seamless Wrought Steel Pipe",
-      "scope": "Dimensions of steel pipe: nominal pipe sizes, outside diameters, wall thicknesses and schedules.",
-      "related": ["ASME B31.3", "ASME B16.5"] },
-    { "code": "NACE MR0175 / ISO 15156", "match": "MR\\s?0175|ISO\\s?15156", "area": "materials",
-      "title": "Petroleum and Natural Gas Industries — Materials for Use in H₂S-containing Environments in Oil and Gas Production",
-      "scope": "Selecting and qualifying materials that resist sulfide stress cracking and other cracking in sour service: the SSC severity domains from H₂S partial pressure and pH, hardness limits, heat treatment and environmental limits for carbon, low-alloy and corrosion-resistant alloys.",
-      "related": ["ASTM B637"] },
-    { "code": "ASTM B637", "match": "ASTM\\s?B\\s?637", "area": "materials",
-      "title": "Precipitation-hardening and Cold-worked Nickel Alloy Bars, Forgings, and Forging Stock for Moderate or High Temperature Service",
-      "scope": "Nickel alloy bars and forgings such as alloy 718; when a manufacturer works to its own derivative of such a standard, the deviations and evidence of equivalence have to be stated.",
-      "related": ["NACE MR0175 / ISO 15156"] },
-    { "code": "ASTM D341", "match": "ASTM\\s?D\\s?341", "area": "rotating-equipment",
-      "title": "Viscosity–Temperature Equations and Charts for Liquid Petroleum or Hydrocarbon Products",
-      "scope": "The Walther equation that relates oil viscosity to temperature, used to find lube oil viscosity at bearing operating temperatures.",
-      "related": ["API 614"] },
-    { "code": "AISC 360", "match": "AISC\\s?360", "area": "structural-fea",
-      "title": "Specification for Structural Steel Buildings",
-      "scope": "Design of steel members and connections in buildings: tension, compression and buckling, flexure, shear, combined forces and connections, in LRFD or ASD.",
-      "related": ["EN 1993-1-8", "EN 10365"] },
-    { "code": "EN 10365", "match": "EN\\s?10365", "area": "structural-fea",
-      "title": "Hot Rolled Steel Channels, I and H Sections — Dimensions and Masses",
-      "scope": "Section dimensions and section properties of European rolled sections (IPE, HEA, HEB, UPN and similar).",
-      "related": ["AISC 360"] },
-    { "code": "EN 1993-1-8", "match": "EN\\s?1993", "area": "engineering-calculation",
-      "title": "Eurocode 3: Design of Steel Structures — Part 1-8: Design of Joints",
-      "scope": "Bolted and welded joints in steel structures: bolt resistances in shear, bearing and tension, weld resistances and joint classification.",
-      "related": ["ISO 898-1", "AISC 360"] },
-    { "code": "ISO 898-1", "match": "ISO\\s?898", "area": "engineering-calculation",
-      "title": "Mechanical Properties of Fasteners Made of Carbon Steel and Alloy Steel — Part 1: Bolts, Screws and Studs",
-      "scope": "Property classes such as 8.8 and 10.9: minimum tensile and proof strength, hardness and test methods.",
-      "related": ["EN 1993-1-8"] },
-    { "code": "IEC 60034-1", "match": "IEC\\s?60034", "area": "engineering-calculation",
-      "title": "Rotating Electrical Machines — Part 1: Rating and Performance",
-      "scope": "Ratings, duty types, temperature rise limits and tolerances for electric motors and generators.",
-      "related": [] },
-    { "code": "ISO 4217", "match": "ISO\\s?4217", "area": "project-controls",
-      "title": "Codes for the Representation of Currencies",
-      "scope": "Three-letter currency codes, used where schedules and cost reports carry more than one currency.",
-      "related": [] }
-  ]
+ "$comment": "Standards cited in Edgar's work. collect.py turns each into a training note and adds where it is cited (worked out from the corpus at every build). 'match' is a regular expression for the ways it is written; 'area' is the area of work it belongs to. Always use the edition named in the order or project specification.",
+ "standards": [
+  {
+   "code": "API 617",
+   "match": "API\\s?(?:STD\\s?)?617",
+   "area": "rotating-equipment",
+   "title": "Axial and Centrifugal Compressors and Expander-compressors",
+   "scope": "Minimum requirements for axial and centrifugal compressors, single-shaft and integrally geared process compressors and expander-compressors in petroleum, chemical and gas service: mechanical design, casings and impellers, rotordynamics (lateral and torsional analysis, unbalance response, stability), bearings, seals, materials, inspection and testing including the mechanical running test.",
+   "related": [
+    "API 614",
+    "API 692",
+    "API 671",
+    "ASME PTC 10"
+   ]
+  },
+  {
+   "code": "API 614",
+   "match": "API\\s?614",
+   "area": "rotating-equipment",
+   "title": "Lubrication, Shaft-sealing and Oil-control Systems and Auxiliaries",
+   "scope": "Lube oil, seal oil and control oil systems for special-purpose machinery: reservoirs, pumps, coolers, filters, accumulators, run-down tanks, piping and instrumentation, and their testing.",
+   "related": [
+    "API 617",
+    "API 692"
+   ]
+  },
+  {
+   "code": "API 692",
+   "match": "API\\s?692",
+   "area": "rotating-equipment",
+   "title": "Dry Gas Sealing Systems for Axial, Centrifugal, Rotary Screw Compressors and Expanders",
+   "scope": "Dry gas seals and their support systems: seal types and arrangements, seal gas conditioning (filtration, heating, boosting), separation gas, leakage monitoring and testing.",
+   "related": [
+    "API 617",
+    "API 614"
+   ]
+  },
+  {
+   "code": "API 671",
+   "match": "API\\s?671",
+   "area": "rotating-equipment",
+   "title": "Special-purpose Couplings for Petroleum, Chemical and Gas Industry Services",
+   "scope": "Couplings that transmit power between special-purpose machines: flexible-element and gear couplings, rating, service factors, balance, guards and inspection.",
+   "related": [
+    "API 617",
+    "API 613"
+   ]
+  },
+  {
+   "code": "API 618",
+   "match": "API\\s?618",
+   "area": "rotating-equipment",
+   "title": "Reciprocating Compressors for Petroleum, Chemical, and Gas Industry Services",
+   "scope": "Reciprocating compressors and their drivers, frames, cylinders, valves, packing, pulsation and vibration control.",
+   "related": [
+    "API 617",
+    "API 619"
+   ]
+  },
+  {
+   "code": "API 619",
+   "match": "API\\s?619",
+   "area": "rotating-equipment",
+   "title": "Rotary-type Positive-displacement Compressors for Petroleum, Petrochemical, and Natural Gas Industries",
+   "scope": "Dry and flooded screw compressors and other rotary positive-displacement compressors.",
+   "related": [
+    "API 618",
+    "API 617"
+   ]
+  },
+  {
+   "code": "API 616",
+   "match": "API\\s?616",
+   "area": "rotating-equipment",
+   "title": "Gas Turbines for the Petroleum, Chemical, and Gas Industry Services",
+   "scope": "Open, simple and regenerative-cycle combustion gas turbines used as mechanical drives or generator drivers.",
+   "related": [
+    "API 617",
+    "API 611",
+    "API 612"
+   ]
+  },
+  {
+   "code": "API 611",
+   "match": "API\\s?611",
+   "area": "rotating-equipment",
+   "title": "General-purpose Steam Turbines for Petroleum, Chemical, and Gas Industry Services",
+   "scope": "Steam turbines for general-purpose drives, usually smaller, spared or non-critical service.",
+   "related": [
+    "API 612"
+   ]
+  },
+  {
+   "code": "API 612",
+   "match": "API\\s?612",
+   "area": "rotating-equipment",
+   "title": "Petroleum, Petrochemical and Natural Gas Industries — Steam Turbines — Special-purpose Applications",
+   "scope": "Steam turbines driving critical, usually unspared, equipment such as large compressors.",
+   "related": [
+    "API 611",
+    "API 617"
+   ]
+  },
+  {
+   "code": "API 661",
+   "match": "API\\s?661",
+   "area": "rotating-equipment",
+   "title": "Petroleum, Petrochemical, and Natural Gas Industries — Air-cooled Heat Exchangers",
+   "scope": "Air-cooled heat exchangers: tube bundles, headers, fans and drives, structures, and their design, fabrication and testing; used for example as lube oil and process gas coolers.",
+   "related": [
+    "API 614"
+   ]
+  },
+  {
+   "code": "API 520",
+   "match": "API\\s?(?:RP\\s?)?520",
+   "area": "process-design",
+   "title": "Sizing, Selection, and Installation of Pressure-relieving Devices",
+   "scope": "Part I covers sizing and selection of relief valves and rupture disks for gas, vapour, steam, liquid and two-phase relief; Part II covers their installation, including inlet pressure loss and outlet piping.",
+   "related": [
+    "API 526",
+    "ASME VIII"
+   ]
+  },
+  {
+   "code": "API 526",
+   "match": "API\\s?526",
+   "area": "process-design",
+   "title": "Flanged Steel Pressure-relief Valves",
+   "scope": "Standard orifice designations (letters D to T) with their effective areas, inlet and outlet flange sizes and ratings, and centre-to-face dimensions for flanged steel relief valves.",
+   "related": [
+    "API 520"
+   ]
+  },
+  {
+   "code": "ISA-5.1",
+   "match": "(?:ANSI\\/)?ISA[\\s-]?5\\.1",
+   "area": "process-design",
+   "title": "Instrumentation and Control Symbols and Identification",
+   "scope": "How instruments, functions and loops are identified and drawn on P&IDs: tag letters (first letter for the measured variable, succeeding letters for functions), bubbles for location and type, and line symbols for signals.",
+   "related": [
+    "ISO 10628-2"
+   ]
+  },
+  {
+   "code": "ISO 10628-2",
+   "match": "ISO\\s?10628",
+   "area": "process-design",
+   "title": "Diagrams for the Chemical and Petrochemical Industry — Part 2: Graphical Symbols",
+   "scope": "Graphical symbols for equipment, machines, valves and piping on process flow diagrams and P&IDs.",
+   "related": [
+    "ISA-5.1"
+   ]
+  },
+  {
+   "code": "IEC 60534-2-1",
+   "match": "IEC\\s?60534|ISA[\\s-]?75\\.01",
+   "area": "process-design",
+   "title": "Industrial-process Control Valves — Part 2-1: Flow Capacity — Sizing Equations for Fluid Flow under Installed Conditions (also published as ISA-75.01.01)",
+   "scope": "Sizing equations for control valves in liquid and gas service: flow coefficients Cv and Kv, choked flow, the liquid pressure-recovery factor, the expansion factor and piping geometry factors.",
+   "related": [
+    "API 520"
+   ]
+  },
+  {
+   "code": "ISO 5167",
+   "match": "ISO\\s?5167",
+   "area": "process-design",
+   "title": "Measurement of Fluid Flow by Means of Pressure Differential Devices Inserted in Circular Cross-section Conduits Running Full",
+   "scope": "Flow measurement with orifice plates (Part 2), nozzles and venturi tubes: geometry, installation lengths, discharge coefficients, expansibility and uncertainty; used for example in compressor performance tests.",
+   "related": [
+    "ASME PTC 10"
+   ]
+  },
+  {
+   "code": "ASME PTC 10",
+   "match": "PTC\\s?10\\b",
+   "area": "rotating-equipment",
+   "title": "Performance Test Code on Axial and Centrifugal Compressors",
+   "scope": "How to test a compressor's head, efficiency, flow and power and convert the results to the specified conditions: Type 1 tests at or near specified conditions, Type 2 tests with a substitute gas and similarity, with limits on how far test and specified conditions may differ.",
+   "related": [
+    "API 617",
+    "ISO 5167"
+   ]
+  },
+  {
+   "code": "ASME PTC 19.3 TW",
+   "match": "PTC\\s?19\\.3",
+   "area": "engineering-calculation",
+   "title": "Thermowells",
+   "scope": "Design of thermowells against flow-induced vibration and stress: vortex-shedding (wake) frequency against the thermowell's natural frequency, in-line and transverse resonance, and the static and dynamic stress checks.",
+   "related": []
+  },
+  {
+   "code": "ASME VIII",
+   "match": "ASME\\s(?:BPVC\\s)?(?:Section\\s)?VIII|BPVC\\sVIII",
+   "area": "piping",
+   "title": "ASME Boiler and Pressure Vessel Code, Section VIII — Rules for Construction of Pressure Vessels",
+   "scope": "Design, materials, fabrication, inspection and testing of pressure vessels: Division 1 by rules (wall thickness for internal and external pressure, openings, flanges), Division 2 by alternative rules including design by analysis.",
+   "related": [
+    "EN 13445",
+    "ASME V",
+    "API 520"
+   ]
+  },
+  {
+   "code": "ASME V",
+   "match": "ASME\\s(?:BPVC\\s)?(?:Section\\s)?V\\b",
+   "area": "documentation",
+   "title": "ASME Boiler and Pressure Vessel Code, Section V — Nondestructive Examination",
+   "scope": "Methods for nondestructive examination: radiography (RT), ultrasonic (UT), liquid penetrant (PT), magnetic particle (MT), visual and leak testing. Together with positive material identification (PMI) and hydrostatic or pneumatic pressure tests, these are the usual inspections recorded in a manufacturing record book.",
+   "related": [
+    "ASME VIII"
+   ]
+  },
+  {
+   "code": "ASME B31.3",
+   "match": "B31\\.3",
+   "area": "piping",
+   "title": "Process Piping",
+   "scope": "Piping in refineries, chemical, pharmaceutical and similar plants: design for pressure, allowable stresses, flexibility and the displacement stress range, sustained and occasional loads, materials, fabrication, examination and testing.",
+   "related": [
+    "ASME B31.1",
+    "EN 13480-3",
+    "ASME B16.5",
+    "ASME B36.10M"
+   ]
+  },
+  {
+   "code": "ASME B31.1",
+   "match": "B31\\.1\\b",
+   "area": "piping",
+   "title": "Power Piping",
+   "scope": "Piping in power plants, district heating and similar systems, with its own allowable stresses and stress equations.",
+   "related": [
+    "ASME B31.3",
+    "EN 13480-3"
+   ]
+  },
+  {
+   "code": "EN 13480-3",
+   "match": "EN\\s?13480",
+   "area": "piping",
+   "title": "Metallic Industrial Piping — Part 3: Design and Calculation",
+   "scope": "The European code for designing industrial piping: wall thickness, flexibility analysis and stress limits for sustained, occasional and thermal loads.",
+   "related": [
+    "ASME B31.3"
+   ]
+  },
+  {
+   "code": "EN 13445",
+   "match": "EN\\s?13445",
+   "area": "piping",
+   "title": "Unfired Pressure Vessels (Part 3: Design)",
+   "scope": "The European code for unfired pressure vessels, including design rules and design by analysis.",
+   "related": [
+    "ASME VIII"
+   ]
+  },
+  {
+   "code": "ASME B16.5",
+   "match": "B16\\.5",
+   "area": "piping",
+   "title": "Pipe Flanges and Flanged Fittings, NPS 1/2 through NPS 24",
+   "scope": "Dimensions, materials and pressure–temperature ratings of flanges in classes 150 to 2500.",
+   "related": [
+    "ASME B31.3",
+    "ASME B36.10M"
+   ]
+  },
+  {
+   "code": "ASME B36.10M",
+   "match": "B36\\.10",
+   "area": "piping",
+   "title": "Welded and Seamless Wrought Steel Pipe",
+   "scope": "Dimensions of steel pipe: nominal pipe sizes, outside diameters, wall thicknesses and schedules.",
+   "related": [
+    "ASME B31.3",
+    "ASME B16.5"
+   ]
+  },
+  {
+   "code": "NACE MR0175 / ISO 15156",
+   "match": "MR\\s?0175|ISO\\s?15156",
+   "area": "materials",
+   "title": "Petroleum and Natural Gas Industries — Materials for Use in H₂S-containing Environments in Oil and Gas Production",
+   "scope": "Selecting and qualifying materials that resist sulfide stress cracking and other cracking in sour service: the SSC severity domains from H₂S partial pressure and pH, hardness limits, heat treatment and environmental limits for carbon, low-alloy and corrosion-resistant alloys.",
+   "related": [
+    "ASTM B637"
+   ]
+  },
+  {
+   "code": "ASTM B637",
+   "match": "ASTM\\s?B\\s?637",
+   "area": "materials",
+   "title": "Precipitation-hardening and Cold-worked Nickel Alloy Bars, Forgings, and Forging Stock for Moderate or High Temperature Service",
+   "scope": "Nickel alloy bars and forgings such as alloy 718; when a manufacturer works to its own derivative of such a standard, the deviations and evidence of equivalence have to be stated.",
+   "related": [
+    "NACE MR0175 / ISO 15156"
+   ]
+  },
+  {
+   "code": "ASTM D341",
+   "match": "ASTM\\s?D\\s?341",
+   "area": "rotating-equipment",
+   "title": "Viscosity–Temperature Equations and Charts for Liquid Petroleum or Hydrocarbon Products",
+   "scope": "The Walther equation that relates oil viscosity to temperature, used to find lube oil viscosity at bearing operating temperatures.",
+   "related": [
+    "API 614"
+   ]
+  },
+  {
+   "code": "AISC 360",
+   "match": "AISC\\s?360",
+   "area": "structural-fea",
+   "title": "Specification for Structural Steel Buildings",
+   "scope": "Design of steel members and connections in buildings: tension, compression and buckling, flexure, shear, combined forces and connections, in LRFD or ASD.",
+   "related": [
+    "EN 1993-1-8",
+    "EN 10365"
+   ]
+  },
+  {
+   "code": "EN 10365",
+   "match": "EN\\s?10365",
+   "area": "structural-fea",
+   "title": "Hot Rolled Steel Channels, I and H Sections — Dimensions and Masses",
+   "scope": "Section dimensions and section properties of European rolled sections (IPE, HEA, HEB, UPN and similar).",
+   "related": [
+    "AISC 360"
+   ]
+  },
+  {
+   "code": "EN 1993-1-8",
+   "match": "EN\\s?1993",
+   "area": "engineering-calculation",
+   "title": "Eurocode 3: Design of Steel Structures — Part 1-8: Design of Joints",
+   "scope": "Bolted and welded joints in steel structures: bolt resistances in shear, bearing and tension, weld resistances and joint classification.",
+   "related": [
+    "ISO 898-1",
+    "AISC 360"
+   ]
+  },
+  {
+   "code": "ISO 898-1",
+   "match": "ISO\\s?898",
+   "area": "engineering-calculation",
+   "title": "Mechanical Properties of Fasteners Made of Carbon Steel and Alloy Steel — Part 1: Bolts, Screws and Studs",
+   "scope": "Property classes such as 8.8 and 10.9: minimum tensile and proof strength, hardness and test methods.",
+   "related": [
+    "EN 1993-1-8"
+   ]
+  },
+  {
+   "code": "IEC 60034-1",
+   "match": "IEC\\s?60034",
+   "area": "engineering-calculation",
+   "title": "Rotating Electrical Machines — Part 1: Rating and Performance",
+   "scope": "Ratings, duty types, temperature rise limits and tolerances for electric motors and generators.",
+   "related": []
+  },
+  {
+   "code": "ISO 4217",
+   "match": "ISO\\s?4217",
+   "area": "project-controls",
+   "title": "Codes for the Representation of Currencies",
+   "scope": "Three-letter currency codes, used where schedules and cost reports carry more than one currency.",
+   "related": []
+  },
+  {
+   "code": "API 613",
+   "match": "API\\s?613",
+   "area": "rotating-equipment",
+   "title": "Special Purpose Gear Units for Petroleum, Chemical and Gas Industry Services",
+   "scope": "Enclosed parallel-shaft gear units (such as the speed-increasing gearbox between a motor and a compressor): rating by service factor, gear geometry and accuracy, bearings, lubrication, rotordynamics, balance and shop tests.",
+   "related": [
+    "API 617",
+    "API 671",
+    "API 614"
+   ]
+  },
+  {
+   "code": "API 670",
+   "match": "API\\s?670",
+   "area": "rotating-equipment",
+   "title": "Machinery Protection Systems",
+   "scope": "Vibration, axial position, speed and temperature monitoring for machinery: proximity probes, accelerometers, keyphasors, monitors, alarm and trip logic and their installation and testing.",
+   "related": [
+    "API 617",
+    "API 613"
+   ]
+  },
+  {
+   "code": "API 684",
+   "match": "API\\s?684",
+   "area": "rotating-equipment",
+   "title": "API Standard Paragraphs Rotordynamic Tutorial: Lateral Critical Speeds, Unbalance Response, Stability, Train Torsionals, and Rotor Balancing",
+   "scope": "The background to the rotordynamic requirements of the API machinery standards: critical speed maps, unbalance response, separation margins, stability (logarithmic decrement), torsional analysis and balancing.",
+   "related": [
+    "API 617"
+   ]
+  },
+  {
+   "code": "API 686",
+   "match": "API\\s?686",
+   "area": "rotating-equipment",
+   "title": "Recommended Practice for Machinery Installation and Installation Design",
+   "scope": "Foundations, baseplates and grouting, alignment, piping connected to machinery, and pre-commissioning of rotating equipment.",
+   "related": [
+    "API 617",
+    "API 610"
+   ]
+  },
+  {
+   "code": "API 610",
+   "match": "API\\s?610",
+   "area": "rotating-equipment",
+   "title": "Centrifugal Pumps for Petroleum, Petrochemical and Natural Gas Industries (also ISO 13709)",
+   "scope": "Heavy-duty centrifugal pumps: pump types (OH, BB, VS), casings, impellers, bearings, nozzle loads, vibration limits, materials and testing.",
+   "related": [
+    "API 682",
+    "API 686"
+   ]
+  },
+  {
+   "code": "API 682",
+   "match": "API\\s?682",
+   "area": "rotating-equipment",
+   "title": "Pumps — Shaft Sealing Systems for Centrifugal and Rotary Pumps",
+   "scope": "Mechanical seals for pumps: seal categories, types and arrangements, and the piping plans that flush and cool them.",
+   "related": [
+    "API 610"
+   ]
+  },
+  {
+   "code": "API 672",
+   "match": "API\\s?672",
+   "area": "rotating-equipment",
+   "title": "Packaged, Integrally Geared Centrifugal Air Compressors for Petroleum, Chemical, and Gas Industry Services",
+   "scope": "Packaged plant-air and instrument-air compressors with an integral gear.",
+   "related": [
+    "API 617"
+   ]
+  },
+  {
+   "code": "ISO 20816",
+   "match": "ISO\\s?(?:20816|10816)",
+   "area": "rotating-equipment",
+   "title": "Mechanical Vibration — Measurement and Evaluation of Machine Vibration (replaces ISO 10816)",
+   "scope": "Evaluation zones for machine vibration measured on bearing housings and shafts, by machine type and size.",
+   "related": [
+    "API 670",
+    "ISO 21940"
+   ]
+  },
+  {
+   "code": "ISO 21940",
+   "match": "ISO\\s?(?:21940|1940)",
+   "area": "rotating-equipment",
+   "title": "Mechanical Vibration — Rotor Balancing (Part 11 replaces ISO 1940-1)",
+   "scope": "Balance quality grades (G-grades) and permissible residual unbalance for rigid rotors, and procedures for flexible rotors.",
+   "related": [
+    "API 617",
+    "API 684"
+   ]
+  },
+  {
+   "code": "ISO 15848-1",
+   "match": "ISO\\s?15848",
+   "area": "rotating-equipment",
+   "title": "Industrial Valves — Measurement, Test and Qualification Procedures for Fugitive Emissions",
+   "scope": "Part 1 qualifies valve designs by tightness class (A, B, C) with helium or methane, mechanical cycles and temperature; Part 2 covers production acceptance tests of valves.",
+   "related": [
+    "MESC SPE 77/312",
+    "API 641"
+   ]
+  },
+  {
+   "code": "MESC SPE 77/312",
+   "match": "MESC\\s?SPE\\s?77/312|77/312",
+   "area": "rotating-equipment",
+   "title": "Fugitive Emission Production Testing (Shell MESC specification)",
+   "scope": "A company specification for fugitive-emission production testing of valves: how many valves of a lot are tested, the tightness classes and acceptance criteria. Used on ADNOC projects for valves such as anti-surge valves.",
+   "related": [
+    "ISO 15848-1"
+   ]
+  },
+  {
+   "code": "API 641",
+   "match": "API\\s?641",
+   "area": "rotating-equipment",
+   "title": "Type Testing of Quarter-turn Valves for Fugitive Emissions",
+   "scope": "Fugitive-emission type tests for quarter-turn valves with methane.",
+   "related": [
+    "ISO 15848-1"
+   ]
+  },
+  {
+   "code": "API 598",
+   "match": "API\\s?598",
+   "area": "piping",
+   "title": "Valve Inspection and Testing",
+   "scope": "Shell and seat pressure tests and inspection of valves before shipment.",
+   "related": [
+    "ISO 5208",
+    "API 6D"
+   ]
+  },
+  {
+   "code": "ISO 5208",
+   "match": "ISO\\s?5208",
+   "area": "piping",
+   "title": "Industrial Valves — Pressure Testing of Metallic Valves",
+   "scope": "Shell and seat tests and leakage rates for metallic valves.",
+   "related": [
+    "API 598"
+   ]
+  },
+  {
+   "code": "API 6D",
+   "match": "API\\s?6D\\b",
+   "area": "piping",
+   "title": "Specification for Pipeline and Piping Valves",
+   "scope": "Ball, gate, plug and check valves for pipelines: design, materials, testing and documentation.",
+   "related": [
+    "API 598"
+   ]
+  },
+  {
+   "code": "EN 10204",
+   "match": "EN\\s?10204",
+   "area": "documentation",
+   "title": "Metallic Products — Types of Inspection Documents",
+   "scope": "The types of material certificate: 2.1 and 2.2 declarations, 3.1 certificates validated by the manufacturer's inspection, and 3.2 certificates also validated by the purchaser's or a third-party inspector. Every material certificate in an MRB names its type.",
+   "related": [
+    "ASME V"
+   ]
+  },
+  {
+   "code": "ASME IX",
+   "match": "ASME\\s(?:BPVC\\s)?(?:Section\\s)?IX\\b",
+   "area": "documentation",
+   "title": "ASME Boiler and Pressure Vessel Code, Section IX — Welding, Brazing and Fusing Qualifications",
+   "scope": "How welding procedures (WPS, qualified by a PQR) and welders are qualified: essential variables, test coupons and acceptance. The weld book of a package collects these.",
+   "related": [
+    "ASME VIII",
+    "ISO 15614-1"
+   ]
+  },
+  {
+   "code": "ISO 15614-1",
+   "match": "ISO\\s?15614",
+   "area": "documentation",
+   "title": "Specification and Qualification of Welding Procedures — Welding Procedure Test",
+   "scope": "The European and ISO route to qualifying arc welding procedures for steels and nickel alloys.",
+   "related": [
+    "ASME IX"
+   ]
+  },
+  {
+   "code": "ISO 9001",
+   "match": "ISO\\s?9001",
+   "area": "documentation",
+   "title": "Quality Management Systems — Requirements",
+   "scope": "The quality management system behind project quality plans, inspection and test plans, audits and corrective actions.",
+   "related": [
+    "ISO 3834"
+   ]
+  },
+  {
+   "code": "ISO 3834",
+   "match": "ISO\\s?3834",
+   "area": "documentation",
+   "title": "Quality Requirements for Fusion Welding of Metallic Materials",
+   "scope": "Quality requirements for welding fabrication: comprehensive, standard and elementary levels.",
+   "related": [
+    "ISO 9001",
+    "ASME IX"
+   ]
+  },
+  {
+   "code": "ISO 12944",
+   "match": "ISO\\s?12944",
+   "area": "materials",
+   "title": "Paints and Varnishes — Corrosion Protection of Steel Structures by Protective Paint Systems",
+   "scope": "Corrosivity categories (C1 to CX), durability ranges and paint systems for steel; used for painting equipment and skids.",
+   "related": [
+    "ISO 8501-1",
+    "NORSOK M-501"
+   ]
+  },
+  {
+   "code": "ISO 8501-1",
+   "match": "ISO\\s?8501",
+   "area": "materials",
+   "title": "Preparation of Steel Substrates before Application of Paints — Visual Assessment of Surface Cleanliness",
+   "scope": "Rust grades and preparation grades such as Sa 2½ for blast cleaning before painting.",
+   "related": [
+    "ISO 12944"
+   ]
+  },
+  {
+   "code": "NORSOK M-501",
+   "match": "NORSOK\\s?M-?501",
+   "area": "materials",
+   "title": "Surface Preparation and Protective Coating",
+   "scope": "Coating systems and qualification for offshore and onshore oil and gas equipment.",
+   "related": [
+    "ISO 12944"
+   ]
+  },
+  {
+   "code": "ASTM A350",
+   "match": "ASTM\\s?A\\s?350",
+   "area": "materials",
+   "title": "Carbon and Low-Alloy Steel Forgings, Requiring Notch Toughness Testing for Piping Components",
+   "scope": "Forgings such as grade LF2 for low-temperature service, with Charpy impact testing; sour-service variants add hardness limits under NACE MR0175 / ISO 15156.",
+   "related": [
+    "NACE MR0175 / ISO 15156",
+    "ASTM A105"
+   ]
+  },
+  {
+   "code": "ASTM A105",
+   "match": "ASTM\\s?A\\s?105",
+   "area": "materials",
+   "title": "Carbon Steel Forgings for Piping Applications",
+   "scope": "Carbon steel flanges and fittings for ambient and higher-temperature service.",
+   "related": [
+    "ASTM A350",
+    "ASME B16.5"
+   ]
+  },
+  {
+   "code": "ASTM A182",
+   "match": "ASTM\\s?A\\s?182",
+   "area": "materials",
+   "title": "Forged or Rolled Alloy and Stainless Steel Pipe Flanges, Forged Fittings, and Valves and Parts for High-Temperature Service",
+   "scope": "Alloy and stainless forgings such as F316L, F51 (duplex 2205) and F53 (super duplex 2507).",
+   "related": [
+    "ASTM A105"
+   ]
+  },
+  {
+   "code": "ASTM A351",
+   "match": "ASTM\\s?A\\s?351",
+   "area": "materials",
+   "title": "Castings, Austenitic, for Pressure-Containing Parts",
+   "scope": "Stainless steel castings such as CF8M for pump and valve casings.",
+   "related": [
+    "ASTM A216"
+   ]
+  },
+  {
+   "code": "ASTM A216",
+   "match": "ASTM\\s?A\\s?216",
+   "area": "materials",
+   "title": "Steel Castings, Carbon, Suitable for Fusion Welding, for High-Temperature Service",
+   "scope": "Carbon steel castings such as WCB for valve and pump bodies.",
+   "related": [
+    "ASTM A351"
+   ]
+  },
+  {
+   "code": "ASTM A370",
+   "match": "ASTM\\s?A\\s?370",
+   "area": "materials",
+   "title": "Test Methods and Definitions for Mechanical Testing of Steel Products",
+   "scope": "Tensile, hardness and Charpy impact tests reported on material certificates.",
+   "related": [
+    "EN 10204"
+   ]
+  },
+  {
+   "code": "IEC 60079",
+   "match": "IEC\\s?60079",
+   "area": "engineering-calculation",
+   "title": "Explosive Atmospheres",
+   "scope": "Hazardous-area classification (zones), equipment protection (Ex d, Ex e, Ex p purged and pressurised enclosures) and installation, for example of motors and nitrogen-purged enclosures.",
+   "related": [
+    "IEC 60034-1"
+   ]
+  },
+  {
+   "code": "IEC 60529",
+   "match": "IEC\\s?60529",
+   "area": "engineering-calculation",
+   "title": "Degrees of Protection Provided by Enclosures (IP Code)",
+   "scope": "The IP rating of enclosures against solids and water, such as IP55 or IP66.",
+   "related": [
+    "IEC 60079"
+   ]
+  },
+  {
+   "code": "IEC 61511",
+   "match": "IEC\\s?6151[01]|ISA[\\s-]?84",
+   "area": "process-design",
+   "title": "Functional Safety — Safety Instrumented Systems for the Process Industry Sector (with IEC 61508)",
+   "scope": "Safety instrumented functions, safety integrity levels (SIL), and the life cycle of a safety instrumented system such as compressor trips.",
+   "related": [
+    "ISA-5.1"
+   ]
+  },
+  {
+   "code": "ISO 14224",
+   "match": "ISO\\s?14224",
+   "area": "rotating-equipment",
+   "title": "Petroleum, Petrochemical and Natural Gas Industries — Collection and Exchange of Reliability and Maintenance Data for Equipment",
+   "scope": "Equipment taxonomy and failure data for rotating and static equipment.",
+   "related": [
+    "API 617"
+   ]
+  },
+  {
+   "code": "PED 2014/68/EU",
+   "match": "2014/68/EU|Pressure Equipment Directive",
+   "area": "piping",
+   "title": "Pressure Equipment Directive",
+   "scope": "The EU directive for pressure equipment: categories by pressure and volume, conformity assessment modules and CE marking.",
+   "related": [
+    "EN 13445",
+    "EN 13480-3"
+   ]
+  },
+  {
+   "code": "ADNOC AGES",
+   "match": "ADNOC\\s?AGES|AGES\\s(?:specification|standard)",
+   "area": "rotating-equipment",
+   "title": "ADNOC Group Engineering Standards",
+   "scope": "ADNOC's own engineering standards and specifications, applied on top of the international standards in ADNOC projects; where they and a vendor's standard differ, the deviation must be agreed in writing.",
+   "related": [
+    "API 617"
+   ]
+  }
+ ]
 }
